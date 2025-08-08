@@ -72,8 +72,51 @@
     }
   ].map(seal);
 
-  window.FG_OFFERS = Object.assign({
-    foretagslan: foretagslan,
-    kreditkort: kreditkort
-  }, window.FG_OFFERS || {});
+  var existing = window.FG_OFFERS || {};
+  var OFFERS = Object.assign({}, existing, {
+    foretagslan: existing.foretagslan || foretagslan,
+    kreditkort: existing.kreditkort || kreditkort,
+    'utan-uc': existing['utan-uc'] || []
+  });
+
+  function pushUnique(cat, item){
+    OFFERS[cat] = OFFERS[cat] || [];
+    var exists = OFFERS[cat].some(function(x){ return (x.id && item.id && x.id===item.id) || x.name===item.name; });
+    if (!exists) OFFERS[cat].push(seal(item));
+  }
+
+  function normalizeAdtraction(p){
+    var text = ((p.description||'')+' '+(p.name||'')).toLowerCase();
+    var category = 'privatlan';
+    if (/(kreditkort|mastercard|visa|amex|kort)/.test(text)) category = 'kreditkort';
+    if (/(företag|foretag|business)/.test(text)) category = 'foretagslan';
+    var isUtanUc = /(utan uc|ej uc|no uc)/.test(text);
+    var base = { id: p.id || (p.name||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').slice(0,40), network:'adtraction', name: p.name || 'Okänt program', url: p.url || p.trackingLink || '#', rating: 4.6 };
+    if (category==='kreditkort'){
+      base.annualFee = p.annualFee || '-';
+      base.cashback = p.cashback || (/(cashback)/.test(text)?'cashback':(p.bonus||'-'));
+      base.creditLimit = p.creditLimit || '-';
+      base.interestFreeDays = p.interestFreeDays || '-';
+    } else {
+      base.amountRange = p.amountRange || '-';
+      base.aprFrom = p.aprFrom || '-';
+      base.decision = p.decision || '-';
+      base.requirements = p.requirements || '-';
+    }
+    return {category: category, item: base, isUtanUc: isUtanUc};
+  }
+
+  function addFromAdtraction(list){
+    (list||[]).forEach(function(p){
+      var n = normalizeAdtraction(p);
+      pushUnique(n.category, n.item);
+      if (n.isUtanUc) pushUnique('utan-uc', n.item);
+    });
+    window.FG_OFFERS = OFFERS;
+    try { document.dispatchEvent(new CustomEvent('fg:offers-updated')); } catch(e) {}
+    return OFFERS;
+  }
+
+  window.FG_OFFERS = OFFERS;
+  window.FG_OFFERS.addFromAdtraction = addFromAdtraction;
 })();

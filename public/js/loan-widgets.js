@@ -16,13 +16,15 @@
   ready(function(){
     // Attach Adtraction clickref + UTM to links marked data-aff="adtraction"
     try {
+      var cref = getClickref();
+      window.FG_CLICKREF = cref;
+      function apply(){ try { if (window.attachClickRef) window.attachClickRef(cref); } catch(e) {} }
       if (window.attachClickRef) {
-        window.attachClickRef(getClickref());
+        apply();
       } else {
-        window.addEventListener('load', function(){
-          if (window.attachClickRef) window.attachClickRef(getClickref());
-        });
+        window.addEventListener('load', apply);
       }
+      document.addEventListener('fg:offers-updated', apply);
     } catch(e) {}
 
     // Loan sliders UI (purely UI, not a credit offer)
@@ -56,6 +58,7 @@
     if(btn){ btn.addEventListener('click', function(){
       var target = document.getElementById('top5');
       if(target) target.scrollIntoView({behavior:'smooth', block:'start'});
+      try { if (window.attachClickRef && window.FG_CLICKREF) window.attachClickRef(window.FG_CLICKREF); } catch(e) {}
     }); }
   });
 })();

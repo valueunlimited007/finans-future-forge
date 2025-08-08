@@ -66,9 +66,15 @@
 
   function init(){
     document.querySelectorAll('[data-offers]').forEach(renderContainer);
-    // Ensure clickref attached if available
     try { if (window.attachClickRef && window.FG_CLICKREF) window.attachClickRef(window.FG_CLICKREF); } catch(e) {}
   }
+
+  function rerender(){
+    document.querySelectorAll('[data-offers]').forEach(renderContainer);
+    try { if (window.attachClickRef && window.FG_CLICKREF) window.attachClickRef(window.FG_CLICKREF); } catch(e) {}
+  }
+
+  document.addEventListener('fg:offers-updated', rerender);
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
