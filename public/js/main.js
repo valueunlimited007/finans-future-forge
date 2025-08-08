@@ -44,6 +44,43 @@
     document.querySelectorAll('.last-updated').forEach(function(el){ el.textContent = monthYear; });
   } catch(e) {}
 
+  // JSON-LD: set dynamic dates (ISO yyyy-mm-dd)
+  try {
+    var iso = new Date().toISOString().slice(0,10);
+    document.querySelectorAll('script[type="application/ld+json"]').forEach(function(s){
+      try {
+        var data = JSON.parse(s.textContent || '{}');
+        var changed = false;
+        function walk(obj){
+          if (!obj || typeof obj !== 'object') return;
+          if ('datePublished' in obj) { obj.datePublished = iso; changed = true; }
+          if ('dateModified' in obj) { obj.dateModified = iso; changed = true; }
+          if (Array.isArray(obj)) obj.forEach(walk);
+          else Object.keys(obj).forEach(function(k){ walk(obj[k]); });
+        }
+        walk(data);
+        if (changed) s.textContent = JSON.stringify(data);
+      } catch(err) {}
+    });
+  } catch(err) {}
+
+  // Consent helpers for future analytics/ads
+  function whenConsented(category, cb){
+    try {
+      var c = window.CookieConsent && window.CookieConsent.get && window.CookieConsent.get();
+      if (c && c[category]) cb();
+      document.addEventListener('cookieconsent:change', function(e){ if (e.detail && e.detail[category]) cb(); });
+    } catch(err) {}
+  }
+  window.AnalyticsConsent = {
+    when: whenConsented,
+    loadScript: function(category, src, attrs){
+      whenConsented(category, function(){
+        var s = document.createElement('script'); s.src = src; if (attrs) Object.assign(s, attrs); document.head.appendChild(s);
+      });
+    }
+  };
+
   // Cookie consent (GDPR/ePrivacy - simple, no non-essential cookies by default)
   (function(){
     var KEY = 'fg_cookie_consent';

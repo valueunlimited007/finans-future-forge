@@ -18,6 +18,8 @@
     --border: #e5e7eb;
     --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     --gradient: linear-gradient(135deg, #667eea, #764ba2);
+    --premium: #7c3aed;
+    --gold: #fbbf24;
 }
 
 /* ... keep existing code (base, layout, components copied as-is) */
@@ -38,9 +40,9 @@ body {
 
 /* Header */
 header { background: white; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); position: sticky; top: 0; z-index: 1000; }
-nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 0; }
+nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 0; }
 .logo { display: flex; align-items: center; text-decoration: none; font-size: 1.5rem; font-weight: bold; color: var(--primary); }
-.logo img { height: 64px; width: auto; margin-right: 10px; }
+.logo img { height: 72px; width: auto; margin-right: 10px; }
 .nav-links { display: flex; gap: 2rem; list-style: none; }
 .nav-links a { color: var(--dark); text-decoration: none; font-weight: 500; transition: color 0.3s; }
 .nav-links a:hover { color: var(--primary); }
@@ -87,6 +89,7 @@ footer { background: var(--dark); color: white; padding: 3rem 0 1rem; margin-top
   .mobile-menu { display: block; }
   .hero h1 { font-size: 1.8rem; }
   .comparison-table { font-size: 0.9rem; }
+  .logo img { height: 56px; }
 }
 
 /* Utilities */
@@ -140,4 +143,137 @@ main{flex:1}
 .cookie-btn.primary{background:var(--primary);color:#fff;border-color:var(--primary)}
 .cookie-btn:hover{transform:translateY(-1px);transition:transform .2s}
 @media (max-width: 640px){.cookie-banner{padding:1rem}}
+
+/* Article layout (moved from pages) */
+.article-container{max-width:900px;margin:0 auto}
+.breadcrumbs{padding:1rem 0;font-size:.9rem;color:#6b7280}
+.breadcrumbs a{color:var(--primary);text-decoration:none}
+.article-hero{color:#fff;padding:3rem 0;margin-bottom:3rem;position:relative;overflow:hidden}
+.article-hero h1{font-size:2.5rem;margin-bottom:1rem;line-height:1.2}
+.article-meta{display:flex;gap:2rem;font-size:.9rem;opacity:.9}
+.toc{background:var(--light);border-left:4px solid var(--primary);padding:1.5rem;margin:2rem 0;border-radius:8px}
+.toc h2{font-size:1.2rem;margin-bottom:1rem}
+.toc ul{list-style:none}
+.toc li{margin-bottom:.5rem}
+.toc a{color:var(--dark);text-decoration:none;transition:color .3s}
+.toc a:hover{color:var(--primary)}
+.content h2{font-size:1.8rem;margin:3rem 0 1rem;color:var(--primary)}
+.content h3{font-size:1.4rem;margin:2rem 0 1rem}
+.content p{margin-bottom:1.5rem}
+.content ul,.content ol{margin-bottom:1.5rem;padding-left:2rem}
+.content li{margin-bottom:.5rem}
+
+/* Page-specific hero backgrounds */
+body[data-page="privatlan"] .article-hero{background:linear-gradient(135deg,var(--primary),#3b82f6)}
+body[data-page="foretagslan"] .article-hero{background:linear-gradient(135deg,#1e3a8a,#1e40af)}
+body[data-page="kreditkort"] .article-hero{background:linear-gradient(135deg,var(--premium),#6d28d9)}
+
+/* Företagslån extras */
+.loan-types-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin:2rem 0}
+.loan-type-card{background:#fff;border:2px solid var(--border);border-radius:12px;padding:1.5rem;transition:all .3s}
+.loan-type-card:hover{border-color:var(--primary);box-shadow:0 10px 30px rgba(0,0,0,.1)}
+.loan-type-card h4{color:var(--primary);margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}
+.loan-type-card .amount{font-size:1.2rem;font-weight:700;color:var(--secondary);margin:.5rem 0}
+.loan-type-card .pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem;font-size:.9rem}
+.pros{color:var(--secondary)}
+.cons{color:var(--danger)}
+.timeline{position:relative;padding:2rem 0;margin:2rem 0}
+.timeline::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:2px;background:var(--border)}
+.timeline-item{display:flex;margin-bottom:2rem;position:relative}
+.timeline-item:nth-child(even){flex-direction:row-reverse}
+.timeline-content{background:#fff;border:2px solid var(--border);border-radius:12px;padding:1.5rem;width:45%;box-shadow:0 5px 15px rgba(0,0,0,.08)}
+.timeline-item:nth-child(even) .timeline-content{text-align:right}
+.timeline-dot{position:absolute;left:50%;transform:translateX(-50%);width:30px;height:30px;background:var(--primary);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
+.cta-section{background:linear-gradient(135deg,var(--secondary),#059669);color:#fff;padding:3rem;border-radius:12px;margin:3rem 0;text-align:center}
+.cta-button{background:#fff;color:var(--secondary);padding:1rem 2rem;border-radius:50px;text-decoration:none;display:inline-block;font-weight:700;margin-top:1rem;transition:transform .3s}
+.cta-button:hover{transform:scale(1.05)}
+.calculator{background:var(--light);border-radius:12px;padding:2rem;margin:2rem 0}
+.calculator-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem}
+.form-group{display:flex;flex-direction:column}
+.form-group label{margin-bottom:.5rem;font-weight:500}
+.form-group input,.form-group select{padding:.75rem;border:1px solid var(--border);border-radius:6px;font-size:1rem}
+.result-box{background:#fff;border-radius:8px;padding:1.5rem;margin-top:1.5rem;text-align:center;border:2px solid var(--primary)}
+.result-amount{font-size:2rem;font-weight:700;color:var(--primary)}
+
+/* Kreditkort extras */
+.card-finder{background:linear-gradient(135deg,var(--primary),#3b82f6);color:#fff;padding:2rem;border-radius:12px;margin:-4rem 0 3rem;position:relative}
+.finder-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem}
+.finder-option{background:rgba(255,255,255,.2);padding:1rem;border-radius:8px;cursor:pointer;transition:all .3s;text-align:center;border:2px solid transparent}
+.finder-option:hover{background:rgba(255,255,255,.3);transform:translateY(-2px)}
+.finder-option.active{background:#fff;color:var(--primary);border-color:#fff}
+.finder-option-icon{font-size:2rem;margin-bottom:.5rem}
+.quick-comparison{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;margin:2rem 0}
+.comparison-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.5rem;text-align:center;transition:all .3s}
+.comparison-card:hover{box-shadow:0 10px 30px rgba(0,0,0,.1);transform:translateY(-5px)}
+.comparison-card-icon{font-size:3rem;margin-bottom:1rem}
+.comparison-card h3{color:var(--primary);margin-bottom:.5rem}
+.comparison-card-value{font-size:1.5rem;font-weight:700;color:var(--secondary)}
+.categories-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin:2rem 0}
+.category-card{background:#fff;border:2px solid var(--border);border-radius:12px;padding:2rem;transition:all .3s;position:relative;overflow:hidden}
+.category-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--primary),var(--premium))}
+.category-card:hover{transform:translateY(-5px);box-shadow:0 10px 30px rgba(0,0,0,.1)}
+.category-card.premium{border-color:var(--gold)}
+.category-card.premium::before{background:linear-gradient(90deg,var(--gold),#f59e0b)}
+.category-icon{font-size:3rem;margin-bottom:1rem}
+.category-title{font-size:1.3rem;color:var(--primary);margin-bottom:.5rem}
+.category-features{list-style:none;padding:0;margin:1rem 0}
+.category-features li{padding-left:1.5rem;position:relative;margin-bottom:.5rem;font-size:.9rem}
+.category-features li::before{content:'✓';position:absolute;left:0;color:var(--secondary);font-weight:700}
+.category-price{display:flex;justify-content:space-between;align-items:center;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border)}
+.price-label{font-size:.9rem;color:#6b7280}
+.price-value{font-size:1.2rem;font-weight:700;color:var(--primary)}
+.credit-card{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;padding:2rem;border-radius:16px;position:relative;overflow:hidden;margin:2rem 0;min-height:200px;box-shadow:0 10px 30px rgba(0,0,0,.2)}
+.credit-card.gold{background:linear-gradient(135deg,var(--gold),#f59e0b)}
+.credit-card.black{background:linear-gradient(135deg,#1f2937,#111827)}
+.credit-card.silver{background:linear-gradient(135deg,#e5e7eb,#9ca3af)}
+.card-chip{width:50px;height:40px;background:linear-gradient(135deg,#fbbf24,#f59e0b);border-radius:8px;margin-bottom:1rem}
+.card-number{font-size:1.5rem;letter-spacing:2px;margin-bottom:1rem}
+.card-details{display:flex;justify-content:space-between;align-items:flex-end}
+.card-name{font-size:.9rem;text-transform:uppercase;letter-spacing:1px}
+.card-logo{font-size:2rem;font-weight:700}
+
+/* Lån utan UC extras */
+.hero-meta{display:flex;gap:2rem;font-size:.9rem;opacity:.9;margin-bottom:2rem}
+.hero::before{content:'';position:absolute;top:-50%;right:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(255,255,255,.1) 0%,transparent 70%);animation:pulse 20s infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+.trust-badges{display:flex;gap:2rem;align-items:center;padding:1rem;background:rgba(255,255,255,.1);border-radius:8px;backdrop-filter:blur(10px)}
+.trust-badge{display:flex;align-items:center;gap:.5rem}
+.trust-badge-icon{font-size:1.5rem}
+.quick-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin:-3rem auto 3rem;position:relative;z-index:10}
+.fact-card{background:#fff;padding:1.5rem;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.1);text-align:center;transition:transform .3s}
+.fact-card:hover{transform:translateY(-5px)}
+.fact-icon{font-size:2rem;margin-bottom:.5rem}
+.fact-value{font-size:1.8rem;font-weight:700;color:var(--primary)}
+.fact-label{color:#6b7280;font-size:.9rem}
+.lender-grid{display:grid;gap:1.5rem;margin:2rem 0}
+.lender-card{background:#fff;border:2px solid var(--border);border-radius:12px;padding:1.5rem;display:grid;grid-template-columns:auto 1fr auto;gap:1.5rem;align-items:center;transition:all .3s}
+.lender-card:hover{border-color:var(--primary);box-shadow:0 10px 30px rgba(0,0,0,.1)}
+.lender-card.featured{border-color:var(--secondary);background:linear-gradient(135deg,#f0fdf4,#fff)}
+.lender-logo{width:100px;height:60px;background:var(--light);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--primary)}
+.lender-info h3{margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}
+.badge{display:inline-block;padding:.25rem .75rem;border-radius:20px;font-size:.75rem;font-weight:600}
+.badge-featured{background:var(--secondary);color:#fff}
+.badge-fast{background:var(--accent);color:#fff}
+.badge-new{background:var(--primary);color:#fff}
+.lender-features{display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem;margin:.5rem 0}
+.lender-feature{font-size:.9rem;color:#6b7280}
+.lender-feature strong{color:var(--dark)}
+.lender-cta{display:flex;flex-direction:column;align-items:center;gap:.5rem}
+.lender-rating{display:flex;align-items:center;gap:.25rem;font-size:.9rem}
+.stars{color:var(--accent)}
+.process-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;margin:2rem 0;position:relative}
+.process-steps::before{content:'';position:absolute;top:40px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,var(--primary),var(--secondary));z-index:0}
+.step{text-align:center;position:relative;z-index:1}
+.step-number{width:80px;height:80px;background:#fff;border:3px solid var(--primary);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:700;color:var(--primary);margin:0 auto 1rem}
+.step.active .step-number{background:var(--primary);color:#fff}
+.step-title{font-weight:600;margin-bottom:.5rem}
+.step-description{font-size:.9rem;color:#6b7280}
+.faq-container{margin:2rem 0}
+.faq-item{background:#fff;border:1px solid var(--border);border-radius:8px;margin-bottom:1rem;overflow:hidden}
+.faq-question{padding:1.5rem;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background .3s}
+.faq-question:hover{background:var(--light)}
+.faq-answer{padding:0 1.5rem 1.5rem;display:none}
+.faq-item.active .faq-answer{display:block}
+.faq-toggle{font-size:1.5rem;transition:transform .3s}
+.faq-item.active .faq-toggle{transform:rotate(45deg)}
 
