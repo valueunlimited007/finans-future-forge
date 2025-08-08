@@ -51,6 +51,47 @@
       }
     }
     </script>
+
+    <!-- HOTFIX: force hero clickability and uniform logos -->
+    <style id="fg-hotfix">
+      /* Gör herons mönster klick-transparent och lägg allt content över */
+      .hero::before{ pointer-events:none !important; z-index:0 !important; }
+      .hero h1,.hero p,.hero .btn-group,.hero .trust-badges{ position:relative; z-index:1; }
+      .hero a.btn{ position:relative; z-index:2; pointer-events:auto; }
+
+      /* Centrera knapprader och badges */
+      .btn-group{ display:flex; flex-wrap:wrap; gap:1rem; justify-content:center; }
+
+      /* Partnerloggor: lås höjd, bevara proportioner, hindra 100%-bredd overrides */
+      .partner-logos{ 
+        display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); 
+        gap:20px; align-items:center; justify-items:center; 
+      }
+      .partner-logos .logo-tile{ 
+        background:#fff; border:1px solid #eef0f3; border-radius:14px; 
+        padding:14px 16px; min-height:74px; display:flex; align-items:center; justify-content:center;
+      }
+      .partner-logos img,
+      .partner-logos .partner-logo{
+        width:auto !important; max-width:100% !important;
+        height:40px !important; object-fit:contain !important;
+        filter:grayscale(100%); opacity:.75; transition:transform .15s, filter .15s, opacity .15s;
+        display:block; margin:0 auto;
+      }
+      .partner-logos .logo-tile:hover img{ filter:none; opacity:1; transform:translateY(-1px); }
+
+      /* Nollställ ev. globala img-regler som förstör loggorna */
+      img.partner-logo{ max-height:none !important; }
+
+      /* Desktop H1 storlek */
+      @media (min-width: 992px){
+        .hero h1{ font-size:3rem; }
+      }
+      /* Tillgänglighet: respektera reducerad rörelse */
+      @media (prefers-reduced-motion: reduce){
+        .hero::before{ animation:none !important; }
+      }
+    </style>
 </head>
 <body data-page="home">
     <!-- Header -->
@@ -130,11 +171,11 @@
                 <p class="text-muted">Exempel på partners vars erbjudanden kan förekomma</p>
             </div>
             <div class="partner-logos" aria-label="Exempel på partners">
-                <img src="/remember-logo.png" alt="Remember logotyp" class="partner-logo" loading="lazy" decoding="async">
-                <img src="/enklare.svg" alt="Enklare logotyp" class="partner-logo" loading="lazy" decoding="async">
-                <img src="/Danske-Bank-logo-Dark-BG.png" alt="Danske Bank logotyp" class="partner-logo" loading="lazy" decoding="async">
-                <img src="/anyfin.jpeg" alt="Anyfin logotyp" class="partner-logo" loading="lazy" decoding="async">
-                <img src="/coop.png" alt="Coop logotyp" class="partner-logo" loading="lazy" decoding="async">
+              <div class="logo-tile"><img src="/remember-logo.png" alt="Remember logotyp" class="partner-logo" loading="lazy" decoding="async" width="316" height="113" /></div>
+              <div class="logo-tile"><img src="/enklare.svg" alt="Enklare logotyp" class="partner-logo" loading="lazy" decoding="async" width="655" height="153" /></div>
+              <div class="logo-tile"><img src="/Danske-Bank-logo-Dark-BG.png" alt="Danske Bank logotyp" class="partner-logo" loading="lazy" decoding="async" width="800" height="450" /></div>
+              <div class="logo-tile"><img src="/anyfin.jpeg" alt="Anyfin logotyp" class="partner-logo" loading="lazy" decoding="async" width="1920" height="1080" /></div>
+              <div class="logo-tile"><img src="/coop.png" alt="Coop logotyp" class="partner-logo" loading="lazy" decoding="async" width="1200" height="630" /></div>
             </div>
         </div>
     </section>
