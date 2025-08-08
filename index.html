@@ -29,6 +29,28 @@
       "url": "https://finansguiden.se"
     }
     </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Finansguiden.se",
+      "url": "https://finansguiden.se",
+      "logo": "https://finansguiden.se/finansguiden-logo.png"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Finansguiden.se",
+      "url": "https://finansguiden.se",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://finansguiden.se/sok?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
 </head>
 <body data-page="home">
     <!-- Header -->
@@ -48,14 +70,24 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero hero--dark">
         <div class="container">
-            <h1>Jämför lån och hitta bästa finansieringen <span class="current-year">2025</span></h1>
-            <p>Vi hjälper dig jämföra lån från 50+ långivare - helt kostnadsfritt och oberoende</p>
+            <h1>Jämför lån, kreditkort och finansiering <span class="current-year">2025</span></h1>
+            <p>Se aktuella erbjudanden från ledande långivare – snabbt, enkelt och helt kostnadsfritt.</p>
+            <div class="btn-group" style="justify-content:center;">
+                <a href="#topplistor" class="btn btn-primary">Se erbjudanden</a>
+            </div>
             <div class="btn-group">
                 <a href="/privatlan.html" class="btn btn-secondary btn-full">Privatlån</a>
                 <a href="/foretagslan.html" class="btn btn-secondary btn-full">Företagslån</a>
                 <a href="/kreditkort.html" class="btn btn-secondary btn-full">Kreditkort</a>
+                <a href="/lan-utan-uc.html" class="btn btn-secondary btn-full">Lån utan UC</a>
+            </div>
+            <div class="trust-badges mt-3" aria-label="Tryggt och oberoende">
+                <div class="trust-badge"><span class="trust-badge-icon">✓</span> Oberoende jämförelser</div>
+                <div class="trust-badge"><span class="trust-badge-icon">✓</span> Alltid kostnadsfritt</div>
+                <div class="trust-badge"><span class="trust-badge-icon">✓</span> Snabba besked</div>
+                <div class="trust-badge"><span class="trust-badge-icon">✓</span> Tryggt – inga dolda avgifter</div>
             </div>
         </div>
     </section>
@@ -80,6 +112,22 @@
                     <h3 class="stat-value">4.8/5</h3>
                     <p class="text-muted">Användarbetyg</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners -->
+    <section class="section section--white section--bordered">
+        <div class="container">
+            <div class="text-center mb-4">
+                <h2 class="heading-2">I samarbete med ledande aktörer</h2>
+                <p class="text-muted">Exempel på partners vars erbjudanden kan förekomma</p>
+            </div>
+            <div class="grid-auto-fit" style="align-items:center;">
+                <img src="/placeholder.svg" alt="Partner logotyp 1" loading="lazy" decoding="async" height="40">
+                <img src="/placeholder.svg" alt="Partner logotyp 2" loading="lazy" decoding="async" height="40">
+                <img src="/placeholder.svg" alt="Partner logotyp 3" loading="lazy" decoding="async" height="40">
+                <img src="/placeholder.svg" alt="Partner logotyp 4" loading="lazy" decoding="async" height="40">
             </div>
         </div>
     </section>
@@ -134,6 +182,34 @@
                     <h3 class="mb-2">Billån</h3>
                     <p class="text-muted">Kommer snart! Finansiera din bil med förmånliga villkor.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Topplistor (dynamiska) -->
+    <section class="section" id="topplistor">
+        <div class="container">
+            <div class="text-center mb-4">
+                <h2 class="heading-2">Topplistor – Se erbjudanden</h2>
+                <p class="text-muted">Aktuella erbjudanden från våra partners. Listorna uppdateras löpande.</p>
+            </div>
+            <div class="grid-auto-fit">
+                <article class="card">
+                    <h3 class="mb-2">Privatlån – Topplista</h3>
+                    <div data-offers data-category="privatlan" data-limit="5"></div>
+                </article>
+                <article class="card">
+                    <h3 class="mb-2">Företagslån – Topplista</h3>
+                    <div data-offers data-category="foretagslan" data-limit="5"></div>
+                </article>
+                <article class="card">
+                    <h3 class="mb-2">Kreditkort – Topplista</h3>
+                    <div data-offers data-category="kreditkort" data-limit="5"></div>
+                </article>
+                <article class="card">
+                    <h3 class="mb-2">Lån utan UC – Topplista</h3>
+                    <div data-offers data-category="utan-uc" data-limit="5"></div>
+                </article>
             </div>
         </div>
     </section>
@@ -213,7 +289,7 @@
         <div class="container">
             <h2 class="heading-2">Redo att hitta bästa lånet?</h2>
             <p class="mb-2">Jämför alla långivare på 2 minuter - få svar direkt</p>
-            <a href="/privatlan.html" class="btn btn-invert-secondary">Börja jämföra nu →</a>
+            <a href="#topplistor" class="btn btn-invert-secondary">Se erbjudanden</a>
         </div>
     </section>
 
@@ -261,6 +337,8 @@
     </footer>
 
     <!-- JavaScript -->
-    <script src="/js/main.js"></script>
+    <script src="/js/offers-fallback-seeds.js" defer></script>
+    <script src="/js/offers-renderer.js" defer></script>
+    <script src="/js/main.js" defer></script>
 </body>
 </html>
