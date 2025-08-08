@@ -35,16 +35,25 @@
 
       var dataAff = item.network === 'adtraction' ? ' data-aff="adtraction" data-aff-channel="'+(window.FG_CONFIG && window.FG_CONFIG.channelId || '')+'"' : '';
 
+      // Try to resolve a logo URL (feed-provided or derived from domain)
+      var rawLogo = item.logo || item.logoUrl || item.image || item.imageUrl || (item.images && (item.images.logo || item.images.main));
+      var domainLogo = '';
+      try { if (!rawLogo && item.url) { var u = new URL(item.url); domainLogo = 'https://logo.clearbit.com/' + u.hostname; } } catch(e) {}
+      var logoSrc = rawLogo || domainLogo || '';
+      var logoHtml = logoSrc 
+        ? '<img src="'+esc(logoSrc)+'" alt="'+esc(item.name)+' logotyp" loading="lazy" decoding="async" />'
+        : esc((item.name||'').split(' ')[0]||'');
+      
       var card = el(`
         <article class="lender-card${featured}">
-          <div class="lender-logo" aria-label="${esc(item.name)} logotyp">${esc(item.name.split(' ')[0]||'')}</div>
+          <div class="lender-logo" aria-label="${esc(item.name)} logotyp">${logoHtml}</div>
           <div class="lender-info">
             <h3>${esc(item.name)} ${badge}</h3>
             ${extraLeft}
           </div>
           <div class="lender-cta">
             <div class="lender-rating"><span class="stars">★★★★★</span> ${esc((item.rating||4.5).toFixed ? item.rating.toFixed(1) : item.rating)}/5</div>
-            <a href="${esc(item.url)}" class="btn ${idx===0?'btn-primary':'btn-secondary'} btn-full" rel="nofollow sponsored" target="_blank"${dataAff}>Till ansökan</a>
+            <a href="${esc(item.url)}" class="btn ${idx===0?'btn-primary':'btn-secondary'} btn-full" rel="nofollow sponsored noopener noreferrer" target="_blank"${dataAff}>Till ansökan</a>
             <small class="text-muted">Sponsrad länk</small>
           </div>
         </article>`);

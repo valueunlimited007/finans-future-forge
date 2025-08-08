@@ -95,84 +95,8 @@
                 <span class="badge badge-new">Flera banker – 1 UC</span>
                 <span class="badge">Utan säkerhet</span>
             </div>
-            <div class="lender-grid">
-                <div class="lender-card featured">
-                    <div class="lender-logo">Enklare</div>
-                    <div class="lender-info">
-                        <h3>Enklare <span class="badge badge-featured">Topprankad</span></h3>
-                        <div class="lender-features">
-                            <div class="lender-feature"><strong>Ränta från:</strong> 4,95%</div>
-                            <div class="lender-feature"><strong>Belopp:</strong> upp till 600 000 kr</div>
-                            <div class="lender-feature"><strong>UC:</strong> En kreditupplysning</div>
-                            <div class="lender-feature"><strong>Utbetalning:</strong> 1–3 dagar</div>
-                        </div>
-                    </div>
-                    <div class="lender-cta">
-                        <div class="lender-rating"><span class="stars">★★★★★</span> 4.8/5</div>
-                        <a class="btn btn-primary btn-full" data-aff="adtraction" href="https://enklare.se/lana-pengar">Till ansökan</a>
-                    </div>
-                </div>
-                <div class="lender-card">
-                    <div class="lender-logo">Zmarta</div>
-                    <div class="lender-info">
-                        <h3>Zmarta</h3>
-                        <div class="lender-features">
-                            <div class="lender-feature"><strong>Ränta från:</strong> 4,95%</div>
-                            <div class="lender-feature"><strong>Belopp:</strong> upp till 600 000 kr</div>
-                            <div class="lender-feature"><strong>UC:</strong> En kreditupplysning</div>
-                            <div class="lender-feature"><strong>Utbetalning:</strong> 1–3 dagar</div>
-                        </div>
-                    </div>
-                    <div class="lender-cta">
-                        <a class="btn btn-primary btn-full" data-aff="adtraction" href="https://www.zmarta.se/lana-pengar">Till ansökan</a>
-                    </div>
-                </div>
-                <div class="lender-card">
-                    <div class="lender-logo">Lendo</div>
-                    <div class="lender-info">
-                        <h3>Lendo</h3>
-                        <div class="lender-features">
-                            <div class="lender-feature"><strong>Ränta från:</strong> 4,95%</div>
-                            <div class="lender-feature"><strong>Belopp:</strong> upp till 600 000 kr</div>
-                            <div class="lender-feature"><strong>Svar:</strong> Snabbt</div>
-                            <div class="lender-feature"><strong>UC:</strong> En kreditupplysning</div>
-                        </div>
-                    </div>
-                    <div class="lender-cta">
-                        <a class="btn btn-primary btn-full" data-aff="adtraction" href="https://www.lendo.se/privatlan">Till ansökan</a>
-                    </div>
-                </div>
-                <div class="lender-card">
-                    <div class="lender-logo">Sambla</div>
-                    <div class="lender-info">
-                        <h3>Sambla</h3>
-                        <div class="lender-features">
-                            <div class="lender-feature"><strong>Ränta från:</strong> 4,95%</div>
-                            <div class="lender-feature"><strong>Belopp:</strong> upp till 600 000 kr</div>
-                            <div class="lender-feature"><strong>Banker:</strong> Många erbjudanden</div>
-                            <div class="lender-feature"><strong>Utbetalning:</strong> Snabb</div>
-                        </div>
-                    </div>
-                    <div class="lender-cta">
-                        <a class="btn btn-primary btn-full" data-aff="adtraction" href="https://www.sambla.se/privatlan/">Till ansökan</a>
-                    </div>
-                </div>
-                <div class="lender-card">
-                    <div class="lender-logo">Krea</div>
-                    <div class="lender-info">
-                        <h3>Krea</h3>
-                        <div class="lender-features">
-                            <div class="lender-feature"><strong>Ränta från:</strong> Varierar</div>
-                            <div class="lender-feature"><strong>Belopp:</strong> upp till 600 000 kr</div>
-                            <div class="lender-feature"><strong>Profil:</strong> Även företag</div>
-                            <div class="lender-feature"><strong>Utbetalning:</strong> Snabb</div>
-                        </div>
-                    </div>
-                    <div class="lender-cta">
-                        <a class="btn btn-primary btn-full" data-aff="adtraction" href="https://www.krea.se/">Till ansökan</a>
-                    </div>
-                </div>
-            </div>
+            <div data-offers data-category="privatlan" data-limit="6"></div>
+            <p class="text-muted" style="margin-top: .5rem; font-size: .85rem;">Sponsrade länkar. Jämför erbjudanden noga innan du ansöker.</p>
         </div>
     </section>
 
@@ -514,7 +438,10 @@
         </div>
     </div>
 </footer>
-<script src="/js/main.js"></script>
+<script src="/js/offers-schema.js"></script>
+<script src="/js/offers-renderer.js"></script>
+<script src="/js/offers-feed-adtraction.js"></script>
 <script src="/js/loan-widgets.js"></script>
+<script src="/js/main.js"></script>
 </body>
 </html>
