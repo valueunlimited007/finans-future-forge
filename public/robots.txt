@@ -12,3 +12,6 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+# Sitemap for all crawlers
+Sitemap: https://finansguiden.se/sitemap.xml

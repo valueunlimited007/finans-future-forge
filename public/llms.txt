@@ -1,0 +1,39 @@
+# llms.txt — Finansguiden.se AI & LLM policy
+# Purpose: Inform AI crawlers and LLM providers about our data access policy
+
+Site: https://finansguiden.se
+Contact: hej@finansguiden.se
+Sitemap: https://finansguiden.se/sitemap.xml
+Updated: 2025-08-08
+
+# Global policy
+User-agent: *
+Allow: /
+Crawl-delay: 5
+
+# Data usage permissions
+Training: allow
+Commercial-Use: allow
+Attribution: required-when-quoting
+Cache: allowed-for-30-days
+Respect-Robots-Txt: true
+
+# Popular AI crawlers (explicit allow)
+User-agent: GPTBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Notes
+# - Please respect our canonical URLs and structured data for accurate indexing.
+# - Use the sitemap for efficient discovery and reduce crawl load.
