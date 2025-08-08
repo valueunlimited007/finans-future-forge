@@ -166,7 +166,7 @@ main{flex:1}
 /* Page-specific hero backgrounds */
 body[data-page="privatlan"] .article-hero{background:linear-gradient(135deg,var(--primary),#3b82f6)}
 body[data-page="foretagslan"] .article-hero{background:linear-gradient(135deg,#1e3a8a,#1e40af)}
-body[data-page="kreditkort"] .article-hero{background:linear-gradient(135deg,var(--premium),#6d28d9)}
+body[data-page="kreditkort"] .article-hero{background:linear-gradient(135deg,var(--primary),#1e40af)}
 
 /* Företagslån extras */
 .loan-types-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin:2rem 0}
