@@ -324,59 +324,8 @@
                 
 <section class="section section--white section--bordered">
                   <h2 class="heading-2">Topplista kreditkort <span class="current-month-year"></span></h2>
-                  <div class="lender-grid">
-                    <article class="lender-card featured">
-                      <div class="lender-logo" aria-label="Coop Mastercard">Coop</div>
-                      <div class="lender-info">
-                        <h3>Coop Mastercard <span class="badge badge-featured">Bäst totalt</span></h3>
-                        <div class="lender-features">
-                          <div class="lender-feature"><strong>Årsavgift:</strong> 0 kr</div>
-                          <div class="lender-feature"><strong>Cashback:</strong> 1–3%</div>
-                          <div class="lender-feature"><strong>Kredit:</strong> upp till 100 000 kr</div>
-                          <div class="lender-feature"><strong>Räntefritt:</strong> upp till 60 dagar</div>
-                        </div>
-                      </div>
-                      <div class="lender-cta">
-                        <div class="lender-rating"><span class="stars">★★★★★</span> 4,8/5</div>
-                        <a href="#cashback" class="btn btn-primary btn-full">Läs mer</a>
-                        <small class="text-muted">Exempel</small>
-                      </div>
-                    </article>
-                    <article class="lender-card">
-                      <div class="lender-logo" aria-label="SAS Mastercard">SAS</div>
-                      <div class="lender-info">
-                        <h3>SAS Mastercard Premium</h3>
-                        <div class="lender-features">
-                          <div class="lender-feature"><strong>Årsavgift:</strong> 3 900 kr</div>
-                          <div class="lender-feature"><strong>Bonus:</strong> Eurobonus</div>
-                          <div class="lender-feature"><strong>Försäkring:</strong> Omfattande</div>
-                          <div class="lender-feature"><strong>Lounge:</strong> Ja</div>
-                        </div>
-                      </div>
-                      <div class="lender-cta">
-                        <div class="lender-rating"><span class="stars">★★★★★</span> 4,7/5</div>
-                        <a href="#resor" class="btn btn-secondary btn-full">Läs mer</a>
-                        <small class="text-muted">Exempel</small>
-                      </div>
-                    </article>
-                    <article class="lender-card">
-                      <div class="lender-logo" aria-label="re:member">re:member</div>
-                      <div class="lender-info">
-                        <h3>re:member flex</h3>
-                        <div class="lender-features">
-                          <div class="lender-feature"><strong>Årsavgift:</strong> 0 kr</div>
-                          <div class="lender-feature"><strong>Ränta:</strong> 9,74–24,74%</div>
-                          <div class="lender-feature"><strong>Cashback:</strong> upp till 25% i portal</div>
-                          <div class="lender-feature"><strong>Räntefritt:</strong> 56 dagar</div>
-                        </div>
-                      </div>
-                      <div class="lender-cta">
-                        <div class="lender-rating"><span class="stars">★★★★☆</span> 4,5/5</div>
-                        <a href="#topplista" class="btn btn-secondary btn-full">Läs mer</a>
-                        <small class="text-muted">Exempel</small>
-                      </div>
-                    </article>
-                  </div>
+                  <div data-offers data-category="kreditkort" data-limit="5"></div>
+                  <p class="text-muted" style="margin-top: .5rem; font-size: .85rem;">Sponsrade länkar. Betala hela fakturan för räntefri kredit.</p>
                 </section>
                 
                 <h2 id="topplista">Bästa kreditkorten <span class="current-month-year"></span></h2>
@@ -873,6 +822,8 @@
         </div>
     </div>
 </footer>
+<script src="/js/offers-schema.js"></script>
+<script src="/js/offers-renderer.js"></script>
 <script src="/js/loan-widgets.js"></script>
 <script src="/js/main.js"></script>
 </body>
