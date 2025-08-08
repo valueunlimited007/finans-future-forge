@@ -1,0 +1,246 @@
+# .htaccess för Finansguiden.se
+# Version 1.0 - 2025
+
+# ==============================================================================
+# GRUNDLÄGGANDE INSTÄLLNINGAR
+# ==============================================================================
+
+# Aktivera RewriteEngine
+RewriteEngine On
+
+# Sätt bas-URL
+RewriteBase /
+
+# ==============================================================================
+# SÄKERHET
+# ==============================================================================
+
+# Blockera åtkomst till känsliga filer
+<FilesMatch "^\.htaccess|\.htpasswd|\.env|composer\.(json|lock)|package\.(json|lock)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Förhindra directory browsing
+Options -Indexes
+
+# Skydda mot clickjacking
+Header always set X-Frame-Options "SAMEORIGIN"
+
+# XSS Protection
+Header set X-XSS-Protection "1; mode=block"
+
+# Förhindra MIME type sniffing
+Header set X-Content-Type-Options "nosniff"
+
+# ==============================================================================
+# HTTPS REDIRECT (aktivera när SSL är installerat)
+# ==============================================================================
+
+# Force HTTPS
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# ==============================================================================
+# CLEAN URLs (ta bort .html från URLer)
+# ==============================================================================
+
+# Ta bort .html extension från URLer
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+# Redirect om någon försöker komma åt .html direkt
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# Ta bort trailing slash från URLer (utom för directories)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+# ==============================================================================
+# WWW REDIRECT (välj en variant)
+# ==============================================================================
+
+# Variant 1: Force www (avkommentera om du vill ha www)
+# RewriteCond %{HTTP_HOST} !^www\. [NC]
+# RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
+
+# Variant 2: Remove www (använd denna för finansguiden.se)
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+# ==============================================================================
+# ERROR PAGES
+# ==============================================================================
+
+ErrorDocument 404 /404.html
+ErrorDocument 403 /403.html
+ErrorDocument 500 /500.html
+ErrorDocument 503 /503.html
+
+# ==============================================================================
+# CACHING FÖR SNABBARE LADDNING
+# ==============================================================================
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # Bilder
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    ExpiresByType image/ico "access plus 1 year"
+    
+    # Video
+    ExpiresByType video/mp4 "access plus 1 year"
+    ExpiresByType video/mpeg "access plus 1 year"
+    ExpiresByType video/webm "access plus 1 year"
+    
+    # CSS och JavaScript
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    
+    # Fonts
+    ExpiresByType font/ttf "access plus 1 year"
+    ExpiresByType font/otf "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType application/font-woff "access plus 1 year"
+    
+    # HTML
+    ExpiresByType text/html "access plus 0 seconds"
+    
+    # Data
+    ExpiresByType text/xml "access plus 0 seconds"
+    ExpiresByType application/xml "access plus 0 seconds"
+    ExpiresByType application/json "access plus 0 seconds"
+</IfModule>
+
+# Browser Caching med Cache-Control
+<IfModule mod_headers.c>
+    # 1 år för statiska tillgångar
+    <FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|webp|js|css|swf|svg|woff|woff2)$">
+        Header set Cache-Control "max-age=31536000, public"
+    </FilesMatch>
+    
+    # Ingen cache för HTML
+    <FilesMatch "\.(html|htm)$">
+        Header set Cache-Control "no-cache, no-store, must-revalidate"
+        Header set Pragma "no-cache"
+        Header set Expires 0
+    </FilesMatch>
+</IfModule>
+
+# ==============================================================================
+# KOMPRIMERING (GZIP)
+# ==============================================================================
+
+<IfModule mod_deflate.c>
+    # Komprimera HTML, CSS, JavaScript, Text, XML
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+    AddOutputFilterByType DEFLATE application/x-font
+    AddOutputFilterByType DEFLATE application/x-font-opentype
+    AddOutputFilterByType DEFLATE application/x-font-otf
+    AddOutputFilterByType DEFLATE application/x-font-truetype
+    AddOutputFilterByType DEFLATE application/x-font-ttf
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE font/opentype
+    AddOutputFilterByType DEFLATE font/otf
+    AddOutputFilterByType DEFLATE font/ttf
+    AddOutputFilterByType DEFLATE image/svg+xml
+    AddOutputFilterByType DEFLATE image/x-icon
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/xml
+    
+    # Ta bort browser bugs
+    BrowserMatch ^Mozilla/4 gzip-only-text/html
+    BrowserMatch ^Mozilla/4\.0[678] no-gzip
+    BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+    Header append Vary User-Agent
+</IfModule>
+
+# ==============================================================================
+# 301 REDIRECTS (för gamla URLer)
+# ==============================================================================
+
+# Exempel på redirects (anpassa efter behov)
+# Redirect 301 /gamla-sidan https://finansguiden.se/nya-sidan
+# Redirect 301 /lan https://finansguiden.se/privatlan
+
+# ==============================================================================
+# HOTLINKING PROTECTION (förhindra att andra stjäl dina bilder)
+# ==============================================================================
+
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^https?://(www\.)?finansguiden\.se [NC]
+RewriteRule \.(jpg|jpeg|png|gif|webp)$ - [F,L]
+
+# ==============================================================================
+# RATE LIMITING (förhindra DDoS)
+# ==============================================================================
+
+<IfModule mod_ratelimit.c>
+    SetOutputFilter RATE_LIMIT
+    SetEnv rate-limit 1024
+</IfModule>
+
+# ==============================================================================
+# UTF-8 ENCODING
+# ==============================================================================
+
+AddDefaultCharset utf-8
+AddCharset utf-8 .atom .css .js .json .rss .vtt .xml
+
+# ==============================================================================
+# MIME TYPES
+# ==============================================================================
+
+<IfModule mod_mime.c>
+    AddType application/javascript js jsonp
+    AddType application/json json
+    AddType text/css css
+    AddType image/svg+xml svg svgz
+    AddType image/webp webp
+    AddType font/woff woff
+    AddType font/woff2 woff2
+</IfModule>
+
+# ==============================================================================
+# PRESTANDA OPTIMERING
+# ==============================================================================
+
+# ETags
+FileETag None
+
+# Keep-Alive
+<IfModule mod_headers.c>
+    Header set Connection keep-alive
+</IfModule>
+
+# ==============================================================================
+# CUSTOM RULES FÖR FINANSGUIDEN.SE
+# ==============================================================================
+
+# Blockera spam-bots
+<IfModule mod_rewrite.c>
+    RewriteCond %{HTTP_USER_AGENT} ^.*(Baiduspider|SemrushBot|DotBot|AhrefsBot|MJ12bot).* [NC]
+    RewriteRule .* - [F,L]
+</IfModule>
+
+# ==============================================================================
+# END OF .HTACCESS
+# ==============================================================================
