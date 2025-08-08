@@ -40,7 +40,7 @@ body {
 header { background: white; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); position: sticky; top: 0; z-index: 1000; }
 nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 0; }
 .logo { display: flex; align-items: center; text-decoration: none; font-size: 1.5rem; font-weight: bold; color: var(--primary); }
-.logo img { height: 45px; width: auto; margin-right: 10px; }
+.logo img { height: 64px; width: auto; margin-right: 10px; }
 .nav-links { display: flex; gap: 2rem; list-style: none; }
 .nav-links a { color: var(--dark); text-decoration: none; font-weight: 500; transition: color 0.3s; }
 .nav-links a:hover { color: var(--primary); }
@@ -130,3 +130,14 @@ main{flex:1}
 .stat-value{font-size:2rem;color:var(--primary);margin-bottom:.5rem}
 .card--disabled{opacity:.7}
 .footer-bottom{border-top:1px solid #374151;padding-top:1rem;text-align:center;color:#9ca3af;margin-top:2rem}
+
+/* Cookie Banner */
+.cookie-banner{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#fff;color:var(--dark);border:1px solid var(--border);box-shadow:var(--shadow);border-radius:12px;max-width:920px;width:92%;padding:1.25rem;z-index:2000}
+.cookie-banner h3{margin-bottom:.5rem}
+.cookie-banner p{color:#6b7280;margin-bottom:1rem}
+.cookie-actions{display:flex;gap:.75rem;flex-wrap:wrap;justify-content:flex-end}
+.cookie-btn{padding:.6rem 1rem;border-radius:999px;font-weight:600;border:1px solid var(--border);background:#fff;color:var(--dark);cursor:pointer}
+.cookie-btn.primary{background:var(--primary);color:#fff;border-color:var(--primary)}
+.cookie-btn:hover{transform:translateY(-1px);transition:transform .2s}
+@media (max-width: 640px){.cookie-banner{padding:1rem}}
+
