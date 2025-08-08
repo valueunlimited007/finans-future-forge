@@ -7,6 +7,7 @@
     var category = container.getAttribute('data-category');
     var limit = parseInt(container.getAttribute('data-limit')||'5',10);
     var items = (window.FG_OFFERS && window.FG_OFFERS[category]) || [];
+    try { console.log('[FG_OFFERS] Render', category, items.length, window.FG_OFFERS ? Object.keys(window.FG_OFFERS) : null); } catch(e){}
     if (!items.length) { container.innerHTML = '<p class="text-muted">Inga erbjudanden just nu.</p>'; return; }
 
     var grid = el('<div class="lender-grid"></div>');

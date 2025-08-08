@@ -72,6 +72,7 @@
       });
 
       writeCache(combined);
+      try { console.log('[FG_ADTR] Loaded feed items:', combined.length); } catch(e){}
       if (window.FG_OFFERS && typeof window.FG_OFFERS.addFromAdtraction==='function'){
         try { window.FG_OFFERS.addFromAdtraction(combined); } catch(e) {}
       }
