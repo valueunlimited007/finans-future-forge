@@ -101,3 +101,32 @@ body{min-height:100vh;display:flex;flex-direction:column}
 main{flex:1}
 .breadcrumbs a{pointer-events:auto;cursor:pointer}
 .breadcrumbs a:hover{text-decoration:underline}
+
+/* Sections & Layout utilities */
+.section{padding:4rem 0}
+.section--sm{padding:3rem 0}
+.section--white{background:white}
+.section--bordered{border-bottom:1px solid var(--border)}
+.grid-auto-fit{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem}
+.heading-2{font-size:2rem;margin-bottom:.5rem}
+
+/* Icons & chips */
+.icon-badge{width:60px;height:60px;background:linear-gradient(135deg,var(--primary),#3b82f6);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:white;margin-bottom:1rem}
+.icon-badge--muted{background:linear-gradient(135deg,#9ca3af,#6b7280)}
+.badge-chip{background:var(--secondary);color:white;padding:.25rem .75rem;border-radius:20px;font-size:.75rem}
+
+/* Buttons helpers */
+.btn-group{max-width:600px;margin:2rem auto 0;display:flex;gap:1rem}
+.btn-full{flex:1;text-align:center}
+.btn-invert-secondary{background:white;color:var(--secondary)}
+
+/* Lists & links */
+.list-clean{list-style:none;padding:0;margin:0}
+.li-divider{padding:.75rem 0;border-bottom:1px solid var(--border)}
+.link-clean{color:var(--dark);text-decoration:none}
+.link-row{color:var(--dark);text-decoration:none;display:flex;justify-content:space-between;align-items:center}
+
+/* Misc */
+.stat-value{font-size:2rem;color:var(--primary);margin-bottom:.5rem}
+.card--disabled{opacity:.7}
+.footer-bottom{border-top:1px solid #374151;padding-top:1rem;text-align:center;color:#9ca3af;margin-top:2rem}
