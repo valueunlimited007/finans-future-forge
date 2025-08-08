@@ -28,12 +28,13 @@
     ]);
 
     ensure('kreditkort', [
-      { id:'remember-flex', network:'direct', name:'Remember Flex', url:'https://www.remember.se/kreditkort/flex/', annualFee:'0 kr', cashback:'Bonuspoäng', creditLimit:'Upp till 120 000 kr', interestFreeDays:'Upp till 56 dagar', rating:4.5 },
-      { id:'coop-mersa', network:'direct', name:'Coop Mastercard', url:'https://www.coop.se/medlem/ekonomi/coop-matkonto/mastercard/', annualFee:'0–295 kr', cashback:'Bonus på köp', creditLimit:'Upp till 100 000 kr', interestFreeDays:'Upp till 55 dagar', rating:4.4 }
+      { id:'remember-flex', network:'direct', name:'Remember Flex', url:'https://www.remember.se/kreditkort/flex/', logo:'/remember-logo.png', annualFee:'0 kr', cashback:'Bonuspoäng', creditLimit:'Upp till 120 000 kr', interestFreeDays:'Upp till 56 dagar', rating:4.5 },
+      { id:'coop-mersa', network:'direct', name:'Coop Mastercard', url:'https://www.coop.se/medlem/ekonomi/coop-matkonto/mastercard/', logo:'/coop.png', annualFee:'0–295 kr', cashback:'Bonus på köp', creditLimit:'Upp till 100 000 kr', interestFreeDays:'Upp till 55 dagar', rating:4.4 }
     ]);
 
     try { document.dispatchEvent(new CustomEvent('fg:offers-updated')); } catch(e) {}
   }
 
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run();
+  run();
+  try { document.addEventListener('DOMContentLoaded', run); } catch(e) {}
 })();
