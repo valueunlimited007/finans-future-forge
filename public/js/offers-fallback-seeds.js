@@ -22,6 +22,16 @@
       { id:'qred-privat', network:'direct', name:'Qred', url:'https://www.qred.se/', amountRange:'20 000 – 400 000 kr', aprFrom:'individuell', decision:'Samma dag', requirements:'Egen bedömning', rating:4.5 }
     ]);
 
+    ensure('foretagslan', [
+      { id:'qred', network:'direct', name:'Qred Företagslån', url:'https://www.qred.se/foretagslan', amountRange:'10 000 – 2 000 000 kr', aprFrom:'individuell', decision:'Samma dag', requirements:'F-skatt, omsättning', rating:4.6 },
+      { id:'kompar', network:'direct', name:'Kompar', url:'https://www.kompar.se/', amountRange:'50 000 – 5 000 000 kr', aprFrom:'individuell', decision:'1–2 dagar', requirements:'AB/EF, omsättning', rating:4.4 }
+    ]);
+
+    ensure('kreditkort', [
+      { id:'remember-flex', network:'direct', name:'Remember Flex', url:'https://www.remember.se/kreditkort/flex/', annualFee:'0 kr', cashback:'Bonuspoäng', creditLimit:'Upp till 120 000 kr', interestFreeDays:'Upp till 56 dagar', rating:4.5 },
+      { id:'coop-mersa', network:'direct', name:'Coop Mastercard', url:'https://www.coop.se/medlem/ekonomi/coop-matkonto/mastercard/', annualFee:'0–295 kr', cashback:'Bonus på köp', creditLimit:'Upp till 100 000 kr', interestFreeDays:'Upp till 55 dagar', rating:4.4 }
+    ]);
+
     try { document.dispatchEvent(new CustomEvent('fg:offers-updated')); } catch(e) {}
   }
 
