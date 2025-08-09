@@ -42,23 +42,21 @@ RewriteCond %{HTTPS} !=on
 RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 
 # ==============================================================================
-# SPA ROUTING OCH STÄD AV LEGACY .HTML
+# CLEAN URLs (ta bort .html från URLer)
+# ==============================================================================
 
-# 1) Redirecta .html -> rena slugs
+# Ta bort .html extension från URLer
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+# Redirect om någon försöker komma åt .html direkt
 RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
 RewriteRule ^ /%1 [R=301,L]
 
-# 2) Tillåt befintliga filer/mappar
-RewriteCond %{REQUEST_FILENAME} -f [OR]
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule . - [L]
-
-# 3) SPA fallback – låt React router hantera övriga routes
-RewriteRule ^ index.html [L]
-
-# 4) Ta bort trailing slash (utom direktoriers)
+# Ta bort trailing slash från URLer (utom för directories)
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.+)/$ /$1 [R=301,L]
+RewriteRule ^(.*)/$ /$1 [L,R=301]
 
 # ==============================================================================
 # WWW REDIRECT (välj en variant)
