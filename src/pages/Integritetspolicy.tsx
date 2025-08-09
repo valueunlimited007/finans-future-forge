@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import Layout from "@/components/Layout";
 
 const Integritetspolicy = () => {
   const title = "Integritetspolicy | Finansguiden.se";
@@ -13,7 +14,7 @@ const Integritetspolicy = () => {
         <meta name="description" content={description} />
         <link rel="canonical" href={canonical} />
       </Helmet>
-      <main className="min-h-screen bg-background text-foreground">
+      <Layout>
         <section className="container mx-auto px-4 py-12">
           <header className="mb-6">
             <h1 className="text-3xl md:text-4xl font-bold">Integritetspolicy</h1>
@@ -26,7 +27,7 @@ const Integritetspolicy = () => {
             </p>
           </article>
         </section>
-      </main>
+      </Layout>
     </>
   );
 };

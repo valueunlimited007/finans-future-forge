@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import Layout from "@/components/Layout";
 
 const Kreditkort = () => {
   const title = "Kreditkort 2025 - Jämför 50+ kort | Cashback, Bonus & Reseförsäkring";
@@ -15,7 +16,7 @@ const Kreditkort = () => {
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
       </Helmet>
-      <main className="min-h-screen bg-background text-foreground">
+      <Layout>
         <section className="container mx-auto px-4 py-12">
           <header className="mb-6">
             <h1 className="text-3xl md:text-4xl font-bold">Kreditkort 2025: Hitta kortet som ger mest tillbaka</h1>
@@ -30,7 +31,7 @@ const Kreditkort = () => {
             </p>
           </article>
         </section>
-      </main>
+      </Layout>
     </>
   );
 };

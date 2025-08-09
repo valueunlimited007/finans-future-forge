@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import Layout from "@/components/Layout";
 
 const Privatlan = () => {
   const title = "Privatlån 2025 - Jämför räntor från 2.9% | Komplett guide";
@@ -41,7 +42,7 @@ const Privatlan = () => {
         <meta property="og:description" content={description} />
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
       </Helmet>
-      <main className="min-h-screen bg-background text-foreground">
+      <Layout>
         <section className="container mx-auto px-4 py-12">
           <header className="mb-6">
             <h1 className="text-3xl md:text-4xl font-bold">Privatlån – jämför och hitta lägsta räntan</h1>
@@ -56,7 +57,7 @@ const Privatlan = () => {
             </p>
           </article>
         </section>
-      </main>
+      </Layout>
     </>
   );
 };

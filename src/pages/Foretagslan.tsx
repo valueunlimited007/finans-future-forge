@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import Layout from "@/components/Layout";
 
 const Foretagslan = () => {
   const title = "Företagslån 2025 - Finansiering för Startups & SME | Från 10 000 kr";
@@ -15,7 +16,7 @@ const Foretagslan = () => {
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
       </Helmet>
-      <main className="min-h-screen bg-background text-foreground">
+      <Layout>
         <section className="container mx-auto px-4 py-12">
           <header className="mb-6">
             <h1 className="text-3xl md:text-4xl font-bold">Företagslån 2025: Din kompletta guide</h1>
@@ -30,7 +31,7 @@ const Foretagslan = () => {
             </p>
           </article>
         </section>
-      </main>
+      </Layout>
     </>
   );
 };

@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import Layout from "@/components/Layout";
 
 const LanUtanUc = () => {
   const title = "Lån utan UC 2025 - 17 långivare som godkänner utan UC";
@@ -15,7 +16,7 @@ const LanUtanUc = () => {
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
       </Helmet>
-      <main className="min-h-screen bg-background text-foreground">
+      <Layout>
         <section className="container mx-auto px-4 py-12">
           <header className="mb-6">
             <h1 className="text-3xl md:text-4xl font-bold">Lån utan UC – 17 verifierade långivare</h1>
@@ -30,7 +31,7 @@ const LanUtanUc = () => {
             </p>
           </article>
         </section>
-      </main>
+      </Layout>
     </>
   );
 };
