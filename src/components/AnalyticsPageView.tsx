@@ -21,12 +21,14 @@ const AnalyticsPageView = () => {
 
     try {
       (window as any).dataLayer = (window as any).dataLayer || [];
-      (window as any).dataLayer.push({
+      const payload = {
         event: "fg_page_view",
         page_location: window.location.href,
         page_path: `${window.location.pathname}${window.location.search}`,
         page_title: document.title,
-      });
+      };
+      (window as any).dataLayer.push(payload);
+      console.debug("[FG] Pushed fg_page_view", payload);
     } catch {}
   }, [pathname, search]);
 

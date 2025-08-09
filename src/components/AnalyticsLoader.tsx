@@ -16,6 +16,7 @@ function injectGTM(id: string) {
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode!.insertBefore(j,f);
     })(window,document,'script','dataLayer','${id}');
   `;
+  console.debug("[FG] Injecting GTM", id);
   document.head.appendChild(s);
 }
 
@@ -28,6 +29,13 @@ const AnalyticsLoader = () => {
       if (c.analytics && GTM_ID && !loadedRef.current) {
         injectGTM(GTM_ID);
         loadedRef.current = true;
+        console.debug("[FG] GTM loaded after consent", { GTM_ID });
+      } else {
+        console.debug("[FG] GTM not loaded yet", {
+          consentAnalytics: c.analytics,
+          hasGtmId: Boolean(GTM_ID),
+          alreadyLoaded: loadedRef.current,
+        });
       }
     };
 
