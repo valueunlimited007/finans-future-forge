@@ -12,6 +12,25 @@ const Index = () => {
           content="Jämför lån, kreditkort och finansieringslösningar. Se aktuella erbjudanden och guider."
         />
         <link rel="canonical" href="https://finansguiden.se" />
+        {/* Open Graph */}
+        <meta property="og:title" content="Finansguiden – Jämför lån, kreditkort och finansiering" />
+        <meta property="og:description" content="Jämför lån, kreditkort och finansieringslösningar. Se aktuella erbjudanden och guider." />
+        <meta property="og:url" content="https://finansguiden.se" />
+        <meta property="og:type" content="website" />
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Finansguiden – Jämför lån, kreditkort och finansiering" />
+        <meta name="twitter:description" content="Jämför lån, kreditkort och finansieringslösningar. Se aktuella erbjudanden och guider." />
+        {/* JSON-LD WebSite */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "Finansguiden",
+            url: "https://finansguiden.se",
+            inLanguage: "sv-SE",
+          })}
+        </script>
       </Helmet>
       <Layout>
         <div className="min-h-[60vh] flex items-center justify-center">
