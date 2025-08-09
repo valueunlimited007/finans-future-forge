@@ -1,5 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import Layout from "@/components/Layout";
+import { Button } from "@/components/ui/button";
+import { acceptAll, rejectAll } from "@/lib/consent";
 
 const Cookies = () => {
   const title = "Cookies & Samtycke | Finansguiden.se";
@@ -25,6 +27,10 @@ const Cookies = () => {
               Vi använder endast nödvändiga cookies för drift. Analys- och marknadsföringscookies laddas först efter
               samtycke. Du kan när som helst ändra dina inställningar.
             </p>
+            <div className="not-prose mt-6 flex gap-3">
+              <Button onClick={() => acceptAll()} aria-label="Godkänn alla cookies">Godkänn alla</Button>
+              <Button variant="secondary" onClick={() => rejectAll()} aria-label="Avböj icke-nödvändiga cookies">Avböj</Button>
+            </div>
           </article>
         </section>
       </Layout>

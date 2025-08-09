@@ -50,10 +50,23 @@ const Privatlan = () => {
               Jämför privatlån från flera långivare på några minuter. Kostnadsfritt och utan bindning.
             </p>
           </header>
+
+          <section aria-label="Bästa privatlånen" className="mb-10">
+            <h2 className="text-2xl font-semibold mb-3">Bästa privatlånen just nu</h2>
+            <div data-offers data-category="privatlan" data-limit="6" />
+            <p className="text-sm text-muted-foreground mt-2">Sponsrade länkar. Jämför erbjudanden noga innan du ansöker.</p>
+          </section>
+
           <article className="prose prose-slate max-w-none dark:prose-invert">
             <p>
               Privatlån (blancolån) är lån utan säkerhet mellan 10 000 – 600 000 kr. Räntan sätts individuellt
               utifrån ekonomi och återbetalningsförmåga. Jämför alltid flera erbjudanden för bästa villkor.
+            </p>
+            <h2>Vad är ett privatlån?</h2>
+            <p>
+              Ett privatlån, även kallat blancolån, är ett lån utan säkerhet som du kan använda till valfritt ändamål.
+              Till skillnad från bolån eller billån behöver du inte ställa någon säkerhet, vilket gör processen snabbare
+              men ofta med högre ränta.
             </p>
           </article>
         </section>

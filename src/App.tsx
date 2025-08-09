@@ -35,6 +35,16 @@ export const AppRoutes = () => (
   </Routes>
 );
 
+import ConsentBanner from "@/components/ConsentBanner";
+import OffersRerenderOnRoute from "@/components/OffersRerenderOnRoute";
+import AnalyticsLoader from "@/components/AnalyticsLoader";
+import { lazy, Suspense } from "react";
+
+const LazyAnalytics = () => (
+  <Suspense fallback={null}>
+    <AnalyticsLoader />
+  </Suspense>
+);
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -44,7 +54,13 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          {/* Load analytics (GTM) only after explicit consent */}
+          <LazyAnalytics />
+          {/* Ensure offers renderer re-runs on route changes */}
+          <OffersRerenderOnRoute />
           <AppRoutes />
+          {/* Cookie consent banner */}
+          <ConsentBanner />
         </BrowserRouter>
       </TooltipProvider>
     </HelmetProvider>

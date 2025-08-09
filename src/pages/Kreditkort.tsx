@@ -24,6 +24,13 @@ const Kreditkort = () => {
               Jämför cashback, bonuspoäng och försäkringar för att maximera värdet av dina kort.
             </p>
           </header>
+
+          <section aria-label="Topplista kreditkort" className="mb-10">
+            <h2 className="text-2xl font-semibold mb-3">Topplista kreditkort</h2>
+            <div data-offers data-category="kreditkort" data-limit="5" />
+            <p className="text-sm text-muted-foreground mt-2">Sponsrade länkar. Betala hela fakturan för räntefri kredit.</p>
+          </section>
+
           <article className="prose prose-slate max-w-none dark:prose-invert">
             <p>
               Olika kort passar olika beteenden. Välj mellan cashback-kort, resekort, bonuskort och premiumkort – och

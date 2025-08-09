@@ -24,6 +24,13 @@ const Foretagslan = () => {
               Jämför finansiering för nystartade och etablerade företag – från checkkredit till tillväxtlån.
             </p>
           </header>
+
+          <section aria-label="Topplista företagslån" className="mb-10">
+            <h2 className="text-2xl font-semibold mb-3">Topplista företagslån</h2>
+            <div data-offers data-category="foretagslan" data-limit="5" />
+            <p className="text-sm text-muted-foreground mt-2">Sponsrade länkar. Jämförelsen är vägledande.</p>
+          </section>
+
           <article className="prose prose-slate max-w-none dark:prose-invert">
             <p>
               Lånebehovet varierar över företagets livscykel. Jämför alternativ, krav och kostnader för att välja rätt
