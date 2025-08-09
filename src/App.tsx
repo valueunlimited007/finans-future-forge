@@ -38,6 +38,7 @@ export const AppRoutes = () => (
 import ConsentBanner from "@/components/ConsentBanner";
 import OffersRerenderOnRoute from "@/components/OffersRerenderOnRoute";
 import AnalyticsLoader from "@/components/AnalyticsLoader";
+import AnalyticsPageView from "@/components/AnalyticsPageView";
 import { lazy, Suspense } from "react";
 
 const LazyAnalytics = () => (
@@ -58,6 +59,8 @@ const App = () => (
           <LazyAnalytics />
           {/* Ensure offers renderer re-runs on route changes */}
           <OffersRerenderOnRoute />
+          {/* Send page_view to GA4 via GTM on SPA navigation */}
+          <AnalyticsPageView />
           <AppRoutes />
           {/* Cookie consent banner */}
           <ConsentBanner />
