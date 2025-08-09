@@ -13,6 +13,28 @@ import LanUtanUc from "./pages/LanUtanUc";
 import Integritetspolicy from "./pages/Integritetspolicy";
 import Cookies from "./pages/Cookies";
 
+export const AppRoutes = () => (
+  <Routes>
+    <Route path="/" element={<Index />} />
+    {/* Clean slugs */}
+    <Route path="/privatlan" element={<Privatlan />} />
+    <Route path="/foretagslan" element={<Foretagslan />} />
+    <Route path="/kreditkort" element={<Kreditkort />} />
+    <Route path="/lan-utan-uc" element={<LanUtanUc />} />
+    <Route path="/integritetspolicy" element={<Integritetspolicy />} />
+    <Route path="/cookies" element={<Cookies />} />
+    {/* Redirect legacy .html URLs to clean slugs */}
+    <Route path="/privatlan.html" element={<Navigate to="/privatlan" replace />} />
+    <Route path="/foretagslan.html" element={<Navigate to="/foretagslan" replace />} />
+    <Route path="/kreditkort.html" element={<Navigate to="/kreditkort" replace />} />
+    <Route path="/lan-utan-uc.html" element={<Navigate to="/lan-utan-uc" replace />} />
+    <Route path="/integritetspolicy.html" element={<Navigate to="/integritetspolicy" replace />} />
+    <Route path="/cookies.html" element={<Navigate to="/cookies" replace />} />
+    {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+    <Route path="*" element={<NotFound />} />
+  </Routes>
+);
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -22,25 +44,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            {/* Clean slugs */}
-            <Route path="/privatlan" element={<Privatlan />} />
-            <Route path="/foretagslan" element={<Foretagslan />} />
-            <Route path="/kreditkort" element={<Kreditkort />} />
-            <Route path="/lan-utan-uc" element={<LanUtanUc />} />
-            <Route path="/integritetspolicy" element={<Integritetspolicy />} />
-            <Route path="/cookies" element={<Cookies />} />
-            {/* Redirect legacy .html URLs to clean slugs */}
-            <Route path="/privatlan.html" element={<Navigate to="/privatlan" replace />} />
-            <Route path="/foretagslan.html" element={<Navigate to="/foretagslan" replace />} />
-            <Route path="/kreditkort.html" element={<Navigate to="/kreditkort" replace />} />
-            <Route path="/lan-utan-uc.html" element={<Navigate to="/lan-utan-uc" replace />} />
-            <Route path="/integritetspolicy.html" element={<Navigate to="/integritetspolicy" replace />} />
-            <Route path="/cookies.html" element={<Navigate to="/cookies" replace />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <AppRoutes />
         </BrowserRouter>
       </TooltipProvider>
     </HelmetProvider>
