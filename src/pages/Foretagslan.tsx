@@ -15,6 +15,18 @@ const Foretagslan = () => {
         <link rel="canonical" href={canonical} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: title,
+            description,
+            mainEntityOfPage: canonical,
+            inLanguage: "sv-SE",
+            author: { "@type": "Organization", name: "Finansguiden" },
+            publisher: { "@type": "Organization", name: "Finansguiden" },
+          })}
+        </script>
       </Helmet>
       <Layout>
         <section className="container mx-auto px-4 py-12">
