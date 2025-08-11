@@ -1,5 +1,5 @@
 import { useLayoutEffect, useRef, useMemo } from "react";
-
+import { pageview } from "../analytics/tracker";
 
 interface LegacyPageProps {
   htmlRaw: string;
@@ -183,7 +183,7 @@ export default function LegacyPage({ htmlRaw }: LegacyPageProps) {
     absolutize(el as HTMLElement);
 
     console.info("[FG_INJECTED]", currentPath, "len:", el.innerHTML.length);
-
+    try { pageview(location.pathname, document.title); } catch (e) { console.warn("[FG_TRACK_ERR]", e); }
     // FG: Initialize FAQ icons/panels immediately after injection and on route changes
     function initFaq(root: Document | HTMLElement = document) {
       const TRIG = '[data-faq-question], .faq-question, .accordion-button, [aria-controls]';
