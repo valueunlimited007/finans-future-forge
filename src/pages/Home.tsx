@@ -9,5 +9,5 @@ export default function Home() {
   useEffect(() => {
     console.info("Mounted page:", location.pathname, "source:", "index.html");
   }, [location.pathname]);
-  return <LegacyPage htmlRaw={homeHtml} />;
+  return <LegacyPage key={location.pathname} htmlRaw={homeHtml} />;
 }

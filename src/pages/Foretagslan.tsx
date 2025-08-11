@@ -8,5 +8,5 @@ export default function Foretagslan() {
   useEffect(() => {
     console.info("Mounted page:", location.pathname, "source:", "foretagslan.html");
   }, [location.pathname]);
-  return <LegacyPage htmlRaw={foretagslanHtml} />;
+  return <LegacyPage key={location.pathname} htmlRaw={foretagslanHtml} />;
 }

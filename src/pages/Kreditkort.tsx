@@ -8,5 +8,5 @@ export default function Kreditkort() {
   useEffect(() => {
     console.info("Mounted page:", location.pathname, "source:", "kreditkort.html");
   }, [location.pathname]);
-  return <LegacyPage htmlRaw={kreditkortHtml} />;
+  return <LegacyPage key={location.pathname} htmlRaw={kreditkortHtml} />;
 }

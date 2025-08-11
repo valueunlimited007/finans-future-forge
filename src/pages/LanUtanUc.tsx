@@ -8,5 +8,5 @@ export default function LanUtanUc() {
   useEffect(() => {
     console.info("Mounted page:", location.pathname, "source:", "lan-utan-uc.html");
   }, [location.pathname]);
-  return <LegacyPage htmlRaw={lanHtml} />;
+  return <LegacyPage key={location.pathname} htmlRaw={lanHtml} />;
 }

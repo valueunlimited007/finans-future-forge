@@ -8,5 +8,5 @@ export default function Privatlan() {
   useEffect(() => {
     console.info("Mounted page:", location.pathname, "source:", "privatlan.html");
   }, [location.pathname]);
-  return <LegacyPage htmlRaw={privatlanHtml} />;
+  return <LegacyPage key={location.pathname} htmlRaw={privatlanHtml} />;
 }

@@ -1,5 +1,5 @@
-import { useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useRef, useMemo } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 interface LegacyPageProps {
   htmlRaw: string;
@@ -13,15 +13,15 @@ function extractBody(html: string) {
 export default function LegacyPage({ htmlRaw }: LegacyPageProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const navigate = useNavigate();
+  const location = useLocation();
+  const bodyHtml = useMemo(() => extractBody(htmlRaw), [htmlRaw]);
 
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
 
     // Inject exact HTML body content
-    const bodyHtml = extractBody(htmlRaw);
     container.innerHTML = bodyHtml;
-
     // Execute inline scripts inside injected HTML (to keep behaviors like FAQ toggles, dates)
     const scripts = Array.from(container.querySelectorAll("script"));
     scripts.forEach((oldScript) => {
@@ -76,7 +76,7 @@ export default function LegacyPage({ htmlRaw }: LegacyPageProps) {
     return () => {
       container.removeEventListener("click", onClick);
     };
-  }, [htmlRaw, navigate]);
+  }, [bodyHtml, location.pathname, navigate]);
 
   // The container will receive the exact markup, preserving all classes and structure
   return <div ref={containerRef} />;
