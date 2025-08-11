@@ -1,46 +1,79 @@
 {
   "/": {
     "title": "Finansguiden.se – jämför lån & kreditkort smart",
-    "description": "Opartiska guider som hjälper dig välja rätt lån och kreditkort. Jämför räntor, avgifter och förmåner – uppdateras löpande.",
+    "description": "Opartiska guider och jämförelser av privatlån, företagslån, kreditkort och lån utan UC. Uppdaterade råd, kalkyler och topplistor.",
     "canonical": "https://finansguiden.se/",
     "ogImage": "https://finansguiden.se/images/og/home.png",
     "twitterImage": "https://finansguiden.se/images/og/home.png",
+    "changefreq": "weekly",
+    "priority": 1.0,
     "jsonld": {
+      "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "Finansguiden.se",
       "url": "https://finansguiden.se/"
     }
   },
   "/kreditkort": {
-    "title": "Kreditkort 2025 – hitta bästa kortet för dig",
-    "description": "Guiden till bonus, cashback, reseförsäkring och avgifter. Se vilka kreditkort som passar din ekonomi.",
+    "title": "Kreditkort 2025 – hitta kortet som ger mest tillbaka",
+    "description": "Jämför bonus, cashback, reseförsäkring och avgifter. Se topplistor och hitta bästa kreditkortet för din ekonomi.",
     "canonical": "https://finansguiden.se/kreditkort",
     "ogImage": "https://finansguiden.se/images/og/kreditkort.png",
     "twitterImage": "https://finansguiden.se/images/og/kreditkort.png",
-    "jsonld": { "@type": "Article", "headline": "Kreditkort 2025 – hitta bästa kortet", "author": "Finansguiden.se" }
+    "changefreq": "weekly",
+    "priority": 0.9,
+    "jsonld": {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Kreditkort 2025 – hitta kortet som ger mest tillbaka",
+      "author": "Finansguiden.se",
+      "mainEntityOfPage": "https://finansguiden.se/kreditkort"
+    }
   },
   "/privatlan": {
     "title": "Privatlån – jämför räntor & låna smart",
-    "description": "Jämför banker och låneförmedlare. Tips för ränta, kostnad per månad och villkor.",
+    "description": "Jämför banker och låneförmedlare. Se räntor, krav och månadskostnad – samt tips för att sänka räntan.",
     "canonical": "https://finansguiden.se/privatlan",
     "ogImage": "https://finansguiden.se/images/og/privatlan.png",
     "twitterImage": "https://finansguiden.se/images/og/privatlan.png",
-    "jsonld": { "@type": "Article", "headline": "Privatlån – jämför räntor", "author": "Finansguiden.se" }
+    "changefreq": "weekly",
+    "priority": 0.85,
+    "jsonld": {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Privatlån – jämför räntor & låna smart",
+      "author": "Finansguiden.se",
+      "mainEntityOfPage": "https://finansguiden.se/privatlan"
+    }
   },
   "/foretagslan": {
-    "title": "Företagslån – finansiera verksamheten rätt",
-    "description": "Guide till företagslån: belopp, krav, räntor och alternativ.",
+    "title": "Företagslån 2025 – din kompletta guide",
+    "description": "Så fungerar företagslån: belopp, krav, räntor och alternativ. Jämför aktörer och finansiera verksamheten rätt.",
     "canonical": "https://finansguiden.se/foretagslan",
     "ogImage": "https://finansguiden.se/images/og/foretagslan.png",
     "twitterImage": "https://finansguiden.se/images/og/foretagslan.png",
-    "jsonld": { "@type": "Article", "headline": "Företagslån 2025 – guide", "author": "Finansguiden.se" }
+    "changefreq": "weekly",
+    "priority": 0.85,
+    "jsonld": {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Företagslån 2025 – din kompletta guide",
+      "author": "Finansguiden.se",
+      "mainEntityOfPage": "https://finansguiden.se/foretagslan"
+    }
   },
   "/lan-utan-uc": {
-    "title": "Lån utan UC – så funkar det",
-    "description": "Allt om Creditsafe/Bisnode, räntor och risker. Jämför långivare utan UC.",
+    "title": "Lån utan UC – så funkar kreditupplysning utan UC",
+    "description": "Allt om Creditsafe och Bisnode, räntor och risker. Jämför långivare utan UC och läs vanliga frågor & svar.",
     "canonical": "https://finansguiden.se/lan-utan-uc",
     "ogImage": "https://finansguiden.se/images/og/utan-uc.png",
     "twitterImage": "https://finansguiden.se/images/og/utan-uc.png",
-    "jsonld": { "@type": "FAQPage" }
+    "changefreq": "weekly",
+    "priority": 0.85,
+    "jsonld": {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": []
+    }
   }
 }

@@ -12,7 +12,7 @@ interface RouteSEO {
 }
 
 const DEFAULT_TITLE = "Finansguiden.se";
-
+const DEFAULT_OG = "/images/og/default.png";
 export default function SeoManager() {
   const location = useLocation();
   const path = location.pathname as keyof typeof seoRoutes;
@@ -21,8 +21,8 @@ export default function SeoManager() {
   const title = cfg.title || DEFAULT_TITLE;
   const description = cfg.description;
   const canonical = cfg.canonical;
-  const ogImage = cfg.ogImage;
-  const twitterImage = cfg.twitterImage || cfg.ogImage;
+  const ogImage = cfg.ogImage || DEFAULT_OG;
+  const twitterImage = cfg.twitterImage || cfg.ogImage || DEFAULT_OG;
   const jsonld = cfg.jsonld;
 
   // Prefer config canonical for canonical link; fall back to current location
