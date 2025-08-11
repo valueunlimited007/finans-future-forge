@@ -42,15 +42,53 @@ export default function LegacyPage({ htmlRaw }: LegacyPageProps) {
     el.setAttribute("data-fg-page", currentPath);
 
     // Inject inline <style> tags from the legacy head
+    // Inject inline <style> tags from the legacy head AND adopt important <link> tags
     try {
+      // Remove previously injected styles/links
       document
         .querySelectorAll('style[data-fg-inline-style]')
         .forEach((n) => n.parentNode?.removeChild(n));
+      document
+        .querySelectorAll('link[data-fg-inline-link]')
+        .forEach((n) => n.parentNode?.removeChild(n));
+
+      // Styles
       if (headStyles.trim()) {
         const tag = document.createElement("style");
         tag.setAttribute("data-fg-inline-style", currentPath);
         tag.textContent = headStyles;
         document.head.appendChild(tag);
+      }
+
+      // Links from legacy head (fonts/stylesheet/preconnect/preload as style)
+      try {
+        const doc = new DOMParser().parseFromString(htmlRaw, "text/html");
+        const needed = Array.from(
+          doc.head?.querySelectorAll(
+            'link[rel~="stylesheet"],link[rel="preconnect"],link[rel="dns-prefetch"],link[rel="preload"][as="style"]'
+          ) ?? []
+        ) as HTMLLinkElement[];
+
+        needed.forEach((src) => {
+          const l = document.createElement("link");
+          Array.from(src.attributes).forEach((a) => l.setAttribute(a.name, a.value));
+          const href = l.getAttribute("href");
+          if (href && !/^https?:|^\//.test(href)) {
+            l.href = new URL(href, window.location.origin).toString();
+          }
+          l.setAttribute("data-fg-inline-link", currentPath);
+          document.head.appendChild(l);
+        });
+
+        // Temporary log
+        console.info("[FG_HEAD]", {
+          stylesLen: headStyles.length,
+          links: Array.from(document.querySelectorAll('link[data-fg-inline-link]'))
+            .slice(0, 5)
+            .map((l) => (l as HTMLLinkElement).href),
+        });
+      } catch (err) {
+        console.warn("[FG_INLINE_LINK_ERROR]", err);
       }
     } catch (err) {
       console.warn("[FG_INLINE_STYLE_ERROR]", err);
