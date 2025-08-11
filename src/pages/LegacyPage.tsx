@@ -203,6 +203,24 @@ export default function LegacyPage({ htmlRaw }: LegacyPageProps) {
       }, 0);
     });
 
+    // Delegated FAQ toggler to ensure correct expanded state and single icon
+    const onFaqClick = (e: Event) => {
+      const t = (e.target as HTMLElement)?.closest('[data-faq-question], .faq-question, .accordion-button, [aria-controls]') as HTMLElement | null;
+      if (!t) return;
+      const controlsId = t.getAttribute('aria-controls');
+      const panel = controlsId
+        ? (document.getElementById(controlsId) as HTMLElement | null)
+        : (t.parentElement?.querySelector('.faq-answer, .accordion-content') as HTMLElement | null);
+      if (!panel) return;
+      const expanded = t.getAttribute('aria-expanded') === 'true';
+      t.setAttribute('aria-expanded', (!expanded).toString());
+      t.classList.toggle('is-open', !expanded);
+      t.parentElement?.classList.toggle('is-open', !expanded);
+      panel.toggleAttribute('hidden', expanded);
+      panel.style.display = expanded ? 'none' : '';
+    };
+    document.addEventListener('click', onFaqClick);
+
     // Intercept internal link clicks to navigate via React Router
     const onClick = (e: MouseEvent) => {
       const target = e.target as Element | null;
@@ -238,6 +256,7 @@ export default function LegacyPage({ htmlRaw }: LegacyPageProps) {
     el.addEventListener("click", onClick);
 
     return () => {
+      document.removeEventListener('click', onFaqClick);
       el.removeEventListener("click", onClick);
       el.innerHTML = ""; // cleanup previous content
     };
