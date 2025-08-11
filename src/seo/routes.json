@@ -1,0 +1,46 @@
+{
+  "/": {
+    "title": "Finansguiden.se – jämför lån & kreditkort smart",
+    "description": "Opartiska guider som hjälper dig välja rätt lån och kreditkort. Jämför räntor, avgifter och förmåner – uppdateras löpande.",
+    "canonical": "https://finansguiden.se/",
+    "ogImage": "https://finansguiden.se/images/og/home.png",
+    "twitterImage": "https://finansguiden.se/images/og/home.png",
+    "jsonld": {
+      "@type": "WebSite",
+      "name": "Finansguiden.se",
+      "url": "https://finansguiden.se/"
+    }
+  },
+  "/kreditkort": {
+    "title": "Kreditkort 2025 – hitta bästa kortet för dig",
+    "description": "Guiden till bonus, cashback, reseförsäkring och avgifter. Se vilka kreditkort som passar din ekonomi.",
+    "canonical": "https://finansguiden.se/kreditkort",
+    "ogImage": "https://finansguiden.se/images/og/kreditkort.png",
+    "twitterImage": "https://finansguiden.se/images/og/kreditkort.png",
+    "jsonld": { "@type": "Article", "headline": "Kreditkort 2025 – hitta bästa kortet", "author": "Finansguiden.se" }
+  },
+  "/privatlan": {
+    "title": "Privatlån – jämför räntor & låna smart",
+    "description": "Jämför banker och låneförmedlare. Tips för ränta, kostnad per månad och villkor.",
+    "canonical": "https://finansguiden.se/privatlan",
+    "ogImage": "https://finansguiden.se/images/og/privatlan.png",
+    "twitterImage": "https://finansguiden.se/images/og/privatlan.png",
+    "jsonld": { "@type": "Article", "headline": "Privatlån – jämför räntor", "author": "Finansguiden.se" }
+  },
+  "/foretagslan": {
+    "title": "Företagslån – finansiera verksamheten rätt",
+    "description": "Guide till företagslån: belopp, krav, räntor och alternativ.",
+    "canonical": "https://finansguiden.se/foretagslan",
+    "ogImage": "https://finansguiden.se/images/og/foretagslan.png",
+    "twitterImage": "https://finansguiden.se/images/og/foretagslan.png",
+    "jsonld": { "@type": "Article", "headline": "Företagslån 2025 – guide", "author": "Finansguiden.se" }
+  },
+  "/lan-utan-uc": {
+    "title": "Lån utan UC – så funkar det",
+    "description": "Allt om Creditsafe/Bisnode, räntor och risker. Jämför långivare utan UC.",
+    "canonical": "https://finansguiden.se/lan-utan-uc",
+    "ogImage": "https://finansguiden.se/images/og/utan-uc.png",
+    "twitterImage": "https://finansguiden.se/images/og/utan-uc.png",
+    "jsonld": { "@type": "FAQPage" }
+  }
+}
