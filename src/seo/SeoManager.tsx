@@ -25,8 +25,13 @@ export default function SeoManager() {
   const twitterImage = cfg.twitterImage || cfg.ogImage;
   const jsonld = cfg.jsonld;
 
-  // Prefer config canonical, else build from current location (safety)
-  const currentUrl = canonical || (typeof window !== 'undefined' ? window.location.origin + location.pathname : undefined);
+  // Prefer config canonical for canonical link; fall back to current location
+  const canonicalUrl = canonical || (typeof window !== 'undefined' ? window.location.origin + location.pathname : undefined);
+  // Always use production canonical for og:url when available
+  const ogUrl = canonical || undefined;
+  // Robots handling: noindex on lovable previews
+  const isLovable = typeof window !== 'undefined' && /\.lovable\.app$/.test(window.location.hostname);
+  const robots = isLovable ? 'noindex, nofollow' : 'index, follow';
 
   return (
     <Helmet prioritizeSeoTags>
@@ -36,14 +41,17 @@ export default function SeoManager() {
       {/* Meta description */}
       {description && <meta name="description" content={description} />}
 
+      {/* Robots */}
+      <meta name="robots" content={robots} />
+
       {/* Canonical */}
-      {currentUrl && <link rel="canonical" href={currentUrl} />}
+      {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
 
       {/* Open Graph */}
       <meta property="og:title" content={title} />
       {description && <meta property="og:description" content={description} />}
       {ogImage && <meta property="og:image" content={ogImage} />}        
-      {currentUrl && <meta property="og:url" content={currentUrl} />}
+      {ogUrl && <meta property="og:url" content={ogUrl} />}
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
