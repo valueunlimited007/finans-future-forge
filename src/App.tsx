@@ -16,6 +16,10 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/lan-utan-uc" element={<Index />} />
+          <Route path="/kreditkort" element={<Index />} />
+          <Route path="/privatlan" element={<Index />} />
+          <Route path="/foretagslan" element={<Index />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

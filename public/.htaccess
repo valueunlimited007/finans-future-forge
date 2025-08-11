@@ -45,12 +45,13 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 # CLEAN URLs (ta bort .html från URLer)
 # ==============================================================================
 
-# Ta bort .html extension från URLer
+# Servera .html om filen finns (behåll gamla statiska sidor)
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}\.html -f
 RewriteRule ^([^\.]+)$ $1.html [NC,L]
 
-# Redirect om någon försöker komma åt .html direkt
+# Redirect .html till extensionless URL
 RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
 RewriteRule ^ /%1 [R=301,L]
 
@@ -230,6 +231,18 @@ FileETag None
 <IfModule mod_headers.c>
     Header set Connection keep-alive
 </IfModule>
+
+# ==============================================================================
+# SPA HISTORY API FALLBACK
+# ==============================================================================
+# Returnera index.html för alla paths som inte matchar en fil eller mapp
+# Undantag: /assets, /images, /fonts, /favicon.*, robots.txt, sitemap.xml, llms.txt, .well-known/*
+RewriteCond %{REQUEST_URI} !^/(assets|images|fonts|\.well-known)(/|$) [NC]
+RewriteCond %{REQUEST_URI} !^/favicon\.(ico|png|svg)$ [NC]
+RewriteCond %{REQUEST_URI} !^/(robots\.txt|sitemap\.xml|llms\.txt)$ [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]
 
 # ==============================================================================
 # CUSTOM RULES FÖR FINANSGUIDEN.SE
