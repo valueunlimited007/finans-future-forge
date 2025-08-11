@@ -145,69 +145,96 @@ export default function LegacyPage({ htmlRaw }: LegacyPageProps) {
 
     el.insertAdjacentHTML("afterbegin", bodyHtml);
 
-    // Step 1 — Mobile nav toggle injected after body content
-    function initMobileNav() {
+    // Step 1 — Safe mobile menu (overlay without touching header nav)
+    function initSafeMobileMenu() {
+      // Hitta huvudnavets länkar (ändra selector vid behov)
       const header = document.querySelector('header') as HTMLElement | null;
-      const nav = header?.querySelector('nav, [role="navigation"]') as HTMLElement | null;
-      if (!header || !nav) return;
+      const sourceNav = header?.querySelector('nav, [role="navigation"]') as HTMLElement | null;
+      if (!header || !sourceNav) return;
 
-      // create toggle if missing
-      if (!header.querySelector('.fg-nav-toggle')) {
+      // Skapa toggle i header om saknas
+      if (!header.querySelector('.fg-mobile-toggle')) {
         const btn = document.createElement('button');
-        btn.className = 'fg-nav-toggle';
+        btn.className = 'fg-mobile-toggle';
+        btn.setAttribute('aria-label', 'Meny');
         btn.setAttribute('aria-expanded', 'false');
-        btn.setAttribute('aria-label', 'Öppna meny');
-        btn.innerHTML = '<span></span><span></span><span></span>'; // 3 streck
+        btn.innerHTML = '<span></span><span></span><span></span>';
         header.appendChild(btn);
 
-        const close = () => {
-          document.body.classList.remove('fg-nav-open');
-          btn.setAttribute('aria-expanded','false');
-        };
-        const open = () => {
-          document.body.classList.add('fg-nav-open');
-          btn.setAttribute('aria-expanded','true');
-        };
+        // Skapa overlay-meny (egen container – påverkar inte befintligt nav)
+        let drawer = document.querySelector('.fg-mobile-drawer') as HTMLElement | null;
+        if (!drawer) {
+          drawer = document.createElement('div');
+          drawer.className = 'fg-mobile-drawer';
+          drawer.innerHTML = `
+        <div class="fgm-panel" role="dialog" aria-modal="true" aria-label="Meny">
+          <button class="fgm-close" aria-label="Stäng">×</button>
+          <nav class="fgm-nav"></nav>
+        </div>`;
+          document.body.appendChild(drawer);
 
-        btn.addEventListener('click', (e) => {
-          e.preventDefault();
-          document.body.classList.contains('fg-nav-open') ? close() : open();
-        });
+          // Kopiera länkar från desktop-nav
+          const srcLinks = [...sourceNav.querySelectorAll('a[href]')];
+          const dest = drawer.querySelector('.fgm-nav')! as HTMLElement;
+          srcLinks.forEach((a) => {
+            const link = a.cloneNode(true) as HTMLAnchorElement;
+            link.removeAttribute('id');
+            dest.appendChild(link);
+          });
 
-        // close on link click inside nav
-        nav.addEventListener('click', (e) => {
-          const a = (e.target as HTMLElement).closest('a[href]') as HTMLAnchorElement | null;
-          if (a) close();
-        });
+          // Stänglogik
+          const close = () => {
+            document.body.classList.remove('fg-no-scroll');
+            drawer!.classList.remove('open');
+            btn.setAttribute('aria-expanded','false');
+          };
+          const open = () => {
+            document.body.classList.add('fg-no-scroll');
+            drawer!.classList.add('open');
+            btn.setAttribute('aria-expanded','true');
+          };
+          btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            drawer!.classList.contains('open') ? close() : open();
+          });
+          drawer.querySelector('.fgm-close')!.addEventListener('click', close);
+          drawer.addEventListener('click', (e) => { if (e.target === drawer) close(); });
+          drawer.querySelector('.fgm-nav')!.addEventListener('click', (e) => {
+            const a = (e.target as HTMLElement).closest('a[href]');
+            if (a) close();
+          });
+        }
       }
 
-      // inject mobile CSS once
-      if (!document.querySelector('style[data-fg-mobile-nav]')) {
+      // CSS – helt separat, påverkar ej desktopnav
+      if (!document.querySelector('style[data-fg-mobile]')) {
         const css = `
-@media (max-width: 768px){
-  body { overflow-x:hidden; }
-  header { position: relative; }
-  .fg-nav-toggle{
+@media (max-width:768px){
+  .fg-mobile-toggle{
     position:absolute; right:16px; top:14px; width:32px; height:28px;
-    background:transparent; border:0; padding:0; display:inline-flex; flex-direction:column; gap:5px; z-index:1001;
+    background:transparent; border:0; display:inline-flex; flex-direction:column; gap:5px; z-index:1001;
   }
-  .fg-nav-toggle span{ display:block; height:3px; background:#0d3a8d; width:100%; border-radius:2px; }
-  header nav{
-    position:fixed; inset:60px 0 0 0; background:#fff; transform:translateY(-100%);
-    transition:transform .2s ease; padding:16px; box-shadow:0 8px 24px rgba(0,0,0,.08); z-index:1000;
+  .fg-mobile-toggle span{display:block;height:3px;background:#0d3a8d;border-radius:2px;}
+
+  .fg-mobile-drawer{position:fixed; inset:0; background:rgba(0,0,0,.25);
+    opacity:0; pointer-events:none; transition:opacity .18s; z-index:1000;}
+  .fg-mobile-drawer.open{opacity:1; pointer-events:auto;}
+  .fg-mobile-drawer .fgm-panel{
+    position:absolute; inset:0 0 0 0; background:#fff; transform:translateY(-100%);
+    transition:transform .22s; padding:16px 20px; overflow:auto;
   }
-  body.fg-nav-open header nav{ transform:translateY(0); }
-  body.fg-nav-open { overflow:hidden; }
-  header nav a{ display:block; padding:12px 4px; border-bottom:1px solid rgba(0,0,0,.06); }
+  .fg-mobile-drawer.open .fgm-panel{ transform:translateY(0); }
+  .fgm-close{position:absolute; right:12px; top:10px; font-size:28px; background:transparent; border:0;}
+  .fgm-nav a{ display:block; padding:14px 6px; border-bottom:1px solid rgba(0,0,0,.08); color:#0b1535; text-decoration:none; }
+  body.fg-no-scroll{ overflow:hidden; }
 }
         `.trim();
         const s = document.createElement('style');
-        s.setAttribute('data-fg-mobile-nav','1');
-        s.textContent = css;
+        s.setAttribute('data-fg-mobile','1'); s.textContent = css;
         document.head.appendChild(s);
       }
     }
-    initMobileNav();
+    initSafeMobileMenu();
 
     // Absolutisera relativa URL:er i injicerat innehåll (bilder, länkar, srcset, data-src, inline style url(...))
     const absolutize = (root: HTMLElement) => {
