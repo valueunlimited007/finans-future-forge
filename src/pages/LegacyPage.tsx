@@ -41,7 +41,56 @@ export default function LegacyPage({ htmlRaw }: LegacyPageProps) {
     el.innerHTML = "";
     el.setAttribute("data-fg-page", currentPath);
 
-    // Inject inline <style> tags from the legacy head
+    // Parse legacy document and mirror <body> attributes (classes/id/data-*)
+    try {
+      const legacyDoc = new DOMParser().parseFromString(htmlRaw, "text/html");
+      const legacyBody = legacyDoc.body;
+      const legacyClasses = (legacyBody.getAttribute("class") || "")
+        .split(/\s+/)
+        .filter(Boolean);
+      const legacyId = legacyBody.getAttribute("id") || "";
+      const legacyDataAttrs = Array.from(legacyBody.attributes).filter((a) =>
+        a.name.startsWith("data-")
+      );
+
+      // Cleanup previously set attributes
+      const prev = (document.body.getAttribute("data-fg-prev-classes") || "")
+        .split(/\s+/)
+        .filter(Boolean);
+      if (prev.length) document.body.classList.remove(...prev);
+      if (document.body.getAttribute("data-fg-set-id") === "1") {
+        document.body.removeAttribute("id");
+        document.body.removeAttribute("data-fg-set-id");
+      }
+      Array.from(document.body.attributes)
+        .filter((a) => a.name.startsWith("data-fg-prop-"))
+        .forEach((a) =>
+          document.body.removeAttribute(a.name.replace("data-fg-prop-", ""))
+        );
+
+      // Apply new ones
+      if (legacyClasses.length) {
+        document.body.classList.add(...legacyClasses);
+        document.body.setAttribute(
+          "data-fg-prev-classes",
+          legacyClasses.join(" ")
+        );
+      } else {
+        document.body.removeAttribute("data-fg-prev-classes");
+      }
+      if (legacyId) {
+        document.body.id = legacyId;
+        document.body.setAttribute("data-fg-set-id", "1");
+      }
+      legacyDataAttrs.forEach((a) => {
+        document.body.setAttribute(a.name, a.value);
+        document.body.setAttribute("data-fg-prop-" + a.name, "1");
+      });
+      console.info("[FG_BODY]", { classes: legacyClasses, id: legacyId });
+    } catch (err) {
+      console.warn("[FG_BODY_ERROR]", err);
+    }
+
     // Inject inline <style> tags from the legacy head AND adopt important <link> tags
     try {
       // Remove previously injected styles/links
