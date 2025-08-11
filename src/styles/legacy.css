@@ -1,0 +1,559 @@
+/* Finansguiden.se - Legacy CSS */
+/* Combined from styles.css, public/css/styles.css and inline styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #1e3a8a;
+    --secondary: #10b981;
+    --accent: #f59e0b;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+    --dark: #1f2937;
+    --light: #f9fafb;
+    --border: #e5e7eb;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --gradient: linear-gradient(135deg, #667eea, #764ba2);
+    --premium: #7c3aed;
+    --gold: #fbbf24;
+}
+
+/* Base Styles */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    line-height: 1.7;
+    color: var(--dark);
+    background: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+main {
+    flex: 1;
+}
+
+/* Header */
+header { 
+    background: white; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); 
+    position: sticky; 
+    top: 0; 
+    z-index: 1000; 
+}
+
+nav { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 1.25rem 0; 
+}
+
+.logo { 
+    display: flex; 
+    align-items: center; 
+    text-decoration: none; 
+    font-size: 1.5rem; 
+    font-weight: bold; 
+    color: var(--primary); 
+}
+
+.logo img { 
+    height: 72px; 
+    width: auto; 
+    margin-right: 10px; 
+}
+
+.nav-links { 
+    display: flex; 
+    gap: 2rem; 
+    list-style: none; 
+}
+
+.nav-links a { 
+    color: var(--dark); 
+    text-decoration: none; 
+    font-weight: 500; 
+    transition: color 0.3s; 
+}
+
+.nav-links a:hover { 
+    color: var(--primary); 
+}
+
+.mobile-menu { 
+    display: none; 
+    background: none; 
+    border: none; 
+    font-size: 1.5rem; 
+    cursor: pointer; 
+}
+
+/* Hero */
+.hero { 
+    background: linear-gradient(135deg, var(--primary), #3b82f6); 
+    color: white; 
+    padding: 4rem 0; 
+    text-align: center; 
+    position: relative; 
+    overflow: hidden; 
+}
+
+.hero::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+    animation:slide 20s linear infinite;
+    pointer-events:none;
+    z-index:0;
+}
+
+@keyframes slide{
+    0%{transform:translateX(0)}
+    100%{transform:translateX(60px)}
+}
+
+.hero h1 { 
+    font-size: 2.5rem; 
+    margin-bottom: 1rem; 
+    line-height: 1.2; 
+    position: relative; 
+    z-index: 1; 
+}
+
+.hero p { 
+    font-size: 1.2rem; 
+    margin-bottom: 2rem; 
+    opacity: 0.9; 
+    position: relative; 
+    z-index: 1; 
+}
+
+.hero.hero--dark { 
+    background: linear-gradient(135deg, #0f1f44, #1e3a8a); 
+}
+
+.hero > .container { 
+    position: relative; 
+    z-index: 1; 
+}
+
+/* Cards */
+.card { 
+    background: white; 
+    border-radius: 12px; 
+    padding: 2rem; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); 
+    transition: transform 0.3s, box-shadow 0.3s; 
+}
+
+.card:hover { 
+    transform: translateY(-5px); 
+    box-shadow: var(--shadow); 
+}
+
+/* Buttons */
+.btn { 
+    padding: 0.85rem 2rem; 
+    border-radius: 999px; 
+    font-weight: 700; 
+    text-decoration: none; 
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center; 
+    transition: all 0.3s; 
+    border: 1px solid transparent; 
+    cursor: pointer; 
+    box-shadow: 0 6px 20px rgba(30,58,138,.18); 
+    position: relative; 
+    overflow: hidden; 
+}
+
+.btn::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:0;
+    height:100%;
+    background:rgba(255,255,255,0.12);
+    transition:width .3s ease;
+}
+
+.btn:hover::before{
+    width:100%;
+}
+
+.btn-primary { 
+    background: linear-gradient(135deg, var(--primary), #3b82f6); 
+    color: #fff; 
+    border-color: rgba(255,255,255,.2); 
+}
+
+.btn-secondary { 
+    background: linear-gradient(135deg, var(--secondary), #059669); 
+    color: #fff; 
+    border: 1px solid rgba(255,255,255,0.3); 
+    backdrop-filter: blur(6px); 
+}
+
+.btn:hover { 
+    transform: translateY(-2px) scale(1.02); 
+    box-shadow: 0 10px 25px rgba(30,58,138,.28); 
+}
+
+.btn:focus-visible { 
+    outline: 3px solid rgba(59,130,246,.5); 
+    outline-offset: 2px; 
+}
+
+/* Tables */
+.comparison-table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    margin: 2rem 0; 
+    background: white; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); 
+    overflow-x: auto; 
+    display: block; 
+}
+
+.comparison-table table { 
+    width: 100%; 
+    min-width: 700px; 
+}
+
+.comparison-table th { 
+    background: var(--primary); 
+    color: white; 
+    padding: 1rem; 
+    text-align: left; 
+    font-weight: 600; 
+}
+
+.comparison-table td { 
+    padding: 1rem; 
+    border-bottom: 1px solid var(--border); 
+}
+
+.comparison-table tr:hover { 
+    background: var(--light); 
+}
+
+/* Info Boxes */
+.info-box { 
+    background: #eff6ff; 
+    border-left: 4px solid var(--primary); 
+    padding: 1.5rem; 
+    margin: 2rem 0; 
+    border-radius: 8px; 
+}
+
+.warning-box { 
+    background: #fef2f2; 
+    border-left: 4px solid var(--danger); 
+    padding: 1.5rem; 
+    margin: 2rem 0; 
+    border-radius: 8px; 
+}
+
+.success-box { 
+    background: #f0fdf4; 
+    border-left: 4px solid var(--secondary); 
+    padding: 1.5rem; 
+    margin: 2rem 0; 
+    border-radius: 8px; 
+}
+
+/* Footer */
+footer { 
+    background: var(--dark); 
+    color: white; 
+    padding: 3rem 0 1rem; 
+    margin-top: 4rem; 
+    width: 100%;
+}
+
+.footer-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 2rem; 
+    margin-bottom: 2rem; 
+}
+
+.footer-column h4 { 
+    margin-bottom: 1rem; 
+}
+
+.footer-column ul { 
+    list-style: none; 
+}
+
+.footer-column a { 
+    color: #9ca3af; 
+    text-decoration: none; 
+    line-height: 2; 
+    transition: color 0.3s; 
+}
+
+.footer-column a:hover { 
+    color: white; 
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .mobile-menu { display: block; }
+  .hero h1 { font-size: 1.8rem; }
+  .comparison-table { font-size: 0.9rem; }
+  .logo img { height: 56px; }
+}
+
+/* Utilities */
+.text-center { text-align: center; }
+.mt-1{margin-top:.5rem}.mt-2{margin-top:1rem}.mt-3{margin-top:1.5rem}.mt-4{margin-top:2rem}
+.mb-1{margin-bottom:.5rem}.mb-2{margin-bottom:1rem}.mb-3{margin-bottom:1.5rem}.mb-4{margin-bottom:2rem}
+.text-primary{color:var(--primary)}.text-secondary{color:var(--secondary)}.text-muted{color:#6b7280}
+
+/* Page fixes copied */
+.fake-stats{display:none!important}
+.breadcrumbs a{pointer-events:auto;cursor:pointer}
+.breadcrumbs a:hover{text-decoration:underline}
+
+/* Fix text visibility issues */
+.category-card,
+.featured-card,
+.blog-card {
+    background: white !important;
+    color: var(--dark) !important;
+}
+
+.category-card h3,
+.featured-card h3,
+.blog-card h3 {
+    color: var(--primary) !important;
+}
+
+/* Sections & Layout utilities */
+.section{padding:4rem 0}
+.section--sm{padding:3rem 0}
+.section--white{background:white}
+.section--bordered{border-bottom:1px solid var(--border)}
+.grid-auto-fit{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem}
+.heading-2{font-size:2rem;margin-bottom:.5rem}
+
+/* Icons & chips */
+.icon-badge{width:60px;height:60px;background:linear-gradient(135deg,var(--primary),#3b82f6);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:white;margin-bottom:1rem}
+.icon-badge--muted{background:linear-gradient(135deg,#9ca3af,#6b7280)}
+.badge-chip{background:var(--secondary);color:white;padding:.25rem .75rem;border-radius:20px;font-size:.75rem}
+
+/* Buttons helpers */
+.btn-group{max-width:700px;margin:2rem auto 0;display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
+.btn-full{flex:1;text-align:center}
+.btn-invert-secondary{background:white;color:var(--secondary)}
+
+/* Lists & links */
+.list-clean{list-style:none;padding:0;margin:0}
+.li-divider{padding:.75rem 0;border-bottom:1px solid var(--border)}
+.link-clean{color:var(--dark);text-decoration:none}
+.link-row{color:var(--dark);text-decoration:none;display:flex;justify-content:space-between;align-items:center}
+
+/* Misc */
+.stat-value{font-size:2rem;color:var(--primary);margin-bottom:.5rem}
+.card--disabled{opacity:.7}
+.footer-bottom{border-top:1px solid #374151;padding-top:1rem;text-align:center;color:#9ca3af;margin-top:2rem}
+
+/* Cookie Banner */
+.cookie-banner{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#fff;color:var(--dark);border:1px solid var(--border);box-shadow:var(--shadow);border-radius:12px;max-width:920px;width:92%;padding:1.25rem;z-index:2000}
+.cookie-banner h3{margin-bottom:.5rem}
+.cookie-banner p{color:#6b7280;margin-bottom:1rem}
+.cookie-actions{display:flex;gap:.75rem;flex-wrap:wrap;justify-content:flex-end}
+.cookie-btn{padding:.6rem 1rem;border-radius:999px;font-weight:600;border:1px solid var(--border);background:#fff;color:var(--dark);cursor:pointer}
+.cookie-btn.primary{background:var(--primary);color:#fff;border-color:var(--primary)}
+.cookie-btn:hover{transform:translateY(-1px);transition:transform .2s}
+@media (max-width: 640px){.cookie-banner{padding:1rem}}
+
+/* Article layout */
+.article-container{max-width:900px;margin:0 auto}
+.breadcrumbs{padding:1rem 0;font-size:.9rem;color:#6b7280}
+.breadcrumbs a{color:var(--primary);text-decoration:none}
+.article-hero{color:#fff;padding:3rem 0;margin-bottom:3rem;position:relative;overflow:hidden}
+.article-hero h1{font-size:2.5rem;margin-bottom:1rem;line-height:1.2}
+.article-meta{display:flex;gap:2rem;font-size:.9rem;opacity:.9}
+.toc{background:var(--light);border-left:4px solid var(--primary);padding:1.5rem;margin:2rem 0;border-radius:8px}
+.toc h2{font-size:1.2rem;margin-bottom:1rem}
+.toc ul{list-style:none}
+.toc li{margin-bottom:.5rem}
+.toc a{color:var(--dark);text-decoration:none;transition:color .3s}
+.toc a:hover{color:var(--primary)}
+.content h2{font-size:1.8rem;margin:3rem 0 1rem;color:var(--primary)}
+.content h3{font-size:1.4rem;margin:2rem 0 1rem}
+.content p{margin-bottom:1.5rem}
+.content ul,.content ol{margin-bottom:1.5rem;padding-left:2rem}
+.content li{margin-bottom:.5rem}
+
+/* Page-specific hero backgrounds */
+body[data-page="privatlan"] .article-hero{background:linear-gradient(135deg,var(--primary),#3b82f6)}
+body[data-page="foretagslan"] .article-hero{background:linear-gradient(135deg,#1e3a8a,#1e40af)}
+body[data-page="kreditkort"] .article-hero{background:linear-gradient(135deg,var(--primary),#1e40af)}
+
+/* Företagslån extras */
+.loan-types-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin:2rem 0}
+.loan-type-card{background:#fff;border:2px solid var(--border);border-radius:12px;padding:1.5rem;transition:all .3s}
+.loan-type-card:hover{border-color:var(--primary);box-shadow:0 10px 30px rgba(0,0,0,.1)}
+.loan-type-card h4{color:var(--primary);margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}
+.loan-type-card .amount{font-size:1.2rem;font-weight:700;color:var(--secondary);margin:.5rem 0}
+.loan-type-card .pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem;font-size:.9rem}
+.pros{color:var(--secondary)}
+.cons{color:var(--danger)}
+.timeline{position:relative;padding:2rem 0;margin:2rem 0}
+.timeline::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:2px;background:var(--border)}
+.timeline-item{display:flex;margin-bottom:2rem;position:relative}
+.timeline-item:nth-child(even){flex-direction:row-reverse}
+.timeline-content{background:#fff;border:2px solid var(--border);border-radius:12px;padding:1.5rem;width:45%;box-shadow:0 5px 15px rgba(0,0,0,.08)}
+.timeline-item:nth-child(even) .timeline-content{text-align:right}
+.timeline-dot{position:absolute;left:50%;transform:translateX(-50%);width:30px;height:30px;background:var(--primary);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
+.cta-section{background:linear-gradient(135deg,var(--secondary),#059669);color:#fff;padding:3rem;border-radius:12px;margin:3rem 0;text-align:center}
+.cta-button{background:#fff;color:var(--secondary);padding:1rem 2rem;border-radius:50px;text-decoration:none;display:inline-block;font-weight:700;margin-top:1rem;transition:transform .3s}
+.cta-button:hover{transform:scale(1.05)}
+.calculator{background:var(--light);border-radius:12px;padding:2rem;margin:2rem 0}
+.calculator-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem}
+.form-group{display:flex;flex-direction:column}
+.form-group label{margin-bottom:.5rem;font-weight:500}
+.form-group input,.form-group select{padding:.75rem;border:1px solid var(--border);border-radius:6px;font-size:1rem}
+.result-box{background:#fff;border-radius:8px;padding:1.5rem;margin-top:1.5rem;text-align:center;border:2px solid var(--primary)}
+.result-amount{font-size:2rem;font-weight:700;color:var(--primary)}
+
+/* Kreditkort extras */
+.card-finder{background:linear-gradient(135deg,var(--primary),#3b82f6);color:#fff;padding:2rem;border-radius:12px;margin:-4rem 0 3rem;position:relative}
+.finder-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem}
+.finder-option{background:rgba(255,255,255,.2);padding:1rem;border-radius:8px;cursor:pointer;transition:all .3s;text-align:center;border:2px solid transparent}
+.finder-option:hover{background:rgba(255,255,255,.3);transform:translateY(-2px)}
+.finder-option.active{background:#fff;color:var(--primary);border-color:#fff}
+.finder-option-icon{font-size:2rem;margin-bottom:.5rem}
+.quick-comparison{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;margin:2rem 0}
+.comparison-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.5rem;text-align:center;transition:all .3s}
+.comparison-card:hover{box-shadow:0 10px 30px rgba(0,0,0,.1);transform:translateY(-5px)}
+.comparison-card-icon{font-size:3rem;margin-bottom:1rem}
+.comparison-card h3{color:var(--primary);margin-bottom:.5rem}
+.comparison-card-value{font-size:1.5rem;font-weight:700;color:var(--secondary)}
+.categories-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin:2rem 0}
+.category-card{background:#fff;border:2px solid var(--border);border-radius:12px;padding:2rem;transition:all .3s;position:relative;overflow:hidden}
+.category-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--primary),var(--premium))}
+.category-card:hover{transform:translateY(-5px);box-shadow:0 10px 30px rgba(0,0,0,.1)}
+.category-card.premium{border-color:var(--gold)}
+.category-card.premium::before{background:linear-gradient(90deg,var(--gold),#f59e0b)}
+.category-icon{font-size:3rem;margin-bottom:1rem}
+.category-title{font-size:1.3rem;color:var(--primary);margin-bottom:.5rem}
+.category-features{list-style:none;padding:0;margin:1rem 0}
+.category-features li{padding-left:1.5rem;position:relative;margin-bottom:.5rem;font-size:.9rem}
+.category-features li::before{content:'✓';position:absolute;left:0;color:var(--secondary);font-weight:700}
+.category-price{display:flex;justify-content:space-between;align-items:center;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border)}
+.price-label{font-size:.9rem;color:#6b7280}
+.price-value{font-size:1.2rem;font-weight:700;color:var(--primary)}
+.credit-card{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;padding:2rem;border-radius:16px;position:relative;overflow:hidden;margin:2rem 0;min-height:200px;box-shadow:0 10px 30px rgba(0,0,0,.2)}
+.credit-card.gold{background:linear-gradient(135deg,var(--gold),#f59e0b)}
+.credit-card.black{background:linear-gradient(135deg,#1f2937,#111827)}
+.credit-card.silver{background:linear-gradient(135deg,#e5e7eb,#9ca3af)}
+.card-chip{width:50px;height:40px;background:linear-gradient(135deg,#fbbf24,#f59e0b);border-radius:8px;margin-bottom:1rem}
+.card-number{font-size:1.5rem;letter-spacing:2px;margin-bottom:1rem}
+.card-details{display:flex;justify-content:space-between;align-items:flex-end}
+.card-name{font-size:.9rem;text-transform:uppercase;letter-spacing:1px}
+.card-logo{font-size:2rem;font-weight:700}
+
+/* Lån utan UC extras */
+.hero-meta{display:flex;gap:2rem;font-size:.9rem;opacity:.9;margin-bottom:2rem}
+.trust-badges{display:flex;gap:2rem;align-items:center;justify-content:center;flex-wrap:wrap;position:relative;z-index:1;text-align:center;margin-top:3rem}
+.trust-badge{display:flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.15);padding:8px 16px;border-radius:20px;backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2);font-size:.9rem;transition:all .3s}
+.trust-badge:hover{background:rgba(255,255,255,.25);transform:translateY(-2px)}
+.trust-badge-icon{font-size:1.1rem;color:#10b981;font-weight:700}
+.quick-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin:-3rem auto 3rem;position:relative;z-index:10}
+.fact-card{background:#fff;padding:1.5rem;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.1);text-align:center;transition:transform .3s}
+.fact-card:hover{transform:translateY(-5px)}
+.fact-icon{font-size:2rem;margin-bottom:.5rem}
+.fact-value{font-size:1.8rem;font-weight:700;color:var(--primary)}
+.fact-label{color:#6b7280;font-size:.9rem}
+.lender-grid{display:grid;gap:1.5rem;margin:2rem 0}
+.lender-card{background:#fff;border:2px solid var(--border);border-radius:12px;padding:1.5rem;display:grid;grid-template-columns:auto 1fr auto;gap:1.5rem;align-items:center;transition:all .3s}
+.lender-card:hover{border-color:var(--primary);box-shadow:0 10px 30px rgba(0,0,0,.1)}
+.lender-card.featured{border-color:var(--secondary);background:linear-gradient(135deg,#f0fdf4,#fff)}
+.lender-logo{width:100px;height:60px;background:var(--light);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--primary)}
+.lender-logo img{max-width:90%;max-height:80%;object-fit:contain;display:block}
+.lender-info h3{margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}
+.badge{display:inline-block;padding:.25rem .75rem;border-radius:20px;font-size:.75rem;font-weight:600}
+.badge-featured{background:var(--secondary);color:#fff}
+.badge-fast{background:var(--accent);color:#fff}
+.badge-new{background:var(--primary);color:#fff}
+.lender-features{display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem;margin:.5rem 0}
+.lender-feature{font-size:.9rem;color:#6b7280}
+.lender-feature strong{color:var(--dark)}
+.lender-cta{display:flex;flex-direction:column;align-items:center;gap:.5rem}
+.lender-rating{display:flex;align-items:center;gap:.25rem;font-size:.9rem}
+.stars{color:var(--accent)}
+.process-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;margin:2rem 0;position:relative}
+.process-steps::before{content:'';position:absolute;top:40px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,var(--primary),var(--secondary));z-index:0}
+.step{text-align:center;position:relative;z-index:1}
+.step-icon{width:80px;height:80px;background:linear-gradient(135deg,var(--primary),#3b82f6);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;color:#fff;margin:0 auto 1rem;position:relative;z-index:1}
+.step h3{margin-bottom:.5rem;color:var(--primary)}
+.step p{font-size:.9rem;color:#6b7280}
+.faq-section{margin:3rem 0}
+.faq{border:1px solid var(--border);border-radius:8px;margin-bottom:1rem;overflow:hidden}
+.faq-question{background:var(--light);padding:1.5rem;cursor:pointer;font-weight:600;display:flex;justify-content:space-between;align-items:center;transition:background .3s}
+.faq-question:hover{background:#f3f4f6}
+.faq-question::after{content:'+';font-size:1.5rem;font-weight:700;color:var(--primary)}
+.faq.open .faq-question::after{content:'-'}
+.faq-answer{padding:0 1.5rem;max-height:0;overflow:hidden;transition:all .3s ease}
+.faq.open .faq-answer{padding:1.5rem;max-height:500px}
+
+/* Inline styles from home.html */
+/* Gör herons mönster klick-transparent och lägg allt content över */
+.hero::before{ pointer-events:none !important; z-index:0 !important; }
+.hero h1,.hero p,.hero .btn-group,.hero .trust-badges{ position:relative; z-index:1; }
+.hero a.btn{ position:relative; z-index:2; pointer-events:auto; }
+
+/* Centrera knapprader och badges */
+.btn-group{ display:flex; flex-wrap:wrap; gap:1rem; justify-content:center; }
+
+/* Partnerloggor: lås höjd, bevara proportioner, hindra 100%-bredd overrides */
+.partner-logos{ 
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); 
+  gap:20px; align-items:center; justify-items:center; 
+}
+.partner-logos .logo-tile{ 
+  background:#fff; border:1px solid #eef0f3; border-radius:14px; 
+  padding:14px 16px; min-height:74px; display:flex; align-items:center; justify-content:center;
+}
+.partner-logos img,
+.partner-logos .partner-logo{
+  width:auto !important; max-width:100% !important;
+  height:40px !important; object-fit:contain !important;
+  filter:grayscale(100%); opacity:.75; transition:transform .15s, filter .15s, opacity .15s;
+  display:block; margin:0 auto;
+}
+.partner-logos .logo-tile:hover img{ filter:none; opacity:1; transform:translateY(-1px); }
+
+/* Nollställ ev. globala img-regler som förstör loggorna */
+img.partner-logo{ max-height:none !important; }
+
+/* Desktop H1 storlek */
+@media (min-width: 992px){
+  .hero h1{ font-size:3rem; }
+}
+
+/* Tillgänglighet: respektera reducerad rörelse */
+@media (prefers-reduced-motion: reduce){
+  .hero::before{ animation: none !important; }
+  .partner-logos img{ transition: none !important; }
+  .hero a.btn{ transition: none !important; }
+}
