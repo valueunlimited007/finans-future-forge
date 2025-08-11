@@ -22,6 +22,17 @@ export default function LegacyPage({ htmlRaw }: LegacyPageProps) {
     }
   }, [htmlRaw]);
 
+  const headStyles = useMemo(() => {
+    try {
+      const doc = new DOMParser().parseFromString(htmlRaw, "text/html");
+      return Array.from(doc.head?.querySelectorAll("style") ?? [])
+        .map((s) => s.textContent || "")
+        .join("\n");
+    } catch {
+      return "";
+    }
+  }, [htmlRaw]);
+
   useLayoutEffect(() => {
     const el = containerRef.current;
     if (!el) return;
@@ -29,6 +40,22 @@ export default function LegacyPage({ htmlRaw }: LegacyPageProps) {
     // Clear and inject fresh HTML
     el.innerHTML = "";
     el.setAttribute("data-fg-page", currentPath);
+
+    // Inject inline <style> tags from the legacy head
+    try {
+      document
+        .querySelectorAll('style[data-fg-inline-style]')
+        .forEach((n) => n.parentNode?.removeChild(n));
+      if (headStyles.trim()) {
+        const tag = document.createElement("style");
+        tag.setAttribute("data-fg-inline-style", currentPath);
+        tag.textContent = headStyles;
+        document.head.appendChild(tag);
+      }
+    } catch (err) {
+      console.warn("[FG_INLINE_STYLE_ERROR]", err);
+    }
+
     el.insertAdjacentHTML("afterbegin", bodyHtml);
 
     console.info("[FG_INJECTED]", currentPath, "len:", el.innerHTML.length);
@@ -90,7 +117,7 @@ export default function LegacyPage({ htmlRaw }: LegacyPageProps) {
       el.removeEventListener("click", onClick);
       el.innerHTML = ""; // cleanup previous content
     };
-  }, [bodyHtml, currentPath]);
+  }, [bodyHtml, headStyles, currentPath]);
 
   // The container will receive the exact markup, preserving all classes and structure
   return <div ref={containerRef} />;
