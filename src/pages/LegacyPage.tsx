@@ -58,6 +58,43 @@ export default function LegacyPage({ htmlRaw }: LegacyPageProps) {
 
     el.insertAdjacentHTML("afterbegin", bodyHtml);
 
+    // Absolutisera relativa URL:er i injicerat innehåll (bilder, länkar, srcset, data-src, inline style url(...))
+    const absolutize = (root: HTMLElement) => {
+      const fix = (attr: "src" | "href" | "srcset" | "data-src") => {
+        root.querySelectorAll(`[${attr}]`).forEach((node) => {
+          const v = node.getAttribute(attr);
+          if (!v || v.startsWith("http") || v.startsWith("/") || v.startsWith("data:") || v.startsWith("#")) return;
+          if (attr === "srcset") {
+            const newVal = v
+              .split(",")
+              .map((item) => {
+                const parts = item.trim().split(/\s+/);
+                const url = parts.shift() || "";
+                const abs = new URL(url, window.location.origin).toString();
+                return [abs, ...parts].join(" ");
+              })
+              .join(", ");
+            node.setAttribute(attr, newVal);
+          } else {
+            node.setAttribute(attr, new URL(v, window.location.origin).toString());
+          }
+        });
+      };
+      fix("src");
+      fix("href");
+      fix("srcset");
+      fix("data-src");
+      // inline style url(...)
+      root.querySelectorAll("[style]").forEach((n) => {
+        const el = n as HTMLElement;
+        if (el.style && el.style.cssText) {
+          el.style.cssText = el.style.cssText.replace(/url\((?!['"]?(?:data:|https?:|\/))/g, "url(/");
+        }
+      });
+    };
+
+    absolutize(el as HTMLElement);
+
     console.info("[FG_INJECTED]", currentPath, "len:", el.innerHTML.length);
 
     // Execute inline scripts inside injected HTML (to keep behaviors like FAQ toggles, dates)
