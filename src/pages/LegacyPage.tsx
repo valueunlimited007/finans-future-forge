@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 interface LegacyPageProps {
-  html: string;
+  htmlRaw: string;
 }
 
 function extractBody(html: string) {
@@ -10,7 +10,7 @@ function extractBody(html: string) {
   return bodyMatch ? bodyMatch[1] : html;
 }
 
-export default function LegacyPage({ html }: LegacyPageProps) {
+export default function LegacyPage({ htmlRaw }: LegacyPageProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const navigate = useNavigate();
 
@@ -19,15 +19,15 @@ export default function LegacyPage({ html }: LegacyPageProps) {
     if (!container) return;
 
     // Inject exact HTML body content
-    const bodyHtml = extractBody(html);
+    const bodyHtml = extractBody(htmlRaw);
     container.innerHTML = bodyHtml;
 
     // Execute inline scripts inside injected HTML (to keep behaviors like FAQ toggles, dates)
     const scripts = Array.from(container.querySelectorAll("script"));
     scripts.forEach((oldScript) => {
       const newScript = document.createElement("script");
-      if (oldScript.src) {
-        newScript.src = oldScript.src;
+      if ((oldScript as HTMLScriptElement).src) {
+        newScript.src = (oldScript as HTMLScriptElement).src;
         newScript.async = (oldScript as HTMLScriptElement).async;
         newScript.defer = (oldScript as HTMLScriptElement).defer;
       } else {
@@ -64,8 +64,6 @@ export default function LegacyPage({ html }: LegacyPageProps) {
         "/kreditkort",
         "/privatlan",
         "/foretagslan",
-        "/integritetspolicy",
-        "/cookies",
       ]);
 
       if (allowed.has(path)) {
@@ -78,7 +76,7 @@ export default function LegacyPage({ html }: LegacyPageProps) {
     return () => {
       container.removeEventListener("click", onClick);
     };
-  }, [html, navigate]);
+  }, [htmlRaw, navigate]);
 
   // The container will receive the exact markup, preserving all classes and structure
   return <div ref={containerRef} />;

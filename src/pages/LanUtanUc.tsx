@@ -1,6 +1,12 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import LegacyPage from "./LegacyPage";
 import lanHtml from "../../lan-utan-uc.html?raw";
 
 export default function LanUtanUc() {
-  return <LegacyPage html={lanHtml} />;
+  const location = useLocation();
+  useEffect(() => {
+    console.info("Mounted page:", location.pathname, "source:", "lan-utan-uc.html");
+  }, [location.pathname]);
+  return <LegacyPage htmlRaw={lanHtml} />;
 }
