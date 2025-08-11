@@ -13,11 +13,16 @@
 .accordion-item .accordion-content { display: none; }
 
 .faq-item.active .faq-answer,
-.accordion-item.active .accordion-content {
+.accordion-item.active .accordion-content,
+[aria-expanded="true"] ~ .faq-answer {
   display: block !important;
-  overflow: visible !important;
   white-space: normal !important;
+  overflow: visible !important;
   max-height: none !important;
+  height: auto !important;
+  text-overflow: clip !important;
+  -webkit-line-clamp: unset !important;
+  -webkit-box-orient: initial !important;
 }
 
 

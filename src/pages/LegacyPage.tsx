@@ -184,6 +184,50 @@ export default function LegacyPage({ htmlRaw }: LegacyPageProps) {
 
     console.info("[FG_INJECTED]", currentPath, "len:", el.innerHTML.length);
 
+    // FG: Initialize FAQ icons/panels immediately after injection and on route changes
+    function initFaq(root: Document | HTMLElement = document) {
+      const TRIG = '[data-faq-question], .faq-question, .accordion-button, [aria-controls]';
+      const ITEM = '.faq-item, .accordion-item, li, div';
+      const PANL = '.faq-answer, .accordion-content, [data-faq-answer], .answer, .content';
+      let domIconCount = 0, panelsFixed = 0;
+
+      root.querySelectorAll<HTMLElement>(TRIG).forEach((q) => {
+        // mark DOM icon presence -> disable ::after pseudo via CSS
+        if (q.querySelector('.faq-toggle,[data-icon],svg,.icon,i')) {
+          q.classList.add('fg-has-dom-icon');
+          domIconCount++;
+        }
+        const item = q.closest(ITEM) as HTMLElement | null;
+        const id = q.getAttribute('aria-controls');
+        let a = (id ? document.getElementById(id) : null) as HTMLElement | null;
+        if (!a && item) a = item.querySelector(PANL) as HTMLElement | null;
+        if (!a && q.nextElementSibling) a = q.nextElementSibling as HTMLElement | null;
+        if (!a) return;
+
+        const preset = (item?.classList.contains('active') || q.getAttribute('aria-expanded') === 'true');
+        if (preset) {
+          item?.classList.add('active');
+          q.setAttribute('aria-expanded','true');
+          a.removeAttribute('hidden');
+          Object.assign(a.style, {
+            display:'block', maxHeight:'none', whiteSpace:'normal', overflow:'visible', height:'auto', textOverflow:'clip'
+          } as any);
+          (a.style as any).webkitLineClamp = 'unset';
+          (a.style as any).webkitBoxOrient = 'initial';
+          panelsFixed++;
+        }
+      });
+      console.info('[FG_FAQ_INIT]', { domIconCount, panelsFixed });
+    }
+
+    // run immediately after injection
+    initFaq(document);
+
+    // re-init on browser navigation changes (belt-and-braces)
+    const onLocationChange = () => initFaq(document);
+    window.addEventListener('popstate', onLocationChange);
+    window.addEventListener('hashchange', onLocationChange);
+
     // Execute inline scripts inside injected HTML (skip legacy FAQ binders to avoid double listeners)
     const scripts = Array.from(el.querySelectorAll("script"));
     scripts.forEach((oldScript) => {
@@ -258,6 +302,8 @@ export default function LegacyPage({ htmlRaw }: LegacyPageProps) {
     return () => {
       document.removeEventListener('click', onFaqClick);
       el.removeEventListener("click", onClick);
+      window.removeEventListener('popstate', onLocationChange);
+      window.removeEventListener('hashchange', onLocationChange);
       el.innerHTML = ""; // cleanup previous content
     };
   }, [bodyHtml, headStyles, currentPath]);
