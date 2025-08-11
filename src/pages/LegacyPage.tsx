@@ -145,6 +145,70 @@ export default function LegacyPage({ htmlRaw }: LegacyPageProps) {
 
     el.insertAdjacentHTML("afterbegin", bodyHtml);
 
+    // Step 1 — Mobile nav toggle injected after body content
+    function initMobileNav() {
+      const header = document.querySelector('header') as HTMLElement | null;
+      const nav = header?.querySelector('nav, [role="navigation"]') as HTMLElement | null;
+      if (!header || !nav) return;
+
+      // create toggle if missing
+      if (!header.querySelector('.fg-nav-toggle')) {
+        const btn = document.createElement('button');
+        btn.className = 'fg-nav-toggle';
+        btn.setAttribute('aria-expanded', 'false');
+        btn.setAttribute('aria-label', 'Öppna meny');
+        btn.innerHTML = '<span></span><span></span><span></span>'; // 3 streck
+        header.appendChild(btn);
+
+        const close = () => {
+          document.body.classList.remove('fg-nav-open');
+          btn.setAttribute('aria-expanded','false');
+        };
+        const open = () => {
+          document.body.classList.add('fg-nav-open');
+          btn.setAttribute('aria-expanded','true');
+        };
+
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          document.body.classList.contains('fg-nav-open') ? close() : open();
+        });
+
+        // close on link click inside nav
+        nav.addEventListener('click', (e) => {
+          const a = (e.target as HTMLElement).closest('a[href]') as HTMLAnchorElement | null;
+          if (a) close();
+        });
+      }
+
+      // inject mobile CSS once
+      if (!document.querySelector('style[data-fg-mobile-nav]')) {
+        const css = `
+@media (max-width: 768px){
+  body { overflow-x:hidden; }
+  header { position: relative; }
+  .fg-nav-toggle{
+    position:absolute; right:16px; top:14px; width:32px; height:28px;
+    background:transparent; border:0; padding:0; display:inline-flex; flex-direction:column; gap:5px; z-index:1001;
+  }
+  .fg-nav-toggle span{ display:block; height:3px; background:#0d3a8d; width:100%; border-radius:2px; }
+  header nav{
+    position:fixed; inset:60px 0 0 0; background:#fff; transform:translateY(-100%);
+    transition:transform .2s ease; padding:16px; box-shadow:0 8px 24px rgba(0,0,0,.08); z-index:1000;
+  }
+  body.fg-nav-open header nav{ transform:translateY(0); }
+  body.fg-nav-open { overflow:hidden; }
+  header nav a{ display:block; padding:12px 4px; border-bottom:1px solid rgba(0,0,0,.06); }
+}
+        `.trim();
+        const s = document.createElement('style');
+        s.setAttribute('data-fg-mobile-nav','1');
+        s.textContent = css;
+        document.head.appendChild(s);
+      }
+    }
+    initMobileNav();
+
     // Absolutisera relativa URL:er i injicerat innehåll (bilder, länkar, srcset, data-src, inline style url(...))
     const absolutize = (root: HTMLElement) => {
       const fix = (attr: "src" | "href" | "srcset" | "data-src") => {
