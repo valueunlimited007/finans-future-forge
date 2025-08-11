@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import LegacyPage from "./LegacyPage";
 // Import the exact static HTML as raw string to preserve markup and CSS
-import homeHtml from "../../index.html?raw";
+import homeHtml from "../../home.html?raw";
 
 export default function Home() {
   const location = useLocation();
