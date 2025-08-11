@@ -184,40 +184,40 @@ export default function LegacyPage({ htmlRaw }: LegacyPageProps) {
 
     console.info("[FG_INJECTED]", currentPath, "len:", el.innerHTML.length);
 
-    // Execute inline scripts inside injected HTML (to keep behaviors like FAQ toggles, dates)
+    // Execute inline scripts inside injected HTML (skip legacy FAQ binders to avoid double listeners)
     const scripts = Array.from(el.querySelectorAll("script"));
     scripts.forEach((oldScript) => {
-      const newScript = document.createElement("script");
       const old = oldScript as HTMLScriptElement;
       if (old.src) {
+        const newScript = document.createElement("script");
         newScript.src = old.src;
         newScript.async = old.async;
         newScript.defer = old.defer;
+        document.body.appendChild(newScript);
+        setTimeout(() => newScript.parentNode?.removeChild(newScript), 0);
       } else {
-        newScript.textContent = old.textContent;
+        const code = old.textContent || "";
+        if (/\bfaq-(question|toggle)\b|\.faq-item\s*\.active|accordion/i.test(code)) {
+          return; // we handle FAQ toggling ourselves
+        }
+        const newScript = document.createElement("script");
+        newScript.textContent = code;
+        document.body.appendChild(newScript);
+        setTimeout(() => newScript.parentNode?.removeChild(newScript), 0);
       }
-      document.body.appendChild(newScript);
-      // Cleanup after execution to avoid duplicates
-      setTimeout(() => {
-        newScript.parentNode?.removeChild(newScript);
-      }, 0);
     });
 
-    // Delegated FAQ toggler to ensure correct expanded state and single icon
+    // Delegated FAQ toggler: toggle .active on container, set aria-expanded, prevent legacy double-bind
     const onFaqClick = (e: Event) => {
-      const t = (e.target as HTMLElement)?.closest('[data-faq-question], .faq-question, .accordion-button, [aria-controls]') as HTMLElement | null;
-      if (!t) return;
-      const controlsId = t.getAttribute('aria-controls');
-      const panel = controlsId
-        ? (document.getElementById(controlsId) as HTMLElement | null)
-        : (t.parentElement?.querySelector('.faq-answer, .accordion-content') as HTMLElement | null);
-      if (!panel) return;
-      const expanded = t.getAttribute('aria-expanded') === 'true';
-      t.setAttribute('aria-expanded', (!expanded).toString());
-      t.classList.toggle('is-open', !expanded);
-      t.parentElement?.classList.toggle('is-open', !expanded);
-      panel.toggleAttribute('hidden', expanded);
-      panel.style.display = expanded ? 'none' : '';
+      const q = (e.target as HTMLElement)?.closest('[data-faq-question], .faq-question, .accordion-button, [aria-controls]') as HTMLElement | null;
+      if (!q) return;
+      const item = q.closest('.faq-item, .accordion-item, li, div') as HTMLElement | null;
+      if (item) {
+        const isActive = item.classList.toggle('active');
+        q.setAttribute('aria-expanded', String(isActive));
+        console.info('[FG_FAQ]', { active: isActive });
+        e.preventDefault();
+      }
     };
     document.addEventListener('click', onFaqClick);
 

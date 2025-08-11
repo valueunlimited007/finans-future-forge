@@ -1,6 +1,26 @@
 /* Finansguiden.se - Legacy CSS */
 /* Combined from styles.css, public/css/styles.css and inline styles */
 
+/* FG_FAQ overrides: icon dedup + full-height answers */
+.faq-question.fg-has-dom-icon::after,
+[data-faq-question].fg-has-dom-icon::after,
+.accordion-button.fg-has-dom-icon::after { content: none !important; }
+
+.faq-item .faq-toggle { transition: transform .2s ease; }
+.faq-item.active .faq-toggle { transform: rotate(45deg); }
+
+.faq-item .faq-answer,
+.accordion-item .accordion-content { display: none; }
+
+.faq-item.active .faq-answer,
+.accordion-item.active .accordion-content {
+  display: block !important;
+  overflow: visible !important;
+  white-space: normal !important;
+  max-height: none !important;
+}
+
+
 * {
     margin: 0;
     padding: 0;
