@@ -1,5 +1,5 @@
 import { useLayoutEffect, useRef, useMemo } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+
 
 interface LegacyPageProps {
   htmlRaw: string;
@@ -12,8 +12,7 @@ function extractBody(html: string) {
 
 export default function LegacyPage({ htmlRaw }: LegacyPageProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const navigate = useNavigate();
-  const location = useLocation();
+  const currentPath = typeof window !== "undefined" ? window.location.pathname : "/";
   const bodyHtml = useMemo(() => {
     try {
       const doc = new DOMParser().parseFromString(htmlRaw, "text/html");
@@ -29,10 +28,10 @@ export default function LegacyPage({ htmlRaw }: LegacyPageProps) {
 
     // Clear and inject fresh HTML
     el.innerHTML = "";
-    el.setAttribute("data-fg-page", location.pathname);
+    el.setAttribute("data-fg-page", currentPath);
     el.insertAdjacentHTML("afterbegin", bodyHtml);
 
-    console.info("[FG_INJECTED]", location.pathname, "len:", el.innerHTML.length);
+    console.info("[FG_INJECTED]", currentPath, "len:", el.innerHTML.length);
 
     // Execute inline scripts inside injected HTML (to keep behaviors like FAQ toggles, dates)
     const scripts = Array.from(el.querySelectorAll("script"));
@@ -81,7 +80,7 @@ export default function LegacyPage({ htmlRaw }: LegacyPageProps) {
 
       if (allowed.has(path)) {
         e.preventDefault();
-        navigate(path + url.search + url.hash);
+        window.location.assign(path + url.search + url.hash);
       }
     };
 
@@ -91,7 +90,7 @@ export default function LegacyPage({ htmlRaw }: LegacyPageProps) {
       el.removeEventListener("click", onClick);
       el.innerHTML = ""; // cleanup previous content
     };
-  }, [bodyHtml, location.pathname, navigate]);
+  }, [bodyHtml, currentPath]);
 
   // The container will receive the exact markup, preserving all classes and structure
   return <div ref={containerRef} />;
