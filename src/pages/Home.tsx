@@ -8,6 +8,7 @@ export default function Home() {
   const location = useLocation();
   useEffect(() => {
     console.info("Mounted page:", location.pathname, "source:", "index.html");
+    console.info("[FG_PAGE]", location.pathname, "src len:", homeHtml.length, "head:", homeHtml.slice(0,100));
   }, [location.pathname]);
   return <LegacyPage key={location.pathname} htmlRaw={homeHtml} />;
 }

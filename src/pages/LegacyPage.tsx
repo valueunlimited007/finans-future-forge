@@ -1,4 +1,4 @@
-import { useEffect, useRef, useMemo } from "react";
+import { useLayoutEffect, useRef, useMemo } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
 interface LegacyPageProps {
@@ -14,24 +14,37 @@ export default function LegacyPage({ htmlRaw }: LegacyPageProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const navigate = useNavigate();
   const location = useLocation();
-  const bodyHtml = useMemo(() => extractBody(htmlRaw), [htmlRaw]);
+  const bodyHtml = useMemo(() => {
+    try {
+      const doc = new DOMParser().parseFromString(htmlRaw, "text/html");
+      return doc?.body?.innerHTML ?? "";
+    } catch {
+      return extractBody(htmlRaw);
+    }
+  }, [htmlRaw]);
 
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
+  useLayoutEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
 
-    // Inject exact HTML body content
-    container.innerHTML = bodyHtml;
+    // Clear and inject fresh HTML
+    el.innerHTML = "";
+    el.setAttribute("data-fg-page", location.pathname);
+    el.insertAdjacentHTML("afterbegin", bodyHtml);
+
+    console.info("[FG_INJECTED]", location.pathname, "len:", el.innerHTML.length);
+
     // Execute inline scripts inside injected HTML (to keep behaviors like FAQ toggles, dates)
-    const scripts = Array.from(container.querySelectorAll("script"));
+    const scripts = Array.from(el.querySelectorAll("script"));
     scripts.forEach((oldScript) => {
       const newScript = document.createElement("script");
-      if ((oldScript as HTMLScriptElement).src) {
-        newScript.src = (oldScript as HTMLScriptElement).src;
-        newScript.async = (oldScript as HTMLScriptElement).async;
-        newScript.defer = (oldScript as HTMLScriptElement).defer;
+      const old = oldScript as HTMLScriptElement;
+      if (old.src) {
+        newScript.src = old.src;
+        newScript.async = old.async;
+        newScript.defer = old.defer;
       } else {
-        newScript.textContent = oldScript.textContent;
+        newScript.textContent = old.textContent;
       }
       document.body.appendChild(newScript);
       // Cleanup after execution to avoid duplicates
@@ -72,9 +85,11 @@ export default function LegacyPage({ htmlRaw }: LegacyPageProps) {
       }
     };
 
-    container.addEventListener("click", onClick);
+    el.addEventListener("click", onClick);
+
     return () => {
-      container.removeEventListener("click", onClick);
+      el.removeEventListener("click", onClick);
+      el.innerHTML = ""; // cleanup previous content
     };
   }, [bodyHtml, location.pathname, navigate]);
 
