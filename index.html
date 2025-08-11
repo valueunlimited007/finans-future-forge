@@ -5,15 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <base href="/" />
     <title>Finansguiden</title>
-    <!-- Google Tag Manager -->
+    <!-- Google Tag Manager (prod only) -->
     <script>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
-      var f=d.getElementsByTagName(s)[0], j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
-      j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-      f.parentNode.insertBefore(j,f);
+      (function(w,d,s,l,i){
+        var isProd = /(^|\.)finansguiden\.se$/i.test(location.hostname);
+        if (!isProd) { w[l]=w[l]||[]; w[l].push({event:'fg_skip_gtm'}); return; }
+        w[l]=w[l]||[]; w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+        var f=d.getElementsByTagName(s)[0], j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
+        j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id=GTM-KFTN6CN8'+dl;
+        f.parentNode.insertBefore(j,f);
       })(window,document,'script','dataLayer','GTM-KFTN6CN8');
     </script>
-    <!-- End Google Tag Manager -->
+    <!-- End GTM -->
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->

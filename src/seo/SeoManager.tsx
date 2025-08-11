@@ -30,8 +30,9 @@ export default function SeoManager() {
   // Always use production canonical for og:url when available
   const ogUrl = canonical || undefined;
   // Robots handling: noindex on lovable previews
-  const isLovable = typeof window !== 'undefined' && /\.lovable\.app$/.test(window.location.hostname);
-  const robots = isLovable ? 'noindex, nofollow' : 'index, follow';
+  const host = typeof window !== 'undefined' ? window.location.hostname : '';
+  const isDevHost = /\.lovable\.app$/i.test(host) || /localhost|127\.0\.0\.1/.test(host);
+  const robots = isDevHost ? 'noindex, nofollow' : 'index, follow';
 
   return (
     <Helmet prioritizeSeoTags>
