@@ -27,7 +27,11 @@ export default function GlossaryIndex() {
     const s = q.trim();
     if (!s) return;
     const t = setTimeout(() => {
-      safeEvent("glossary_search", { query: s, len: s.length, page: location.pathname });
+      const sLower = s.toLowerCase();
+      const count = glossaryData.filter((g) =>
+        g.term.toLowerCase().includes(sLower) || g.shortDefinition?.toLowerCase().includes(sLower)
+      ).length;
+      safeEvent("glossary_search", { query: s, results_count: count, page: location.pathname });
     }, 500);
     return () => clearTimeout(t);
   }, [q]);
@@ -41,11 +45,11 @@ export default function GlossaryIndex() {
   }, [q]);
 
   return (
-    <main className="mx-auto w-full max-w-4xl px-4 py-8">
+    <main className="mx-auto max-w-3xl px-4 py-8">
       <Helmet>
         <title>Finansordlista A–Ö | Finansguiden.se</title>
         <meta name="description" content="Sök i Finansguidens finansordlista A–Ö. Förklaringar av begrepp som amortering, effektiv ränta, indexfond m.fl." />
-        <link rel="canonical" href={`${location.origin}/ordlista`} />
+        <link rel="canonical" href={`https://finansguiden.se/ordlista`} />
       </Helmet>
 
       <header className="mb-6">

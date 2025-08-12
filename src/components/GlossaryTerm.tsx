@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import type { GlossaryTerm as GlossaryType } from "@/data/glossary";
 import AffiliateButton from "@/components/AffiliateButton";
 import AdSlot from "@/components/AdSlot";
+import { AutoLinkedText } from "@/lib/autolinkGlossary";
 
 interface GlossaryTermProps {
   term: GlossaryType;
@@ -32,12 +33,12 @@ const GlossaryTerm: React.FC<GlossaryTermProps> = ({ term, related }) => {
           <AffiliateButton href="/kreditkort" termSlug={term.slug} label="Se erbjudanden" />
         </div>
 
-        <section>
+        <section className="prose prose-neutral dark:prose-invert">
           {term.longDefinition?.map((p, i) => (
             <React.Fragment key={i}>
-              <p className="mb-4 text-foreground leading-relaxed">{p}</p>
+              <p><AutoLinkedText text={p} currentSlug={term.slug} /></p>
               {i === 0 && (
-                <div className="my-6">
+                <div className="not-prose my-6">
                   <AdSlot slot="glossary_top" termSlug={term.slug} />
                 </div>
               )}
@@ -45,10 +46,27 @@ const GlossaryTerm: React.FC<GlossaryTermProps> = ({ term, related }) => {
           ))}
         </section>
 
+        {term.faqs?.length ? (
+          <section className="my-6">
+            <h2 className="mb-2 font-semibold">Vanliga frågor</h2>
+            <div className="prose prose-neutral dark:prose-invert">
+              {term.faqs.map((f, i) => (
+                <div key={i} className="mb-4">
+                  <h3 className="text-lg font-medium">{f.q}</h3>
+                  <p><AutoLinkedText text={f.a} currentSlug={term.slug} /></p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-4">
+              <AdSlot slot="glossary_mid" termSlug={term.slug} />
+            </div>
+          </section>
+        ) : null}
+
         {term.example && (
           <section className="my-6 rounded-lg border border-border bg-muted/20 p-4">
             <h2 className="mb-1 font-semibold">Exempel</h2>
-            <p className="text-foreground">{term.example}</p>
+            <p className="text-foreground"><AutoLinkedText text={term.example} currentSlug={term.slug} /></p>
           </section>
         )}
 

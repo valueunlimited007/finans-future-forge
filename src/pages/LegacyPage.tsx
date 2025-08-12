@@ -242,9 +242,10 @@ export default function LegacyPage({ htmlRaw }: LegacyPageProps) {
             '/kreditkort',
             '/privatlan',
             '/foretagslan',
+            '/ordlista',
           ]);
 
-          if (allowed.has(path)) {
+          if (allowed.has(path) || path.startsWith('/ordlista')) {
             e.preventDefault();
             close();
             // same page with hash: just jump without full reload
@@ -331,6 +332,29 @@ export default function LegacyPage({ htmlRaw }: LegacyPageProps) {
           document.head.appendChild(s);
         }
       }
+
+      // Ensure glossary links in header and footer
+      (function ensureGlossaryLinks(){
+        if ((window as any).__fgGlossaryLinks) return;
+        (window as any).__fgGlossaryLinks = true;
+        try {
+          const headerNav = document.querySelector('header nav, header [role="navigation"]');
+          if (headerNav && !headerNav.querySelector('a[href$="/ordlista"]')) {
+            const a = document.createElement('a');
+            a.href = '/ordlista';
+            a.textContent = 'Ordlista';
+            headerNav.appendChild(a);
+          }
+          const footer = document.querySelector('footer');
+          if (footer && !footer.querySelector('a[href$="/ordlista"]')) {
+            const a = document.createElement('a');
+            a.href = '/ordlista';
+            a.textContent = 'Finansordlista (A–Ö)';
+            const container = footer.querySelector('nav, ul, .footer-links') || footer;
+            container.appendChild(a);
+          }
+        } catch(e){}
+      })();
     })();
 
     // Absolutisera relativa URL:er i injicerat innehåll (bilder, länkar, srcset, data-src, inline style url(...))

@@ -31,8 +31,21 @@ export const AdSlot: React.FC<AdSlotProps> = ({ slot, termSlug, className }) => 
       className={"w-full rounded-md border border-border bg-card text-card-foreground p-4 " + (className || "")}
       aria-label="Annons"
     >
-      <div className="text-sm text-muted-foreground">Annonsplats: {slot}</div>
-      {/* Här kan ni koppla in ert befintliga offers-script om så önskas */}
+      <div className="flex items-center justify-between">
+        <div>
+          <div className="text-xs uppercase text-muted-foreground">Annonsplats</div>
+          <div className="font-medium">Din annons här</div>
+          <div className="text-xs text-muted-foreground">Slot: {slot}</div>
+        </div>
+        <button
+          type="button"
+          className="rounded-md border border-border px-3 py-1 text-sm hover:bg-accent hover:text-accent-foreground"
+          onClick={() => safeEvent("ad_click_house", { slot, term: termSlug, page: location.pathname, ts: Date.now() })}
+          aria-label="Klicka på husannons"
+        >
+          Läs mer
+        </button>
+      </div>
     </aside>
   );
 };

@@ -31,7 +31,7 @@ export default function GlossaryTermPage() {
         <Helmet>
           <title>Term saknas – Finansordlista | Finansguiden.se</title>
           <meta name="robots" content="noindex,follow" />
-          <link rel="canonical" href={`${location.origin}/ordlista/${slug || ""}`} />
+          <link rel="canonical" href={`https://finansguiden.se/ordlista/${slug || ""}`} />
         </Helmet>
         <h1 className="text-2xl font-bold">Saknas</h1>
         <p className="text-muted-foreground">Vi hittade inte termen.</p>
@@ -46,26 +46,28 @@ export default function GlossaryTermPage() {
 
   const title = `${term.term} – Finansordlista | Finansguiden.se`;
   const description = term.shortDefinition || `${term.term} – förklaring och exempel.`;
-  const canonical = `${location.origin}/ordlista/${term.slug}`;
+  const canonical = `https://finansguiden.se/ordlista/${term.slug}`;
 
-  const faq = [
-    {
-      question: `Vad betyder ${term.term}?`,
-      answer: term.shortDefinition || term.longDefinition?.[0] || "",
-    },
-    {
-      question: `Hur används ${term.term} i praktiken?`,
-      answer: term.example || term.longDefinition?.[1] || term.longDefinition?.[0] || "",
-    },
-    ...(related.length
-      ? [
-          {
-            question: `Vilka relaterade begrepp finns till ${term.term}?`,
-            answer: `Relaterade: ${related.map((r) => r.term).join(", ")}.`,
-          },
-        ]
-      : []),
-  ];
+  const faqEntries = (Array.isArray(term.faqs) && term.faqs.length)
+    ? term.faqs.map((f) => ({ question: f.q, answer: f.a }))
+    : [
+        {
+          question: `Vad betyder ${term.term}?`,
+          answer: term.shortDefinition || term.longDefinition?.[0] || "",
+        },
+        {
+          question: `Hur används ${term.term} i praktiken?`,
+          answer: term.example || term.longDefinition?.[1] || term.longDefinition?.[0] || "",
+        },
+        ...(related.length
+          ? [
+              {
+                question: `Vilka relaterade begrepp finns till ${term.term}?`,
+                answer: `Relaterade: ${related.map((r) => r.term).join(", ")}.`,
+              },
+            ]
+          : []),
+      ];
 
   const jsonLd = [
     {
@@ -90,7 +92,7 @@ export default function GlossaryTermPage() {
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      mainEntity: faq.map((f) => ({
+      mainEntity: faqEntries.map((f) => ({
         "@type": "Question",
         name: f.question,
         acceptedAnswer: { "@type": "Answer", text: f.answer },
@@ -99,7 +101,7 @@ export default function GlossaryTermPage() {
   ];
 
   return (
-    <main className="mx-auto w-full max-w-5xl px-4 py-8">
+    <main className="mx-auto max-w-3xl px-4 py-8">
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={description} />
