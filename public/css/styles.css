@@ -295,3 +295,8 @@ body[data-page="kreditkort"] .article-hero{background:linear-gradient(135deg,var
 
 /* Ensure hero buttons are fully interactive above effects */
 .hero a.btn{position:relative;z-index:2;pointer-events:auto}
+
+/* Safety: hide any duplicate headers that may render after the main one */
+header:not(:first-of-type){display:none !important}
+footer + header, footer ~ header{display:none !important}
+
