@@ -250,9 +250,6 @@ export default function LegacyPage({ htmlRaw }: LegacyPageProps) {
 @media (max-width:768px){
   body { overflow-x:hidden; }
 
-  /* Dölj desktopnaven helt i mobilläge */
-  header nav, header [role="navigation"] { display:none !important; }
-
   /* Vår custom-toggle visas bara om det inte finns en native */
   header [data-fg-native-toggle] ~ .fg-mobile-toggle{ display:none !important; }
 
