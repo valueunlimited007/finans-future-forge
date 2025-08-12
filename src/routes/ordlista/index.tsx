@@ -52,10 +52,12 @@ export default function GlossaryIndex() {
         <link rel="canonical" href={`https://finansguiden.se/ordlista`} />
       </Helmet>
 
-      <header className="mb-6">
-        <h1 className="text-3xl font-bold">Finansordlista (A–Ö)</h1>
-        <p className="mt-1 text-muted-foreground">Utforska centrala begrepp inom lån, sparande och privatekonomi.</p>
-      </header>
+      <div className="prose prose-neutral dark:prose-invert">
+        <header className="mb-6 not-prose">
+          <h1 className="text-3xl font-bold">Finansordlista (A–Ö)</h1>
+          <p className="mt-1 text-muted-foreground">Utforska centrala begrepp inom lån, sparande och privatekonomi.</p>
+        </header>
+      </div>
 
       <label className="sr-only" htmlFor="glossary-search">Sök i finansordlistan</label>
       <input
@@ -67,7 +69,9 @@ export default function GlossaryIndex() {
         className="mb-6 w-full rounded-xl border border-input bg-background px-4 py-3 text-foreground placeholder:text-muted-foreground"
       />
 
-      <GlossaryList items={list} />
+      <div className="prose prose-neutral dark:prose-invert">
+        <GlossaryList items={list} />
+      </div>
 
       <div className="mt-8 text-sm text-muted-foreground">
         Tips: Saknar du något ord? <Link to="/kontakt" className="underline underline-offset-2 hover:no-underline">Hör av dig</Link>.
