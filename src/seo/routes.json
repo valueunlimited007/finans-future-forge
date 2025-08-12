@@ -101,5 +101,18 @@
       "name": "Integritetspolicy",
       "url": "https://finansguiden.se/integritetspolicy"
     }
+  },
+  "/ordlista": {
+    "title": "Finansordlista (A–Ö) – begrepp och förklaringar",
+    "description": "Sök i vår A–Ö ordlista och lär dig vanliga ekonomitermer med korta förklaringar och exempel.",
+    "canonical": "https://finansguiden.se/ordlista",
+    "changefreq": "weekly",
+    "priority": 0.8,
+    "jsonld": {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Finansordlista (A–Ö)",
+      "url": "https://finansguiden.se/ordlista"
+    }
   }
 }
