@@ -13,7 +13,7 @@ import Cookies from "./pages/Cookies";
 import Integritetspolicy from "./pages/Integritetspolicy";
 import GlossaryIndex from "./routes/ordlista/index";
 import GlossaryTermPage from "./routes/ordlista/[slug]";
-import SiteLayout from "./layout/SiteLayout";
+import SiteLayout from "./layouts/SiteLayout";
 const queryClient = new QueryClient();
 
 const App = () => (
