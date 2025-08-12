@@ -20,10 +20,20 @@ function slugify(s){
 function extractGlossarySlugs(){
   try {
     const ts = readFileSync(resolve('src/data/glossary.ts'),'utf8');
-    const m = ts.match(/const CATEGORIES[^=]*=\s*{([\s\S]*?)};/);
-    if (!m) return [];
-    const block = m[1];
-    const terms = Array.from(block.matchAll(/"([^"]+)"/g)).map(x=>x[1]);
+
+    const extractBlock = (varName) => {
+      const re = new RegExp(`const\\s+${varName}[^=]*=\\s*{([\\s\\S]*?)};`);
+      const m = ts.match(re);
+      if (!m) return [];
+      const block = m[1];
+      return Array.from(block.matchAll(/"([^"]+)"/g)).map(x=>x[1]);
+    };
+
+    const terms = [
+      ...extractBlock('CATEGORIES'),
+      ...extractBlock('EXTRA'), // fångar upp extra-blocket som lagts till efter rad 75
+    ];
+
     const uniq = Array.from(new Set(terms));
     const slugs = uniq.map(t => slugify(t));
     return slugs.map(slug => ({
