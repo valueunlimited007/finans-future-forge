@@ -5,7 +5,8 @@ import { glossary as glossaryData } from "@/data/glossary";
 import GlossaryTerm from "@/components/GlossaryTerm";
 import { buildFaq } from "@/lib/glossaryFaq";
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd } from "@/lib/jsonld";
-
+import LegacyHeader from "@/components/LegacyHeader";
+import LegacyFooter from "@/components/LegacyFooter";
 const safeEvent = (name: string, params: Record<string, any>) => {
   try {
     if (typeof (window as any).gtag === "function") {
@@ -29,15 +30,19 @@ export default function GlossaryTermPage() {
 
   if (!term) {
     return (
-      <main className="mx-auto max-w-3xl px-4 py-8">
-        <Helmet>
-          <title>Term saknas – Finansordlista | Finansguiden.se</title>
-          <meta name="robots" content="noindex,follow" />
-          <link rel="canonical" href={`https://finansguiden.se/ordlista/${slug || ""}`} />
-        </Helmet>
-        <h1 className="text-2xl font-bold">Saknas</h1>
-        <p className="text-muted-foreground">Vi hittade inte termen.</p>
-      </main>
+      <>
+        <LegacyHeader />
+        <main className="mx-auto max-w-3xl px-4 py-8">
+          <Helmet>
+            <title>Term saknas – Finansordlista | Finansguiden.se</title>
+            <meta name="robots" content="noindex,follow" />
+            <link rel="canonical" href={`https://finansguiden.se/ordlista/${slug || ""}`} />
+          </Helmet>
+          <h1 className="text-2xl font-bold">Saknas</h1>
+          <p className="text-muted-foreground">Vi hittade inte termen.</p>
+        </main>
+        <LegacyFooter />
+      </>
     );
   }
 
@@ -59,22 +64,26 @@ export default function GlossaryTermPage() {
   ];
 
   return (
-    <main className="mx-auto max-w-3xl px-4 py-8">
-      <Helmet>
-        <title>{title}</title>
-        <meta name="description" content={description} />
-        <link rel="canonical" href={canonical} />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content={canonical} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content={description} />
-        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
-      </Helmet>
+    <> 
+      <LegacyHeader />
+      <main className="mx-auto max-w-3xl px-4 py-8">
+        <Helmet>
+          <title>{title}</title>
+          <meta name="description" content={description} />
+          <link rel="canonical" href={canonical} />
+          <meta property="og:title" content={title} />
+          <meta property="og:description" content={description} />
+          <meta property="og:type" content="article" />
+          <meta property="og:url" content={canonical} />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content={title} />
+          <meta name="twitter:description" content={description} />
+          <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+        </Helmet>
 
-      <GlossaryTerm term={term} related={related} />
-    </main>
+        <GlossaryTerm term={term} related={related} />
+      </main>
+      <LegacyFooter />
+    </>
   );
 }

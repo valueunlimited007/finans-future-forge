@@ -3,7 +3,8 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { glossary as glossaryData } from "@/data/glossary";
 import GlossaryList from "@/components/GlossaryList";
-
+import LegacyHeader from "@/components/LegacyHeader";
+import LegacyFooter from "@/components/LegacyFooter";
 const safeEvent = (name: string, params: Record<string, any>) => {
   try {
     if (typeof (window as any).gtag === "function") {
@@ -45,37 +46,41 @@ export default function GlossaryIndex() {
   }, [q]);
 
   return (
-    <main className="mx-auto max-w-3xl px-4 py-8">
-      <Helmet>
-        <title>Finansordlista A–Ö | Finansguiden.se</title>
-        <meta name="description" content="Sök i Finansguidens finansordlista A–Ö. Förklaringar av begrepp som amortering, effektiv ränta, indexfond m.fl." />
-        <link rel="canonical" href={`https://finansguiden.se/ordlista`} />
-      </Helmet>
+    <>
+      <LegacyHeader />
+      <main className="mx-auto max-w-3xl px-4 py-8">
+        <Helmet>
+          <title>Finansordlista A–Ö | Finansguiden.se</title>
+          <meta name="description" content="Sök i Finansguidens finansordlista A–Ö. Förklaringar av begrepp som amortering, effektiv ränta, indexfond m.fl." />
+          <link rel="canonical" href={`https://finansguiden.se/ordlista`} />
+        </Helmet>
 
-      <div className="prose prose-neutral dark:prose-invert">
-        <header className="mb-6 not-prose">
-          <h1 className="text-3xl font-bold">Finansordlista (A–Ö)</h1>
-          <p className="mt-1 text-muted-foreground">Utforska centrala begrepp inom lån, sparande och privatekonomi.</p>
-        </header>
-      </div>
+        <div className="prose prose-neutral dark:prose-invert">
+          <header className="mb-6 not-prose">
+            <h1 className="text-3xl font-bold">Finansordlista (A–Ö)</h1>
+            <p className="mt-1 text-muted-foreground">Utforska centrala begrepp inom lån, sparande och privatekonomi.</p>
+          </header>
+        </div>
 
-      <label className="sr-only" htmlFor="glossary-search">Sök i finansordlistan</label>
-      <input
-        id="glossary-search"
-        value={q}
-        onChange={(e) => setQ(e.target.value)}
-        placeholder="Sök begrepp, t.ex. ”amortering”"
-        aria-label="Sök i finansordlistan"
-        className="mb-6 w-full rounded-xl border border-input bg-background px-4 py-3 text-foreground placeholder:text-muted-foreground"
-      />
+        <label className="sr-only" htmlFor="glossary-search">Sök i finansordlistan</label>
+        <input
+          id="glossary-search"
+          value={q}
+          onChange={(e) => setQ(e.target.value)}
+          placeholder="Sök begrepp, t.ex. ”amortering”"
+          aria-label="Sök i finansordlistan"
+          className="mb-6 w-full rounded-xl border border-input bg-background px-4 py-3 text-foreground placeholder:text-muted-foreground"
+        />
 
-      <div className="prose prose-neutral dark:prose-invert">
-        <GlossaryList items={list} />
-      </div>
+        <div className="prose prose-neutral dark:prose-invert">
+          <GlossaryList items={list} />
+        </div>
 
-      <div className="mt-8 text-sm text-muted-foreground">
-        Tips: Saknar du något ord? <Link to="/kontakt" className="underline underline-offset-2 hover:no-underline">Hör av dig</Link>.
-      </div>
-    </main>
+        <div className="mt-8 text-sm text-muted-foreground">
+          Tips: Saknar du något ord? <Link to="/kontakt" className="underline underline-offset-2 hover:no-underline">Hör av dig</Link>.
+        </div>
+      </main>
+      <LegacyFooter />
+    </>
   );
 }
