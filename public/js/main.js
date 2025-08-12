@@ -1,27 +1,6 @@
 /* Finansguiden.se - Main JS */
 (function(){
-  // Safety: ensure only one top-level header exists (remove any duplicates appended after footer)
-  function normalizeHeaders(){
-    try{
-      var body = document.body; if (!body) return;
-      var headers = Array.from(body.querySelectorAll('body > header'));
-      // Keep first, remove the rest
-      headers.slice(1).forEach(function(h){ h.parentElement && h.parentElement.removeChild(h); });
-      // Remove any header nodes that appear after the footer
-      var footer = body.querySelector('body > footer');
-      if (footer){
-        var sib = footer.nextElementSibling;
-        while (sib){
-          if (sib.tagName && sib.tagName.toLowerCase()==='header'){
-            var toRemove = sib; sib = sib.nextElementSibling; toRemove.remove(); continue;
-          }
-          sib = sib.nextElementSibling;
-        }
-      }
-    }catch(e){}
-  }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', normalizeHeaders); else normalizeHeaders();
-  try { new MutationObserver(normalizeHeaders).observe(document.body, { childList: true }); } catch(e){}
+  // Header-normalisering avaktiverad (inte längre nödvändig).
 
   // Update current year placeholders
   try {

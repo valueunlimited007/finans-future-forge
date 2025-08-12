@@ -164,7 +164,8 @@ export default function LegacyPage({ htmlRaw }: LegacyPageProps) {
         '.menu-toggle'
       ].join(',')) || undefined;
 
-      // 2) Create drawer once
+      // 2) HMR-säkring + skapa drawer en gång
+      document.querySelectorAll('.fg-mobile-drawer').forEach((el, i) => { if (i > 0) el.remove(); });
       let drawer = document.querySelector('.fg-mobile-drawer') as HTMLElement | null;
       if (!drawer) {
         drawer = document.createElement('div');
@@ -286,15 +287,21 @@ export default function LegacyPage({ htmlRaw }: LegacyPageProps) {
         // 4) CSS – overlay and buttons (mobile only)
         if (!document.querySelector('style[data-fg-mobile]')) {
           const css = `
+/* Bas: aldrig synlig på desktop */
+.fg-mobile-drawer { display: none !important; }
+
 @media (max-width:768px){
   body { overflow-x:hidden; }
 
   /* Vår custom-toggle visas bara om det inte finns en native */
   header [data-fg-native-toggle] ~ .fg-mobile-toggle{ display:none !important; }
 
-  .fg-mobile-drawer{position:fixed; inset:0; background:rgba(0,0,0,.35);
-    opacity:0; pointer-events:none; transition:opacity .18s; z-index:1000;}
-  .fg-mobile-drawer.open{opacity:1; pointer-events:auto;}
+  .fg-mobile-drawer{
+    display:block !important;
+    position:fixed; inset:0; background:rgba(0,0,0,.35);
+    opacity:0; pointer-events:none; transition:opacity .18s; z-index:1000;
+  }
+  .fg-mobile-drawer.open{ opacity:1; pointer-events:auto; }
   .fg-mobile-drawer .fgm-panel{
     position:absolute; inset:0; background:#fff; transform:translateY(-100%);
     transition:transform .22s; display:flex; flex-direction:column; height:100%;
