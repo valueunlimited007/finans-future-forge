@@ -9,6 +9,8 @@ import LanUtanUc from "./pages/LanUtanUc";
 import Kreditkort from "./pages/Kreditkort";
 import Privatlan from "./pages/Privatlan";
 import Foretagslan from "./pages/Foretagslan";
+import Cookies from "./pages/Cookies";
+import Integritetspolicy from "./pages/Integritetspolicy";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +27,8 @@ const App = () => (
             <Route path="/kreditkort" element={<Kreditkort />} />
             <Route path="/privatlan" element={<Privatlan />} />
             <Route path="/foretagslan" element={<Foretagslan />} />
+            <Route path="/cookies" element={<Cookies />} />
+            <Route path="/integritetspolicy" element={<Integritetspolicy />} />
           </Routes>
         </BrowserRouter>
       </TooltipProvider>

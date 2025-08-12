@@ -75,5 +75,31 @@
       "@type": "FAQPage",
       "mainEntity": []
     }
+  },
+  "/cookies": {
+    "title": "Cookies – Finansguiden.se",
+    "description": "Läs om vår cookiepolicy och hur vi använder kakor.",
+    "canonical": "https://finansguiden.se/cookies",
+    "changefreq": "yearly",
+    "priority": 0.3,
+    "jsonld": {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Cookies",
+      "url": "https://finansguiden.se/cookies"
+    }
+  },
+  "/integritetspolicy": {
+    "title": "Integritetspolicy – Finansguiden.se",
+    "description": "Hur vi hanterar personuppgifter och skyddar din integritet.",
+    "canonical": "https://finansguiden.se/integritetspolicy",
+    "changefreq": "yearly",
+    "priority": 0.3,
+    "jsonld": {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Integritetspolicy",
+      "url": "https://finansguiden.se/integritetspolicy"
+    }
   }
 }
