@@ -11,7 +11,8 @@ import Privatlan from "./pages/Privatlan";
 import Foretagslan from "./pages/Foretagslan";
 import Cookies from "./pages/Cookies";
 import Integritetspolicy from "./pages/Integritetspolicy";
-
+import GlossaryIndex from "./routes/ordlista/index";
+import GlossaryTermPage from "./routes/ordlista/[slug]";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -27,6 +28,8 @@ const App = () => (
             <Route path="/kreditkort" element={<Kreditkort />} />
             <Route path="/privatlan" element={<Privatlan />} />
             <Route path="/foretagslan" element={<Foretagslan />} />
+            <Route path="/ordlista" element={<GlossaryIndex />} />
+            <Route path="/ordlista/:slug" element={<GlossaryTermPage />} />
             <Route path="/cookies" element={<Cookies />} />
             <Route path="/integritetspolicy" element={<Integritetspolicy />} />
           </Routes>
