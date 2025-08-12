@@ -249,36 +249,38 @@ export default function LegacyPage({ htmlRaw }: LegacyPageProps) {
           const css = `
 @media (max-width:768px){
   body { overflow-x:hidden; }
-  /* Hide any header native dropdown when our toggle is used */
-  [data-fg-native-toggle] + *[aria-expanded="true"],
-  [data-fg-native-toggle] + .open { display:none !important; }
 
-  .fg-mobile-toggle{
-    position:absolute; right:16px; top:14px; width:32px; height:28px;
-    background:transparent; border:0; display:inline-flex; flex-direction:column; gap:5px; z-index:1001;
-  }
-  .fg-mobile-toggle span{display:block;height:3px;background:#0d3a8d;border-radius:2px;}
+  /* Dölj desktopnaven helt i mobilläge */
+  header nav, header [role="navigation"] { display:none !important; }
+
+  /* Vår custom-toggle visas bara om det inte finns en native */
+  header [data-fg-native-toggle] ~ .fg-mobile-toggle{ display:none !important; }
 
   .fg-mobile-drawer{position:fixed; inset:0; background:rgba(0,0,0,.35);
     opacity:0; pointer-events:none; transition:opacity .18s; z-index:1000;}
   .fg-mobile-drawer.open{opacity:1; pointer-events:auto;}
   .fg-mobile-drawer .fgm-panel{
     position:absolute; inset:0; background:#fff; transform:translateY(-100%);
-    transition:transform .22s; display:flex; flex-direction:column;
+    transition:transform .22s; display:flex; flex-direction:column; height:100%;
   }
   .fg-mobile-drawer.open .fgm-panel{ transform:translateY(0); }
-
-  .fgm-top{ display:flex; align-items:center; justify-content:space-between;
-    padding:14px 18px; border-bottom:1px solid rgba(0,0,0,.08); }
+  .fgm-top{ position:sticky; top:0; display:flex; align-items:center; justify-content:space-between;
+    padding:14px 18px; border-bottom:1px solid rgba(0,0,0,.08); background:#fff; z-index:1; }
   .fgm-close{ font-size:28px; background:transparent; border:0; line-height:1; padding:6px 10px; }
-  .fgm-list{ padding:8px 16px 24px; }
-  .fgm-list a{ display:block; padding:14px 6px; border-bottom:1px solid rgba(0,0,0,.06);
-    color:#0b1535; text-decoration:none; font-size:18px; }
-  body.fg-no-scroll{ overflow:hidden; }
+
+  /* Nollställ arv så listan blir ren */
+  .fgm-list, .fgm-list ul, .fgm-list li{ all:unset; display:block; margin:0; padding:0; }
+  .fgm-list a{
+    all:unset; display:block; padding:14px 8px; cursor:pointer;
+    color:#0b1535; font-size:18px; line-height:1.25; border-bottom:1px solid rgba(0,0,0,.06);
+  }
+  .fgm-list a:active{ opacity:.8; }
 }
-/* Safety: never show our custom toggle if a native one exists */
+
 @media (max-width:768px){
-  header [data-fg-native-toggle] ~ .fg-mobile-toggle{ display:none !important; }
+  .article-hero, .loan-hero, .hero { overflow:hidden; }
+  .article-hero .container, .loan-hero .container { padding-left:16px; padding-right:16px; box-sizing:border-box; }
+  input[type="range"]{ width:100% !important; max-width:100% !important; }
 }
           `.trim();
           const s = document.createElement('style');
