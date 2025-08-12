@@ -538,6 +538,8 @@ export default function LegacyPage({ htmlRaw }: LegacyPageProps) {
         "/kreditkort",
         "/privatlan",
         "/foretagslan",
+        "/cookies",
+        "/integritetspolicy",
       ]);
 
       if (allowed.has(path)) {
@@ -548,9 +550,26 @@ export default function LegacyPage({ htmlRaw }: LegacyPageProps) {
 
     el.addEventListener("click", onClick);
 
+    // Force full navigation for cookies/integritetspolicy anywhere (drawer or content)
+    const onDocNavFix = (e: MouseEvent) => {
+      const t = e.target as Element | null;
+      if (!t) return;
+      const a = t.closest('a') as HTMLAnchorElement | null;
+      if (!a) return;
+      const href = a.getAttribute('href') || '';
+      if (!href) return;
+      if (/cookies|integritetspolicy/i.test(href)) {
+        // ensure hard navigation, not SPA interception
+        e.preventDefault();
+        window.location.href = href;
+      }
+    };
+    document.addEventListener('click', onDocNavFix, true);
+
     return () => {
       document.removeEventListener('click', onFaqClick);
       el.removeEventListener("click", onClick);
+      document.removeEventListener('click', onDocNavFix, true);
       window.removeEventListener('popstate', onLocationChange);
       window.removeEventListener('hashchange', onLocationChange);
       el.innerHTML = ""; // cleanup previous content
