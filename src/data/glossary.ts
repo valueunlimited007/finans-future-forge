@@ -72,6 +72,99 @@ const CATEGORIES: Record<string, string[]> = {
     "Schablonmetoden","Genomsnittsmetoden","Uppskov",
   ],
 };
+// Lägg detta efter declarationen av CATEGORIES i glossary.ts
+
+const EXTRA: Partial<Record<keyof typeof CATEGORIES, string[]>> = {
+  lan: [
+    "Lånelöfte","Snabblån","SMS-lån","Samlingslån","Omstartslån","Lån utan UC",
+    "Låneförmedlare","Kreditvärdighet","Kreditpoäng","Kreditlimit","Kreditgräns",
+    "Kredittid","Låneansökan","Utbetalningstid","Låneavtal","Återbetalningstid",
+    "Kreditkostnad","Kreditavgift","Ränteavdrag","Förfallodag","Påminnelseavgift",
+    "Inkasso","Kronofogden","Skuld hos Kronofogden","Betalningsföreläggande",
+    "Skuldebrev mall","Borgenär","Gäldenär","Upplysningsplikt","Ångerrätt kredit",
+    "Återtagandeförbehåll","Effektiv kreditränta","Kvar-att-leva-på-kalkyl",
+    "Konsumentkreditlagen","Kreditgivare","Kreditförmedlare","Samlingskredit",
+    "Räntefri delbetalning","Avbetalningsplan","Kreditköp","Kreditkortsränta",
+    "Betalpaus","Räntefri månad","Dröjsmålsränta","Kreditprövning utan UC",
+    "Skuldebrev solidariskt","Solidariskt ansvar","Amorteringsunderlag",
+    "Snittränta bolån","Grönt bolån","Topplån (bolån)","Bottenlån",
+    "Pant i bostadsrätt","Pant i fastighet","Borgensåtagande",
+    "Amorteringslättnad","Amorteringsbefrielse","Räntegaranti",
+    "Ränterabatt","Lånebindning","Räntebindning","Upplupen ränta",
+    "Ränteskillnadsersättning beräkning"
+  ],
+  ranta: [
+    "Räntetak","Räntekorridor","Styrränta","Referensränta","Riksbankens reporänta",
+    "Räntebana","Inflationsjusterad ränta","Realränta","Nollränta","Minusränta",
+    "Ränta på ränta","Ränteperiod","Räntedag","Dagkonvention","Bas­punkter (bps)",
+    "Fixingränta","Stibor","Euribor","Libor (historik)","Yield curve",
+    "Inverterad räntekurva","Terminsränta","Forward rate",
+    "Duration modifierad","Konvexitet","Diskonteringsränta","Kalkylränta WACC"
+  ],
+  fastighet: [
+    "Bruksvärdeshyra","Andrahandsuthyrning","Hyresnämnden","BRF-ekonomi",
+    "Kalkylränta bolån","Boendekalkyl","Driftskostnader bostad","Tomträttsavgäld",
+    "Energideklaration","Föreningsintyg","Underhållsplan BRF","Samfällighetsavgift",
+    "Servitut","Inteckning","Pantbrevskostnad","Lagfartskostnad",
+    "Likvidavräkning","Tillträdesdag","Besiktning"
+  ],
+  investering: [
+    "Aktieutdelning","Extrautdelning","Avstämningsdag","X-dag","Utdelningsandel",
+    "Återinvestering utdelning (DRIP)","Syntetisk replikering","Fysisk replikering",
+    "Indexnära fond","Smart beta","Faktorinvestering","Momentumstrategi",
+    "Värdeinvestering","Tillväxtinvestering","Small cap","Mid cap","Large cap",
+    "Micro cap","Free float","Börsvärde","Likviditetsgarant","Spread","Orderdjup",
+    "Auction call","Öppningscall","Stängningscall","Kill switch","Stop-loss",
+    "Limit order","Market order","Fill or kill","GTC-order",
+    "Blankning (short selling)","Utlåning av aktier","Belåning av portfölj",
+    "Marginalkrav","Margin call","Hävstångs-ETF","Inversa ETF:er",
+    "ETN (Exchange Traded Note)","Certifikat","Bull & Bear-certifikat",
+    "Warrant","Mini future","Knock-out","Barrier","Covered call",
+    "Option (call/put)","Lösendag","Lösenpris","Amerikansk option","Europeisk option",
+    "Terminer (futures)","Råvarutermin","Räntefutur","Valutatermin",
+    "Swap","CDS (Credit Default Swap)","IRS (ränte­swap)","Total return swap",
+    "NAV","Tracking error","Tracking difference","Alfa (alpha)","Beta",
+    "Sharpekvot","Sortinokvot","Information ratio","Max drawdown","Volatilitet",
+    "Standardavvikelse","Kvartilspridning","Skewness","Kurtosis",
+    "VaR (Value at Risk)","CVaR","Monte Carlo-simulering","Backtest",
+    "DCF (Discounted Cash Flow)","WACC","Kassaflödesvärdering","Multipelvärdering",
+    "EV/EBIT","EV/EBITDA","P/E-tal","P/B-tal","P/S-tal","PEG-tal","ROE","ROA","ROC",
+    "ROIC","CFROI","EPS","DPS","FCF","Capex","Opex","Working capital","Net debt",
+    "Skuldsättningsgrad (Debt/Equity)","LTV (Loan-to-Value)",
+    "DSCR (Debt Service Coverage Ratio)","Dividend yield","Totalavkastning",
+    "HPR (Holding Period Return)","Hurdle rate","IRR","Payback-tid",
+    "NPV (Nettonuvärde)","Diversifiering","Korrelationskoefficient","Riskparitet",
+    "Allvädersportfölj","Tillgångsallokering","Rebalansering",
+    "Glidande medelvärde","RSI","MACD","Bollingerband","Stokastisk oscillator",
+    "ETF-termer TER","Ongoing charges","Fond-i-fond","UCITS","PRIIPs","MiFID II"
+  ],
+  pension: [
+    "Pensionsprognos","Pensionsmyndigheten","Premiepensionsfonder","Flytträtt pension",
+    "Flyttavgift pension","Traditionell försäkring","Fondförsäkring",
+    "Kapitalspar pension (gammalt IPS)","Livslängdsantagande",
+    "Uttagsregler pension","Efterlevandepension","Garantipension"
+  ],
+  ekonomi: [
+    "Prisbasbelopp","Inkomstbasbelopp","Balansräkning (privat)","Resultaträkning (privat)",
+    "Disponibel inkomst","Buffertsparande","Sparkvot","Marginalskatt","Skuldkvotstak",
+    "Ränteavdragstak","Reallön","Nominallön","Inflationsmål","Penningpolitik",
+    "Finanspolitik","Konjunkturcykel","Högkonjunktur","Lågkonjunktur","Output gap",
+    "NAIRU","Phillipskurvan","Kreditcykel","Basel III","LCR","NSFR","Leverage ratio",
+    "Systemrisk","Makrotillsyn"
+  ],
+  skatt: [
+    "Ränteavdrag","Investeraravdrag","ISkatt schablon (ISK-skatt)","Källskatt utdelning",
+    "Kupongskatt","Avräkning utländsk skatt","Skattepliktig förmån",
+    "30-regeln (värdepapper)","Schablonmetoden (K4)","Genomsnittsmetoden (K4)",
+    "Omsättningsskatt historik","Tobinskatt (debatt)","FATCA","CRS","Kontrolluppgift",
+    "Omvänd kvittning"
+  ]
+};
+
+// Merge EXTRA in i CATEGORIES
+for (const [cat, list] of Object.entries(EXTRA)) {
+  if (list?.length) CATEGORIES[cat as keyof typeof CATEGORIES].push(...list);
+}
 
 // Relaterade begrepp per kategori
 const RELATED: Record<string, string[]> = {
