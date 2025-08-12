@@ -16,12 +16,7 @@ export default function LegacyPage({ htmlRaw }: LegacyPageProps) {
   const bodyHtml = useMemo(() => {
     try {
       const doc = new DOMParser().parseFromString(htmlRaw, "text/html");
-      const body = (doc?.body?.cloneNode(true) as HTMLElement) || doc.body;
-      // Remove legacy header/footer – handled by React layout
-      body.querySelectorAll("header, footer").forEach((el) => el.remove());
-      // Prefer <main> if present
-      const main = body.querySelector("main");
-      return main ? main.innerHTML : body.innerHTML;
+      return doc?.body?.innerHTML ?? "";
     } catch {
       return extractBody(htmlRaw);
     }
@@ -150,8 +145,217 @@ export default function LegacyPage({ htmlRaw }: LegacyPageProps) {
 
     el.insertAdjacentHTML("afterbegin", bodyHtml);
 
-    // Legacy header/footer hanteras av React-layouten. Inaktiverar tidigare mobilmeny/ordlista-injektion.
-    // (No-op)
+    // Safe mobile menu overlay (V2) — runs after body injection without touching original header nav
+    (function initSafeMobileMenuV2(){
+      if ((window as any).__fgMobileMenuInit) return;
+      (window as any).__fgMobileMenuInit = true;
+
+      const header = document.querySelector('header') as HTMLElement | null;
+      const sourceNav = header?.querySelector('nav, [role="navigation"]') as HTMLElement | null;
+      if (!header || !sourceNav) return;
+
+      // 1) Try find any native burger in header
+      const nativeToggle = header.querySelector<HTMLElement>([
+        'button[aria-label*="meny" i]',
+        'button[aria-controls*="nav" i]',
+        'button[class*="menu" i]',
+        'a[class*="menu" i]',
+        '.hamburger',
+        '.menu-toggle'
+      ].join(',')) || undefined;
+
+      // 2) HMR-säkring + skapa drawer en gång
+      document.querySelectorAll('.fg-mobile-drawer').forEach((el, i) => { if (i > 0) el.remove(); });
+      let drawer = document.querySelector('.fg-mobile-drawer') as HTMLElement | null;
+      if (!drawer) {
+        drawer = document.createElement('div');
+        drawer.className = 'fg-mobile-drawer';
+        drawer.innerHTML = `
+          <div class="fgm-panel" role="dialog" aria-modal="true" aria-label="Meny">
+            <div class="fgm-top">
+              <div class="fgm-brand"></div>
+              <button class="fgm-close" aria-label="Stäng">×</button>
+            </div>
+            <nav class="fgm-list"></nav>
+          </div>`;
+        document.body.appendChild(drawer);
+
+        // brand/logo (first logo in header)
+        const brand = drawer.querySelector('.fgm-brand')! as HTMLElement;
+        const logo = header.querySelector('img') as HTMLImageElement | null;
+        if (logo) {
+          const clone = logo.cloneNode(true) as HTMLImageElement;
+          clone.removeAttribute('width'); clone.removeAttribute('height');
+          (clone.style as any).maxHeight = '28px';
+          brand.appendChild(clone);
+        } else {
+          brand.textContent = 'Meny';
+        }
+
+        // clone nav links into the list
+        const dest = drawer.querySelector('.fgm-list')! as HTMLElement;
+        [...sourceNav.querySelectorAll<HTMLAnchorElement>('a[href]')].forEach(a => {
+          const link = a.cloneNode(true) as HTMLAnchorElement;
+          link.removeAttribute('id');
+          link.classList.remove(...link.classList); // neutral style
+          dest.appendChild(link);
+        });
+
+        // open/close helpers
+        const close = () => {
+          document.body.classList.remove('fg-no-scroll');
+          drawer!.classList.remove('open');
+          nativeToggle?.setAttribute('aria-expanded','false');
+          customToggle?.setAttribute('aria-expanded','false');
+        };
+        const open = () => {
+          document.body.classList.add('fg-no-scroll');
+          drawer!.classList.add('open');
+          nativeToggle?.setAttribute('aria-expanded','true');
+          customToggle?.setAttribute('aria-expanded','true');
+        };
+
+        // close on backdrop/close/link
+        drawer.querySelector('.fgm-close')!.addEventListener('click', close);
+        drawer.addEventListener('click', (e) => { if (e.target === drawer) close(); });
+        dest.addEventListener('click', (e) => {
+          const a = (e.target as HTMLElement).closest('a');
+          if (!a) return;
+          const href = a.getAttribute('href') || '';
+
+          // External or special protocols: just close and let it work normally
+          if (!href || /^https?:|^mailto:|^tel:/.test(href)) { close(); return; }
+
+          // In-page anchors: close drawer and allow default scroll
+          if (href.startsWith('#')) { close(); return; }
+
+          const url = new URL(href, window.location.origin);
+          if (url.origin !== window.location.origin) { close(); return; }
+
+          let path = url.pathname;
+          // map legacy .html paths to extensionless routes
+          if (/\.html$/i.test(path)) path = path.replace(/\.html$/i, '');
+
+          const allowed = new Set([
+            '/',
+            '/lan-utan-uc',
+            '/kreditkort',
+            '/privatlan',
+            '/foretagslan',
+            '/ordlista',
+          ]);
+
+          if (allowed.has(path) || path.startsWith('/ordlista')) {
+            e.preventDefault();
+            close();
+            // same page with hash: just jump without full reload
+            if (path === window.location.pathname && url.hash) {
+              window.location.hash = url.hash;
+            } else {
+              window.location.assign(path + url.search + url.hash);
+            }
+          } else {
+            // Not handled by SPA: just close and let the browser navigate
+            close();
+          }
+        });
+
+        // 3) Wire native toggle if exists, else create our own
+        let customToggle: HTMLButtonElement | null = null;
+
+        const bindToggle = (el: HTMLElement) => {
+          el.addEventListener('click', (e) => {
+            // use our drawer, block any header dropdowns
+            e.preventDefault();
+            e.stopPropagation();
+            drawer!.classList.contains('open') ? close() : open();
+          }, { capture: true });
+        };
+
+        if (nativeToggle) {
+          nativeToggle.setAttribute('data-fg-native-toggle','');
+          bindToggle(nativeToggle);
+        } else {
+          customToggle = document.createElement('button');
+          customToggle.className = 'fg-mobile-toggle';
+          customToggle.setAttribute('aria-label','Meny');
+          customToggle.setAttribute('aria-expanded','false');
+          customToggle.innerHTML = '<span></span><span></span><span></span>';
+          header.appendChild(customToggle);
+          bindToggle(customToggle);
+        }
+
+        // 4) CSS – overlay and buttons (mobile only)
+        if (!document.querySelector('style[data-fg-mobile]')) {
+          const css = `
+/* Bas: aldrig synlig på desktop */
+.fg-mobile-drawer { display: none !important; }
+
+@media (max-width:768px){
+  body { overflow-x:hidden; }
+
+  /* Vår custom-toggle visas bara om det inte finns en native */
+  header [data-fg-native-toggle] ~ .fg-mobile-toggle{ display:none !important; }
+
+  .fg-mobile-drawer{
+    display:block !important;
+    position:fixed; inset:0; background:rgba(0,0,0,.35);
+    opacity:0; pointer-events:none; transition:opacity .18s; z-index:1000;
+  }
+  .fg-mobile-drawer.open{ opacity:1; pointer-events:auto; }
+  .fg-mobile-drawer .fgm-panel{
+    position:absolute; inset:0; background:#fff; transform:translateY(-100%);
+    transition:transform .22s; display:flex; flex-direction:column; height:100%;
+  }
+  .fg-mobile-drawer.open .fgm-panel{ transform:translateY(0); }
+  .fgm-top{ position:sticky; top:0; display:flex; align-items:center; justify-content:space-between;
+    padding:14px 18px; border-bottom:1px solid rgba(0,0,0,.08); background:#fff; z-index:1; }
+  .fgm-close{ font-size:28px; background:transparent; border:0; line-height:1; padding:6px 10px; }
+
+  /* Nollställ arv så listan blir ren */
+  .fgm-list, .fgm-list ul, .fgm-list li{ all:unset; display:block; margin:0; padding:0; }
+  .fgm-list a{
+    all:unset; display:block; padding:14px 8px; cursor:pointer;
+    color:#0b1535; font-size:18px; line-height:1.25; border-bottom:1px solid rgba(0,0,0,.06);
+  }
+  .fgm-list a:active{ opacity:.8; }
+}
+
+@media (max-width:768px){
+  .article-hero, .loan-hero, .hero { overflow:hidden; }
+  .article-hero .container, .loan-hero .container { padding-left:16px; padding-right:16px; box-sizing:border-box; }
+  input[type="range"]{ width:100% !important; max-width:100% !important; }
+}
+          `.trim();
+          const s = document.createElement('style');
+          s.setAttribute('data-fg-mobile','1'); s.textContent = css;
+          document.head.appendChild(s);
+        }
+      }
+
+      // Ensure glossary links in header and footer
+      (function ensureGlossaryLinks(){
+        if ((window as any).__fgGlossaryLinks) return;
+        (window as any).__fgGlossaryLinks = true;
+        try {
+          const headerNav = document.querySelector('header nav, header [role="navigation"]');
+          if (headerNav && !headerNav.querySelector('a[href$="/ordlista"]')) {
+            const a = document.createElement('a');
+            a.href = '/ordlista';
+            a.textContent = 'Ordlista';
+            headerNav.appendChild(a);
+          }
+          const footer = document.querySelector('footer');
+          if (footer && !footer.querySelector('a[href$="/ordlista"]')) {
+            const a = document.createElement('a');
+            a.href = '/ordlista';
+            a.textContent = 'Finansordlista (A–Ö)';
+            const container = footer.querySelector('nav, ul, .footer-links') || footer;
+            container.appendChild(a);
+          }
+        } catch(e){}
+      })();
+    })();
 
     // Absolutisera relativa URL:er i injicerat innehåll (bilder, länkar, srcset, data-src, inline style url(...))
     const absolutize = (root: HTMLElement) => {
@@ -367,10 +571,9 @@ export default function LegacyPage({ htmlRaw }: LegacyPageProps) {
         "/foretagslan",
         "/cookies",
         "/integritetspolicy",
-        "/ordlista",
       ]);
 
-      if (allowed.has(path) || path.startsWith("/ordlista")) {
+      if (allowed.has(path)) {
         e.preventDefault();
         window.location.assign(path + url.search + url.hash);
       }
