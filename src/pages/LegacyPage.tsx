@@ -145,96 +145,148 @@ export default function LegacyPage({ htmlRaw }: LegacyPageProps) {
 
     el.insertAdjacentHTML("afterbegin", bodyHtml);
 
-    // Step 1 — Safe mobile menu (overlay without touching header nav)
-    function initSafeMobileMenu() {
-      // Hitta huvudnavets länkar (ändra selector vid behov)
+    // Safe mobile menu overlay (V2) — runs after body injection without touching original header nav
+    (function initSafeMobileMenuV2(){
+      if ((window as any).__fgMobileMenuInit) return;
+      (window as any).__fgMobileMenuInit = true;
+
       const header = document.querySelector('header') as HTMLElement | null;
       const sourceNav = header?.querySelector('nav, [role="navigation"]') as HTMLElement | null;
       if (!header || !sourceNav) return;
 
-      // Skapa toggle i header om saknas
-      if (!header.querySelector('.fg-mobile-toggle')) {
-        const btn = document.createElement('button');
-        btn.className = 'fg-mobile-toggle';
-        btn.setAttribute('aria-label', 'Meny');
-        btn.setAttribute('aria-expanded', 'false');
-        btn.innerHTML = '<span></span><span></span><span></span>';
-        header.appendChild(btn);
+      // 1) Try find any native burger in header
+      const nativeToggle = header.querySelector<HTMLElement>([
+        'button[aria-label*="meny" i]',
+        'button[aria-controls*="nav" i]',
+        'button[class*="menu" i]',
+        'a[class*="menu" i]',
+        '.hamburger',
+        '.menu-toggle'
+      ].join(',')) || undefined;
 
-        // Skapa overlay-meny (egen container – påverkar inte befintligt nav)
-        let drawer = document.querySelector('.fg-mobile-drawer') as HTMLElement | null;
-        if (!drawer) {
-          drawer = document.createElement('div');
-          drawer.className = 'fg-mobile-drawer';
-          drawer.innerHTML = `
-        <div class="fgm-panel" role="dialog" aria-modal="true" aria-label="Meny">
-          <button class="fgm-close" aria-label="Stäng">×</button>
-          <nav class="fgm-nav"></nav>
-        </div>`;
-          document.body.appendChild(drawer);
+      // 2) Create drawer once
+      let drawer = document.querySelector('.fg-mobile-drawer') as HTMLElement | null;
+      if (!drawer) {
+        drawer = document.createElement('div');
+        drawer.className = 'fg-mobile-drawer';
+        drawer.innerHTML = `
+          <div class="fgm-panel" role="dialog" aria-modal="true" aria-label="Meny">
+            <div class="fgm-top">
+              <div class="fgm-brand"></div>
+              <button class="fgm-close" aria-label="Stäng">×</button>
+            </div>
+            <nav class="fgm-list"></nav>
+          </div>`;
+        document.body.appendChild(drawer);
 
-          // Kopiera länkar från desktop-nav
-          const srcLinks = [...sourceNav.querySelectorAll('a[href]')];
-          const dest = drawer.querySelector('.fgm-nav')! as HTMLElement;
-          srcLinks.forEach((a) => {
-            const link = a.cloneNode(true) as HTMLAnchorElement;
-            link.removeAttribute('id');
-            dest.appendChild(link);
-          });
-
-          // Stänglogik
-          const close = () => {
-            document.body.classList.remove('fg-no-scroll');
-            drawer!.classList.remove('open');
-            btn.setAttribute('aria-expanded','false');
-          };
-          const open = () => {
-            document.body.classList.add('fg-no-scroll');
-            drawer!.classList.add('open');
-            btn.setAttribute('aria-expanded','true');
-          };
-          btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            drawer!.classList.contains('open') ? close() : open();
-          });
-          drawer.querySelector('.fgm-close')!.addEventListener('click', close);
-          drawer.addEventListener('click', (e) => { if (e.target === drawer) close(); });
-          drawer.querySelector('.fgm-nav')!.addEventListener('click', (e) => {
-            const a = (e.target as HTMLElement).closest('a[href]');
-            if (a) close();
-          });
+        // brand/logo (first logo in header)
+        const brand = drawer.querySelector('.fgm-brand')! as HTMLElement;
+        const logo = header.querySelector('img') as HTMLImageElement | null;
+        if (logo) {
+          const clone = logo.cloneNode(true) as HTMLImageElement;
+          clone.removeAttribute('width'); clone.removeAttribute('height');
+          (clone.style as any).maxHeight = '28px';
+          brand.appendChild(clone);
+        } else {
+          brand.textContent = 'Meny';
         }
-      }
 
-      // CSS – helt separat, påverkar ej desktopnav
-      if (!document.querySelector('style[data-fg-mobile]')) {
-        const css = `
+        // clone nav links into the list
+        const dest = drawer.querySelector('.fgm-list')! as HTMLElement;
+        [...sourceNav.querySelectorAll<HTMLAnchorElement>('a[href]')].forEach(a => {
+          const link = a.cloneNode(true) as HTMLAnchorElement;
+          link.removeAttribute('id');
+          link.classList.remove(...link.classList); // neutral style
+          dest.appendChild(link);
+        });
+
+        // open/close helpers
+        const close = () => {
+          document.body.classList.remove('fg-no-scroll');
+          drawer!.classList.remove('open');
+          nativeToggle?.setAttribute('aria-expanded','false');
+          customToggle?.setAttribute('aria-expanded','false');
+        };
+        const open = () => {
+          document.body.classList.add('fg-no-scroll');
+          drawer!.classList.add('open');
+          nativeToggle?.setAttribute('aria-expanded','true');
+          customToggle?.setAttribute('aria-expanded','true');
+        };
+
+        // close on backdrop/close/link
+        drawer.querySelector('.fgm-close')!.addEventListener('click', close);
+        drawer.addEventListener('click', (e) => { if (e.target === drawer) close(); });
+        dest.addEventListener('click', (e) => { const a = (e.target as HTMLElement).closest('a'); if (a) close(); });
+
+        // 3) Wire native toggle if exists, else create our own
+        let customToggle: HTMLButtonElement | null = null;
+
+        const bindToggle = (el: HTMLElement) => {
+          el.addEventListener('click', (e) => {
+            // use our drawer, block any header dropdowns
+            e.preventDefault();
+            e.stopPropagation();
+            drawer!.classList.contains('open') ? close() : open();
+          }, { capture: true });
+        };
+
+        if (nativeToggle) {
+          nativeToggle.setAttribute('data-fg-native-toggle','');
+          bindToggle(nativeToggle);
+        } else {
+          customToggle = document.createElement('button');
+          customToggle.className = 'fg-mobile-toggle';
+          customToggle.setAttribute('aria-label','Meny');
+          customToggle.setAttribute('aria-expanded','false');
+          customToggle.innerHTML = '<span></span><span></span><span></span>';
+          header.appendChild(customToggle);
+          bindToggle(customToggle);
+        }
+
+        // 4) CSS – overlay and buttons (mobile only)
+        if (!document.querySelector('style[data-fg-mobile]')) {
+          const css = `
 @media (max-width:768px){
+  body { overflow-x:hidden; }
+  /* Hide any header native dropdown when our toggle is used */
+  [data-fg-native-toggle] + *[aria-expanded="true"],
+  [data-fg-native-toggle] + .open { display:none !important; }
+
   .fg-mobile-toggle{
     position:absolute; right:16px; top:14px; width:32px; height:28px;
     background:transparent; border:0; display:inline-flex; flex-direction:column; gap:5px; z-index:1001;
   }
   .fg-mobile-toggle span{display:block;height:3px;background:#0d3a8d;border-radius:2px;}
 
-  .fg-mobile-drawer{position:fixed; inset:0; background:rgba(0,0,0,.25);
+  .fg-mobile-drawer{position:fixed; inset:0; background:rgba(0,0,0,.35);
     opacity:0; pointer-events:none; transition:opacity .18s; z-index:1000;}
   .fg-mobile-drawer.open{opacity:1; pointer-events:auto;}
   .fg-mobile-drawer .fgm-panel{
-    position:absolute; inset:0 0 0 0; background:#fff; transform:translateY(-100%);
-    transition:transform .22s; padding:16px 20px; overflow:auto;
+    position:absolute; inset:0; background:#fff; transform:translateY(-100%);
+    transition:transform .22s; display:flex; flex-direction:column;
   }
   .fg-mobile-drawer.open .fgm-panel{ transform:translateY(0); }
-  .fgm-close{position:absolute; right:12px; top:10px; font-size:28px; background:transparent; border:0;}
-  .fgm-nav a{ display:block; padding:14px 6px; border-bottom:1px solid rgba(0,0,0,.08); color:#0b1535; text-decoration:none; }
+
+  .fgm-top{ display:flex; align-items:center; justify-content:space-between;
+    padding:14px 18px; border-bottom:1px solid rgba(0,0,0,.08); }
+  .fgm-close{ font-size:28px; background:transparent; border:0; line-height:1; padding:6px 10px; }
+  .fgm-list{ padding:8px 16px 24px; }
+  .fgm-list a{ display:block; padding:14px 6px; border-bottom:1px solid rgba(0,0,0,.06);
+    color:#0b1535; text-decoration:none; font-size:18px; }
   body.fg-no-scroll{ overflow:hidden; }
 }
-        `.trim();
-        const s = document.createElement('style');
-        s.setAttribute('data-fg-mobile','1'); s.textContent = css;
-        document.head.appendChild(s);
+/* Safety: never show our custom toggle if a native one exists */
+@media (max-width:768px){
+  header [data-fg-native-toggle] ~ .fg-mobile-toggle{ display:none !important; }
+}
+          `.trim();
+          const s = document.createElement('style');
+          s.setAttribute('data-fg-mobile','1'); s.textContent = css;
+          document.head.appendChild(s);
+        }
       }
-    }
-    initSafeMobileMenu();
+    })();
 
     // Absolutisera relativa URL:er i injicerat innehåll (bilder, länkar, srcset, data-src, inline style url(...))
     const absolutize = (root: HTMLElement) => {
