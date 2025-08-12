@@ -326,6 +326,74 @@ export default function LegacyPage({ htmlRaw }: LegacyPageProps) {
 
     console.info("[FG_INJECTED]", currentPath, "len:", el.innerHTML.length);
     try { pageview(location.pathname, document.title); } catch (e) { console.warn("[FG_TRACK_ERR]", e); }
+
+    // ---- Mobil layout för erbjudandekort (utan markup-ändringar) ----
+    (function initOffersMobile(){
+      if ((window as any).__fgOffersMobile) return;
+      (window as any).__fgOffersMobile = true;
+
+      const CTATEXT = /till ansökan/i;
+
+      const decorate = () => {
+        const ctas = [...document.querySelectorAll('a,button')].filter(el => CTATEXT.test(el.textContent || ''));
+        ctas.forEach(cta => {
+          const card = (cta as HTMLElement).closest(
+            '.offer, .offer-card, article, .card, .panel, .box, li, .list-item, .fg-offer'
+          ) as HTMLElement | null;
+          if (!card || card.hasAttribute('data-fg-offer')) return;
+
+          // hitta delar
+          const logo  = card.querySelector('img');
+          const title = card.querySelector('h1,h2,h3,h4,.h1,.h2,.h3,.h4,strong');
+          const badge = card.querySelector('.badge, .label, [class*="badge"], [class*="label"]')
+                     || [...card.querySelectorAll<HTMLElement>('*')].find(el => /bäst val/i.test(el.textContent||''));
+          const meta  = [...card.querySelectorAll<HTMLElement>('div,p,ul,dl')]
+                           .find(el => /belopp|ränta|krav/i.test(el.textContent||''));
+
+          // märka upp (påverkar inte desktop)
+          card.classList.add('fg-offer');
+          card.setAttribute('data-fg-offer','1');
+          logo && logo.classList.add('fg-logo');
+          title && title.classList.add('fg-title');
+          badge && (badge as HTMLElement).classList.add('fg-badge');
+          meta  && meta.classList.add('fg-meta');
+          (cta as HTMLElement).classList.add('fg-cta');
+        });
+      };
+
+      // initialt + när listor fylls på (MutationObserver)
+      decorate();
+      const mo = new MutationObserver(() => decorate());
+      mo.observe(document.body, { childList: true, subtree: true });
+
+      // injicera mobil-CSS en gång
+      if (!document.querySelector('style[data-fg-offers-mobile]')) {
+        const css = `
+@media (max-width:768px){
+  .fg-offer{
+    display:grid; grid-template-columns:72px 1fr;
+    grid-template-areas:
+      "logo title"
+      "meta meta"
+      "cta  cta";
+    gap:12px; align-items:start; padding:16px !important;
+  }
+  .fg-offer .fg-logo  { grid-area:logo;  width:56px; height:auto; object-fit:contain; }
+  .fg-offer .fg-title { grid-area:title; margin:0; line-height:1.2; }
+  .fg-offer .fg-badge { margin-left:8px; font-size:.85rem; vertical-align:middle; }
+  .fg-offer .fg-meta  { grid-area:meta; }
+  .fg-offer .fg-meta p, .fg-offer .fg-meta li { white-space:normal; }
+  .fg-offer .fg-cta   { grid-area:cta; width:100% !important; display:inline-flex; justify-content:center; }
+  /* säkerställ ingen horisontell scroll pga inre element */
+  .fg-offer *, .fg-offer { max-width:100%; box-sizing:border-box; }
+}
+        `.trim();
+        const s = document.createElement('style');
+        s.setAttribute('data-fg-offers-mobile','1');
+        s.textContent = css;
+        document.head.appendChild(s);
+      }
+    })();
     // FG: Initialize FAQ icons/panels immediately after injection and on route changes
     function initFaq(root: Document | HTMLElement = document) {
       const TRIG = '[data-faq-question], .faq-question, .accordion-button, [aria-controls]';
