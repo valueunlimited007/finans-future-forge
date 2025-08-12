@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import type { GlossaryTerm as GlossaryType } from "@/data/glossary";
 import AffiliateButton from "@/components/AffiliateButton";
 import AdSlot from "@/components/AdSlot";
-import { AutoLinkedText } from "@/lib/autolinkGlossary";
+import { autolink } from "@/lib/autolinkGlossary";
+import { buildFaq } from "@/lib/glossaryFaq";
 
 interface GlossaryTermProps {
   term: GlossaryType;
@@ -11,6 +12,8 @@ interface GlossaryTermProps {
 }
 
 const GlossaryTerm: React.FC<GlossaryTermProps> = ({ term, related }) => {
+  const faqs = buildFaq(term);
+
   return (
     <div className="grid grid-cols-1 gap-8 md:grid-cols-[1fr_320px]">
       <article className="min-w-0">
@@ -36,29 +39,29 @@ const GlossaryTerm: React.FC<GlossaryTermProps> = ({ term, related }) => {
         <section className="prose prose-neutral dark:prose-invert">
           {term.longDefinition?.map((p, i) => (
             <React.Fragment key={i}>
-              <p><AutoLinkedText text={p} currentSlug={term.slug} /></p>
+              <p>{autolink(p)}</p>
               {i === 0 && (
                 <div className="not-prose my-6">
-                  <AdSlot slot="glossary_top" termSlug={term.slug} />
+                  <AdSlot slot="glossary_top" />
                 </div>
               )}
             </React.Fragment>
           ))}
         </section>
 
-        {term.faqs?.length ? (
+        {faqs.length ? (
           <section className="my-6">
             <h2 className="mb-2 font-semibold">Vanliga frågor</h2>
             <div className="prose prose-neutral dark:prose-invert">
-              {term.faqs.map((f, i) => (
+              {faqs.map((f, i) => (
                 <div key={i} className="mb-4">
                   <h3 className="text-lg font-medium">{f.q}</h3>
-                  <p><AutoLinkedText text={f.a} currentSlug={term.slug} /></p>
+                  <p>{autolink(f.a)}</p>
                 </div>
               ))}
             </div>
             <div className="mt-4">
-              <AdSlot slot="glossary_mid" termSlug={term.slug} />
+              <AdSlot slot="glossary_mid" />
             </div>
           </section>
         ) : null}
@@ -66,7 +69,7 @@ const GlossaryTerm: React.FC<GlossaryTermProps> = ({ term, related }) => {
         {term.example && (
           <section className="my-6 rounded-lg border border-border bg-muted/20 p-4">
             <h2 className="mb-1 font-semibold">Exempel</h2>
-            <p className="text-foreground"><AutoLinkedText text={term.example} currentSlug={term.slug} /></p>
+            <p className="text-foreground">{autolink(term.example)}</p>
           </section>
         )}
 
@@ -75,7 +78,11 @@ const GlossaryTerm: React.FC<GlossaryTermProps> = ({ term, related }) => {
             <h2 className="mb-2 font-semibold">Relaterade begrepp</h2>
             <div className="flex flex-wrap gap-2">
               {related.map((r) => (
-                <Link key={r.slug} to={`/ordlista/${r.slug}`} className="rounded-full border border-border bg-background px-3 py-1 text-sm text-foreground hover:bg-accent hover:text-accent-foreground">
+                <Link
+                  key={r.slug}
+                  to={`/ordlista/${r.slug}`}
+                  className="rounded-full border border-border bg-background px-3 py-1 text-sm text-foreground hover:bg-accent hover:text-accent-foreground"
+                >
                   {r.term}
                 </Link>
               ))}
@@ -89,7 +96,14 @@ const GlossaryTerm: React.FC<GlossaryTermProps> = ({ term, related }) => {
             <ul className="list-disc pl-6 text-foreground">
               {term.sources.map((s, i) => (
                 <li key={i}>
-                  <a className="underline underline-offset-2 hover:no-underline" href={s.url} target="_blank" rel="noopener noreferrer nofollow">{s.title}</a>
+                  <a
+                    className="underline underline-offset-2 hover:no-underline"
+                    href={s.url}
+                    target="_blank"
+                    rel="noopener noreferrer nofollow"
+                  >
+                    {s.title}
+                  </a>
                 </li>
               ))}
             </ul>
@@ -101,7 +115,7 @@ const GlossaryTerm: React.FC<GlossaryTermProps> = ({ term, related }) => {
 
       <aside className="hidden md:block">
         <div className="sticky top-24 space-y-4">
-          <AdSlot slot="glossary_sidebar" termSlug={term.slug} />
+          <AdSlot slot="glossary_sidebar" />
           {/* Lägg fler moduler här vid behov */}
         </div>
       </aside>

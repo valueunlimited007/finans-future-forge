@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { glossary as glossaryData } from "@/data/glossary";
 import GlossaryTerm from "@/components/GlossaryTerm";
+import { buildFaq } from "@/lib/glossaryFaq";
+import { articleJsonLd, breadcrumbJsonLd, faqJsonLd } from "@/lib/jsonld";
 
 const safeEvent = (name: string, params: Record<string, any>) => {
   try {
@@ -48,56 +50,12 @@ export default function GlossaryTermPage() {
   const description = term.shortDefinition || `${term.term} – förklaring och exempel.`;
   const canonical = `https://finansguiden.se/ordlista/${term.slug}`;
 
-  const faqEntries = (Array.isArray(term.faqs) && term.faqs.length)
-    ? term.faqs.map((f) => ({ question: f.q, answer: f.a }))
-    : [
-        {
-          question: `Vad betyder ${term.term}?`,
-          answer: term.shortDefinition || term.longDefinition?.[0] || "",
-        },
-        {
-          question: `Hur används ${term.term} i praktiken?`,
-          answer: term.example || term.longDefinition?.[1] || term.longDefinition?.[0] || "",
-        },
-        ...(related.length
-          ? [
-              {
-                question: `Vilka relaterade begrepp finns till ${term.term}?`,
-                answer: `Relaterade: ${related.map((r) => r.term).join(", ")}.`,
-              },
-            ]
-          : []),
-      ];
+  const faqs = buildFaq(term);
 
   const jsonLd = [
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      headline: term.term,
-      description,
-      dateModified: term.lastUpdated,
-      mainEntityOfPage: canonical,
-      author: { "@type": "Organization", name: "Finansguiden.se" },
-      publisher: { "@type": "Organization", name: "Finansguiden.se" },
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Hem", item: `${location.origin}/` },
-        { "@type": "ListItem", position: 2, name: "Ordlista", item: `${location.origin}/ordlista` },
-        { "@type": "ListItem", position: 3, name: term.term, item: canonical },
-      ],
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: faqEntries.map((f) => ({
-        "@type": "Question",
-        name: f.question,
-        acceptedAnswer: { "@type": "Answer", text: f.answer },
-      })),
-    },
+    articleJsonLd(term.slug, term.term, description, term.lastUpdated),
+    breadcrumbJsonLd(term.slug, term.term),
+    faqJsonLd(term.term, faqs),
   ];
 
   return (

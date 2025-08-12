@@ -2,8 +2,8 @@ import React, { useEffect, useRef } from "react";
 
 export interface AdSlotProps {
   slot: string;
-  termSlug?: string;
   className?: string;
+  label?: string;
 }
 
 const safeEvent = (name: string, params: Record<string, any>) => {
@@ -17,14 +17,14 @@ const safeEvent = (name: string, params: Record<string, any>) => {
   } catch {}
 };
 
-export const AdSlot: React.FC<AdSlotProps> = ({ slot, termSlug, className }) => {
+export const AdSlot: React.FC<AdSlotProps> = ({ slot, className, label = "Läs mer" }) => {
   const firedRef = useRef(false);
 
   useEffect(() => {
     if (firedRef.current) return;
     firedRef.current = true;
-    safeEvent("ad_impression", { slot, term: termSlug, page: location.pathname, ts: Date.now() });
-  }, [slot, termSlug]);
+    safeEvent("ad_impression", { slot, page: location.pathname, ts: Date.now() });
+  }, [slot]);
 
   return (
     <aside
@@ -40,10 +40,10 @@ export const AdSlot: React.FC<AdSlotProps> = ({ slot, termSlug, className }) => 
         <button
           type="button"
           className="rounded-md border border-border px-3 py-1 text-sm hover:bg-accent hover:text-accent-foreground"
-          onClick={() => safeEvent("ad_click_house", { slot, term: termSlug, page: location.pathname, ts: Date.now() })}
+          onClick={() => safeEvent("ad_click_house", { slot, page: location.pathname, ts: Date.now() })}
           aria-label="Klicka på husannons"
         >
-          Läs mer
+          {label}
         </button>
       </div>
     </aside>
