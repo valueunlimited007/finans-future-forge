@@ -217,7 +217,46 @@ export default function LegacyPage({ htmlRaw }: LegacyPageProps) {
         // close on backdrop/close/link
         drawer.querySelector('.fgm-close')!.addEventListener('click', close);
         drawer.addEventListener('click', (e) => { if (e.target === drawer) close(); });
-        dest.addEventListener('click', (e) => { const a = (e.target as HTMLElement).closest('a'); if (a) close(); });
+        dest.addEventListener('click', (e) => {
+          const a = (e.target as HTMLElement).closest('a');
+          if (!a) return;
+          const href = a.getAttribute('href') || '';
+
+          // External or special protocols: just close and let it work normally
+          if (!href || /^https?:|^mailto:|^tel:/.test(href)) { close(); return; }
+
+          // In-page anchors: close drawer and allow default scroll
+          if (href.startsWith('#')) { close(); return; }
+
+          const url = new URL(href, window.location.origin);
+          if (url.origin !== window.location.origin) { close(); return; }
+
+          let path = url.pathname;
+          // map legacy .html paths to extensionless routes
+          if (/\.html$/i.test(path)) path = path.replace(/\.html$/i, '');
+
+          const allowed = new Set([
+            '/',
+            '/lan-utan-uc',
+            '/kreditkort',
+            '/privatlan',
+            '/foretagslan',
+          ]);
+
+          if (allowed.has(path)) {
+            e.preventDefault();
+            close();
+            // same page with hash: just jump without full reload
+            if (path === window.location.pathname && url.hash) {
+              window.location.hash = url.hash;
+            } else {
+              window.location.assign(path + url.search + url.hash);
+            }
+          } else {
+            // Not handled by SPA: just close and let the browser navigate
+            close();
+          }
+        });
 
         // 3) Wire native toggle if exists, else create our own
         let customToggle: HTMLButtonElement | null = null;
