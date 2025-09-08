@@ -7,11 +7,33 @@
     "twitterImage": "https://finansguiden.se/images/og/home.png",
     "changefreq": "weekly",
     "priority": 1.0,
+    "lastmod": "2025-01-08",
     "jsonld": {
-      "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "Finansguiden.se",
-      "url": "https://finansguiden.se/"
+      "url": "https://finansguiden.se/",
+      "description": "Opartiska guider och jämförelser av privatlån, företagslån, kreditkort och lån utan UC",
+      "inLanguage": "sv-SE",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://finansguiden.se/ordlista?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      },
+      "publisher": {
+        "@type": "Organization", 
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/",
+        "logo": "https://finansguiden.se/finansguiden-logo-v2.png",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "email": "hej@finansguiden.se"
+        },
+        "sameAs": [
+          "https://finansguiden.se/sitemap.xml",
+          "https://finansguiden.se/llms.txt"
+        ]
+      }
     }
   },
   "/kreditkort": {
@@ -22,12 +44,31 @@
     "twitterImage": "https://finansguiden.se/images/og/kreditkort.png",
     "changefreq": "weekly",
     "priority": 0.9,
+    "lastmod": "2025-01-08",
     "jsonld": {
-      "@context": "https://schema.org",
       "@type": "Article",
       "headline": "Kreditkort 2025 – hitta kortet som ger mest tillbaka",
-      "author": "Finansguiden.se",
-      "mainEntityOfPage": "https://finansguiden.se/kreditkort"
+      "description": "Jämför bonus, cashback, reseförsäkring och avgifter. Se topplistor och hitta bästa kreditkortet för din ekonomi.",
+      "author": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/",
+        "logo": "https://finansguiden.se/finansguiden-logo-v2.png"
+      },
+      "mainEntityOfPage": "https://finansguiden.se/kreditkort",
+      "datePublished": "2025-01-01",
+      "dateModified": "2025-01-08",
+      "inLanguage": "sv-SE",
+      "about": {
+        "@type": "Thing",
+        "name": "Kreditkort",
+        "description": "Finansiella produkter för betalningar och krediter"
+      }
     }
   },
   "/privatlan": {
@@ -38,12 +79,32 @@
     "twitterImage": "https://finansguiden.se/images/og/privatlan.png",
     "changefreq": "weekly",
     "priority": 0.85,
+    "lastmod": "2025-01-08",
     "jsonld": {
-      "@context": "https://schema.org",
       "@type": "Article",
       "headline": "Privatlån – jämför räntor & låna smart",
-      "author": "Finansguiden.se",
-      "mainEntityOfPage": "https://finansguiden.se/privatlan"
+      "description": "Jämför banker och låneförmedlare. Se räntor, krav och månadskostnad – samt tips för att sänka räntan.",
+      "author": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/",
+        "logo": "https://finansguiden.se/finansguiden-logo-v2.png"
+      },
+      "mainEntityOfPage": "https://finansguiden.se/privatlan",
+      "datePublished": "2025-01-01",
+      "dateModified": "2025-01-08",
+      "inLanguage": "sv-SE",
+      "about": {
+        "@type": "FinancialProduct",
+        "name": "Privatlån",
+        "description": "Personliga lån utan säkerhet från banker och finansinstitut"
+      },
+      "keywords": "privatlån, personliga lån, räntor, låneförmedlare, banker"
     }
   },
   "/foretagslan": {
@@ -54,12 +115,32 @@
     "twitterImage": "https://finansguiden.se/images/og/foretagslan.png",
     "changefreq": "weekly",
     "priority": 0.85,
+    "lastmod": "2025-01-08",
     "jsonld": {
-      "@context": "https://schema.org",
       "@type": "Article",
       "headline": "Företagslån 2025 – din kompletta guide",
-      "author": "Finansguiden.se",
-      "mainEntityOfPage": "https://finansguiden.se/foretagslan"
+      "description": "Så fungerar företagslån: belopp, krav, räntor och alternativ. Jämför aktörer och finansiera verksamheten rätt.",
+      "author": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/",
+        "logo": "https://finansguiden.se/finansguiden-logo-v2.png"
+      },
+      "mainEntityOfPage": "https://finansguiden.se/foretagslan",
+      "datePublished": "2025-01-01",
+      "dateModified": "2025-01-08",
+      "inLanguage": "sv-SE",
+      "about": {
+        "@type": "FinancialProduct",
+        "name": "Företagslån",
+        "description": "Kommersiella lån för företag och näringsverksamhet"
+      },
+      "keywords": "företagslån, affärslån, företagsfinansiering, näringsverksamhet"
     }
   },
   "/lan-utan-uc": {
@@ -70,49 +151,130 @@
     "twitterImage": "https://finansguiden.se/images/og/utan-uc.png",
     "changefreq": "weekly",
     "priority": 0.85,
+    "lastmod": "2025-01-08",
     "jsonld": {
-      "@context": "https://schema.org",
       "@type": "FAQPage",
-      "mainEntity": []
+      "headline": "Lån utan UC – så funkar kreditupplysning utan UC",
+      "description": "Allt om Creditsafe och Bisnode, räntor och risker. Jämför långivare utan UC och läs vanliga frågor & svar.",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Vad är UC och hur fungerar det?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "UC (Upplysningscentralen) är en kreditupplysningsbyrå som samlar information om privatpersoners ekonomi."
+          }
+        }
+      ],
+      "author": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/",
+        "logo": "https://finansguiden.se/finansguiden-logo-v2.png"
+      },
+      "mainEntityOfPage": "https://finansguiden.se/lan-utan-uc",
+      "datePublished": "2025-01-01",
+      "dateModified": "2025-01-08",
+      "inLanguage": "sv-SE"
     }
   },
   "/cookies": {
     "title": "Cookies – Finansguiden.se",
-    "description": "Läs om vår cookiepolicy och hur vi använder kakor.",
+    "description": "Läs om vår cookiepolicy och hur vi använder kakor för att förbättra din upplevelse på sajten.",
     "canonical": "https://finansguiden.se/cookies",
     "changefreq": "yearly",
     "priority": 0.3,
+    "lastmod": "2025-01-08",
     "jsonld": {
-      "@context": "https://schema.org",
       "@type": "WebPage",
-      "name": "Cookies",
-      "url": "https://finansguiden.se/cookies"
+      "name": "Cookiepolicy",
+      "description": "Information om hur Finansguiden.se använder cookies",
+      "url": "https://finansguiden.se/cookies",
+      "inLanguage": "sv-SE",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/"
+      },
+      "mainEntity": {
+        "@type": "Policy",
+        "name": "Cookiepolicy",
+        "description": "Policy för användning av cookies på webbplatsen"
+      }
     }
   },
   "/integritetspolicy": {
     "title": "Integritetspolicy – Finansguiden.se",
-    "description": "Hur vi hanterar personuppgifter och skyddar din integritet.",
+    "description": "Hur vi hanterar personuppgifter och skyddar din integritet enligt GDPR och svensk lagstiftning.",
     "canonical": "https://finansguiden.se/integritetspolicy",
     "changefreq": "yearly",
     "priority": 0.3,
+    "lastmod": "2025-01-08",
     "jsonld": {
-      "@context": "https://schema.org",
       "@type": "WebPage",
       "name": "Integritetspolicy",
-      "url": "https://finansguiden.se/integritetspolicy"
+      "description": "GDPR-kompatibel integritetspolicy för Finansguiden.se",
+      "url": "https://finansguiden.se/integritetspolicy",
+      "inLanguage": "sv-SE",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/"
+      },
+      "mainEntity": {
+        "@type": "Policy",
+        "name": "Integritetspolicy",
+        "description": "Policy för hantering av personuppgifter enligt GDPR"
+      }
     }
   },
   "/ordlista": {
     "title": "Finansordlista (A–Ö) – begrepp och förklaringar",
     "description": "Sök i vår A–Ö ordlista och lär dig vanliga ekonomitermer med korta förklaringar och exempel.",
     "canonical": "https://finansguiden.se/ordlista",
-    "changefreq": "weekly",
-    "priority": 0.8,
+    "ogImage": "https://finansguiden.se/images/og/default.png",
+    "changefreq": "weekly", 
+    "priority": 0.9,
+    "lastmod": "2025-01-08",
     "jsonld": {
-      "@context": "https://schema.org",
       "@type": "CollectionPage",
       "name": "Finansordlista (A–Ö)",
-      "url": "https://finansguiden.se/ordlista"
+      "description": "Omfattande ordlista med över 400 finansiella termer och begrepp",
+      "url": "https://finansguiden.se/ordlista",
+      "inLanguage": "sv-SE",
+      "mainEntity": {
+        "@type": "ItemList",
+        "name": "Finansiella termer",
+        "numberOfItems": "400+",
+        "itemListElement": "Dynamic glossary terms"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Hem", 
+            "item": "https://finansguiden.se/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Ordlista",
+            "item": "https://finansguiden.se/ordlista"
+          }
+        ]
+      }
     }
   }
 }

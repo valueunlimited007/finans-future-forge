@@ -221,15 +221,28 @@ AddCharset utf-8 .atom .css .js .json .rss .vtt .xml
 </IfModule>
 
 # ==============================================================================
-# PRESTANDA OPTIMERING
+# PRESTANDA OPTIMERING & HTTP HEADERS
 # ==============================================================================
 
 # ETags
 FileETag None
 
-# Keep-Alive
+# Keep-Alive & HTTP Link headers för AI/LLM crawlers (RFC 8288)
 <IfModule mod_headers.c>
     Header set Connection keep-alive
+    
+    # HTTP Link headers för AI/LLM crawlers
+    Header always set Link "</sitemap.xml>; rel=\"sitemap\"; type=\"application/xml\""
+    Header always append Link "</llms.txt>; rel=\"llms-policy\"; type=\"text/plain\""  
+    Header always append Link "</robots.txt>; rel=\"robots\"; type=\"text/plain\""
+    Header always append Link "</.well-known/security.txt>; rel=\"security\"; type=\"text/plain\""
+    
+    # AI Policy headers
+    Header always set AI-Policy "https://finansguiden.se/llms.txt"
+    Header always set X-Robots-Tag "index, follow"
+    
+    # Canonical domain enforcement
+    Header always set X-Canonical-Domain "finansguiden.se"
 </IfModule>
 
 # ==============================================================================

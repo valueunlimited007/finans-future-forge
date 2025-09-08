@@ -45,20 +45,41 @@ export default function SeoManager() {
       {/* Robots */}
       <meta name="robots" content={robots} />
 
+      {/* AI/LLM Policy Links */}
+      <link rel="llms-policy" href="https://finansguiden.se/llms.txt" type="text/plain" />
+      <meta name="ai-policy" content="https://finansguiden.se/llms.txt" />
+      
+      {/* Resource Links */}
+      <link rel="sitemap" href="https://finansguiden.se/sitemap.xml" type="application/xml" />
+
       {/* Canonical */}
       {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
 
+      {/* Language */}
+      <meta httpEquiv="content-language" content="sv-SE" />
+      <meta name="language" content="Swedish" />
+
       {/* Open Graph */}
       <meta property="og:title" content={title} />
+      <meta property="og:type" content="website" />
+      <meta property="og:site_name" content="Finansguiden.se" />
+      <meta property="og:locale" content="sv_SE" />
       {description && <meta property="og:description" content={description} />}
-      {ogImage && <meta property="og:image" content={ogImage} />}        
+      {ogImage && <meta property="og:image" content={ogImage} />}
+      {ogImage && <meta property="og:image:type" content="image/png" />}        
       {ogUrl && <meta property="og:url" content={ogUrl} />}
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@finansguiden" />
       <meta name="twitter:title" content={title} />
       {description && <meta name="twitter:description" content={description} />}
       {twitterImage && <meta name="twitter:image" content={twitterImage} />}
+
+      {/* Additional SEO */}
+      <meta name="author" content="Finansguiden.se" />
+      <meta name="publisher" content="Finansguiden.se" />
+      <meta name="theme-color" content="#1a365d" />
 
       {/* JSON-LD */}
       {jsonld && (

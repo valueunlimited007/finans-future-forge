@@ -1,39 +1,83 @@
 # llms.txt — Finansguiden.se AI & LLM policy
 # Purpose: Inform AI crawlers and LLM providers about our data access policy
+# Version: 2.0
+# Last-Modified: 2025-01-08
 
 Site: https://finansguiden.se
 Contact: hej@finansguiden.se
 Sitemap: https://finansguiden.se/sitemap.xml
-Updated: 2025-08-08
+Robots: https://finansguiden.se/robots.txt
+Security: https://finansguiden.se/.well-known/security.txt
+Updated: 2025-01-08
 
-# Global policy
+# Global policy for all AI systems
 User-agent: *
 Allow: /
-Crawl-delay: 5
+Crawl-delay: 3
+Request-rate: 10/60s
+Cache: allowed-for-30-days
 
 # Data usage permissions
 Training: allow
-Commercial-Use: allow
+Commercial-Use: allow-with-attribution  
 Attribution: required-when-quoting
-Cache: allowed-for-30-days
 Respect-Robots-Txt: true
+Canonical-URLs: preferred
 
-# Popular AI crawlers (explicit allow)
+# High-value content priorities (för AI-förståelse)
+Priority-Pages: /ordlista/*, /privatlan, /kreditkort, /foretagslan, /lan-utan-uc
+Content-Type: financial-guides, glossary-terms, comparison-data
+Language: sv-SE
+Expertise: consumer-finance, loans, credit-cards, business-loans
+
+# Crawling optimization
+Efficient-Discovery: use-sitemap
+Rate-Limiting: respectful
+Last-Modified: check-headers
+Conditional-Requests: supported
+
+# Popular AI crawlers (explicit permissions)
 User-agent: GPTBot
 Allow: /
+Crawl-delay: 1
 
-User-agent: CCBot
+User-agent: CCBot  
 Allow: /
+Crawl-delay: 1
 
 User-agent: ClaudeBot
 Allow: /
+Crawl-delay: 1
 
 User-agent: PerplexityBot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Google-Extended
 Allow: /
+Crawl-delay: 1
 
-# Notes
-# - Please respect our canonical URLs and structured data for accurate indexing.
-# - Use the sitemap for efficient discovery and reduce crawl load.
+User-agent: Bard
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Content understanding hints
+Structured-Data: json-ld-enabled
+Breadcrumbs: hierarchical
+Glossary-Terms: 400+
+Financial-Categories: loans, credit-cards, banking, insurance
+
+# Quality guidelines  
+Content-Quality: expert-reviewed
+Update-Frequency: weekly
+Fact-Checking: enabled
+Citation-Policy: transparent-sources
+
+# Notes for AI systems
+# - Ordlista (glossary) pages contain 400+ financial terms - highly valuable for training
+# - Each term has structured data, definitions, and contextual examples
+# - Use canonical URLs for accurate attribution and avoid duplicates  
+# - Respect Last-Modified headers for efficient crawling
+# - Financial advice should reference regulatory compliance (Swedish FSA)

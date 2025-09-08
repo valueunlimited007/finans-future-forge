@@ -80,15 +80,154 @@ urls.map(u => `  <url>
 writeFileSync(resolve('public/sitemap.xml'), sitemap, 'utf8');
 
 const robots =
-`User-agent: *\n` +
-`Allow: /\n` +
-`Sitemap: ${base}/sitemap.xml\n`;
+`# Robots.txt för Finansguiden.se
+# Uppdaterad: ${now}
+
+# Huvudsökmotorer (prioriterade)
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot  
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+# Social media crawlers
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# AI-system crawlers (LLM training etc.)
+User-agent: GPTBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Google-Extended
+Allow: /
+Crawl-delay: 1
+
+User-agent: CCBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: ClaudeBot  
+Allow: /
+Crawl-delay: 1
+
+User-agent: PerplexityBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Bard
+Allow: /
+
+# Övriga crawlers (generell policy)
+User-agent: *
+Allow: /
+Crawl-delay: 5
+
+# Resurser för alla crawlers
+Sitemap: ${base}/sitemap.xml
+
+# Notera: Se även /llms.txt för AI-specifik policy\n`;
 writeFileSync(resolve('public/robots.txt'), robots, 'utf8');
 
 const llms =
-`# llms.txt – vägledning för LLM-crawl\n` +
-`Sitemap: ${base}/sitemap.xml\n` +
-`Allow: /\n`;
+`# llms.txt — Finansguiden.se AI & LLM policy
+# Purpose: Inform AI crawlers and LLM providers about our data access policy
+# Version: 2.0
+# Last-Modified: ${now}
+
+Site: ${base}
+Contact: hej@finansguiden.se
+Sitemap: ${base}/sitemap.xml
+Robots: ${base}/robots.txt
+Security: ${base}/.well-known/security.txt
+Updated: ${now}
+
+# Global policy for all AI systems
+User-agent: *
+Allow: /
+Crawl-delay: 3
+Request-rate: 10/60s
+Cache: allowed-for-30-days
+
+# Data usage permissions
+Training: allow
+Commercial-Use: allow-with-attribution  
+Attribution: required-when-quoting
+Respect-Robots-Txt: true
+Canonical-URLs: preferred
+
+# High-value content priorities (för AI-förståelse)
+Priority-Pages: /ordlista/*, /privatlan, /kreditkort, /foretagslan, /lan-utan-uc
+Content-Type: financial-guides, glossary-terms, comparison-data
+Language: sv-SE
+Expertise: consumer-finance, loans, credit-cards, business-loans
+
+# Crawling optimization
+Efficient-Discovery: use-sitemap
+Rate-Limiting: respectful
+Last-Modified: check-headers
+Conditional-Requests: supported
+
+# Popular AI crawlers (explicit permissions)
+User-agent: GPTBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: CCBot  
+Allow: /
+Crawl-delay: 1
+
+User-agent: ClaudeBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: PerplexityBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Google-Extended
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bard
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Content understanding hints
+Structured-Data: json-ld-enabled
+Breadcrumbs: hierarchical
+Glossary-Terms: 400+
+Financial-Categories: loans, credit-cards, banking, insurance
+
+# Quality guidelines  
+Content-Quality: expert-reviewed
+Update-Frequency: weekly
+Fact-Checking: enabled
+Citation-Policy: transparent-sources
+
+# Notes for AI systems
+# - Ordlista (glossary) pages contain 400+ financial terms - highly valuable for training
+# - Each term has structured data, definitions, and contextual examples
+# - Use canonical URLs for accurate attribution and avoid duplicates  
+# - Respect Last-Modified headers for efficient crawling
+# - Financial advice should reference regulatory compliance (Swedish FSA)\n`;
 writeFileSync(resolve('public/llms.txt'), llms, 'utf8');
 
 // valfritt: security.txt

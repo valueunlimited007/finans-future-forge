@@ -27,12 +27,43 @@ export function articleJsonLd(slug: string, term: string, description: string, d
   const base = "https://finansguiden.se";
   return {
     "@context": "https://schema.org",
-    "@type": "Article",
-    headline: term,
-    description,
-    dateModified: date,
-    mainEntityOfPage: `${base}/ordlista/${slug}`,
-    author: { "@type": "Organization", name: "Finansguiden.se" },
-    publisher: { "@type": "Organization", name: "Finansguiden.se" },
+    "@type": "DefinedTerm",
+    "name": term,
+    "description": description,
+    "url": `${base}/ordlista/${slug}`,
+    "inDefinedTermSet": {
+      "@type": "DefinedTermSet",
+      "name": "Finansguiden.se Ordlista",
+      "description": "Omfattande ordlista med finansiella termer och begrepp",
+      "url": `${base}/ordlista`,
+      "hasDefinedTerm": `${base}/ordlista/${slug}`
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "url": `${base}/ordlista/${slug}`,
+      "name": term,
+      "description": description,
+      "inLanguage": "sv-SE",
+      "dateModified": date,
+      "breadcrumb": {
+        "@type": "BreadcrumbList", 
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Hem", "item": `${base}/` },
+          { "@type": "ListItem", "position": 2, "name": "Ordlista", "item": `${base}/ordlista` },
+          { "@type": "ListItem", "position": 3, "name": term, "item": `${base}/ordlista/${slug}` }
+        ]
+      }
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Finansguiden.se",
+      "url": base,
+      "logo": `${base}/finansguiden-logo-v2.png`
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Finansguiden.se",
+      "url": base
+    }
   } as const;
 }

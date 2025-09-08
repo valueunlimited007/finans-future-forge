@@ -1,17 +1,66 @@
+# Robots.txt för Finansguiden.se
+# Uppdaterad: 2025-01-08
+
+# Huvudsökmotorer (prioriterade)
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
 
-User-agent: Bingbot
+User-agent: Bingbot  
 Allow: /
+Crawl-delay: 1
 
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+# Social media crawlers
 User-agent: Twitterbot
 Allow: /
 
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: *
+User-agent: LinkedInBot
 Allow: /
 
-# Sitemap for all crawlers
+# AI-system crawlers (LLM training etc.)
+User-agent: GPTBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Google-Extended
+Allow: /
+Crawl-delay: 1
+
+User-agent: CCBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: ClaudeBot  
+Allow: /
+Crawl-delay: 1
+
+User-agent: PerplexityBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Bard
+Allow: /
+
+# Övriga crawlers (generell policy)
+User-agent: *
+Allow: /
+Crawl-delay: 5
+
+# Blockera problemcrawlers (om behövs)
+# User-agent: BadBot
+# Disallow: /
+
+# Resurser för alla crawlers
 Sitemap: https://finansguiden.se/sitemap.xml
+
+# Notera: Se även /llms.txt för AI-specifik policy

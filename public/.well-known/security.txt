@@ -1,0 +1,10 @@
+Contact: mailto:security@finansguiden.se
+Contact: https://finansguiden.se/
+Expires: 2025-07-08T00:00:00.000Z
+Preferred-Languages: sv, en
+Canonical: https://finansguiden.se/.well-known/security.txt
+Policy: https://finansguiden.se/integritetspolicy
+Hiring: https://finansguiden.se/
+
+# Security contact for Finansguiden.se
+# Report security vulnerabilities to security@finansguiden.se
