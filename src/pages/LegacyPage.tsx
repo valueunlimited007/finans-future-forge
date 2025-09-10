@@ -333,18 +333,11 @@ export default function LegacyPage({ htmlRaw }: LegacyPageProps) {
         }
       }
 
-      // Ensure glossary links in header and footer
+      // Ensure glossary links in footer only
       (function ensureGlossaryLinks(){
         if ((window as any).__fgGlossaryLinks) return;
         (window as any).__fgGlossaryLinks = true;
         try {
-          const headerNav = document.querySelector('header nav, header [role="navigation"]');
-          if (headerNav && !headerNav.querySelector('a[href$="/ordlista"]')) {
-            const a = document.createElement('a');
-            a.href = '/ordlista';
-            a.textContent = 'Ordlista';
-            headerNav.appendChild(a);
-          }
           const footer = document.querySelector('footer');
           if (footer && !footer.querySelector('a[href$="/ordlista"]')) {
             const a = document.createElement('a');

@@ -21,8 +21,28 @@ const AlphabeticalGlossaryList: React.FC<AlphabeticalGlossaryListProps> = ({ ite
     return acc;
   }, {} as Record<string, GlossaryItem[]>);
 
-  // Sort letters alphabetically
-  const sortedLetters = Object.keys(groupedItems).sort();
+  // Sort letters according to Swedish standard: numbers first, then A-Z with Å, Ä, Ö at end
+  const sortedLetters = Object.keys(groupedItems).sort((a, b) => {
+    // Numbers come first
+    const aIsNumber = /^\d/.test(a);
+    const bIsNumber = /^\d/.test(b);
+    
+    if (aIsNumber && !bIsNumber) return -1;
+    if (!aIsNumber && bIsNumber) return 1;
+    if (aIsNumber && bIsNumber) return a.localeCompare(b, 'sv-SE', { numeric: true });
+    
+    // Special handling for Swedish characters - Å, Ä, Ö should come at the end
+    const swedishOrder = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','Å','Ä','Ö'];
+    const aIndex = swedishOrder.indexOf(a);
+    const bIndex = swedishOrder.indexOf(b);
+    
+    if (aIndex !== -1 && bIndex !== -1) {
+      return aIndex - bIndex;
+    }
+    
+    // Fallback to Swedish locale comparison
+    return a.localeCompare(b, 'sv-SE');
+  });
 
   return (
     <div className="space-y-8">
