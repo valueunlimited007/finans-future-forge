@@ -1,5 +1,6 @@
 import { useLayoutEffect, useRef, useMemo } from "react";
 import { pageview } from "../analytics/tracker";
+import { ensureGlossaryLinks } from "@/lib/legacyChrome";
 
 interface LegacyPageProps {
   htmlRaw: string;
@@ -334,20 +335,10 @@ export default function LegacyPage({ htmlRaw }: LegacyPageProps) {
       }
 
       // Ensure glossary links in footer only
-      (function ensureGlossaryLinks(){
-        if ((window as any).__fgGlossaryLinks) return;
+      if (!(window as any).__fgGlossaryLinks) {
         (window as any).__fgGlossaryLinks = true;
-        try {
-          const footer = document.querySelector('footer');
-          if (footer && !footer.querySelector('a[href$="/ordlista"]')) {
-            const a = document.createElement('a');
-            a.href = '/ordlista';
-            a.textContent = 'Finansordlista (A–Ö)';
-            const container = footer.querySelector('nav, ul, .footer-links') || footer;
-            container.appendChild(a);
-          }
-        } catch(e){}
-      })();
+        ensureGlossaryLinks(el);
+      }
     })();
 
     // Absolutisera relativa URL:er i injicerat innehåll (bilder, länkar, srcset, data-src, inline style url(...))
