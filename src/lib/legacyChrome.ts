@@ -83,10 +83,10 @@ export function bindLegacyMobileMenu(container: HTMLElement) {
 
 export function ensureGlossaryLinks(container: HTMLElement) {
       try {
-        // Look for footer grid to add juridiskt section
+        // Look for footer grid to add sections
         const footerGrid = container.querySelector("footer .footer-grid");
         if (footerGrid && !container.querySelector('a[href$="/ordlista"]')) {
-          // Create new footer column for "Juridiskt" section
+          // Create "Juridiskt" section
           const juridiskColumn = document.createElement("div");
           juridiskColumn.className = "footer-column";
           
@@ -95,15 +95,13 @@ export function ensureGlossaryLinks(container: HTMLElement) {
           
           const juridiskList = document.createElement("ul");
           
-          const links = [
+          const juridiskLinks = [
             { href: "/integritetspolicy", text: "Integritetspolicy" },
             { href: "/cookies", text: "Cookies" },
-            { href: "/om", text: "Om oss" },
-            { href: "/ordlista", text: "Ordlista" },
-            { href: "/sajtkarta", text: "Sajtkarta" }
+            { href: "/om", text: "Om oss" }
           ];
           
-          links.forEach(linkData => {
+          juridiskLinks.forEach(linkData => {
             const li = document.createElement("li");
             const a = document.createElement("a");
             a.href = linkData.href;
@@ -115,6 +113,33 @@ export function ensureGlossaryLinks(container: HTMLElement) {
           juridiskColumn.appendChild(juridiskHeader);
           juridiskColumn.appendChild(juridiskList);
           footerGrid.appendChild(juridiskColumn);
+
+          // Create "Resurser" section
+          const resurserColumn = document.createElement("div");
+          resurserColumn.className = "footer-column";
+          
+          const resurserHeader = document.createElement("h4");
+          resurserHeader.textContent = "Resurser";
+          
+          const resurserList = document.createElement("ul");
+          
+          const resurserLinks = [
+            { href: "/ordlista", text: "Ordlista" },
+            { href: "/sajtkarta", text: "Sajtkarta" }
+          ];
+          
+          resurserLinks.forEach(linkData => {
+            const li = document.createElement("li");
+            const a = document.createElement("a");
+            a.href = linkData.href;
+            a.textContent = linkData.text;
+            li.appendChild(a);
+            resurserList.appendChild(li);
+          });
+          
+          resurserColumn.appendChild(resurserHeader);
+          resurserColumn.appendChild(resurserList);
+          footerGrid.appendChild(resurserColumn);
         }
       } catch {}
 }
