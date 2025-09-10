@@ -4,7 +4,15 @@
 # Huvudsökmotorer (prioriterade)
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 0
+
+# AdSense och nyhetsindexering (kritiskt för AdSense-godkännande)
+User-agent: AdsBot-Google
+Allow: /
+Crawl-delay: 0
+
+User-agent: Googlebot-News
+Allow: /
 
 User-agent: Bingbot  
 Allow: /
@@ -56,9 +64,13 @@ User-agent: *
 Allow: /
 Crawl-delay: 5
 
-# Blockera problemcrawlers (om behövs)
-# User-agent: BadBot
-# Disallow: /
+# Minimal nödvändig blockering (för säkerhet och prestanda)
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /auth/
+Disallow: /api/
+Disallow: /*?utm_*
+Disallow: /*?ref=*
 
 # Resurser för alla crawlers
 Sitemap: https://finansguiden.se/sitemap.xml
