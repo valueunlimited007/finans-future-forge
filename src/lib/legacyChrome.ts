@@ -83,45 +83,38 @@ export function bindLegacyMobileMenu(container: HTMLElement) {
 
 export function ensureGlossaryLinks(container: HTMLElement) {
       try {
-        // Glossary links are now only in footer
-        const footerNav = container.querySelector("footer nav, footer ul, footer .footer-links");
-        if (footerNav && !container.querySelector('a[href$="/ordlista"]')) {
-          // Add "Juridiskt" section
-          const juridiskHeader = document.createElement("strong");
+        // Look for footer grid to add juridiskt section
+        const footerGrid = container.querySelector("footer .footer-grid");
+        if (footerGrid && !container.querySelector('a[href$="/ordlista"]')) {
+          // Create new footer column for "Juridiskt" section
+          const juridiskColumn = document.createElement("div");
+          juridiskColumn.className = "footer-column";
+          
+          const juridiskHeader = document.createElement("h4");
           juridiskHeader.textContent = "Juridiskt";
-          juridiskHeader.className = "block mb-2 text-sm font-semibold";
           
-          const ordlistaLink = document.createElement("a");
-          ordlistaLink.href = "/ordlista";
-          ordlistaLink.textContent = "Ordlista";
-          ordlistaLink.className = "hover:underline block mb-1";
+          const juridiskList = document.createElement("ul");
           
-          const sajtkarteLink = document.createElement("a");
-          sajtkarteLink.href = "/sajtkarta";
-          sajtkarteLink.textContent = "Sajtkarta";
-          sajtkarteLink.className = "hover:underline block mb-1";
+          const links = [
+            { href: "/integritetspolicy", text: "Integritetspolicy" },
+            { href: "/cookies", text: "Cookies" },
+            { href: "/om", text: "Om oss" },
+            { href: "/ordlista", text: "Ordlista" },
+            { href: "/sajtkarta", text: "Sajtkarta" }
+          ];
           
-          const omLink = document.createElement("a");
-          omLink.href = "/om";
-          omLink.textContent = "Om oss";
-          omLink.className = "hover:underline block mb-1";
+          links.forEach(linkData => {
+            const li = document.createElement("li");
+            const a = document.createElement("a");
+            a.href = linkData.href;
+            a.textContent = linkData.text;
+            li.appendChild(a);
+            juridiskList.appendChild(li);
+          });
           
-          const integritetLink = document.createElement("a");
-          integritetLink.href = "/integritetspolicy";
-          integritetLink.textContent = "Integritetspolicy";
-          integritetLink.className = "hover:underline block mb-1";
-          
-          const cookieLink = document.createElement("a");
-          cookieLink.href = "/cookies";
-          cookieLink.textContent = "Cookiepolicy";
-          cookieLink.className = "hover:underline block mb-1";
-          
-          footerNav.appendChild(juridiskHeader);
-          footerNav.appendChild(integritetLink);
-          footerNav.appendChild(cookieLink);
-          footerNav.appendChild(omLink);
-          footerNav.appendChild(ordlistaLink);
-          footerNav.appendChild(sajtkarteLink);
+          juridiskColumn.appendChild(juridiskHeader);
+          juridiskColumn.appendChild(juridiskList);
+          footerGrid.appendChild(juridiskColumn);
         }
       } catch {}
 }
