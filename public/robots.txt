@@ -64,11 +64,7 @@ User-agent: *
 Allow: /
 Crawl-delay: 5
 
-# Minimal nödvändig blockering (för säkerhet och prestanda)
-Disallow: /admin/
-Disallow: /dashboard/
-Disallow: /auth/
-Disallow: /api/
+# Minimal nödvändig blockering (endast tracking parameters)
 Disallow: /*?utm_*
 Disallow: /*?ref=*
 
