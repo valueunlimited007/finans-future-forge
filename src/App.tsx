@@ -13,6 +13,7 @@ import Cookies from "./pages/Cookies";
 import Integritetspolicy from "./pages/Integritetspolicy";
 import GlossaryIndex from "./routes/ordlista/index";
 import GlossaryTermPage from "./routes/ordlista/[slug]";
+import Sajtkarta from "./pages/Sajtkarta";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -30,6 +31,7 @@ const App = () => (
             <Route path="/foretagslan" element={<Foretagslan />} />
             <Route path="/ordlista" element={<GlossaryIndex />} />
             <Route path="/ordlista/:slug" element={<GlossaryTermPage />} />
+            <Route path="/sajtkarta" element={<Sajtkarta />} />
             <Route path="/cookies" element={<Cookies />} />
             <Route path="/integritetspolicy" element={<Integritetspolicy />} />
           </Routes>

@@ -83,12 +83,21 @@ export function bindLegacyMobileMenu(container: HTMLElement) {
 
 export function ensureGlossaryLinks(container: HTMLElement) {
   try {
-    const headerNav = container.querySelector("header nav, header [role='navigation'], .nav-links");
-    if (headerNav && !container.querySelector('a[href$="/ordlista"]')) {
-      const a = document.createElement("a");
-      a.href = "/ordlista";
-      a.textContent = "Ordlista";
-      (headerNav.tagName.toLowerCase() === "ul" ? (headerNav as HTMLElement) : headerNav).appendChild(a);
+    // Glossary link is now in footer, not header
+    const footerNav = container.querySelector("footer nav, footer ul, footer .footer-links");
+    if (footerNav && !container.querySelector('a[href$="/ordlista"]')) {
+      const ordlistaLink = document.createElement("a");
+      ordlistaLink.href = "/ordlista";
+      ordlistaLink.textContent = "Ordlista";
+      ordlistaLink.className = "hover:underline";
+      
+      const sajtkarteLink = document.createElement("a");
+      sajtkarteLink.href = "/sajtkarta";
+      sajtkarteLink.textContent = "Sajtkarta";
+      sajtkarteLink.className = "hover:underline";
+      
+      footerNav.appendChild(ordlistaLink);
+      footerNav.appendChild(sajtkarteLink);
     }
   } catch {}
 }
@@ -114,6 +123,7 @@ export function interceptInternalLinks(container: HTMLElement, navigate: (to: st
         "/privatlan",
         "/foretagslan",
         "/ordlista",
+        "/sajtkarta",
         "/cookies",
         "/integritetspolicy",
       ]);

@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { glossary as glossaryData } from "@/data/glossary";
 import GlossaryList from "@/components/GlossaryList";
+import AlphabeticalGlossaryList from "@/components/AlphabeticalGlossaryList";
 import LegacyHeader from "@/components/LegacyHeader";
 import LegacyFooter from "@/components/LegacyFooter";
 const safeEvent = (name: string, params: Record<string, any>) => {
@@ -73,7 +74,11 @@ export default function GlossaryIndex() {
         />
 
         <div className="prose prose-neutral dark:prose-invert">
-          <GlossaryList items={list} />
+          {q.trim() ? (
+            <GlossaryList items={list} />
+          ) : (
+            <AlphabeticalGlossaryList items={list} />
+          )}
         </div>
 
         <div className="mt-8 text-sm text-muted-foreground">

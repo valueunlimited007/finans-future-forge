@@ -23,6 +23,28 @@ export function breadcrumbJsonLd(slug: string, term: string) {
   } as const;
 }
 
+export function websiteJsonLd() {
+  return {
+    "@type": "WebSite",
+    "name": "Finansguiden.se",
+    "url": "https://finansguiden.se",
+    "description": "Sveriges ledande guide för lån, kreditkort och privatekonomi. Jämför räntor och hitta bästa erbjudandena.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://finansguiden.se/ordlista?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Finansguiden.se",
+      "url": "https://finansguiden.se",
+      "sameAs": [
+        "https://twitter.com/finansguiden"
+      ]
+    }
+  };
+}
+
 export function articleJsonLd(slug: string, term: string, description: string, date: string) {
   const base = "https://finansguiden.se";
   return {

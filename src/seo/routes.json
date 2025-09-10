@@ -234,8 +234,8 @@
     }
   },
   "/ordlista": {
-    "title": "Finansordlista (A–Ö) – begrepp och förklaringar",
-    "description": "Sök i vår A–Ö ordlista och lär dig vanliga ekonomitermer med korta förklaringar och exempel.",
+    "title": "Finansordlista A–Ö | Finansguiden.se",
+    "description": "Sök i Finansguidens finansordlista A–Ö. Förklaringar av begrepp som amortering, effektiv ränta, indexfond m.fl.",
     "canonical": "https://finansguiden.se/ordlista",
     "ogImage": "https://finansguiden.se/images/og/default.png",
     "changefreq": "weekly", 
@@ -272,6 +272,43 @@
             "position": 2,
             "name": "Ordlista",
             "item": "https://finansguiden.se/ordlista"
+          }
+        ]
+      }
+    }
+  },
+  "/sajtkarta": {
+    "title": "Sajtkarta - Översikt av Finansguiden.se",
+    "description": "Hitta enkelt runt på Finansguiden.se. Översikt över alla våra guider om lån, kreditkort, sparande och privatekonomi.",
+    "canonical": "https://finansguiden.se/sajtkarta",
+    "lastmod": "2025-09-10",
+    "changefreq": "monthly",
+    "priority": 0.6,
+    "jsonld": {
+      "@type": "WebPage",
+      "name": "Sajtkarta",
+      "description": "Webbplatsöversikt och navigation för Finansguiden.se",
+      "url": "https://finansguiden.se/sajtkarta",
+      "inLanguage": "sv-SE",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Hem",
+            "item": "https://finansguiden.se/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Sajtkarta",
+            "item": "https://finansguiden.se/sajtkarta"
           }
         ]
       }
