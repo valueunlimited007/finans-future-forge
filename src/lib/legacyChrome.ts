@@ -86,24 +86,42 @@ export function ensureGlossaryLinks(container: HTMLElement) {
         // Glossary links are now only in footer
         const footerNav = container.querySelector("footer nav, footer ul, footer .footer-links");
         if (footerNav && !container.querySelector('a[href$="/ordlista"]')) {
+          // Add "Juridiskt" section
+          const juridiskHeader = document.createElement("strong");
+          juridiskHeader.textContent = "Juridiskt";
+          juridiskHeader.className = "block mb-2 text-sm font-semibold";
+          
           const ordlistaLink = document.createElement("a");
           ordlistaLink.href = "/ordlista";
           ordlistaLink.textContent = "Ordlista";
-          ordlistaLink.className = "hover:underline";
+          ordlistaLink.className = "hover:underline block mb-1";
           
           const sajtkarteLink = document.createElement("a");
           sajtkarteLink.href = "/sajtkarta";
           sajtkarteLink.textContent = "Sajtkarta";
-          sajtkarteLink.className = "hover:underline";
+          sajtkarteLink.className = "hover:underline block mb-1";
           
           const omLink = document.createElement("a");
           omLink.href = "/om";
           omLink.textContent = "Om oss";
-          omLink.className = "hover:underline";
+          omLink.className = "hover:underline block mb-1";
           
+          const integritetLink = document.createElement("a");
+          integritetLink.href = "/integritetspolicy";
+          integritetLink.textContent = "Integritetspolicy";
+          integritetLink.className = "hover:underline block mb-1";
+          
+          const cookieLink = document.createElement("a");
+          cookieLink.href = "/cookies";
+          cookieLink.textContent = "Cookiepolicy";
+          cookieLink.className = "hover:underline block mb-1";
+          
+          footerNav.appendChild(juridiskHeader);
+          footerNav.appendChild(integritetLink);
+          footerNav.appendChild(cookieLink);
+          footerNav.appendChild(omLink);
           footerNav.appendChild(ordlistaLink);
           footerNav.appendChild(sajtkarteLink);
-          footerNav.appendChild(omLink);
         }
       } catch {}
 }

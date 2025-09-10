@@ -75,16 +75,10 @@ export default function Om() {
               <div className="bg-card border border-border rounded-lg p-6">
                 <h3 className="text-lg font-semibold mb-3 text-foreground">Finansguiden.se</h3>
                 <p className="mb-2 text-foreground">
-                  <strong>E-post:</strong> redaktionen@finansguiden.se
-                </p>
-                <p className="mb-2 text-foreground">
-                  <strong>Postadress:</strong><br />
-                  Finansguiden AB<br />
-                  Box 12345<br />
-                  111 22 Stockholm
+                  <strong>E-post:</strong> hej@finansguiden.se
                 </p>
                 <p className="mb-4 text-foreground">
-                  <strong>Organisationsnummer:</strong> 556XXX-XXXX
+                  <strong>Sajten drivs av:</strong> Value Unlimited
                 </p>
                 <p className="text-sm text-muted-foreground">
                   För frågor om finansiella produkter, vänligen kontakta respektive leverantör direkt.
