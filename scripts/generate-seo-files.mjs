@@ -36,6 +36,7 @@ function extractGlossarySlugs(){
 
     const uniq = Array.from(new Set(terms));
     const slugs = uniq.map(t => slugify(t));
+    console.log(`[SITEMAP] Found ${uniq.length} unique glossary terms`);
     return slugs.map(slug => ({
       loc: `${base}/ordlista/${slug}`,
       lastmod: now,
@@ -66,6 +67,8 @@ if (!routes['/ordlista']) {
 
 const urls = [...staticUrls, ...extractGlossarySlugs()];
 
+console.log(`[SITEMAP] Generated sitemap with ${urls.length} total URLs (${staticUrls.length} static + ${urls.length - staticUrls.length} glossary)`);
+
 const sitemap =
 `<?xml version="1.0" encoding="UTF-8"?>\n` +
 `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
@@ -90,7 +93,7 @@ Crawl-delay: 1
 
 User-agent: Bingbot  
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 3
 
 User-agent: Slurp
 Allow: /

@@ -58,6 +58,11 @@ export default function SeoManager() {
       {/* Language */}
       <meta httpEquiv="content-language" content="sv-SE" />
       <meta name="language" content="Swedish" />
+      
+      {/* Bing-specific optimizations */}
+      <meta name="revisit-after" content="7 days" />
+      <meta name="distribution" content="global" />
+      <meta name="rating" content="general" />
 
       {/* Open Graph */}
       <meta property="og:title" content={title} />
