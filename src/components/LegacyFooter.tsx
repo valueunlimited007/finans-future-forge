@@ -5,6 +5,7 @@ import {
   ensureLegacyStyles,
   absolutizeUrls,
   interceptInternalLinks,
+  ensureGlossaryLinks,
 } from "@/lib/legacyChrome";
 
 const LegacyFooter: React.FC = () => {
@@ -18,6 +19,7 @@ const LegacyFooter: React.FC = () => {
     if (!el) return;
     absolutizeUrls(el);
     interceptInternalLinks(el, (to) => navigate(to));
+    ensureGlossaryLinks(el);
   }, [navigate]);
 
   if (!html) return null;
