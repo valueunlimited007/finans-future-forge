@@ -31,11 +31,25 @@ export const AffiliateButton: React.FC<AffiliateButtonProps> = ({ href, label = 
   };
 
   return (
-    <Button asChild className={className}>
-      <a href={href} target="_blank" rel="nofollow noopener" onClick={onClick} aria-label={label}>
-        {label}
-      </a>
-    </Button>
+    <div className="relative">
+      <Button asChild className={className}>
+        <a 
+          href={href} 
+          target="_blank" 
+          rel="nofollow sponsored noopener" 
+          onClick={onClick} 
+          aria-label={`${label} (affiliatelänk - öppnas i nytt fönster)`}
+        >
+          {label}
+        </a>
+      </Button>
+      <span 
+        className="absolute -top-1 -right-1 bg-muted text-muted-foreground text-xs px-1.5 py-0.5 rounded-full border text-[9px] leading-tight"
+        title="Reklam - Vi får provision om du genomför ett köp via denna länk. Detta påverkar inte priset för dig."
+      >
+        Reklam
+      </span>
+    </div>
   );
 };
 

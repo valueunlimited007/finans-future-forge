@@ -82,24 +82,30 @@ export function bindLegacyMobileMenu(container: HTMLElement) {
 }
 
 export function ensureGlossaryLinks(container: HTMLElement) {
-  try {
-    // Glossary link is now in footer, not header
-    const footerNav = container.querySelector("footer nav, footer ul, footer .footer-links");
-    if (footerNav && !container.querySelector('a[href$="/ordlista"]')) {
-      const ordlistaLink = document.createElement("a");
-      ordlistaLink.href = "/ordlista";
-      ordlistaLink.textContent = "Ordlista";
-      ordlistaLink.className = "hover:underline";
-      
-      const sajtkarteLink = document.createElement("a");
-      sajtkarteLink.href = "/sajtkarta";
-      sajtkarteLink.textContent = "Sajtkarta";
-      sajtkarteLink.className = "hover:underline";
-      
-      footerNav.appendChild(ordlistaLink);
-      footerNav.appendChild(sajtkarteLink);
-    }
-  } catch {}
+      try {
+        // Glossary links are now only in footer
+        const footerNav = container.querySelector("footer nav, footer ul, footer .footer-links");
+        if (footerNav && !container.querySelector('a[href$="/ordlista"]')) {
+          const ordlistaLink = document.createElement("a");
+          ordlistaLink.href = "/ordlista";
+          ordlistaLink.textContent = "Ordlista";
+          ordlistaLink.className = "hover:underline";
+          
+          const sajtkarteLink = document.createElement("a");
+          sajtkarteLink.href = "/sajtkarta";
+          sajtkarteLink.textContent = "Sajtkarta";
+          sajtkarteLink.className = "hover:underline";
+          
+          const omLink = document.createElement("a");
+          omLink.href = "/om";
+          omLink.textContent = "Om oss";
+          omLink.className = "hover:underline";
+          
+          footerNav.appendChild(ordlistaLink);
+          footerNav.appendChild(sajtkarteLink);
+          footerNav.appendChild(omLink);
+        }
+      } catch {}
 }
 
 export function interceptInternalLinks(container: HTMLElement, navigate: (to: string) => void) {
@@ -124,6 +130,7 @@ export function interceptInternalLinks(container: HTMLElement, navigate: (to: st
         "/foretagslan",
         "/ordlista",
         "/sajtkarta",
+        "/om",
         "/cookies",
         "/integritetspolicy",
       ]);

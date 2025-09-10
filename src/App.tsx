@@ -14,6 +14,7 @@ import Integritetspolicy from "./pages/Integritetspolicy";
 import GlossaryIndex from "./routes/ordlista/index";
 import GlossaryTermPage from "./routes/ordlista/[slug]";
 import Sajtkarta from "./pages/Sajtkarta";
+import Om from "./pages/Om";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -32,6 +33,7 @@ const App = () => (
             <Route path="/ordlista" element={<GlossaryIndex />} />
             <Route path="/ordlista/:slug" element={<GlossaryTermPage />} />
             <Route path="/sajtkarta" element={<Sajtkarta />} />
+            <Route path="/om" element={<Om />} />
             <Route path="/cookies" element={<Cookies />} />
             <Route path="/integritetspolicy" element={<Integritetspolicy />} />
           </Routes>

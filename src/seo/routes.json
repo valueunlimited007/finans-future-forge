@@ -313,5 +313,34 @@
         ]
       }
     }
+  },
+  "/om": {
+    "title": "Om Finansguiden.se - Din pålitliga finansiella rådgivare",
+    "description": "Lär dig mer om Finansguiden.se, vårt uppdrag att hjälpa svenskar göra smarta finansiella beslut, och vår redaktionella integritet.",
+    "canonical": "https://finansguiden.se/om",
+    "changefreq": "monthly",
+    "priority": 0.7,
+    "lastmod": "2025-01-08",
+    "jsonld": {
+      "@type": "AboutPage",
+      "name": "Om Finansguiden.se",
+      "description": "Information om Finansguiden.se, vårt uppdrag och redaktionella integritet",
+      "url": "https://finansguiden.se/om",
+      "inLanguage": "sv-SE",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/",
+        "logo": "https://finansguiden.se/finansguiden-logo-v2.png"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/"
+      },
+      "mainEntityOfPage": "https://finansguiden.se/om",
+      "datePublished": "2025-01-08",
+      "dateModified": "2025-01-08"
+    }
   }
 }
