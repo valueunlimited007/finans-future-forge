@@ -49,13 +49,16 @@ const AlphabeticalGlossaryList: React.FC<AlphabeticalGlossaryListProps> = ({ ite
       {/* Alphabetical navigation */}
       <nav className="flex flex-wrap gap-2 p-4 bg-muted/50 rounded-lg">
         {sortedLetters.map((letter) => (
-          <a
+          <button
             key={letter}
-            href={`#letter-${letter}`}
-            className="px-3 py-1 text-sm font-medium bg-background border rounded hover:bg-muted transition-colors"
+            onClick={() => {
+              const element = document.getElementById(`letter-${letter}`);
+              element?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className="px-3 py-1 text-sm font-medium bg-background border rounded hover:bg-muted transition-colors cursor-pointer"
           >
             {letter}
-          </a>
+          </button>
         ))}
       </nav>
 
