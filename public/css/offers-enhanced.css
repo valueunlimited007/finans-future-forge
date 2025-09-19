@@ -1,5 +1,29 @@
 /* Enhanced Offers Styling for Finansguiden.se */
 
+/* CSS Isolation - Reset global interference for offers */
+.offers-container,
+.offers-container * {
+  /* Reset problematic global styles from legacy.css */
+  font-size: initial !important;
+  line-height: initial !important;
+  letter-spacing: initial !important;
+  white-space: normal !important;
+  word-break: normal !important;
+  transform: none !important;
+  zoom: 1 !important;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Re-establish proper typography for offers */
+.offers-container {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #1f2937;
+}
+
 .lender-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -15,6 +39,9 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 420px;
 }
 
 .lender-card:hover {
@@ -56,14 +83,19 @@
   border-radius: 4px;
 }
 
+.lender-info {
+  flex-grow: 1;
+}
+
 .lender-info h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #1f2937;
-  margin-bottom: 0.75rem;
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+  color: #1f2937 !important;
+  margin-bottom: 0.75rem !important;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  line-height: 1.4 !important;
 }
 
 .lender-features {
@@ -73,10 +105,11 @@
 }
 
 .lender-feature {
-  font-size: 0.875rem;
-  color: #6b7280;
+  font-size: 0.875rem !important;
+  color: #6b7280 !important;
   padding: 0.5rem 0;
   border-bottom: 1px solid #f3f4f6;
+  line-height: 1.4 !important;
 }
 
 .lender-feature:last-child {
@@ -84,8 +117,8 @@
 }
 
 .lender-feature strong {
-  color: #374151;
-  font-weight: 500;
+  color: #374151 !important;
+  font-weight: 500 !important;
   margin-right: 0.5rem;
 }
 
@@ -98,26 +131,28 @@
   align-items: center;
   gap: 0.5rem;
   margin-bottom: 1rem;
-  font-size: 0.875rem;
-  color: #6b7280;
+  font-size: 0.875rem !important;
+  color: #6b7280 !important;
+  line-height: 1.4 !important;
 }
 
 .stars {
   color: #fbbf24;
-  font-size: 0.875rem;
+  font-size: 0.875rem !important;
 }
 
 .btn {
   display: inline-block;
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
-  font-weight: 500;
+  font-weight: 500 !important;
   text-decoration: none;
   text-align: center;
   transition: all 0.2s;
   border: none;
   cursor: pointer;
-  font-size: 0.875rem;
+  font-size: 0.875rem !important;
+  line-height: 1.4 !important;
 }
 
 .btn-primary {
@@ -129,6 +164,7 @@
 .btn-primary:hover {
   background: linear-gradient(135deg, #1d4ed8, #1e40af);
   box-shadow: 0 6px 8px -1px rgba(59, 130, 246, 0.4);
+  color: white;
 }
 
 .btn-secondary {
@@ -140,6 +176,7 @@
 .btn-secondary:hover {
   background: #f1f5f9;
   border-color: #cbd5e1;
+  color: #475569;
 }
 
 .btn-full {
@@ -147,19 +184,21 @@
 }
 
 .text-muted {
-  color: #6b7280;
-  font-size: 0.75rem;
+  color: #6b7280 !important;
+  font-size: 0.75rem !important;
   text-align: center;
   margin-top: 0.5rem;
+  line-height: 1.4 !important;
 }
 
 /* Badge Styles */
 .badge {
-  font-size: 0.75rem;
-  font-weight: 500;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
   display: inline-block;
+  line-height: 1.2 !important;
 }
 
 .badge-featured {
@@ -191,6 +230,7 @@
   
   .lender-card {
     padding: 1rem;
+    min-height: 380px;
   }
   
   .lender-logo {
@@ -199,7 +239,7 @@
   }
   
   .lender-info h3 {
-    font-size: 1.125rem;
+    font-size: 1.125rem !important;
   }
 }
 
@@ -215,16 +255,16 @@
   }
   
   .lender-info h3 {
-    color: #f9fafb;
+    color: #f9fafb !important;
   }
   
   .lender-feature {
-    color: #9ca3af;
+    color: #9ca3af !important;
     border-color: #374151;
   }
   
   .lender-feature strong {
-    color: #e5e7eb;
+    color: #e5e7eb !important;
   }
   
   .btn-secondary {
@@ -236,5 +276,6 @@
   .btn-secondary:hover {
     background: #4b5563;
     border-color: #6b7280;
+    color: #e5e7eb;
   }
 }
