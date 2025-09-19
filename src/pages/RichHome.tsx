@@ -1,7 +1,5 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
-import LegacyHeader from "@/components/LegacyHeader";
-import LegacyFooter from "@/components/LegacyFooter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -30,8 +28,6 @@ export default function RichHome() {
         </script>
       </Helmet>
 
-      <LegacyHeader />
-      
       <main>
         {/* Hero Section */}
         <section className="relative py-24 px-4 bg-gradient-to-br from-primary via-primary-foreground to-background">
@@ -232,21 +228,21 @@ export default function RichHome() {
                 <CardContent>
                   <ul className="space-y-3">
                     <li>
-                      <a href="/lan-utan-uc" className="block hover:text-primary transition-colors">
-                        <div className="font-medium">Lån utan UC - 17 långivare</div>
-                        <div className="text-sm text-muted-foreground">Även med betalningsanmärkningar</div>
+                      <a href="/bostadsmarknad-analys-2025" className="block hover:text-primary transition-colors">
+                        <div className="font-medium">Bostadsmarknad 2025: Prisfall eller skrämskott?</div>
+                        <div className="text-sm text-muted-foreground">Expertanalys av marknaden</div>
                       </a>
                     </li>
                     <li>
-                      <a href="/kreditkort" className="block hover:text-primary transition-colors">
-                        <div className="font-medium">Bästa cashback-korten 2025</div>
-                        <div className="text-sm text-muted-foreground">Spara pengar på dina köp</div>
+                      <a href="/karriar-100k-guide" className="block hover:text-primary transition-colors">
+                        <div className="font-medium">Karriärguide: 100k+ i månaden</div>
+                        <div className="text-sm text-muted-foreground">Konkreta strategier för höga löner</div>
                       </a>
                     </li>
                     <li>
-                      <a href="/foretagslan" className="block hover:text-primary transition-colors">
-                        <div className="font-medium">Företagslån för startups</div>
-                        <div className="text-sm text-muted-foreground">Finansiera din affärsidé</div>
+                      <a href="/ekonomiska-lifehacks" className="block hover:text-primary transition-colors">
+                        <div className="font-medium">Ekonomiska Life Hacks 2025</div>
+                        <div className="text-sm text-muted-foreground">Beprövade spartips från communityn</div>
                       </a>
                     </li>
                   </ul>
@@ -260,21 +256,21 @@ export default function RichHome() {
                 <CardContent>
                   <ul className="space-y-3">
                     <li>
-                      <a href="/privatlan" className="block hover:text-primary transition-colors">
-                        <div className="font-medium">Privatlån - Allt du behöver veta</div>
-                        <div className="text-sm text-muted-foreground">Från ansökan till återbetalning</div>
+                      <a href="/sparkonto-guide-2025" className="block hover:text-primary transition-colors">
+                        <div className="font-medium">Sparkonto Guide 2025</div>
+                        <div className="text-sm text-muted-foreground">Jämför räntor och villkor</div>
                       </a>
                     </li>
                     <li>
-                      <a href="/foretagslan" className="block hover:text-primary transition-colors">
-                        <div className="font-medium">Guide: Företagsfinansiering</div>
-                        <div className="text-sm text-muted-foreground">Olika lösningar för företag</div>
+                      <a href="/svenska-inkomster-2025" className="block hover:text-primary transition-colors">
+                        <div className="font-medium">Svenska Inkomster 2025</div>
+                        <div className="text-sm text-muted-foreground">Jämför din lön med andra</div>
                       </a>
                     </li>
                     <li>
-                      <a href="/kreditkort" className="block hover:text-primary transition-colors">
-                        <div className="font-medium">Kreditkort - Maximal strategi</div>
-                        <div className="text-sm text-muted-foreground">Optimera dina kreditkort</div>
+                      <a href="/manadssparande-guide" className="block hover:text-primary transition-colors">
+                        <div className="font-medium">Månadssparande Guide</div>
+                        <div className="text-sm text-muted-foreground">Hur mycket sparar svenska folket?</div>
                       </a>
                     </li>
                   </ul>
@@ -330,8 +326,6 @@ export default function RichHome() {
           </div>
         </section>
       </main>
-
-      <LegacyFooter />
     </>
   );
 }

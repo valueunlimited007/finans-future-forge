@@ -1,6 +1,8 @@
 import { useEffect } from "react";
+import ModernNavigation from "../components/ModernNavigation";
 import LegacyPage from "./LegacyPage";
 import SeoManager from "../seo/SeoManager";
+import LegacyFooter from "../components/LegacyFooter";
 import cookiesHtml from "../../cookies.html?raw";
 
 export default function Cookies() {
@@ -12,7 +14,9 @@ export default function Cookies() {
   return (
     <>
       <SeoManager />
+      <ModernNavigation />
       <LegacyPage key={window.location.pathname} htmlRaw={cookiesHtml} />
+      <LegacyFooter />
     </>
   );
 }

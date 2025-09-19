@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import LegacyHeader from "@/components/LegacyHeader";
-import LegacyFooter from "@/components/LegacyFooter";
+import ModernNavigation from "../components/ModernNavigation";
+import LegacyFooter from "../components/LegacyFooter";
 import { websiteJsonLd } from "@/lib/jsonld";
 
 const safeEvent = (name: string, params: Record<string, any>) => {
@@ -25,7 +25,7 @@ export default function Sajtkarta() {
 
   return (
     <>
-      <LegacyHeader />
+      <ModernNavigation />
       <main className="mx-auto max-w-4xl px-4 py-8">
         <Helmet>
           <title>Sajtkarta - Översikt av Finansguiden.se</title>

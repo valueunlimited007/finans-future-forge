@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { glossary as glossaryData } from "@/data/glossary";
 import GlossaryList from "@/components/GlossaryList";
 import AlphabeticalGlossaryList from "@/components/AlphabeticalGlossaryList";
-import LegacyHeader from "@/components/LegacyHeader";
+import ModernNavigation from "@/components/ModernNavigation";
 import LegacyFooter from "@/components/LegacyFooter";
 const safeEvent = (name: string, params: Record<string, any>) => {
   try {
@@ -48,7 +48,7 @@ export default function GlossaryIndex() {
 
   return (
     <>
-      <LegacyHeader />
+      <ModernNavigation />
       <main className="mx-auto max-w-3xl px-4 py-8">
         <Helmet>
           <title>Finansordlista A–Ö | Finansguiden.se</title>

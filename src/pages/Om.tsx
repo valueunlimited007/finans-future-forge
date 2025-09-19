@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
-import LegacyHeader from "../components/LegacyHeader";
+import ModernNavigation from "../components/ModernNavigation";
 import LegacyFooter from "../components/LegacyFooter";
 
 export default function Om() {
@@ -28,7 +28,7 @@ export default function Om() {
         <meta name="publisher" content="Finansguiden.se" />
       </Helmet>
 
-      <LegacyHeader />
+      <ModernNavigation />
       
       <main className="min-h-screen bg-background">
         <div className="container mx-auto px-4 py-8 max-w-4xl">

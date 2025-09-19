@@ -1,7 +1,5 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
-import LegacyHeader from "@/components/LegacyHeader";
-import LegacyFooter from "@/components/LegacyFooter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -26,8 +24,6 @@ export default function RichForetagslan() {
         </script>
       </Helmet>
 
-      <LegacyHeader />
-      
       <main>
         {/* Hero Section */}
         <section className="py-16 px-4 bg-gradient-to-br from-emerald-50 to-emerald-100 dark:from-emerald-950 dark:to-emerald-900">
@@ -496,8 +492,6 @@ export default function RichForetagslan() {
           </div>
         </section>
       </main>
-
-      <LegacyFooter />
     </>
   );
 }

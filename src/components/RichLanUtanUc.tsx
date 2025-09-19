@@ -1,7 +1,5 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
-import LegacyHeader from "@/components/LegacyHeader";
-import LegacyFooter from "@/components/LegacyFooter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -15,8 +13,6 @@ export default function RichLanUtanUc() {
         <link rel="canonical" href="https://finansguiden.se/lan-utan-uc" />
       </Helmet>
 
-      <LegacyHeader />
-      
       <main>
         <section className="py-16 px-4 bg-gradient-to-br from-orange-50 to-orange-100">
           <div className="container mx-auto max-w-6xl text-center">
@@ -58,8 +54,6 @@ export default function RichLanUtanUc() {
           </div>
         </section>
       </main>
-
-      <LegacyFooter />
     </>
   );
 }

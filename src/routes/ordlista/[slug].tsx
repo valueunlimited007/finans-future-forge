@@ -5,7 +5,7 @@ import { glossary as glossaryData } from "@/data/glossary";
 import GlossaryTerm from "@/components/GlossaryTerm";
 import { buildFaq } from "@/lib/glossaryFaq";
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd } from "@/lib/jsonld";
-import LegacyHeader from "@/components/LegacyHeader";
+import ModernNavigation from "@/components/ModernNavigation";
 import LegacyFooter from "@/components/LegacyFooter";
 const safeEvent = (name: string, params: Record<string, any>) => {
   try {
@@ -31,7 +31,7 @@ export default function GlossaryTermPage() {
   if (!term) {
     return (
       <>
-        <LegacyHeader />
+      <ModernNavigation />
         <main className="mx-auto max-w-3xl px-4 py-8">
           <Helmet>
             <title>Term saknas – Finansordlista | Finansguiden.se</title>
@@ -65,7 +65,7 @@ export default function GlossaryTermPage() {
 
   return (
     <> 
-      <LegacyHeader />
+      <ModernNavigation />
       <main className="mx-auto max-w-3xl px-4 py-8">
         <Helmet>
           <title>{title}</title>
