@@ -19,6 +19,9 @@ import BostadsmarknadsAnalys from "./pages/BostadsmarknadsAnalys";
 import KarriärGuide from "./pages/KarriärGuide";
 import EkonomiskaLifehacks from "./pages/EkonomiskaLifehacks";
 import SparkontoGuide from "./pages/SparkontoGuide";
+import SvenskaInkomster from "./pages/SvenskaInkomster";
+import MånadssparandeGuide from "./pages/MånadssparandeGuide";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -44,6 +47,8 @@ const App = () => (
             <Route path="/karriar-100k-guide" element={<KarriärGuide />} />
             <Route path="/ekonomiska-lifehacks" element={<EkonomiskaLifehacks />} />
             <Route path="/sparkonto-guide-2025" element={<SparkontoGuide />} />
+            <Route path="/svenska-inkomster-2025" element={<SvenskaInkomster />} />
+            <Route path="/manadssparande-guide" element={<MånadssparandeGuide />} />
           </Routes>
         </BrowserRouter>
       </TooltipProvider>
