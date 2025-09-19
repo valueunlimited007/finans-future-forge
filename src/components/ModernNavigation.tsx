@@ -66,14 +66,14 @@ const ModernNavigation = () => {
   const communityContent = [
     {
       title: "Bostadsmarknad 2025",
-      href: "/bostadsmarknad-analys-2025",
+      href: "/bostadsmarknad-analys",
       description: "Prisfall eller skrämskott? Expertanalys av marknaden",
       icon: Home,
       tag: "Hett ämne"
     },
     {
       title: "Karriär: 100k+ Guide", 
-      href: "/karriar-100k-guide",
+      href: "/karriar-guide",
       description: "Konkreta strategier för att nå 100 000 kr/månad",
       icon: TrendingUp,
       tag: "Populär"
@@ -86,30 +86,30 @@ const ModernNavigation = () => {
       tag: "Community"
     },
     {
-      title: "Sparkonto Guide 2025",
-      href: "/sparkonto-guide-2025", 
-      description: "Jämför räntor och villkor - hitta bästa sparkontot",
+      title: "Månadssparande Guide",
+      href: "/manadssparande-guide", 
+      description: "Bygg förmögenhet med automatiskt månadssparande",
       icon: Calculator,
       tag: "Aktuell"
     },
     {
-      title: "Bilekonomi Guide 2025",
-      href: "/bilekonomy-guide-2025",
+      title: "Bilekonomi Guide",
+      href: "/bilekonomy-guide",
       description: "Verkliga kostnader att äga bil + smarta alternativ",
       icon: TrendingUp,
       tag: "Ny"
     },
     {
-      title: "Bankjämförelse 2025",
-      href: "/bankjämförelse-guide-2025", 
+      title: "Bankjämförelse Guide",
+      href: "/bankjamforelse-guide", 
       description: "Bästa bankerna för helkunder - räntor och avgifter",
       icon: Building2,
       tag: "Uppdaterad"
     },
     {
-      title: "Löneoptimering 2025",
-      href: "/löneoptimering-guide-2025",
-      description: "Maximera din inkomst genom förmåner och förhandling",
+      title: "Löneoptimering Guide",
+      href: "/loneoptimeringsguide",
+      description: "Maximera din inkomst genom förmåner och förhandling",  
       icon: TrendingUp,
       tag: "Hett"
     }
