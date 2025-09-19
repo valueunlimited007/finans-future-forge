@@ -177,16 +177,27 @@ const RELATED: Record<string, string[]> = {
   skatt: ["Kapitalvinst","Kapitalförlust","K4-blankett"],
 };
 
-// Texterna per kategori
+// Texterna per kategori - Förbättrade med mer detaljerat innehåll
 function shortDef(term: string, cat: string): string {
-  if (cat === "lan") return `${term} handlar om lån och återbetalning, med fokus på kostnader och villkor för privatpersoner.`;
-  if (cat === "ranta") return `${term} beskriver hur lånets kostnad beräknas över tid och påverkar din månadsbetalning.`;
-  if (cat === "fastighet") return `${term} är ett begrepp kopplat till bostadsköp och ägande.`;
-  if (cat === "investering") return `${term} är ett investeringsbegrepp som påverkar risk, avgifter eller avkastning.`;
-  if (cat === "pension") return `${term} rör långsiktigt sparande och pensionssystemets delar.`;
-  if (cat === "ekonomi") return `${term} är ett nyckeltal eller begrepp som beskriver ekonomi och konjunktur.`;
-  if (cat === "skatt") return `${term} rör beskattning av sparande, värdepapper eller företagande.`;
-  return `${term} är ett finansbegrepp.`;
+  const t = term.toLowerCase();
+  
+  // Specifika termer med detaljerat innehåll
+  if (t.includes("ränta")) return `${term} är den kostnad eller avkastning som uttrycks i procent per år och påverkar det totala beloppet du betalar eller får. Räntan bestäms av flera faktorer som centralbanksräntan, kreditrisk och marknadssituation.`;
+  if (t.includes("amortering")) return `${term} innebär att du betalar av på låneskulden genom regelbundna betalningar som minskar den ursprungliga skulden. Amorteringstakten påverkar både månadskostnaden och den totala räntekostnaden över lånets löptid.`;
+  if (t.includes("säkerhet")) return `${term} är något värdefull som ställs som garanti för ett lån, vilket minskar långivarens risk och ofta resulterar i bättre lånevillkor för låntagaren.`;
+  if (t.includes("kreditupplysning") || t.includes("uc")) return `${term} är en kontroll av din ekonomiska historia och betalningsförmåga som långivare använder för att bedöma kreditrisken innan de beviljar lån.`;
+  if (t.includes("betalningsanmärkning")) return `${term} är en registrering som visar att du inte betalat räkningar i tid, vilket påverkar din kreditvärdighet negativt och kan försvåra framtida lån.`;
+  if (t.includes("kredit")) return `${term} handlar om möjligheten att låna pengar eller köpa på avbetalning, baserat på din ekonomiska situation och kreditvärdighet.`;
+
+  // Förbättrade kategoribaserade definitioner
+  if (cat === "lan") return `${term} är en finansieringslösning som ger dig tillgång till kapital för olika ändamål. Olika låntyper har olika villkor, räntor och användningsområden som påverkar din ekonomiska situation långsiktigt.`;
+  if (cat === "ranta") return `${term} är en ränterelaterad term som direkt påverkar kostnaden för ditt lån eller avkastningen på din investering. Förståelse för räntestrukturer hjälper dig att fatta bättre finansiella beslut.`;
+  if (cat === "fastighet") return `${term} är ett begrepp kopplat till bostadsköp, ägande och fastighetsfinansiering. Fastighetsmarknaden påverkas av räntor, ekonomisk utveckling och bostadspolitik.`;
+  if (cat === "investering") return `${term} är ett investeringsbegrepp som kan hjälpa dig bygga förmögenhet över tid. Alla investeringar innebär en avvägning mellan risk och potentiell avkastning.`;
+  if (cat === "pension") return `${term} rör långsiktigt sparande och pensionssystemets olika delar. Pensionsplanering kräver tid och förståelse för olika sparformer och skatteregler.`;
+  if (cat === "ekonomi") return `${term} är ett nyckeltal eller begrepp som beskriver ekonomisk aktivitet, tillväxt och marknadsutveckling. Ekonomisk förståelse hjälper dig navigera finansiella beslut.`;
+  if (cat === "skatt") return `${term} rör beskattning av sparande, investeringar eller företagande. Skattekunskap hjälper dig att optimera din ekonomi inom ramen för gällande lagstiftning.`;
+  return `${term} är ett viktigt finansbegrepp som påverkar din ekonomiska situation på olika sätt. Grundläggande finansiell kunskap stärker din förmåga att fatta informerade beslut.`;
 }
 
 function longDef(term: string, cat: string): string[] {
@@ -248,13 +259,48 @@ function example(cat: string): string | undefined {
   return undefined;
 }
 
-// Generera FAQ om inte överskrivning finns
+// Förbättrade FAQ med mer användarnytta och specifika frågor
 function buildFaqDefault(term: string, sd: string, ld: string[], ex?: string): GlossaryFAQ[] {
-  return [
-    { q: `Vad är ${term}?`, a: sd },
-    { q: `Hur fungerar ${term} i praktiken?`, a: `${ld[0]}${ex ? " " + ex : ""}`.trim() },
-    { q: `Vad ska jag tänka på kring ${term}?`, a: ld.slice(1).join(" ").trim() },
+  const t = term.toLowerCase();
+  
+  // Anpassade FAQ-frågor baserat på termens innehåll
+  let questions: GlossaryFAQ[] = [
+    { q: `Vad är ${term}?`, a: sd }
   ];
+  
+  if (t.includes("lån") || t.includes("kredit")) {
+    questions.push(
+      { q: `Hur ansöker jag om ${term}?`, a: `${ld[0]} ${ex || ""}`.trim() },
+      { q: `Vad kostar ${term}?`, a: ld[1] || "Kostnaden varierar beroende på din ekonomiska situation och marknadsläget." },
+      { q: `Vilka krav finns för ${term}?`, a: ld[2] || "Kraven inkluderar vanligtvis stabil inkomst, god kredithistorik och passande skuldsättning." }
+    );
+  } else if (t.includes("ränta")) {
+    questions.push(
+      { q: `Hur beräknas ${term}?`, a: `${ld[0]} ${ex || ""}`.trim() },
+      { q: `Vad påverkar ${term}?`, a: ld[1] || "Räntan påverkas av centralbanksränta, inflation, kreditrisk och konkurrens på marknaden." },
+      { q: `Ska jag välja fast eller rörlig ${term}?`, a: ld[2] || "Valet beror på din risktolerans och marknadsutsikterna." }
+    );
+  } else if (t.includes("investering") || t.includes("sparande")) {
+    questions.push(
+      { q: `Hur kommer jag igång med ${term}?`, a: `${ld[0]} ${ex || ""}`.trim() },
+      { q: `Vilka risker finns med ${term}?`, a: ld[1] || "Alla investeringar innebär risk, men långsiktigt sparande minskar risken avsevärt." },
+      { q: `Hur mycket ska jag satsa på ${term}?`, a: ld[2] || "Börja med vad du bekvämt kan spara varje månad och öka gradvis." }
+    );
+  } else if (t.includes("försäkring")) {
+    questions.push(
+      { q: `Behöver jag ${term}?`, a: `${ld[0]} ${ex || ""}`.trim() },
+      { q: `Vad kostar ${term}?`, a: ld[1] || "Kostnaden beror på din situation, ålder och vilken täckning du väljer." },
+      { q: `Hur väljer jag rätt ${term}?`, a: ld[2] || "Jämför olika alternativ och läs villkoren noggrant för att förstå täckningen." }
+    );
+  } else {
+    questions.push(
+      { q: `Hur fungerar ${term} i praktiken?`, a: `${ld[0]} ${ex || ""}`.trim() },
+      { q: `Vad ska jag tänka på kring ${term}?`, a: ld[1] || "Det är viktigt att förstå alla aspekter innan du fattar ekonomiska beslut." },
+      { q: `Hur påverkar ${term} min ekonomi?`, a: ld[2] || `${term} kan ha både kort- och långsiktiga effekter på din ekonomiska situation.` }
+    );
+  }
+  
+  return questions.slice(0, 4); // Max 4 FAQs för att hålla kvaliteten hög
 }
 
 // Samla alla termer unikt
