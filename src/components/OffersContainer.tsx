@@ -7,7 +7,7 @@ interface OffersContainerProps {
   className?: string;
 }
 
-export const OffersContainer: React.FC<OffersContainerProps> = ({ 
+const OffersContainer: React.FC<OffersContainerProps> = ({ 
   category, 
   limit = 5, 
   title,

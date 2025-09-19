@@ -11,7 +11,7 @@ import PrivatlanFAQ from "./PrivatlanFAQ";
 import PrivatlanGuideSteps from "./PrivatlanGuideSteps";
 import CustomBreadcrumb from "./CustomBreadcrumb";
 import FinancialCalculator from "@/components/FinancialCalculator";
-import OffersContainer from "@/components/OffersContainer";
+import OffersContainer from "./OffersContainer";
 
 export default function RichPrivatlan() {
   return (
