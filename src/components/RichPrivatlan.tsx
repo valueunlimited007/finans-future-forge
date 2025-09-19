@@ -4,6 +4,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { AlertTriangle, Shield, TrendingUp, Users, Clock, CheckCircle, XCircle, Info, Calculator, Star } from "lucide-react";
+import BankComparisonTable from "./BankComparisonTable";
+import PrivatlanFAQ from "./PrivatlanFAQ";
+import PrivatlanGuideSteps from "./PrivatlanGuideSteps";
+import CustomBreadcrumb from "./CustomBreadcrumb";
 import FinancialCalculator from "@/components/FinancialCalculator";
 
 export default function RichPrivatlan() {
