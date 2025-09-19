@@ -46,19 +46,27 @@
   }
 
   function load(){
+    try { console.log('[FG_ADTR] Starting load, FG_CONFIG:', window.FG_CONFIG); } catch(e) {}
+    
     var cached = readCache();
     if (cached && window.FG_OFFERS && typeof window.FG_OFFERS.addFromAdtraction==='function'){
-      try { window.FG_OFFERS.addFromAdtraction(cached); } catch(e) {}
+      try { 
+        console.log('[FG_ADTR] Using cached data:', cached.length, 'items');
+        window.FG_OFFERS.addFromAdtraction(cached); 
+      } catch(e) {}
       return;
     }
 
     // Get channel ID from global config
     var channelId = (window.FG_CONFIG && window.FG_CONFIG.channelId) || '2005939977';
+    try { console.log('[FG_ADTR] Using channelId:', channelId); } catch(e) {}
     
     var urls = [
       'https://api.adtraction.com/v3/public/data/se/loans?channelId=' + channelId,
       'https://api.adtraction.com/v3/public/data/se/paydayloans?channelId=' + channelId
     ];
+
+    try { console.log('[FG_ADTR] Making API calls:', urls); } catch(e) {}
 
     Promise.all(urls.map(fetchJson)).then(function(all){
       var combined = [];
@@ -80,7 +88,7 @@
         try { window.FG_OFFERS.addFromAdtraction(combined); } catch(e) {}
       }
     }).catch(function(err){ 
-      try { console.log('[FG_ADTR] Feed error:', err.message); } catch(e){}
+      try { console.log('[FG_ADTR] Feed error:', err.message, 'falling back to seeds'); } catch(e){}
       // Fall back to static offers from schema if API fails
       try { document.dispatchEvent(new CustomEvent('fg:offers-updated')); } catch(e) {}
     });
