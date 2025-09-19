@@ -184,7 +184,7 @@ const ModernNavigation = () => {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between px-4">
         {/* Logo */}
-        <Link to="/" className="flex items-center space-x-2">
+        <Link to="/" className="flex items-center space-x-2 flex-shrink-0">
           <img 
             src="/finansguiden-logo-v2.png" 
             alt="Finansguiden"
@@ -283,12 +283,12 @@ const ModernNavigation = () => {
         </NavigationMenu>
 
         {/* Mobile Navigation - Single unified trigger */}
-        <div className="lg:hidden ml-auto">
+        <div className="lg:hidden flex-shrink-0">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <Button 
                 variant="ghost"
-                className="flex items-center gap-3 h-auto p-2 hover:bg-accent/50 transition-colors"
+                className="flex items-center gap-3 h-12 px-3 hover:bg-accent/50 transition-colors"
                 aria-label="Öppna navigeringsmeny"
               >
                 <span className="text-sm font-medium text-muted-foreground tracking-wider">MENY</span>
