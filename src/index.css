@@ -313,30 +313,14 @@ All colors MUST be HSL.
     }
   }
 
-  /* Prevent horizontal overflow */
-  * {
-    max-width: 100%;
-  }
-
-  /* Make flex containers wrap on mobile - EXCEPT navigation and navigation menu */
-  @media (max-width: 640px) {
-    .flex:not(.flex-col):not(header .flex):not([data-radix-navigation-menu]) {
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .flex.justify-between:not(header .flex):not([data-radix-navigation-menu]) {
-      align-items: flex-start;
-    }
-
-    .items-center:not(header .items-center):not([data-radix-navigation-menu] .items-center) {
-      align-items: flex-start !important;
-    }
-  }
-
-  /* Ensure all content respects viewport width */
+  /* Prevent horizontal overflow - but not vertical layout issues */
   html, body {
     overflow-x: hidden;
     max-width: 100vw;
+  }
+
+  /* More selective max-width to prevent layout breaks */
+  img, video, svg {
+    max-width: 100%;
   }
 }
