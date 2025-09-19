@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -78,8 +79,8 @@ export default function RichPrivatlan() {
             </div>
             
             <div className="text-center">
-              <Button variant="outline" size="lg" className="text-lg px-8">
-                Se alla privatlån
+              <Button asChild variant="outline" size="lg" className="text-lg px-8">
+                <Link to="/privatlan#jamfor">Se alla privatlån</Link>
               </Button>
             </div>
           </div>

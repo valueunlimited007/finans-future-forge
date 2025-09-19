@@ -318,18 +318,18 @@ All colors MUST be HSL.
     max-width: 100%;
   }
 
-  /* Make flex containers wrap on mobile - EXCEPT navigation */
+  /* Make flex containers wrap on mobile - EXCEPT navigation and navigation menu */
   @media (max-width: 640px) {
-    .flex:not(.flex-col):not(header .flex) {
+    .flex:not(.flex-col):not(header .flex):not([data-radix-navigation-menu]) {
       flex-direction: column;
       gap: 0.5rem;
     }
 
-    .flex.justify-between:not(header .flex) {
+    .flex.justify-between:not(header .flex):not([data-radix-navigation-menu]) {
       align-items: flex-start;
     }
 
-    .items-center:not(header .items-center) {
+    .items-center:not(header .items-center):not([data-radix-navigation-menu] .items-center) {
       align-items: flex-start !important;
     }
   }

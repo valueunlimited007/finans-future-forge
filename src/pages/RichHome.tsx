@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -41,11 +42,11 @@ export default function RichHome() {
             </p>
             
             <div className="flex flex-wrap gap-4 justify-center mb-8">
-              <Button size="lg" className="text-lg px-8 bg-blue-600 text-white hover:bg-blue-700 shadow-lg">
-                Se erbjudanden
+              <Button asChild size="lg" className="text-lg px-8 bg-blue-600 text-white hover:bg-blue-700 shadow-lg">
+                <Link to="/privatlan">Se erbjudanden</Link>
               </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white">
-                Läs guider
+              <Button asChild variant="outline" size="lg" className="text-lg px-8 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white">
+                <Link to="/ordlista">Läs guider</Link>
               </Button>
             </div>
 
@@ -138,7 +139,9 @@ export default function RichHome() {
                     <li>• Snabb handläggning</li>
                     <li>• Fri användning</li>
                   </ul>
-                  <Button className="w-full">Jämför privatlån</Button>
+                  <Button asChild className="w-full">
+                    <Link to="/privatlan">Jämför privatlån</Link>
+                  </Button>
                 </CardContent>
               </Card>
 
@@ -159,7 +162,9 @@ export default function RichHome() {
                     <li>• Även utan säkerhet</li>
                     <li>• Snabba beslut</li>
                   </ul>
-                  <Button className="w-full">Jämför företagslån</Button>
+                  <Button asChild className="w-full">
+                    <Link to="/foretagslan">Jämför företagslån</Link>
+                  </Button>
                 </CardContent>
               </Card>
 
@@ -180,7 +185,9 @@ export default function RichHome() {
                     <li>• Reseförsäkringar</li>
                     <li>• Bonusprogram</li>
                   </ul>
-                  <Button className="w-full">Jämför kreditkort</Button>
+                  <Button asChild className="w-full">
+                    <Link to="/kreditkort">Jämför kreditkort</Link>
+                  </Button>
                 </CardContent>
               </Card>
 
@@ -201,7 +208,9 @@ export default function RichHome() {
                     <li>• Snabba utbetalningar</li>
                     <li>• 17 olika långivare</li>
                   </ul>
-                  <Button className="w-full">Jämför lån utan UC</Button>
+                  <Button asChild className="w-full">
+                    <Link to="/lan-utan-uc">Jämför lån utan UC</Link>
+                  </Button>
                 </CardContent>
               </Card>
 
@@ -347,11 +356,11 @@ export default function RichHome() {
               Börja din jämförelse idag och hitta bästa erbjudandena för din situation.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <Button size="lg" variant="secondary" className="text-lg px-8">
-                Jämför lån nu
+              <Button asChild size="lg" variant="secondary" className="text-lg px-8">
+                <Link to="/privatlan">Jämför lån nu</Link>
               </Button>
-              <Button size="lg" variant="outline" className="text-lg px-8 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
-                Läs våra guider
+              <Button asChild size="lg" variant="outline" className="text-lg px-8 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
+                <Link to="/ordlista">Läs våra guider</Link>
               </Button>
             </div>
           </div>
