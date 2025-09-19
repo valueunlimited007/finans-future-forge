@@ -149,6 +149,199 @@ export default function RichPrivatlan() {
           </div>
         </section>
 
+        {/* Popular Search Terms */}
+        <section className="py-16 px-4 bg-muted/30">
+          <div className="container mx-auto max-w-6xl">
+            <h2 className="text-3xl font-bold text-center mb-12">Populära söktermmer för privatlån</h2>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Kredit utan UC</CardTitle>
+                  <CardDescription>Lån utan kreditupplysning</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Många söker efter lån utan UC-kontroll, men nästan alla seriösa långivare gör kreditkontroll. 
+                    Undvik oseriösa aktörer som erbjuder "garanterade lån utan UC".
+                  </p>
+                  <Button variant="outline" size="sm" className="w-full">Läs mer om UC</Button>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle>Nordea Privatlån</CardTitle>
+                  <CardDescription>Stor svensk bank</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Nordea erbjuder privatlån från 25 000 kr upp till 600 000 kr med konkurrenskraftiga räntor 
+                    för kunder med god kreditvärdighet.
+                  </p>
+                  <Button variant="outline" size="sm" className="w-full">Jämför Nordea</Button>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle>Kredit & Lån</CardTitle>
+                  <CardDescription>Allmän information</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Kredit och lån är samma sak - en överenskommelse där du lånar pengar mot ränta. 
+                    Privatlån är den vanligaste typen av konsumentkredit.
+                  </p>
+                  <Button variant="outline" size="sm" className="w-full">Läs grunderna</Button>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* Loan Types Comparison */}
+        <section className="py-16 px-4">
+          <div className="container mx-auto max-w-6xl">
+            <h2 className="text-3xl font-bold text-center mb-12">Jämföra olika lånetyper</h2>
+            
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse bg-white rounded-lg shadow-sm">
+                <thead>
+                  <tr className="bg-muted">
+                    <th className="text-left p-4 border-b">Lånetyp</th>
+                    <th className="text-left p-4 border-b">Ränta</th>
+                    <th className="text-left p-4 border-b">Säkerhet</th>
+                    <th className="text-left p-4 border-b">Användning</th>
+                    <th className="text-left p-4 border-b">Maxbelopp</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className="p-4 border-b font-semibold">Privatlån</td>
+                    <td className="p-4 border-b">2,9-15%</td>
+                    <td className="p-4 border-b">Nej</td>
+                    <td className="p-4 border-b">Fri användning</td>
+                    <td className="p-4 border-b">600 000 kr</td>
+                  </tr>
+                  <tr className="bg-muted/50">
+                    <td className="p-4 border-b font-semibold">Bolån</td>
+                    <td className="p-4 border-b">2,5-4%</td>
+                    <td className="p-4 border-b">Ja (fastighet)</td>
+                    <td className="p-4 border-b">Bostadsköp</td>
+                    <td className="p-4 border-b">85% av värdet</td>
+                  </tr>
+                  <tr>
+                    <td className="p-4 border-b font-semibold">Billån</td>
+                    <td className="p-4 border-b">3,5-12%</td>
+                    <td className="p-4 border-b">Ja (bil)</td>
+                    <td className="p-4 border-b">Bilköp</td>
+                    <td className="p-4 border-b">100% av bilens värde</td>
+                  </tr>
+                  <tr className="bg-muted/50">
+                    <td className="p-4 border-b font-semibold">Kreditkort</td>
+                    <td className="p-4 border-b">15-25%</td>
+                    <td className="p-4 border-b">Nej</td>
+                    <td className="p-4 border-b">Köp & uttag</td>
+                    <td className="p-4 border-b">Varierar</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        {/* Bank Specific Information */}
+        <section className="py-16 px-4 bg-muted/30">
+          <div className="container mx-auto max-w-6xl">
+            <h2 className="text-3xl font-bold text-center mb-12">Privatlån från olika banker</h2>
+            
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              <div>
+                <h3 className="text-xl font-bold mb-6">Stora banker</h3>
+                <div className="space-y-4">
+                  <Card>
+                    <CardContent className="p-4">
+                      <div className="flex justify-between items-center mb-2">
+                        <h4 className="font-semibold">SEB Privatlån</h4>
+                        <Badge variant="secondary">Från 2,95%</Badge>
+                      </div>
+                      <p className="text-sm text-muted-foreground">
+                        25 000 - 600 000 kr. Snabb digital ansökan. Inga uppläggningsavgifter för befintliga kunder.
+                      </p>
+                    </CardContent>
+                  </Card>
+                  
+                  <Card>
+                    <CardContent className="p-4">
+                      <div className="flex justify-between items-center mb-2">
+                        <h4 className="font-semibold">Nordea Privatlån</h4>
+                        <Badge variant="secondary">Från 3,15%</Badge>
+                      </div>
+                      <p className="text-sm text-muted-foreground">
+                        25 000 - 600 000 kr. Rabatt för befintliga kunder. Möjlighet till betalningsuppehåll.
+                      </p>
+                    </CardContent>
+                  </Card>
+                  
+                  <Card>
+                    <CardContent className="p-4">
+                      <div className="flex justify-between items-center mb-2">
+                        <h4 className="font-semibold">Handelsbanken</h4>
+                        <Badge variant="secondary">Från 3,25%</Badge>
+                      </div>
+                      <p className="text-sm text-muted-foreground">
+                        30 000 - 500 000 kr. Personlig rådgivning på kontor. Flexibla återbetalningsalternativ.
+                      </p>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+              
+              <div>
+                <h3 className="text-xl font-bold mb-6">Digitalbanker</h3>
+                <div className="space-y-4">
+                  <Card>
+                    <CardContent className="p-4">
+                      <div className="flex justify-between items-center mb-2">
+                        <h4 className="font-semibold">Marginalen Bank</h4>
+                        <Badge variant="secondary">Från 4,75%</Badge>
+                      </div>
+                      <p className="text-sm text-muted-foreground">
+                        15 000 - 350 000 kr. Snabb hantering online. Besked inom 24 timmar.
+                      </p>
+                    </CardContent>
+                  </Card>
+                  
+                  <Card>
+                    <CardContent className="p-4">
+                      <div className="flex justify-between items-center mb-2">
+                        <h4 className="font-semibold">Northmill</h4>
+                        <Badge variant="secondary">Från 5,95%</Badge>
+                      </div>
+                      <p className="text-sm text-muted-foreground">
+                        10 000 - 300 000 kr. Helt digital process. Automatisk kreditbedömning.
+                      </p>
+                    </CardContent>
+                  </Card>
+                  
+                  <Card>
+                    <CardContent className="p-4">
+                      <div className="flex justify-between items-center mb-2">
+                        <h4 className="font-semibold">Resurs Bank</h4>
+                        <Badge variant="secondary">Från 6,45%</Badge>
+                      </div>
+                      <p className="text-sm text-muted-foreground">
+                        20 000 - 400 000 kr. Flexibla villkor. Möjlighet till extra amorteringar.
+                      </p>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Comprehensive Guide */}
         <section className="py-16 px-4">
           <div className="container mx-auto max-w-6xl">
