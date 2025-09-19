@@ -1,6 +1,8 @@
 // Finansguiden.se - Fallback seeds to ensure lists render even if feeds are slow/unavailable
 (function(){
   function run(){
+    try { console.log('[FG_SEEDS] Running fallback seeds'); } catch(e) {}
+    
     var FG = window.FG_OFFERS = window.FG_OFFERS || {};
     function ensure(cat, items){
       FG[cat] = FG[cat] || [];
@@ -34,6 +36,7 @@
 
     try { 
       console.log('[FG_SEEDS] Dispatching fg:offers-updated event'); 
+      console.log('[FG_SEEDS] Current offers:', Object.keys(FG).map(function(k){ return k + ':' + (FG[k] || []).length; }));
       document.dispatchEvent(new CustomEvent('fg:offers-updated')); 
     } catch(e) {}
   }
