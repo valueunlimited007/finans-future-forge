@@ -26,11 +26,20 @@ export default function Sajtkarta() {
   return (
     <>
       <ModernNavigation />
-      <main className="min-h-screen bg-background">
+      <main className="min-h-screen">
+        <Helmet>
+          <title>Sajtkarta - Översikt av Finansguiden.se</title>
+          <meta name="description" content="Hitta enkelt runt på Finansguiden.se. Översikt över alla våra guider om lån, kreditkort, sparande och privatekonomi." />
+          <link rel="canonical" href="https://finansguiden.se/sajtkarta" />
+          <script type="application/ld+json">
+            {JSON.stringify(jsonld)}
+          </script>
+        </Helmet>
+        
         <div className="container mx-auto max-w-6xl px-4 py-8">
-          <header className="mb-8">
+          <header className="mb-8 text-center">
             <h1 className="text-4xl font-bold text-foreground mb-4">Sajtkarta</h1>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Hitta enkelt runt på Finansguiden.se. Här är en översikt över alla våra guider och verktyg.
             </p>
           </header>
