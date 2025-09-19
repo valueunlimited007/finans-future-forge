@@ -5,8 +5,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import FinancialCalculator from "@/components/FinancialCalculator";
-import { UnsplashImage } from "@/hooks/useUnsplashImage";
-import { IMAGE_QUERIES } from "@/services/unsplash";
 
 export default function RichPrivatlan() {
   return (
@@ -34,18 +32,8 @@ export default function RichPrivatlan() {
 
       <main>
         {/* Hero Section */}
-        <section className="relative py-16 px-4 overflow-hidden">
-          {/* Background Image */}
-          <div className="absolute inset-0 z-0">
-            <UnsplashImage 
-              query={IMAGE_QUERIES.loans}
-              className="w-full h-full object-cover opacity-10"
-              alt="Personal loan consultation and financial planning"
-            />
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-50/90 to-blue-100/90 dark:from-blue-950/90 dark:to-blue-900/90" />
-          </div>
-          
-          <div className="container mx-auto max-w-6xl relative z-10">
+        <section className="py-16 px-4 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950 dark:to-blue-900">
+          <div className="container mx-auto max-w-6xl">
             <div className="text-center mb-12">
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
                 Privatlån med <span className="text-blue-600">bästa räntan</span>

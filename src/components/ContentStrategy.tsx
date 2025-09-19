@@ -2,8 +2,6 @@ import React from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { UnsplashImage } from "@/hooks/useUnsplashImage";
-import { IMAGE_QUERIES } from "@/services/unsplash";
 
 export default function ContentStrategy() {
   return (
@@ -18,15 +16,7 @@ export default function ContentStrategy() {
 
         <div className="grid lg:grid-cols-2 gap-8">
           {/* Combined Loan Guide */}
-          <Card className="border-l-4 border-l-blue-500 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 opacity-10">
-              <UnsplashImage 
-                query={IMAGE_QUERIES.loans}
-                className="w-full h-full object-cover"
-                alt="Loan and credit guidance"
-                size="small"
-              />
-            </div>
+          <Card className="border-l-4 border-l-blue-500">
             <CardHeader>
               <Badge className="w-fit mb-2">Pillar-innehåll</Badge>
               <CardTitle>Komplett guide: Lån & Kredit</CardTitle>
@@ -60,15 +50,7 @@ export default function ContentStrategy() {
           </Card>
 
           {/* Investment & Savings Guide */}
-          <Card className="border-l-4 border-l-green-500 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 opacity-10">
-              <UnsplashImage 
-                query={IMAGE_QUERIES.savings}
-                className="w-full h-full object-cover"
-                alt="Savings and investment planning"
-                size="small"
-              />
-            </div>
+          <Card className="border-l-4 border-l-green-500">
             <CardHeader>
               <Badge className="w-fit mb-2">Pillar-innehåll</Badge>
               <CardTitle>Spara & Investera smart</CardTitle>
@@ -102,15 +84,7 @@ export default function ContentStrategy() {
           </Card>
 
           {/* Credit Card & Payment Guide */}
-          <Card className="border-l-4 border-l-purple-500 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 opacity-10">
-              <UnsplashImage 
-                query={IMAGE_QUERIES.creditCard}
-                className="w-full h-full object-cover"
-                alt="Credit card and payment solutions"
-                size="small"
-              />
-            </div>
+          <Card className="border-l-4 border-l-purple-500">
             <CardHeader>
               <Badge className="w-fit mb-2">Pillar-innehåll</Badge>
               <CardTitle>Kreditkort & Betalningar</CardTitle>
@@ -144,15 +118,7 @@ export default function ContentStrategy() {
           </Card>
 
           {/* Tax & Legal Guide */}
-          <Card className="border-l-4 border-l-orange-500 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 opacity-10">
-              <UnsplashImage 
-                query="tax calculator legal documents"
-                className="w-full h-full object-cover"
-                alt="Tax planning and legal documentation"
-                size="small"
-              />
-            </div>
+          <Card className="border-l-4 border-l-orange-500">
             <CardHeader>
               <Badge className="w-fit mb-2">Pillar-innehåll</Badge>
               <CardTitle>Skatt & Juridik för Privatpersoner</CardTitle>

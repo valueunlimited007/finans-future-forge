@@ -1,8 +1,6 @@
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { UnsplashImage } from "@/hooks/useUnsplashImage";
-import { IMAGE_QUERIES } from "@/services/unsplash";
 
 interface ExpertProfileProps {
   name: string;
@@ -18,15 +16,11 @@ export default function ExpertProfile({ name, title, experience, specialization,
     <Card className="border-l-4 border-l-blue-500">
       <CardHeader>
         <div className="flex items-start gap-4">
-          <div className="w-16 h-16 bg-blue-100 rounded-full overflow-hidden">
-            <UnsplashImage 
-              query={IMAGE_QUERIES.expert}
-              className="w-full h-full object-cover"
-              alt={`Professional photo of ${name}`}
-              size="small"
-              orientation="squarish"
-            />
-          </div>
+          {image && (
+            <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
+              <span className="text-2xl">👨‍💼</span>
+            </div>
+          )}
           <div className="flex-1">
             <CardTitle className="text-lg">{name}</CardTitle>
             <p className="text-sm text-muted-foreground">{title}</p>

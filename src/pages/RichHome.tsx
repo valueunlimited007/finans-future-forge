@@ -5,8 +5,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import PillarGuide from "@/components/PillarGuide";
 import ContentStrategy from "@/components/ContentStrategy";
-import { UnsplashImage } from "@/hooks/useUnsplashImage";
-import { IMAGE_QUERIES } from "@/services/unsplash";
 
 export default function RichHome() {
   return (
@@ -32,18 +30,8 @@ export default function RichHome() {
 
       <main>
         {/* Hero Section */}
-        <section className="relative py-16 px-4 overflow-hidden">
-          {/* Background Image */}
-          <div className="absolute inset-0 z-0">
-            <UnsplashImage 
-              query={IMAGE_QUERIES.finance}
-              className="w-full h-full object-cover opacity-10"
-              alt="Financial planning and investment background"
-            />
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-50/90 to-blue-100/90 dark:from-blue-950/90 dark:to-blue-900/90" />
-          </div>
-          
-          <div className="container mx-auto max-w-6xl text-center relative z-10">
+        <section className="py-16 px-4 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950 dark:to-blue-900">
+          <div className="container mx-auto max-w-6xl text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-foreground">
               Jämför lån, kreditkort och finansiering <span className="text-blue-600">2025</span>
             </h1>
@@ -107,13 +95,8 @@ export default function RichHome() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               <Card className="hover:shadow-lg transition-shadow">
                 <CardHeader>
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg overflow-hidden mb-4">
-                    <UnsplashImage 
-                      query={IMAGE_QUERIES.loans}
-                      className="w-full h-full object-cover"
-                      alt="Personal loan consultation"
-                      size="small"
-                    />
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                    <span className="text-2xl">👤</span>
                   </div>
                   <CardTitle>Privatlån</CardTitle>
                   <CardDescription>
@@ -133,13 +116,8 @@ export default function RichHome() {
 
               <Card className="hover:shadow-lg transition-shadow">
                 <CardHeader>
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg overflow-hidden mb-4">
-                    <UnsplashImage 
-                      query={IMAGE_QUERIES.business}
-                      className="w-full h-full object-cover"
-                      alt="Business loan and financing"
-                      size="small"
-                    />
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                    <span className="text-2xl">🏢</span>
                   </div>
                   <CardTitle>Företagslån</CardTitle>
                   <CardDescription>
@@ -159,13 +137,8 @@ export default function RichHome() {
 
               <Card className="hover:shadow-lg transition-shadow">
                 <CardHeader>
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg overflow-hidden mb-4">
-                    <UnsplashImage 
-                      query={IMAGE_QUERIES.creditCard}
-                      className="w-full h-full object-cover"
-                      alt="Credit card and payment solutions"
-                      size="small"
-                    />
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                    <span className="text-2xl">💳</span>
                   </div>
                   <CardTitle>Kreditkort</CardTitle>
                   <CardDescription>
@@ -185,13 +158,8 @@ export default function RichHome() {
 
               <Card className="hover:shadow-lg transition-shadow">
                 <CardHeader>
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg overflow-hidden mb-4">
-                    <UnsplashImage 
-                      query="fast approval loan handshake"
-                      className="w-full h-full object-cover"
-                      alt="Fast loan approval without credit check"
-                      size="small"
-                    />
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                    <span className="text-2xl">🔓</span>
                   </div>
                   <CardTitle>Lån utan UC</CardTitle>
                   <CardDescription>
@@ -211,13 +179,8 @@ export default function RichHome() {
 
               <Card className="hover:shadow-lg transition-shadow border-dashed">
                 <CardHeader>
-                  <div className="w-12 h-12 bg-muted rounded-lg overflow-hidden mb-4">
-                    <UnsplashImage 
-                      query={IMAGE_QUERIES.mortgage}
-                      className="w-full h-full object-cover opacity-50"
-                      alt="Home mortgage and property investment"
-                      size="small"
-                    />
+                  <div className="w-12 h-12 bg-muted rounded-lg flex items-center justify-center mb-4">
+                    <span className="text-2xl">🏠</span>
                   </div>
                   <CardTitle className="text-muted-foreground">Bolån</CardTitle>
                   <CardDescription>
@@ -228,13 +191,8 @@ export default function RichHome() {
 
               <Card className="hover:shadow-lg transition-shadow border-dashed">
                 <CardHeader>
-                  <div className="w-12 h-12 bg-muted rounded-lg overflow-hidden mb-4">
-                    <UnsplashImage 
-                      query={IMAGE_QUERIES.car}
-                      className="w-full h-full object-cover opacity-50"
-                      alt="Car financing and auto loans"
-                      size="small"
-                    />
+                  <div className="w-12 h-12 bg-muted rounded-lg flex items-center justify-center mb-4">
+                    <span className="text-2xl">🚗</span>
                   </div>
                   <CardTitle className="text-muted-foreground">Billån</CardTitle>
                   <CardDescription>
