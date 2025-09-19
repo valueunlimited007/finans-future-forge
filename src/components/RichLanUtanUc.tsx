@@ -25,8 +25,8 @@ export default function RichLanUtanUc() {
             </p>
             
             <div className="flex flex-wrap gap-4 justify-center mb-8">
-              <Button size="lg">Se lån utan UC</Button>
-              <Button variant="outline" size="lg">Läs mer</Button>
+              <Button size="lg" className="text-lg px-8 bg-orange-600 text-white hover:bg-orange-700 shadow-lg">Se lån utan UC</Button>
+              <Button variant="outline" size="lg" className="text-lg px-8 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white">Läs mer</Button>
             </div>
 
             <div className="flex flex-wrap gap-4 justify-center text-sm">

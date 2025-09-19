@@ -38,10 +38,10 @@ export default function RichKreditkort() {
               </p>
               
               <div className="flex flex-wrap gap-4 justify-center mb-8">
-                <Button size="lg" className="text-lg px-8">
+                <Button size="lg" className="text-lg px-8 bg-violet-600 text-white hover:bg-violet-700 shadow-lg">
                   Jämför kreditkort
                 </Button>
-                <Button variant="outline" size="lg" className="text-lg px-8">
+                <Button variant="outline" size="lg" className="text-lg px-8 border-violet-600 text-violet-600 hover:bg-violet-600 hover:text-white">
                   Kreditkort-guiden
                 </Button>
               </div>
