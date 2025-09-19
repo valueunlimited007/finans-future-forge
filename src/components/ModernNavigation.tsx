@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
@@ -9,7 +9,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import { Badge } from "@/components/ui/badge";
 import { 
   Menu, 
@@ -29,6 +29,35 @@ import { cn } from "@/lib/utils";
 const ModernNavigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+
+  // Lock body scroll when menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.paddingRight = '0px'; // Prevent layout shift
+    } else {
+      document.body.style.overflow = 'unset';
+      document.body.style.paddingRight = 'unset';
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = 'unset';
+      document.body.style.paddingRight = 'unset';
+    };
+  }, [isOpen]);
+
+  // Handle escape key
+  useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && isOpen) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [isOpen]);
 
   const isActivePath = (path: string) => {
     return location.pathname === path;
@@ -255,20 +284,27 @@ const ModernNavigation = () => {
 
         {/* Mobile Navigation */}
         <div className="flex items-center gap-3 lg:hidden ml-auto">
-          <span className="text-sm font-medium text-muted-foreground">MENY</span>
+          <span className="text-sm font-medium text-muted-foreground tracking-wider">MENY</span>
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <Button 
                 variant="outline"
                 size="icon" 
-                className="h-10 w-10 rounded-full border-2"
+                className="h-10 w-10 rounded-full border-2 hover:bg-accent/50 transition-colors"
+                aria-label="Öppna navigeringsmeny"
               >
                 <Menu className="h-5 w-5" />
                 <span className="sr-only">Öppna meny</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-              <div className="flex flex-col gap-6 mt-6">
+            <SheetContent side="right" className="w-[300px] sm:w-[400px] overflow-y-auto border-0 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+              {/* Accessibility requirements */}
+              <SheetTitle className="sr-only">Navigeringsmeny</SheetTitle>
+              <SheetDescription className="sr-only">
+                Huvudnavigering för Finansguiden med länkar till lån, kreditkort och guider
+              </SheetDescription>
+              
+              <div className="flex flex-col gap-6 mt-8 pb-8">
                 <Link
                   to="/"
                   onClick={() => setIsOpen(false)}
