@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import ExpertProfile from "../components/ExpertProfile";
 import { autolink } from "@/lib/autolinkGlossary";
 import { Building2, Star, Check, X, TrendingUp, Shield, CreditCard } from "lucide-react";
+import CommunityActionContainer from "../components/CommunityActionContainer";
 
 export default function BankjämförelseGuide() {
   const banks = [
@@ -479,6 +480,20 @@ export default function BankjämförelseGuide() {
               </Card>
             </div>
           </section>
+          
+          {/* Community Action Container */}
+          <CommunityActionContainer
+            title="Utforska Fler Finansguider"
+            description="Upptäck våra andra expertguider för att maximera din ekonomi och hitta de bästa erbjudandena på marknaden."
+            primaryAction={{
+              text: "Jämför Lån",
+              href: "/privatlan"
+            }}
+            secondaryAction={{
+              text: "Se Bästa Kreditkorten",
+              href: "/kreditkort"
+            }}
+          />
 
         </div>
       </main>

@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import ExpertProfile from "../components/ExpertProfile";
 import { autolink } from "@/lib/autolinkGlossary";
 import { TrendingUp, Target, Calculator, Gift, DollarSign, Users } from "lucide-react";
+import CommunityActionContainer from "../components/CommunityActionContainer";
 
 export default function LöneoptimeringsGuide() {
   const salaryOptimizations = [
@@ -497,6 +498,20 @@ export default function LöneoptimeringsGuide() {
               </Card>
             </div>
           </section>
+          
+          {/* Community Action Container */}
+          <CommunityActionContainer
+            title="Maximera Din Löneutveckling"
+            description="Upptäck fler strategier för att öka din inkomst och optimera din karriär med våra expertguider."
+            primaryAction={{
+              text: "Se Karriärguide",
+              href: "/karriar-100k-guide"
+            }}
+            secondaryAction={{
+              text: "Ekonomiska Life Hacks",
+              href: "/ekonomiska-lifehacks"
+            }}
+          />
 
         </div>
       </main>
