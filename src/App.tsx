@@ -15,6 +15,10 @@ import GlossaryIndex from "./routes/ordlista/index";
 import GlossaryTermPage from "./routes/ordlista/[slug]";
 import Sajtkarta from "./pages/Sajtkarta";
 import Om from "./pages/Om";
+import BostadsmarknadsAnalys from "./pages/BostadsmarknadsAnalys";
+import KarriärGuide from "./pages/KarriärGuide";
+import EkonomiskaLifehacks from "./pages/EkonomiskaLifehacks";
+import SparkontoGuide from "./pages/SparkontoGuide";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -36,6 +40,10 @@ const App = () => (
             <Route path="/om" element={<Om />} />
             <Route path="/cookies" element={<Cookies />} />
             <Route path="/integritetspolicy" element={<Integritetspolicy />} />
+            <Route path="/bostadsmarknad-analys-2025" element={<BostadsmarknadsAnalys />} />
+            <Route path="/karriar-100k-guide" element={<KarriärGuide />} />
+            <Route path="/ekonomiska-lifehacks" element={<EkonomiskaLifehacks />} />
+            <Route path="/sparkonto-guide-2025" element={<SparkontoGuide />} />
           </Routes>
         </BrowserRouter>
       </TooltipProvider>
