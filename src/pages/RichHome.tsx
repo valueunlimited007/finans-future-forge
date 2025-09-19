@@ -5,6 +5,8 @@ import LegacyFooter from "@/components/LegacyFooter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import PillarGuide from "@/components/PillarGuide";
+import ContentStrategy from "@/components/ContentStrategy";
 
 export default function RichHome() {
   return (
@@ -205,6 +207,12 @@ export default function RichHome() {
             </div>
           </div>
         </section>
+
+        {/* Pillar Content - Comprehensive Guides */}
+        <PillarGuide />
+
+        {/* Content Strategy - Combined Guides */}
+        <ContentStrategy />
 
         {/* Educational Content */}
         <section className="py-16 px-4 bg-muted/30">
