@@ -32,9 +32,13 @@
       { id:'coop-mersa', network:'direct', name:'Coop Mastercard', url:'https://www.coop.se/medlem/ekonomi/coop-matkonto/mastercard/', logo:'/coop.png', annualFee:'0–295 kr', cashback:'Bonus på köp', creditLimit:'Upp till 100 000 kr', interestFreeDays:'Upp till 55 dagar', rating:4.4 }
     ]);
 
-    try { document.dispatchEvent(new CustomEvent('fg:offers-updated')); } catch(e) {}
+    try { 
+      console.log('[FG_SEEDS] Dispatching fg:offers-updated event'); 
+      document.dispatchEvent(new CustomEvent('fg:offers-updated')); 
+    } catch(e) {}
   }
 
+  try { console.log('[FG_SEEDS] Running initial seed'); } catch(e) {}
   run();
   try { document.addEventListener('DOMContentLoaded', run); } catch(e) {}
 })();

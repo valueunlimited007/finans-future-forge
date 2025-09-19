@@ -30,11 +30,14 @@
     <!-- End Google Tag Manager (noscript) -->
     <div id="root"></div>
     
-    <!-- Offers System -->
+    <!-- Offers System - Schema and Feed load first -->
     <script src="/js/offers-schema.js"></script>
-    <script src="/js/offers-renderer.js"></script>
     <script src="/js/offers-feed-adtraction.js"></script>
     
+    <!-- React app mounts here -->
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Renderer loads AFTER React has mounted DOM targets -->
+    <script src="/js/offers-renderer.js"></script>
   </body>
 </html>

@@ -15,6 +15,7 @@ export const OffersContainer: React.FC<OffersContainerProps> = ({
 }) => {
   useEffect(() => {
     // Trigger offers re-render on component mount
+    console.log('[OffersContainer] Component mounted, triggering fg:offers-updated');
     const event = new CustomEvent('fg:offers-updated');
     document.dispatchEvent(event);
   }, []);

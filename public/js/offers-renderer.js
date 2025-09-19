@@ -87,16 +87,37 @@
   }
 
   function init(){
-    document.querySelectorAll('[data-offers]').forEach(renderContainer);
+    try { console.log('[FG_RENDERER] Init - checking for targets'); } catch(e) {}
+    var targets = document.querySelectorAll('[data-offers]');
+    if (targets.length === 0) {
+      try { console.log('[FG_RENDERER] No targets found, will retry when event fires'); } catch(e) {}
+      return;
+    }
+    try { console.log('[FG_RENDERER] Found', targets.length, 'targets, rendering...'); } catch(e) {}
+    targets.forEach(renderContainer);
     try { if (window.attachClickRef && window.FG_CLICKREF) window.attachClickRef(window.FG_CLICKREF); } catch(e) {}
   }
 
   function rerender(){
-    document.querySelectorAll('[data-offers]').forEach(renderContainer);
+    try { console.log('[FG_RENDERER] Rerender triggered'); } catch(e) {}
+    var targets = document.querySelectorAll('[data-offers]');
+    if (targets.length === 0) {
+      try { console.log('[FG_RENDERER] No targets found during rerender'); } catch(e) {}
+      return;
+    }
+    targets.forEach(renderContainer);
     try { if (window.attachClickRef && window.FG_CLICKREF) window.attachClickRef(window.FG_CLICKREF); } catch(e) {}
   }
 
+  // Listen for events (main mechanism)
   document.addEventListener('fg:offers-updated', rerender);
 
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+  // Initial render - but DOM targets might not exist yet if React hasn't mounted
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    // DOM is ready, but React components may not be mounted yet
+    // Try immediate render, but don't worry if no targets
+    init();
+  }
 })();
