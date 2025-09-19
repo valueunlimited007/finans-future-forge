@@ -83,38 +83,27 @@ export function bindLegacyMobileMenu(container: HTMLElement) {
 
 export function ensureGlossaryLinks(container: HTMLElement) {
       try {
-        // Look for footer grid to add sections
+        // Look for footer grid to add missing links
         const footerGrid = container.querySelector("footer .footer-grid");
         if (footerGrid && !container.querySelector('a[href$="/ordlista"]')) {
-          // Create "Juridiskt" section
-          const juridiskColumn = document.createElement("div");
-          juridiskColumn.className = "footer-column";
+          // Check if Information section exists, if so add missing links there
+          const informationSection = container.querySelector("footer h4:contains('Information')") || 
+                                    Array.from(container.querySelectorAll("footer h4")).find(h => h.textContent?.includes("Information"));
           
-          const juridiskHeader = document.createElement("h4");
-          juridiskHeader.textContent = "Juridiskt";
-          
-          const juridiskList = document.createElement("ul");
-          
-          const juridiskLinks = [
-            { href: "/integritetspolicy", text: "Integritetspolicy" },
-            { href: "/cookies", text: "Cookies" },
-            { href: "/om", text: "Om oss" }
-          ];
-          
-          juridiskLinks.forEach(linkData => {
-            const li = document.createElement("li");
-            const a = document.createElement("a");
-            a.href = linkData.href;
-            a.textContent = linkData.text;
-            li.appendChild(a);
-            juridiskList.appendChild(li);
-          });
-          
-          juridiskColumn.appendChild(juridiskHeader);
-          juridiskColumn.appendChild(juridiskList);
-          footerGrid.appendChild(juridiskColumn);
+          if (informationSection) {
+            // Add missing links to existing Information section
+            const informationList = informationSection.parentElement?.querySelector("ul");
+            if (informationList && !container.querySelector('a[href="/om"]')) {
+              const li = document.createElement("li");
+              const a = document.createElement("a");
+              a.href = "/om";
+              a.textContent = "Om oss";
+              li.appendChild(a);
+              informationList.appendChild(li);
+            }
+          }
 
-          // Create "Resurser" section
+          // Create "Resurser" section for ordlista and sajtkarta
           const resurserColumn = document.createElement("div");
           resurserColumn.className = "footer-column";
           
