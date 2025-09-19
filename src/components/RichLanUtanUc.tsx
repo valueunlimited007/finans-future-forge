@@ -7,7 +7,7 @@ import { AlertTriangle, Shield, TrendingUp, Users, Clock, CheckCircle, XCircle, 
 import LoanComparisonTable from "./LoanComparisonTable";
 import LoanFAQ from "./LoanFAQ";
 import LoanGuideSteps from "./LoanGuideSteps";
-import Breadcrumb from "./Breadcrumb";
+import CustomBreadcrumb from "./CustomBreadcrumb";
 
 export default function RichLanUtanUc() {
   const breadcrumbItems = [
@@ -58,7 +58,7 @@ export default function RichLanUtanUc() {
 
       <main>
         <div className="container mx-auto max-w-6xl px-4">
-          <Breadcrumb items={breadcrumbItems} />
+          <CustomBreadcrumb items={breadcrumbItems} />
         </div>
 
         {/* Hero Section */}

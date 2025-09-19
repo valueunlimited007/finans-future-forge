@@ -11,7 +11,7 @@ interface BreadcrumbProps {
   items: BreadcrumbItem[];
 }
 
-export default function Breadcrumb({ items }: BreadcrumbProps) {
+export default function CustomBreadcrumb({ items }: BreadcrumbProps) {
   return (
     <nav aria-label="Breadcrumb" className="py-4">
       <ol className="flex items-center space-x-2 text-sm">
