@@ -359,7 +359,7 @@ const ModernNavigation = () => {
                 </div>
               </div>
 
-              <div className="flex flex-col px-6 pb-8 space-y-8">
+              <div className="flex flex-col px-6 pb-8 space-y-6">
                 {/* Home Link */}
                 <Link
                   to="/"
@@ -385,13 +385,12 @@ const ModernNavigation = () => {
 
                 {/* Loan Products Section */}
                 <div className="space-y-3">
-                  <div className="flex items-center gap-3 px-2">
-                    <div className="h-8 w-8 rounded-lg bg-blue-500/10 flex items-center justify-center">
-                      <Banknote className="h-4 w-4 text-blue-600" />
-                    </div>
-                    <h3 className="font-semibold text-base text-foreground">
+                  <div className="flex items-center gap-2 px-1 py-1">
+                    <div className="h-1 w-6 rounded-full bg-blue-500/60"></div>
+                    <h3 className="font-medium text-sm text-foreground/80 uppercase tracking-wide">
                       Lån & Krediter
                     </h3>
+                    <div className="flex-1 h-px bg-border/50"></div>
                   </div>
                   <div className="space-y-2">
                     {loanProducts.map((item) => (
@@ -402,13 +401,12 @@ const ModernNavigation = () => {
 
                 {/* Community Section */}
                 <div className="space-y-3">
-                  <div className="flex items-center gap-3 px-2">
-                    <div className="h-8 w-8 rounded-lg bg-green-500/10 flex items-center justify-center">
-                      <Users className="h-4 w-4 text-green-600" />
-                    </div>
-                    <h3 className="font-semibold text-base text-foreground">
+                  <div className="flex items-center gap-2 px-1 py-1">
+                    <div className="h-1 w-6 rounded-full bg-green-500/60"></div>
+                    <h3 className="font-medium text-sm text-foreground/80 uppercase tracking-wide">
                       Community & Guider
                     </h3>
+                    <div className="flex-1 h-px bg-border/50"></div>
                   </div>
                   <div className="space-y-2">
                     {communityContent.map((item) => (
@@ -419,13 +417,12 @@ const ModernNavigation = () => {
 
                 {/* Resources Section */}
                 <div className="space-y-3">
-                  <div className="flex items-center gap-3 px-2">
-                    <div className="h-8 w-8 rounded-lg bg-purple-500/10 flex items-center justify-center">
-                      <BookOpen className="h-4 w-4 text-purple-600" />
-                    </div>
-                    <h3 className="font-semibold text-base text-foreground">
+                  <div className="flex items-center gap-2 px-1 py-1">
+                    <div className="h-1 w-6 rounded-full bg-purple-500/60"></div>
+                    <h3 className="font-medium text-sm text-foreground/80 uppercase tracking-wide">
                       Resurser
                     </h3>
+                    <div className="flex-1 h-px bg-border/50"></div>
                   </div>
                   <div className="space-y-2">
                     {resources.map((item) => (
