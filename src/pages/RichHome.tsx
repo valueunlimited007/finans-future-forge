@@ -45,8 +45,8 @@ export default function RichHome() {
               <Button asChild size="lg" className="text-lg px-8 bg-blue-600 text-white hover:bg-blue-700 shadow-lg">
                 <Link to="/privatlan">Se erbjudanden</Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="text-lg px-8 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white">
-                <Link to="/ordlista">Läs guider</Link>
+              <Button asChild size="lg" variant="outline" className="text-lg px-8 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white">
+                <Link to="/bostadsmarknad-analys">Läs guider</Link>
               </Button>
             </div>
 
@@ -360,7 +360,7 @@ export default function RichHome() {
                 <Link to="/privatlan">Jämför lån nu</Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="text-lg px-8 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
-                <Link to="/ordlista">Läs våra guider</Link>
+                <Link to="/bostadsmarknad-analys">Läs våra guider</Link>
               </Button>
             </div>
           </div>
