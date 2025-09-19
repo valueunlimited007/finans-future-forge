@@ -149,28 +149,27 @@
   grid-template-columns: 1fr; /* Default: single column */
   gap: 0.5rem;
   min-width: 0; /* Allow text to wrap properly */
-  grid-auto-columns: auto; /* Prevent auto-placement issues */
 }
 
-/* Container query: 2 columns when card is wide enough (>= 600px) - raised threshold */
-@container offer-card (min-width: 600px) {
+/* Container query: 2 columns only when card is definitely wide enough */
+@container offer-card (min-width: 680px) {
   .lender-features {
-    grid-template-columns: repeat(2, minmax(0, 1fr)); /* Sharp min-width: 0 */
+    grid-template-columns: repeat(2, minmax(240px, 1fr)); /* Never below 240px per column */
     gap: 0.75rem;
   }
 }
 
 /* Fallback for browsers without container query support */
 @supports not (container-type: inline-size) {
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     .lender-features {
-      grid-template-columns: repeat(2, minmax(0, 1fr)); /* Sharp min-width: 0 */
+      grid-template-columns: repeat(2, minmax(240px, 1fr)); /* Never below 240px per column */
       gap: 0.75rem;
     }
   }
   
   /* Single column for smaller screens */
-  @media (max-width: 1200px) {
+  @media (max-width: 1023px) {
     .lender-features {
       grid-template-columns: 1fr;
     }
