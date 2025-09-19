@@ -104,22 +104,34 @@ All colors MUST be HSL.
   }
 }
 
-/* Override legacy CSS button centering issues */
+/* Override legacy CSS button centering issues - High specificity fixes */
 @layer utilities {
-  /* Fix legacy .btn-full class that sets flex: 1 */
-  .btn-group .btn-full {
+  /* Target the exact problematic .btn-full class from legacy CSS (line 388) */
+  .btn-group .btn-full,
+  a.btn-full,
+  .btn-full {
     flex: none !important;
     max-width: fit-content !important;
+    width: auto !important;
+    margin: 0 auto !important;
   }
 
-  /* Ensure Tailwind centering works despite legacy CSS */
+  /* High specificity override for flex containers with justify-center */
+  div.flex.justify-center > *,
   .flex.justify-center > * {
     flex: none !important;
+    width: auto !important;
   }
 
-  /* Specific fix for button containers in CTA sections */
-  div[class*="justify-center"] a[class*="inline-flex"] {
+  /* Ultra-specific targeting for button containers in CTA sections */
+  div[class*="justify-center"] a[class*="inline-flex"],
+  div[class*="flex"][class*="justify-center"] a[class*="btn"],
+  .flex.justify-center a.btn-full,
+  section div.flex.justify-center a[class*="inline-flex"] {
     flex: none !important;
     width: auto !important;
+    max-width: fit-content !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 }
