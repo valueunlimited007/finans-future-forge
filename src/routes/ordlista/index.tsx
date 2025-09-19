@@ -82,7 +82,7 @@ export default function GlossaryIndex() {
         </div>
 
         <div className="mt-8 text-sm text-muted-foreground">
-          Tips: Saknar du något ord? <Link to="/kontakt" className="underline underline-offset-2 hover:no-underline">Hör av dig</Link>.
+          Tips: Saknar du något ord? <Link to="/om" className="underline underline-offset-2 hover:no-underline">Hör av dig</Link>.
         </div>
       </main>
       <LegacyFooter />

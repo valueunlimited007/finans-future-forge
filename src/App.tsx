@@ -24,14 +24,6 @@ import LöneoptimeringsGuide from "./pages/LöneoptimeringsGuide";
 import SparkontoGuide from "./pages/SparkontoGuide";
 import SvenskaInkomster from "./pages/SvenskaInkomster";
 import MånadssparandeGuide from "./pages/MånadssparandeGuide";
-import Verktyg from "./pages/Verktyg";
-import OmOssHistoria from "./pages/OmOssHistoria";
-import OmOssTeam from "./pages/OmOssTeam";
-import OmOssKarriar from "./pages/OmOssKarriar";
-import KontaktSupport from "./pages/KontaktSupport";
-import KontaktForsaljning from "./pages/KontaktForsaljning";
-import Laneraknare from "./pages/tools/Laneraknare";
-import ForfattareProfile from "./pages/ForfattareProfile";
 import NotFoundBranded from "./pages/NotFoundBranded";
 
 const queryClient = new QueryClient();
@@ -64,14 +56,6 @@ const App = () => (
             <Route path="/sparkonto-guide-2025" element={<SparkontoGuide />} />
             <Route path="/svenska-inkomster-2025" element={<SvenskaInkomster />} />
             <Route path="/manadssparande-guide" element={<MånadssparandeGuide />} />
-            <Route path="/verktyg" element={<Verktyg />} />
-            <Route path="/verktyg/laneraknare" element={<Laneraknare />} />
-            <Route path="/om-oss/historia" element={<OmOssHistoria />} />
-            <Route path="/om-oss/team" element={<OmOssTeam />} />
-            <Route path="/om-oss/karriar" element={<OmOssKarriar />} />
-            <Route path="/kontakt/support" element={<KontaktSupport />} />
-            <Route path="/kontakt/forsaljning" element={<KontaktForsaljning />} />
-            <Route path="/författare/:slug" element={<ForfattareProfile />} />
             <Route path="*" element={<NotFoundBranded />} />
           </Routes>
         </BrowserRouter>

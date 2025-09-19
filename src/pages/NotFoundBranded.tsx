@@ -59,9 +59,9 @@ const NotFoundBranded = () => {
               </Button>
               
               <Button variant="outline" asChild className="min-w-[200px]">
-                <Link to="/kontakt/support">
+                <Link to="/om">
                   <MessageCircle className="h-4 w-4 mr-2" />
-                  Kontakta support
+                  Om oss
                 </Link>
               </Button>
             </div>
