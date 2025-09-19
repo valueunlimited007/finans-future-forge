@@ -319,7 +319,7 @@ export default function CreditCardComparisonTable() {
               Få pengar tillbaka på dina köp. Perfekt för dig som vill tjäna på dina vardagsköp.
             </p>
           </div>
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2">
             {cashbackCards.map((card, index) => (
               <CardComponent key={index} card={card} />
             ))}
@@ -339,7 +339,7 @@ export default function CreditCardComparisonTable() {
               Samla miles och få reseförmåner. Bäst för dig som reser ofta och vill maximera dina reseupplevelser.
             </p>
           </div>
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2">
             {travelCards.map((card, index) => (
               <CardComponent key={index} card={card} />
             ))}
@@ -359,7 +359,7 @@ export default function CreditCardComparisonTable() {
               Premiumkort med exklusiva förmåner och status. För dig som värdesätter service och prestisje.
             </p>
           </div>
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2">
             {premiumCards.map((card, index) => (
               <CardComponent key={index} card={card} />
             ))}
@@ -379,7 +379,7 @@ export default function CreditCardComparisonTable() {
               Enkla kreditkort utan årsavgift. Perfekt för nybörjare eller som kompletterande kort.
             </p>
           </div>
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2">
             {basicCards.map((card, index) => (
               <CardComponent key={index} card={card} />
             ))}
@@ -399,7 +399,7 @@ export default function CreditCardComparisonTable() {
               Kort kopplade till specifika butiker med extra rabatter och bonuspoäng.
             </p>
           </div>
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2">
             {storeCards.map((card, index) => (
               <CardComponent key={index} card={card} />
             ))}
@@ -419,7 +419,7 @@ export default function CreditCardComparisonTable() {
               Specialkort för bilägare med rabatter på drivmedel och bilrelaterade tjänster.
             </p>
           </div>
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2">
             {fuelCards.map((card, index) => (
               <CardComponent key={index} card={card} />
             ))}

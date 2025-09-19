@@ -148,7 +148,7 @@ export default function LoanComparisonTable() {
     <div className="space-y-8">
       <div>
         <h3 className="text-2xl font-bold mb-6 text-center">Långivare utan UC-kontroll</h3>
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2">
           {ucFreeLenders.map((provider, index) => (
             <Card key={index} className="border-l-4 border-l-green-500">
               <CardHeader>
@@ -218,7 +218,7 @@ export default function LoanComparisonTable() {
 
       <div>
         <h3 className="text-2xl font-bold mb-6 text-center">Traditionella långivare (med UC-kontroll)</h3>
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2">
           {traditionalLenders.map((provider, index) => (
             <Card key={index} className="border-l-4 border-l-blue-500">
               <CardHeader>

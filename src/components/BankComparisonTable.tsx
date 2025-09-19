@@ -298,7 +298,7 @@ export default function BankComparisonTable() {
             Bäst för dig med god ekonomi och stabil anställning.
           </p>
         </div>
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2">
           {traditionalBanks.map((bank, index) => (
             <BankCard key={index} bank={bank} />
           ))}
@@ -317,7 +317,7 @@ export default function BankComparisonTable() {
             Perfekt för dig som vill ha snabba beslut och smidig hantering online.
           </p>
         </div>
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2">
           {digitalBanks.map((bank, index) => (
             <BankCard key={index} bank={bank} />
           ))}
@@ -336,7 +336,7 @@ export default function BankComparisonTable() {
             Ofta förmånliga villkor om du redan är kund eller medlem.
           </p>
         </div>
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2">
           {nicheBanks.map((bank, index) => (
             <BankCard key={index} bank={bank} />
           ))}
