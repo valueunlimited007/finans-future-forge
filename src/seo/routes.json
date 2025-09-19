@@ -341,6 +341,256 @@
       "mainEntityOfPage": "https://finansguiden.se/om",
       "datePublished": "2025-01-08",
       "dateModified": "2025-01-08"
+  },
+  "/karriar-guide": {
+    "title": "Karriärguide – din väg till ekonomisk framgång",
+    "description": "Strategier för löneförhandling, karriärutveckling och att bygga långsiktig ekonomisk trygghet genom din yrkeskarriär.",
+    "canonical": "https://finansguiden.se/karriar-guide",
+    "changefreq": "monthly",
+    "priority": 0.7,
+    "lastmod": "2025-09-19",
+    "jsonld": {
+      "@type": "Article",
+      "headline": "Karriärguide – din väg till ekonomisk framgång",
+      "description": "Strategier för löneförhandling, karriärutveckling och att bygga långsiktig ekonomisk trygghet genom din yrkeskarriär.",
+      "author": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/",
+        "logo": "https://finansguiden.se/finansguiden-logo-v2.png"
+      },
+      "mainEntityOfPage": "https://finansguiden.se/karriar-guide",
+      "datePublished": "2025-09-19",
+      "dateModified": "2025-09-19",
+      "inLanguage": "sv-SE"
+    }
+  },
+  "/ekonomiska-lifehacks": {
+    "title": "Ekonomiska lifehacks – enkla knep som sparar pengar",
+    "description": "Praktiska tips och tricks för att optimera din privatekonomi. Små förändringar som ger stora besparingar över tid.",
+    "canonical": "https://finansguiden.se/ekonomiska-lifehacks",
+    "changefreq": "monthly",
+    "priority": 0.7,
+    "lastmod": "2025-09-19",
+    "jsonld": {
+      "@type": "Article",
+      "headline": "Ekonomiska lifehacks – enkla knep som sparar pengar",
+      "description": "Praktiska tips och tricks för att optimera din privatekonomi. Små förändringar som ger stora besparingar över tid.",
+      "author": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/",
+        "logo": "https://finansguiden.se/finansguiden-logo-v2.png"
+      },
+      "mainEntityOfPage": "https://finansguiden.se/ekonomiska-lifehacks",
+      "datePublished": "2025-09-19",
+      "dateModified": "2025-09-19",
+      "inLanguage": "sv-SE"
+    }
+  },
+  "/bilekonomy-guide": {
+    "title": "Bilekonomi guide – så håller du nere bilkostnaderna",
+    "description": "Allt om bilens totala kostnader: inköp, försäkring, bränsle, service och värdeminskning. Hitta smarta besparingar.",
+    "canonical": "https://finansguiden.se/bilekonomy-guide",
+    "changefreq": "monthly",
+    "priority": 0.7,
+    "lastmod": "2025-09-19",
+    "jsonld": {
+      "@type": "Article",
+      "headline": "Bilekonomi guide – så håller du nere bilkostnaderna",
+      "description": "Allt om bilens totala kostnader: inköp, försäkring, bränsle, service och värdeminskning. Hitta smarta besparingar.",
+      "author": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/",
+        "logo": "https://finansguiden.se/finansguiden-logo-v2.png"
+      },
+      "mainEntityOfPage": "https://finansguiden.se/bilekonomy-guide",
+      "datePublished": "2025-09-19",
+      "dateModified": "2025-09-19",
+      "inLanguage": "sv-SE"
+    }
+  },
+  "/bankjamforelse-guide": {
+    "title": "Bankjämförelse guide – hitta rätt bank för dig",
+    "description": "Jämför banker utifrån avgifter, räntor, tjänster och kundservice. Få tips för att välja bank som passar din ekonomi.",
+    "canonical": "https://finansguiden.se/bankjamforelse-guide",
+    "changefreq": "monthly",
+    "priority": 0.7,
+    "lastmod": "2025-09-19",
+    "jsonld": {
+      "@type": "Article",
+      "headline": "Bankjämförelse guide – hitta rätt bank för dig",
+      "description": "Jämför banker utifrån avgifter, räntor, tjänster och kundservice. Få tips för att välja bank som passar din ekonomi.",
+      "author": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/",
+        "logo": "https://finansguiden.se/finansguiden-logo-v2.png"
+      },
+      "mainEntityOfPage": "https://finansguiden.se/bankjamforelse-guide",
+      "datePublished": "2025-09-19",
+      "dateModified": "2025-09-19",
+      "inLanguage": "sv-SE"
+    }
+  },
+  "/loneoptimeringsguide": {
+    "title": "Löneoptimeringguide – maximera din inkomst",
+    "description": "Strategier för att förhandla högre lön, optimera skatteavdrag och byggja flera inkomstströmmar för ekonomisk tillväxt.",
+    "canonical": "https://finansguiden.se/loneoptimeringsguide",
+    "changefreq": "monthly", 
+    "priority": 0.7,
+    "lastmod": "2025-09-19",
+    "jsonld": {
+      "@type": "Article",
+      "headline": "Löneoptimeringguide – maximera din inkomst",
+      "description": "Strategier för att förhandla högre lön, optimera skatteavdrag och byggja flera inkomstströmmar för ekonomisk tillväxt.",
+      "author": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Finansguiden.se", 
+        "url": "https://finansguiden.se/",
+        "logo": "https://finansguiden.se/finansguiden-logo-v2.png"
+      },
+      "mainEntityOfPage": "https://finansguiden.se/loneoptimeringsguide",
+      "datePublished": "2025-09-19",
+      "dateModified": "2025-09-19",
+      "inLanguage": "sv-SE"
+    }
+  },
+  "/sparkonto-guide": {
+    "title": "Sparkonto guide – hitta bästa sparräntan",
+    "description": "Jämför sparkonton och hitta högsta räntan. Tips för att maximera avkastningen på ditt sparande och välja rätt bank.",
+    "canonical": "https://finansguiden.se/sparkonto-guide",
+    "changefreq": "monthly",
+    "priority": 0.7,
+    "lastmod": "2025-09-19",
+    "jsonld": {
+      "@type": "Article",
+      "headline": "Sparkonto guide – hitta bästa sparräntan",
+      "description": "Jämför sparkonton och hitta högsta räntan. Tips för att maximera avkastningen på ditt sparande och välja rätt bank.",
+      "author": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/",
+        "logo": "https://finansguiden.se/finansguiden-logo-v2.png"
+      },
+      "mainEntityOfPage": "https://finansguiden.se/sparkonto-guide",
+      "datePublished": "2025-09-19",
+      "dateModified": "2025-09-19",
+      "inLanguage": "sv-SE"
+    }
+  },
+  "/svenska-inkomster-2025": {
+    "title": "Svenska inkomster 2025 – lönestatistik och trends",
+    "description": "Aktuell löneutveckling i Sverige 2025. Se medellöner per bransch, region och ålder. Analysera din egen löneutveckling.",
+    "canonical": "https://finansguiden.se/svenska-inkomster-2025",
+    "changefreq": "yearly",
+    "priority": 0.6,
+    "lastmod": "2025-09-19",
+    "jsonld": {
+      "@type": "Article",
+      "headline": "Svenska inkomster 2025 – lönestatistik och trends",
+      "description": "Aktuell löneutveckling i Sverige 2025. Se medellöner per bransch, region och ålder. Analysera din egen löneutveckling.",
+      "author": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/",
+        "logo": "https://finansguiden.se/finansguiden-logo-v2.png"
+      },
+      "mainEntityOfPage": "https://finansguiden.se/svenska-inkomster-2025",
+      "datePublished": "2025-09-19",
+      "dateModified": "2025-09-19",
+      "inLanguage": "sv-SE"
+    }
+  },
+  "/manadssparande-guide": {
+    "title": "Månadssparande guide – bygga ekonomisk trygghet",
+    "description": "Lär dig spara månatligen och bygga din ekonomiska framtid. Strategier för att automatisera sparandet och välja rätt placeringar.",
+    "canonical": "https://finansguiden.se/manadssparande-guide",
+    "changefreq": "monthly",
+    "priority": 0.7,
+    "lastmod": "2025-09-19",
+    "jsonld": {
+      "@type": "Article",
+      "headline": "Månadssparande guide – bygga ekonomisk trygghet",
+      "description": "Lär dig spara månatligen och bygga din ekonomiska framtid. Strategier för att automatisera sparandet och välja rätt placeringar.",
+      "author": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/",
+        "logo": "https://finansguiden.se/finansguiden-logo-v2.png"
+      },
+      "mainEntityOfPage": "https://finansguiden.se/manadssparande-guide",
+      "datePublished": "2025-09-19",
+      "dateModified": "2025-09-19",
+      "inLanguage": "sv-SE"
+    }
+  },
+  "/bostadsmarknad-analys": {
+    "title": "Bostadsmarknadsanalys – trender och prognoser",
+    "description": "Aktuell analys av svenska bostadsmarknaden. Prisprognoser, regionala skillnader och när det kan vara rätt tid att köpa eller sälja.",
+    "canonical": "https://finansguiden.se/bostadsmarknad-analys",
+    "changefreq": "monthly",
+    "priority": 0.6,
+    "lastmod": "2025-09-19",
+    "jsonld": {
+      "@type": "Article",
+      "headline": "Bostadsmarknadsanalys – trender och prognoser",
+      "description": "Aktuell analys av svenska bostadsmarknaden. Prisprognoser, regionala skillnader och när det kan vara rätt tid att köpa eller sälja.",
+      "author": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/",
+        "logo": "https://finansguiden.se/finansguiden-logo-v2.png"
+      },
+      "mainEntityOfPage": "https://finansguiden.se/bostadsmarknad-analys",
+      "datePublished": "2025-09-19",
+      "dateModified": "2025-09-19",
+      "inLanguage": "sv-SE"
     }
   }
-}
