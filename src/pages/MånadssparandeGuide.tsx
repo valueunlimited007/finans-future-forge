@@ -11,110 +11,102 @@ import ExpertProfile from "../components/ExpertProfile";
 import { autolink } from "@/lib/autolinkGlossary";
 import { PiggyBank, TrendingUp, Target, Calculator, Clock, Trophy, AlertCircle, Users } from "lucide-react";
 import { useState } from "react";
-
 export default function MånadssparandeGuide() {
   const [income, setIncome] = useState("");
   const [currentSavings, setCurrentSavings] = useState("");
   const [monthlyExpenses, setMonthlyExpenses] = useState("");
   const [goal, setGoal] = useState("");
-
-  const savingsRules = [
-    {
-      rule: "50/30/20 Regeln",
-      description: "50% behov, 30% önskemål, 20% sparande",
-      minSavings: 20,
-      maxSavings: 20,
-      difficulty: "Lätt",
-      suitableFor: "Nybörjare som vill ha struktur"
-    },
-    {
-      rule: "10% Regeln",
-      description: "Spara minst 10% av bruttoinkomsten",
-      minSavings: 10,
-      maxSavings: 15,
-      difficulty: "Lätt",
-      suitableFor: "Alla som bara vill komma igång"
-    },
-    {
-      rule: "Aggressivt FIRE",
-      description: "Spara 40-70% för ekonomisk frihet",
-      minSavings: 40,
-      maxSavings: 70,
-      difficulty: "Svårt",
-      suitableFor: "Dedikerade FIRE-anhängare"
-    },
-    {
-      rule: "Automatisk Ökning",
-      description: "Öka sparandet med 1% per år",
-      minSavings: 15,
-      maxSavings: 30,
-      difficulty: "Medel",
-      suitableFor: "Långsiktiga tänkare"
-    }
-  ];
-
-  const communityExamples = [
-    {
-      profile: "Tech-utvecklare, 28 år",
-      income: 58000,
-      savings: 25000,
-      percentage: 43,
-      strategy: "Lever billigt, investerar aggressivt i index",
-      goal: "FIRE vid 40"
-    },
-    {
-      profile: "Lärare, 35 år, familj",
-      income: 34000,
-      savings: 4500,
-      percentage: 13,
-      strategy: "Automatiskt sparande + barnbidrag",
-      goal: "Barnens utbildning + pension"
-    },
-    {
-      profile: "Konsult, 42 år",
-      income: 67000,
-      savings: 15000,
-      percentage: 22,
-      strategy: "50/30/20 regeln, diversifierad portfölj",
-      goal: "Tidig pension vid 55"
-    },
-    {
-      profile: "Sjuksköterska, 31 år",
-      income: 38000,
-      savings: 6000,
-      percentage: 16,
-      strategy: "Placeringsfördelning + extra amortering",
-      goal: "Eget hus + ekonomisk trygghet"
-    }
-  ];
-
+  const savingsRules = [{
+    rule: "50/30/20 Regeln",
+    description: "50% behov, 30% önskemål, 20% sparande",
+    minSavings: 20,
+    maxSavings: 20,
+    difficulty: "Lätt",
+    suitableFor: "Nybörjare som vill ha struktur"
+  }, {
+    rule: "10% Regeln",
+    description: "Spara minst 10% av bruttoinkomsten",
+    minSavings: 10,
+    maxSavings: 15,
+    difficulty: "Lätt",
+    suitableFor: "Alla som bara vill komma igång"
+  }, {
+    rule: "Aggressivt FIRE",
+    description: "Spara 40-70% för ekonomisk frihet",
+    minSavings: 40,
+    maxSavings: 70,
+    difficulty: "Svårt",
+    suitableFor: "Dedikerade FIRE-anhängare"
+  }, {
+    rule: "Automatisk Ökning",
+    description: "Öka sparandet med 1% per år",
+    minSavings: 15,
+    maxSavings: 30,
+    difficulty: "Medel",
+    suitableFor: "Långsiktiga tänkare"
+  }];
+  const communityExamples = [{
+    profile: "Tech-utvecklare, 28 år",
+    income: 58000,
+    savings: 25000,
+    percentage: 43,
+    strategy: "Lever billigt, investerar aggressivt i index",
+    goal: "FIRE vid 40"
+  }, {
+    profile: "Lärare, 35 år, familj",
+    income: 34000,
+    savings: 4500,
+    percentage: 13,
+    strategy: "Automatiskt sparande + barnbidrag",
+    goal: "Barnens utbildning + pension"
+  }, {
+    profile: "Konsult, 42 år",
+    income: 67000,
+    savings: 15000,
+    percentage: 22,
+    strategy: "50/30/20 regeln, diversifierad portfölj",
+    goal: "Tidig pension vid 55"
+  }, {
+    profile: "Sjuksköterska, 31 år",
+    income: 38000,
+    savings: 6000,
+    percentage: 16,
+    strategy: "Placeringsfördelning + extra amortering",
+    goal: "Eget hus + ekonomisk trygghet"
+  }];
   const calculateRecommendations = () => {
     if (!income) return null;
-    
     const monthlyIncome = parseInt(income);
     const expenses = parseInt(monthlyExpenses) || monthlyIncome * 0.7;
     const availableForSavings = monthlyIncome - expenses;
-    
     return {
       conservative: Math.max(monthlyIncome * 0.1, 0),
       moderate: Math.max(monthlyIncome * 0.2, 0),
       aggressive: Math.max(monthlyIncome * 0.4, 0),
       available: availableForSavings,
-      currentPercentage: currentSavings ? (parseInt(currentSavings) / monthlyIncome) * 100 : 0
+      currentPercentage: currentSavings ? parseInt(currentSavings) / monthlyIncome * 100 : 0
     };
   };
-
   const recommendations = calculateRecommendations();
-
   const getMotivationMessage = (percentage: number) => {
-    if (percentage >= 40) return { message: "Fantastiskt! Du är på FIRE-nivå! 🔥", color: "text-green-600" };
-    if (percentage >= 20) return { message: "Utmärkt sparande! Du ligger över genomsnittet ⭐", color: "text-blue-600" };
-    if (percentage >= 10) return { message: "Bra början! Du sparar mer än många svenskar 👍", color: "text-orange-600" };
-    return { message: "Varje krona räknas! Öka gradvis för bättre framtid 💪", color: "text-red-600" };
+    if (percentage >= 40) return {
+      message: "Fantastiskt! Du är på FIRE-nivå! 🔥",
+      color: "text-green-600"
+    };
+    if (percentage >= 20) return {
+      message: "Utmärkt sparande! Du ligger över genomsnittet ⭐",
+      color: "text-blue-600"
+    };
+    if (percentage >= 10) return {
+      message: "Bra början! Du sparar mer än många svenskar 👍",
+      color: "text-orange-600"
+    };
+    return {
+      message: "Varje krona räknas! Öka gradvis för bättre framtid 💪",
+      color: "text-red-600"
+    };
   };
-
-  return (
-    <>
+  return <>
       <Helmet>
         <title>Månadssparande Guide 2025: Hur Mycket Ska Man Spara? - Finansguiden</title>
         <meta name="description" content="Hur mycket sparar svenskarna per månad? Jämför ditt sparande med andra och få personliga råd baserat på din inkomst och mål." />
@@ -165,9 +157,7 @@ export default function MånadssparandeGuide() {
                 Community-Data 2025
               </Badge>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Hur Mycket Manadssparar Ni?
-            </h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">Hur mycket månadssparar ni?</h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
               {autolink("Upptäck vad svenska sparare verkligen sätter undan varje månad. Jämför ditt sparande med andra och få personliga rekommendationer baserat på din situation.")}
             </p>
@@ -225,48 +215,23 @@ export default function MånadssparandeGuide() {
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="income">Månadsslön (netto)</Label>
-                    <Input
-                      id="income"
-                      type="number"
-                      placeholder="35000"
-                      value={income}
-                      onChange={(e) => setIncome(e.target.value)}
-                    />
+                    <Input id="income" type="number" placeholder="35000" value={income} onChange={e => setIncome(e.target.value)} />
                   </div>
                   <div>
                     <Label htmlFor="expenses">Månatliga utgifter</Label>
-                    <Input
-                      id="expenses"
-                      type="number"
-                      placeholder="25000"
-                      value={monthlyExpenses}
-                      onChange={(e) => setMonthlyExpenses(e.target.value)}
-                    />
+                    <Input id="expenses" type="number" placeholder="25000" value={monthlyExpenses} onChange={e => setMonthlyExpenses(e.target.value)} />
                   </div>
                   <div>
                     <Label htmlFor="current">Nuvarande sparande</Label>
-                    <Input
-                      id="current"
-                      type="number"
-                      placeholder="5000"
-                      value={currentSavings}
-                      onChange={(e) => setCurrentSavings(e.target.value)}
-                    />
+                    <Input id="current" type="number" placeholder="5000" value={currentSavings} onChange={e => setCurrentSavings(e.target.value)} />
                   </div>
                   <div>
                     <Label htmlFor="goal">Sparmål (kr)</Label>
-                    <Input
-                      id="goal"
-                      type="number"
-                      placeholder="1000000"
-                      value={goal}
-                      onChange={(e) => setGoal(e.target.value)}
-                    />
+                    <Input id="goal" type="number" placeholder="1000000" value={goal} onChange={e => setGoal(e.target.value)} />
                   </div>
                 </div>
 
-                {recommendations && (
-                  <div className="mt-6 p-6 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg">
+                {recommendations && <div className="mt-6 p-6 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg">
                     <h3 className="font-semibold text-lg mb-4">Dina Sparrekommendationer</h3>
                     
                     <div className="grid md:grid-cols-3 gap-4 mb-6">
@@ -290,8 +255,7 @@ export default function MånadssparandeGuide() {
                       </div>
                     </div>
 
-                    {currentSavings && (
-                      <div className="space-y-3">
+                    {currentSavings && <div className="space-y-3">
                         <div className="flex justify-between items-center">
                           <span>Ditt nuvarande sparande:</span>
                           <span className="font-bold">{recommendations.currentPercentage.toFixed(1)}% av inkomsten</span>
@@ -300,23 +264,19 @@ export default function MånadssparandeGuide() {
                         <div className={`text-center font-medium ${getMotivationMessage(recommendations.currentPercentage).color}`}>
                           {getMotivationMessage(recommendations.currentPercentage).message}
                         </div>
-                      </div>
-                    )}
+                      </div>}
 
-                    {goal && income && (
-                      <div className="mt-4 p-4 bg-yellow-50 rounded-lg">
+                    {goal && income && <div className="mt-4 p-4 bg-yellow-50 rounded-lg">
                         <h4 className="font-semibold mb-2">Tid till mål:</h4>
                         <p className="text-sm">
                           Med {currentSavings || recommendations.moderate} kr/månad når du {parseInt(goal).toLocaleString()} kr på{" "}
                           <span className="font-bold">
                             {Math.round((parseInt(goal) - 0) / (parseInt(currentSavings) || recommendations.moderate))} månader
                           </span>
-                          {" "}({Math.round(((parseInt(goal) - 0) / (parseInt(currentSavings) || recommendations.moderate)) / 12)} år)
+                          {" "}({Math.round((parseInt(goal) - 0) / (parseInt(currentSavings) || recommendations.moderate) / 12)} år)
                         </p>
-                      </div>
-                    )}
-                  </div>
-                )}
+                      </div>}
+                  </div>}
               </CardContent>
             </Card>
           </section>
@@ -328,14 +288,11 @@ export default function MånadssparandeGuide() {
             </h2>
             
             <div className="grid lg:grid-cols-2 gap-6">
-              {savingsRules.map((rule) => (
-                <Card key={rule.rule}>
+              {savingsRules.map(rule => <Card key={rule.rule}>
                   <CardHeader>
                     <div className="flex items-center justify-between">
                       <CardTitle className="text-lg">{rule.rule}</CardTitle>
-                      <Badge 
-                        variant={rule.difficulty === 'Lätt' ? 'default' : rule.difficulty === 'Medel' ? 'secondary' : 'destructive'}
-                      >
+                      <Badge variant={rule.difficulty === 'Lätt' ? 'default' : rule.difficulty === 'Medel' ? 'secondary' : 'destructive'}>
                         {rule.difficulty}
                       </Badge>
                     </div>
@@ -356,8 +313,7 @@ export default function MånadssparandeGuide() {
                       </div>
                     </div>
                   </CardContent>
-                </Card>
-              ))}
+                </Card>)}
             </div>
           </section>
 
@@ -368,8 +324,7 @@ export default function MånadssparandeGuide() {
             </h2>
             
             <div className="grid lg:grid-cols-2 gap-6">
-              {communityExamples.map((example, index) => (
-                <Card key={index}>
+              {communityExamples.map((example, index) => <Card key={index}>
                   <CardContent className="p-6">
                     <div className="flex items-start justify-between mb-4">
                       <div>
@@ -378,15 +333,7 @@ export default function MånadssparandeGuide() {
                           Inkomst: {example.income.toLocaleString()} kr/månad
                         </div>
                       </div>
-                      <Badge 
-                        variant="outline" 
-                        className={
-                          example.percentage >= 40 ? 'text-green-600 border-green-500' :
-                          example.percentage >= 20 ? 'text-blue-600 border-blue-500' :
-                          example.percentage >= 10 ? 'text-orange-600 border-orange-500' :
-                          'text-red-600 border-red-500'
-                        }
-                      >
+                      <Badge variant="outline" className={example.percentage >= 40 ? 'text-green-600 border-green-500' : example.percentage >= 20 ? 'text-blue-600 border-blue-500' : example.percentage >= 10 ? 'text-orange-600 border-orange-500' : 'text-red-600 border-red-500'}>
                         {example.percentage}%
                       </Badge>
                     </div>
@@ -398,10 +345,9 @@ export default function MånadssparandeGuide() {
                       </div>
                       
                       <div className="w-full bg-gray-200 rounded-full h-2">
-                        <div 
-                          className="bg-primary h-2 rounded-full" 
-                          style={{ width: `${Math.min(example.percentage, 50)}%` }}
-                        ></div>
+                        <div className="bg-primary h-2 rounded-full" style={{
+                      width: `${Math.min(example.percentage, 50)}%`
+                    }}></div>
                       </div>
                       
                       <div className="space-y-2">
@@ -416,8 +362,7 @@ export default function MånadssparandeGuide() {
                       </div>
                     </div>
                   </CardContent>
-                </Card>
-              ))}
+                </Card>)}
             </div>
           </section>
 
@@ -585,24 +530,7 @@ export default function MånadssparandeGuide() {
             </h2>
             
             <div className="max-w-2xl mx-auto">
-              <ExpertProfile 
-                name="Maria Lindberg"
-                title="Certifierad Finansiell Planerare (CFP)"
-                experience="12 års erfarenhet av privat sparrådgivning"
-                specialization={[
-                  "Sparstrategier & automation",
-                  "Mål-baserad planering",
-                  "Beteendeekonomi",
-                  "FIRE-strategier"
-                ]}
-                credentials={[
-                  "CFP (Certified Financial Planner)",
-                  "Civilekonom från Handelshögskolan",
-                  "Författare till 'Spara Smart för Framtiden'",
-                  "Föreläsare inom privatekonomi"
-                ]}
-                image="expert"
-              />
+              <ExpertProfile name="Maria Lindberg" title="Certifierad Finansiell Planerare (CFP)" experience="12 års erfarenhet av privat sparrådgivning" specialization={["Sparstrategier & automation", "Mål-baserad planering", "Beteendeekonomi", "FIRE-strategier"]} credentials={["CFP (Certified Financial Planner)", "Civilekonom från Handelshögskolan", "Författare till 'Spara Smart för Framtiden'", "Föreläsare inom privatekonomi"]} image="expert" />
             </div>
           </section>
 
@@ -632,6 +560,5 @@ export default function MånadssparandeGuide() {
       </main>
 
       <LegacyFooter />
-    </>
-  );
+    </>;
 }
