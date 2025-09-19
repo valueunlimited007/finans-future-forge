@@ -159,6 +159,48 @@ const ModernNavigation = () => {
     }
   ];
 
+  const MobileNavItem = ({ item, onClick }: { item: any; onClick?: () => void }) => (
+    <Link
+      to={item.href}
+      onClick={onClick}
+      className={cn(
+        "flex items-center gap-4 p-4 rounded-xl transition-all duration-200",
+        "hover:bg-accent/50 active:scale-[0.98]",
+        "min-h-[60px] touch-manipulation group",
+        isActivePath(item.href) && "bg-primary/10 text-primary font-medium border border-primary/20"
+      )}
+    >
+      <div className={cn(
+        "h-10 w-10 rounded-full flex items-center justify-center flex-shrink-0 transition-colors",
+        isActivePath(item.href) ? "bg-primary/20" : "bg-accent/30 group-hover:bg-accent/50"
+      )}>
+        <item.icon className={cn(
+          "h-5 w-5 transition-colors",
+          isActivePath(item.href) ? "text-primary" : "text-muted-foreground group-hover:text-foreground"
+        )} />
+      </div>
+      <div className="flex-1 min-w-0">
+        <div className="flex items-center gap-2 mb-1">
+          <span className="font-medium text-base truncate">{item.title}</span>
+          {item.tag && (
+            <Badge variant="secondary" className="text-xs font-medium shrink-0">
+              {item.tag}
+            </Badge>
+          )}
+          {item.popular && (
+            <Badge className="text-xs font-medium bg-green-500 hover:bg-green-600 shrink-0">
+              Populär
+            </Badge>
+          )}
+        </div>
+        <p className="text-sm text-muted-foreground line-clamp-2">{item.description}</p>
+      </div>
+      {isActivePath(item.href) && (
+        <div className="h-2 w-2 rounded-full bg-primary flex-shrink-0" />
+      )}
+    </Link>
+  );
+
   const NavMenuItem = ({ item, onClick }: { item: any; onClick?: () => void }) => (
     <Link
       to={item.href}
@@ -297,55 +339,97 @@ const ModernNavigation = () => {
                 </div>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px] overflow-y-auto border-0 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+            <SheetContent side="right" className="w-[320px] sm:w-[400px] overflow-y-auto border-0 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 p-0">
               {/* Accessibility requirements */}
               <SheetTitle className="sr-only">Navigeringsmeny</SheetTitle>
               <SheetDescription className="sr-only">
                 Huvudnavigering för Finansguiden med länkar till lån, kreditkort och guider
               </SheetDescription>
               
-              <div className="flex flex-col gap-6 mt-8 pb-8">
+              {/* Header in menu */}
+              <div className="sticky top-0 bg-background/95 backdrop-blur border-b border-border/20 p-6 pb-4">
+                <div className="flex items-center gap-3">
+                  <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Menu className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <h2 className="font-semibold text-lg">Meny</h2>
+                    <p className="text-sm text-muted-foreground">Finansguiden</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-col px-6 pb-8 space-y-8">
+                {/* Home Link */}
                 <Link
                   to="/"
                   onClick={() => setIsOpen(false)}
                   className={cn(
-                    "flex items-center gap-3 p-3 rounded-lg hover:bg-muted/50 transition-colors",
-                    isActivePath("/") && "bg-muted text-primary font-medium"
+                    "flex items-center gap-4 p-4 rounded-xl transition-all duration-200",
+                    "hover:bg-primary/5 active:scale-[0.98]",
+                    "min-h-[60px] touch-manipulation",
+                    isActivePath("/") && "bg-primary/10 text-primary font-medium border border-primary/20"
                   )}
                 >
-                  <Home className="h-5 w-5" />
-                  <span className="font-medium">Hem</span>
+                  <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Home className="h-5 w-5 text-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <span className="font-medium text-base">Hem</span>
+                    <p className="text-sm text-muted-foreground">Översikt och senaste nytt</p>
+                  </div>
+                  {isActivePath("/") && (
+                    <div className="h-2 w-2 rounded-full bg-primary flex-shrink-0" />
+                  )}
                 </Link>
 
-                <div>
-                  <h3 className="font-semibold mb-3 text-sm uppercase tracking-wide text-muted-foreground">
-                    Lån & Krediter
-                  </h3>
-                  <div className="space-y-1">
+                {/* Loan Products Section */}
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3 px-2">
+                    <div className="h-8 w-8 rounded-lg bg-blue-500/10 flex items-center justify-center">
+                      <Banknote className="h-4 w-4 text-blue-600" />
+                    </div>
+                    <h3 className="font-semibold text-base text-foreground">
+                      Lån & Krediter
+                    </h3>
+                  </div>
+                  <div className="space-y-2">
                     {loanProducts.map((item) => (
-                      <NavMenuItem key={item.href} item={item} onClick={() => setIsOpen(false)} />
+                      <MobileNavItem key={item.href} item={item} onClick={() => setIsOpen(false)} />
                     ))}
                   </div>
                 </div>
 
-                <div>
-                  <h3 className="font-semibold mb-3 text-sm uppercase tracking-wide text-muted-foreground">
-                    Community
-                  </h3>
-                  <div className="space-y-1">
+                {/* Community Section */}
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3 px-2">
+                    <div className="h-8 w-8 rounded-lg bg-green-500/10 flex items-center justify-center">
+                      <Users className="h-4 w-4 text-green-600" />
+                    </div>
+                    <h3 className="font-semibold text-base text-foreground">
+                      Community & Guider
+                    </h3>
+                  </div>
+                  <div className="space-y-2">
                     {communityContent.map((item) => (
-                      <NavMenuItem key={item.href} item={item} onClick={() => setIsOpen(false)} />
+                      <MobileNavItem key={item.href} item={item} onClick={() => setIsOpen(false)} />
                     ))}
                   </div>
                 </div>
 
-                <div>
-                  <h3 className="font-semibold mb-3 text-sm uppercase tracking-wide text-muted-foreground">
-                    Resurser
-                  </h3>
-                  <div className="space-y-1">
+                {/* Resources Section */}
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3 px-2">
+                    <div className="h-8 w-8 rounded-lg bg-purple-500/10 flex items-center justify-center">
+                      <BookOpen className="h-4 w-4 text-purple-600" />
+                    </div>
+                    <h3 className="font-semibold text-base text-foreground">
+                      Resurser
+                    </h3>
+                  </div>
+                  <div className="space-y-2">
                     {resources.map((item) => (
-                      <NavMenuItem key={item.href} item={item} onClick={() => setIsOpen(false)} />
+                      <MobileNavItem key={item.href} item={item} onClick={() => setIsOpen(false)} />
                     ))}
                   </div>
                 </div>

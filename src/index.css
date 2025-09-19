@@ -75,6 +75,18 @@ All colors MUST be HSL.
     }
   }
 
+  /* Mobile menu utilities */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
