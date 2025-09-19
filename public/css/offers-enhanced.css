@@ -42,7 +42,8 @@
 }
 
 /* CRITICAL: Override narrow 2-column grid layout that breaks text */
-.offers-container .lender-features {
+/* Higher specificity to beat legacy.css */
+.offers-container .lender-card .lender-features {
   display: grid !important;
   grid-template-columns: 1fr !important; /* Single column to prevent narrow text breaking */
   gap: 0.5rem !important;
@@ -51,7 +52,7 @@
 
 /* Only use 2 columns on wider screens where there's enough space */
 @media (min-width: 480px) {
-  .offers-container .lender-features {
+  .offers-container .lender-card .lender-features {
     grid-template-columns: repeat(2, 1fr) !important;
   }
 }
