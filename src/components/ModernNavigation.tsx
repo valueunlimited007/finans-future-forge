@@ -254,7 +254,7 @@ const ModernNavigation = () => {
         </NavigationMenu>
 
         {/* Mobile Navigation */}
-        <div className="flex items-center gap-2 lg:hidden ml-auto">
+        <div className="flex items-center gap-3 lg:hidden ml-auto">
           <span className="text-sm font-medium text-muted-foreground">MENY</span>
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
@@ -263,7 +263,7 @@ const ModernNavigation = () => {
                 size="icon" 
                 className="h-10 w-10 rounded-full border-2"
               >
-                <Menu className="h-4 w-4" />
+                <Menu className="h-5 w-5" />
                 <span className="sr-only">Öppna meny</span>
               </Button>
             </SheetTrigger>
