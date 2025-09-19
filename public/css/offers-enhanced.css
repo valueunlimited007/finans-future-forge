@@ -45,15 +45,24 @@
 /* High specificity to beat legacy.css without !important */
 .offers-container .lender-card .lender-features {
   display: grid;
-  grid-template-columns: 1fr; /* Single column prevents text breaking on narrow screens */
+  grid-template-columns: 1fr; /* Default: Single column for mobile */
   gap: 0.5rem;
   margin: 0.5rem 0;
 }
 
-/* Only use 2 columns on wider screens where there's enough space */
-@media (min-width: 480px) {
+/* Tablet: 2 columns with adequate spacing (641px-1023px) */
+@media (min-width: 641px) and (max-width: 1023px) {
   .offers-container .lender-card .lender-features {
-    grid-template-columns: repeat(2, minmax(0, 1fr)); /* minmax prevents narrow columns */
+    grid-template-columns: repeat(2, minmax(240px, 1fr)); /* Ensure minimum 240px per column */
+  }
+}
+
+/* Desktop: Check if cards are wide enough for 2 columns, otherwise stay single */
+@media (min-width: 1024px) {
+  .offers-container .lender-card .lender-features {
+    /* Only use 2 columns if the card container is wide enough */
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    max-columns: 2; /* Limit to maximum 2 columns even on very wide screens */
   }
 }
 
