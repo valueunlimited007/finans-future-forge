@@ -6,7 +6,6 @@ import { Badge } from "@/components/ui/badge";
 import ExpertProfile from "../components/ExpertProfile";
 import { autolink } from "@/lib/autolinkGlossary";
 import { Building2, Star, Check, X, TrendingUp, Shield, CreditCard } from "lucide-react";
-import CommunityActionContainer from "../components/CommunityActionContainer";
 
 export default function BankjämförelseGuide() {
   const banks = [
@@ -480,20 +479,31 @@ export default function BankjämförelseGuide() {
               </Card>
             </div>
           </section>
-          
-          {/* Community Action Container */}
-          <CommunityActionContainer
-            title="Utforska Fler Finansguider"
-            description="Upptäck våra andra expertguider för att maximera din ekonomi och hitta de bästa erbjudandena på marknaden."
-            primaryAction={{
-              text: "Jämför Lån",
-              href: "/privatlan"
-            }}
-            secondaryAction={{
-              text: "Se Bästa Kreditkorten",
-              href: "/kreditkort"
-            }}
-          />
+
+          {/* CTA Section */}
+          <section className="text-center">
+            <Card className="bg-gradient-to-r from-primary/10 to-secondary/10 border-primary/20">
+              <CardContent className="p-8">
+                <Building2 className="h-12 w-12 text-primary mx-auto mb-4" />
+                <h3 className="text-2xl font-bold text-foreground mb-4">
+                  Hitta Din Perfekta Bank
+                </h3>
+                <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+                  {autolink("Använd våra verktyg för att jämföra banker och hitta den som passar just dina behov och ekonomiska situation.")}
+                </p>
+                <div className="flex justify-center">
+                  <div className="flex flex-col sm:flex-row gap-4 max-w-fit">
+                    <a href="/sparkonto-guide-2025" className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primary/90 transition-colors">
+                      Jämför Räntor
+                    </a>
+                    <a href="/privatlan" className="inline-flex items-center justify-center px-6 py-3 border border-primary text-base font-medium rounded-md text-primary bg-white hover:bg-primary/10 transition-colors">
+                      Lånejämförelse
+                    </a>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </section>
 
         </div>
       </main>

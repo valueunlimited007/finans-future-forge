@@ -6,7 +6,6 @@ import { Badge } from "@/components/ui/badge";
 import ExpertProfile from "../components/ExpertProfile";
 import { autolink } from "@/lib/autolinkGlossary";
 import { TrendingUp, Target, Calculator, Gift, DollarSign, Users } from "lucide-react";
-import CommunityActionContainer from "../components/CommunityActionContainer";
 
 export default function LöneoptimeringsGuide() {
   const salaryOptimizations = [
@@ -498,20 +497,29 @@ export default function LöneoptimeringsGuide() {
               </Card>
             </div>
           </section>
-          
-          {/* Community Action Container */}
-          <CommunityActionContainer
-            title="Maximera Din Löneutveckling"
-            description="Upptäck fler strategier för att öka din inkomst och optimera din karriär med våra expertguider."
-            primaryAction={{
-              text: "Se Karriärguide",
-              href: "/karriar-100k-guide"
-            }}
-            secondaryAction={{
-              text: "Ekonomiska Life Hacks",
-              href: "/ekonomiska-lifehacks"
-            }}
-          />
+
+          {/* CTA Section */}
+          <section className="text-center">
+            <Card className="bg-gradient-to-r from-primary/10 to-secondary/10 border-primary/20">
+              <CardContent className="p-8">
+                <TrendingUp className="h-12 w-12 text-primary mx-auto mb-4" />
+                <h3 className="text-2xl font-bold text-foreground mb-4">
+                  Optimera Din Lön
+                </h3>
+                <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+                  {autolink("Använd våra kalkylatorer för att se hur mycket du kan spara på skatt och öka din nettoinkomst genom smarta förmåner.")}
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mx-auto">
+                  <a href="/karriar-100k-guide" className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primary/90 transition-colors">
+                    Karriär 100k+ Guide
+                  </a>
+                  <a href="/ekonomiska-lifehacks" className="inline-flex items-center justify-center px-6 py-3 border border-primary text-base font-medium rounded-md text-primary bg-white hover:bg-primary/10 transition-colors">
+                    Ekonomiska Life Hacks
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
+          </section>
 
         </div>
       </main>

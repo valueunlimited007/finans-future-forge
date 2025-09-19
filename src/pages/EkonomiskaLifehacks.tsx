@@ -7,7 +7,6 @@ import ExpertProfile from "../components/ExpertProfile";
 import { autolink } from "@/lib/autolinkGlossary";
 import { Lightbulb, TrendingUp, DollarSign, Clock, Shield, Utensils, Calculator, Smartphone } from "lucide-react";
 import { useState } from "react";
-import CommunityActionContainer from "../components/CommunityActionContainer";
 
 export default function EkonomiskaLifehacks() {
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -493,19 +492,28 @@ export default function EkonomiskaLifehacks() {
             </div>
           </section>
 
-          {/* Community Action Container */}
-          <CommunityActionContainer
-            title="Upptäck Fler Spartips från Community"
-            description="Utforska våra andra expertguider och få tillgång till hundratals beprövade spartips från svenska sparare."
-            primaryAction={{
-              text: "Kalkylera Besparingar",
-              href: "/privatlan"
-            }}
-            secondaryAction={{
-              text: "Hitta Bästa Sparkonto", 
-              href: "/sparkonto-guide-2025"
-            }}
-          />
+          {/* CTA Section */}
+          <section className="text-center">
+            <Card className="bg-gradient-to-r from-primary/10 to-secondary/10 border-primary/20">
+              <CardContent className="p-8">
+                <Calculator className="h-12 w-12 text-primary mx-auto mb-4" />
+                <h3 className="text-2xl font-bold text-foreground mb-4">
+                  Beräkna Dina Besparingar
+                </h3>
+                <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+                  {autolink("Använd våra kalkylatorer för att se hur mycket du kan spara genom att implementera dessa life hacks i din ekonomi.")}
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <a href="/privatlan" className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primary/90 transition-colors">
+                    Kalkylera Besparingar
+                  </a>
+                  <a href="/sparkonto-guide-2025" className="inline-flex items-center justify-center px-6 py-3 border border-primary text-base font-medium rounded-md text-primary bg-white hover:bg-primary/10 transition-colors">
+                    Hitta Bästa Sparkonto
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
+          </section>
         </div>
       </main>
 

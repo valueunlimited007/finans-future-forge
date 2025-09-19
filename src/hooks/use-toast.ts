@@ -140,6 +140,16 @@ function dispatch(action: Action) {
 type Toast = Omit<ToasterToast, "id">
 
 function toast({ ...props }: Toast) {
+  // Prevent empty toasts that show only ID
+  if (!props.title && !props.description && !props.action) {
+    console.warn('Toast called without content, ignoring');
+    return {
+      id: '',
+      dismiss: () => {},
+      update: () => {}
+    };
+  }
+
   const id = genId()
 
   const update = (props: ToasterToast) =>
