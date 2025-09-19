@@ -152,8 +152,8 @@ const ModernNavigation = () => {
   );
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background backdrop-blur-sm">
-      <div className="container flex h-16 items-center justify-between">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container flex h-16 items-center justify-between px-4">
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-2">
           <img 
@@ -257,7 +257,7 @@ const ModernNavigation = () => {
         <div className="lg:hidden">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
-              <Button variant="outline" size="icon" className="border-foreground/20">
+              <Button variant="ghost" size="icon">
                 <Menu className="h-5 w-5" />
                 <span className="sr-only">Öppna meny</span>
               </Button>
