@@ -202,7 +202,71 @@ function shortDef(term: string, cat: string): string {
 
 function longDef(term: string, cat: string): string[] {
   if (cat === "lan") return [
-    `${term} påverkar hur dyrt ditt lån blir över tid och vilka krav banken ställer i kreditprövningen.`,
+    `${term} påverkar hur dyrt ditt lån blir över tid och vilka krav banken ställer i kreditprövningen. Långivare bedömer din ekonomiska situation, inkomststabilitet och befintliga skulder för att bestämma villkoren.`,
+    "Olika låntyper passar olika situationer - privatlån för personliga behov, billån för fordon och bolån för fastigheter. Räntan varierar beroende på lånetyp, löptid och din kreditvärdighet.",
+    "Innan du tar ett lån bör du noggrant överväga din återbetalningsförmåga och jämföra erbjudanden från flera långivare. Räkna alltid på den totala kostnaden över hela lånets löptid.",
+    "Kom ihåg att lån innebär en långsiktig ekonomisk förpliktelse som påverkar din budget under många år framöver. Ha alltid en plan för återbetalning och en buffert för oförutsedda utgifter."
+  ];
+  if (cat === "ranta") return [
+    `${term} styr kostnaden för lånet och beror på både marknadsräntor och din riskprofil. Centralbanksräntan påverkar de basräntor som bankerna använder som grund för sina utlåningsräntor.`,
+    "Fast ränta ger förutsägbarhet eftersom kostnaden är densamma under hela låneperioden, medan rörlig ränta kan variera med marknadsförhållandena och påverka din månadskostnad.",
+    "Effektiv ränta är det viktigaste måttet eftersom det inkluderar alla kostnader som uppläggningsavgifter och månadsavgifter. Detta gör det enkelt att jämföra olika låneförslag rättvist.",
+    "Små skillnader i ränta kan ha stor påverkan över tid - en procents skillnad på ett stort lån kan innebära tiotusentals kronor i besparingar över lånets löptid."
+  ];
+  if (cat === "fastighet") return [
+    `${term} är centralt för bostadsköp och påverkar både finansieringsmöjligheter och långsiktiga kostnader. Fastighetsmarknaden påverkas av räntor, ekonomisk utveckling och bostadspolitik.`,
+    "Vid fastighetsköp tillkommer kostnader utöver köpeskillingen som pantbrev, lagfart, besiktning och eventuell mäklararvode. Dessa kan uppgå till 3-5% av köpesumman.",
+    "Belåningsgraden påverkar vilken ränta du får och om du behöver kontantinsats. Högre belåning innebär större risk för banken och därmed högre ränta.",
+    "Tänk långsiktigt vid fastighetsköp - överväg framtida underhållskostnader, energikostnader och hur bostaden passar dina behov över tid."
+  ];
+  if (cat === "investering") return [
+    `${term} handlar om att placera pengar med målet att få avkastning över tid. Alla investeringar innebär risk, och högre potentiell avkastning kommer vanligtvis med högre risk.`,
+    "Diversifiering är nyckeln till framgångsrik investering - sprid dina investeringar över olika tillgångsslag, sektorer och geografiska marknader för att minska risken.",
+    "Tid är en av investerarens bästa vänner. Genom att investera under lång tid kan du dra nytta av ränta-på-ränta-effekten och jämna ut marknadens kortsiktiga svängningar.",
+    "Förstå din egen risktolerans och investeringshorisont innan du väljer investeringsstrategi. Unga investerare kan ofta ta större risker än de som närmar sig pension."
+  ];
+  if (cat === "pension") return [
+    `${term} är en del av det svenska pensionssystemet som påverkar din ekonomiska trygghet efter arbetslivet. Pensionen består av flera delar: allmän pension, tjänstepension och eget sparande.`,
+    "Ju tidigare du börjar spara till pension, desto mindre behöver du spara varje månad tack vare ränta-på-ränta-effekten. Även små belopp får stor effekt över lång tid.",
+    "Olika pensionsformer har olika skatteregler - tjänstepension är vanligtvis skattefri att betala in men beskattas vid uttag, medan privat pensionssparande kan ge avdrag.",
+    "Pensionsplanering kräver långsiktig strategi där du balanserar trygghet mot avkastning baserat på hur länge det är kvar till pension och din risktolerans."
+  ];
+  if (cat === "ekonomi") return [
+    `${term} påverkar den ekonomiska utvecklingen och kan indirekt påverka din privatekonomi genom räntor, inflation och arbetsmarknad.`,
+    "Ekonomiska indikatorer som BNP, inflation och arbetslöshet ger signaler om ekonomins hälsa och kan påverka centralbankers räntebeslut.",
+    "Som privatperson kan du använda ekonomisk förståelse för att bättre tajma stora ekonomiska beslut som bostadsköp eller investeringar.",
+    "Ekonomiska cykler är naturliga - genom att förstå dem kan du fatta bättre beslut om sparande, investeringar och skuldsättning."
+  ];
+  if (cat === "skatt") return [
+    `${term} är en del av det svenska skattesystemet som påverkar din privatekonomi. Förståelse för grundläggande skatteregler hjälper dig att optimera din ekonomi lagligt.`,
+    "Olika inkomsttyper beskattas olika - arbetsinkomst, kapitalinkomst och pensioner har olika skatteregler som påverkar din nettoinkomst och skatteplanering.",
+    "Skatteplanering handlar om att strukturera din ekonomi för att minimera skatten inom ramen för gällande lagar. Detta kan inkludera pensionssparande, gåvor och avdrag.",
+    "Utnyttja tillgängliga avdrag som reseavdrag, facklitteratur och pensionssparande för att minska din skattebörda på ett lagligt sätt."
+  ];
+  return [
+    `${term} är ett centralt begrepp inom privatekonomi som påverkar hur vi hanterar och förstår pengar. Grundläggande kunskap om finansiella termer hjälper dig navigera det komplexa ekonomiska landskapet.`,
+    "I praktiken innebär förståelse för finansiella begrepp att du kan fatta mer informerade beslut om din ekonomi, vilket kan leda till bättre ekonomiska resultat och större trygghet.",
+    "Olika aspekter av finansiella termer kan ha långsiktiga konsekvenser för din ekonomiska situation. Därför är det värt att investera tid i att lära sig mer om hur dessa påverkar din personliga ekonomi.",
+  ];
+}
+
+function example(cat: string): string | undefined {
+  if (cat === "lan" || cat === "ranta")
+    return "Praktiskt exempel: Om du lånar 200 000 kr för hemförbättring på 5 år med 5,5% ränta blir månadsavgiften cirka 3 817 kr och den totala kostnaden 229 020 kr. Jämfört med ett lån med 7% ränta sparar du nästan 6 000 kr över lånets löptid.";
+  if (cat === "fastighet")
+    return "Verkligt exempel: Vid bostadsköp för 3 000 000 kr tillkommer pantbrev (20 000 kr), lagfart (15 000 kr) och eventuell mäklararvode (60 000 kr) - totalt över 95 000 kr utöver kontantinsatsen.";
+  if (cat === "investering")
+    return "Långsiktigt exempel: Ett månadssparande på 1 000 kr som växer 7% per år blir cirka 1,37 miljoner på 30 år tack vare ränta-på-ränta-effekten. Av denna summa kommer 1,01 miljoner från avkastning.";
+  if (cat === "pension")
+    return "Konkret beräkning: Löneväxling på 3 000 kr/månad till tjänstepension sparar cirka 900 kr i skatt månadsvis vid marginalskatten 30%, men kan påverka SGI (sjukpenninggrundande inkomst).";
+  if (cat === "ekonomi")
+    return "Marknadsexempel: När Riksbanken höjer styrräntan med 0,25% påverkas bolåneräntor ofta inom några månader - för en villa på 4 miljoner kr kan detta innebära 10 000 kr mer per år i räntekostnader.";
+  if (cat === "skatt")
+    return "Skatteberäkning: På kapitalvinst från aktieförsäljning betalar du 30% i skatt. Säljer du aktier för vinst på 100 000 kr betalar du 30 000 kr i skatt, oavsett hur länge du ägt aktierna.";
+  return undefined;
+}
+
+// Förbättrade FAQ med mer användarnytta och specifika frågor
     "Villkoren kan variera mellan banker, jämför avgifter, räntor och flexibilitet innan du skriver på.",
     "Titta särskilt på effektiv ränta, avgifter samt möjligheter till extraamortering eller förtidslösen.",
   ];
@@ -245,17 +309,17 @@ function longDef(term: string, cat: string): string[] {
 
 function example(cat: string): string | undefined {
   if (cat === "lan" || cat === "ranta")
-    return "Ex: Lån på 1 000 000 kr med 4% nominell ränta och 30 år löptid ger cirka 4 775 kr i ränta första månaden, före amortering.";
+    return "Praktiskt exempel: Om du lånar 200 000 kr för hemförbättring på 5 år med 5,5% ränta blir månadsavgiften cirka 3 817 kr och den totala kostnaden 229 020 kr. Jämfört med ett lån med 7% ränta sparar du nästan 6 000 kr över lånets löptid.";
   if (cat === "fastighet")
-    return "Ex: Vid bostadsköp för 3 000 000 kr kan pantbrev och lagfart kosta tiotusentals kronor utöver kontantinsats.";
+    return "Verkligt exempel: Vid bostadsköp för 3 000 000 kr tillkommer pantbrev (20 000 kr), lagfart (15 000 kr) och eventuell mäklararvode (60 000 kr) - totalt över 95 000 kr utöver kontantinsatsen.";
   if (cat === "investering")
-    return "Ex: Ett månadssparande på 1 000 kr som växer 7% per år kan bli cirka 1,2 miljoner på 40 år med ränta på ränta.";
+    return "Långsiktigt exempel: Ett månadssparande på 1 000 kr som växer 7% per år blir cirka 1,37 miljoner på 30 år tack vare ränta-på-ränta-effekten. Av denna summa kommer 1,01 miljoner från avkastning.";
   if (cat === "pension")
-    return "Ex: Löneväxling kan löna sig vid hög lön men kan påverka SGI, sjukpenninggrundande inkomst.";
+    return "Konkret beräkning: Löneväxling på 3 000 kr/månad till tjänstepension sparar cirka 900 kr i skatt månadsvis vid marginalskatten 30%, men kan påverka SGI (sjukpenninggrundande inkomst).";
   if (cat === "ekonomi")
-    return "Ex: Ett hushåll med 30 000 kr i nettoinkomst och 8 000 kr i fasta boendekostnader har begränsat utrymme för sparande.";
+    return "Marknadsexempel: När Riksbanken höjer styrräntan med 0,25% påverkas bolåneräntor ofta inom några månader - för en villa på 4 miljoner kr kan detta innebära 10 000 kr mer per år i räntekostnader.";
   if (cat === "skatt")
-    return "Ex: Vid aktieförsäljning deklareras vinst eller förlust på K4, schablonmetoden kan användas om anskaffningsvärde saknas.";
+    return "Skatteberäkning: På kapitalvinst från aktieförsäljning betalar du 30% i skatt. Säljer du aktier för vinst på 100 000 kr betalar du 30 000 kr i skatt, oavsett hur länge du ägt aktierna.";
   return undefined;
 }
 
