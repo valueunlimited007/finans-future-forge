@@ -6,6 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import PillarGuide from "@/components/PillarGuide";
 import ContentStrategy from "@/components/ContentStrategy";
+import OffersContainer from "@/components/OffersContainer";
 
 export default function RichHome() {
   return (
@@ -94,20 +95,19 @@ export default function RichHome() {
             </div>
 
             {/* Privatlan Offers */}
-            <div className="mb-12">
-              <h3 className="text-2xl font-semibold mb-6 text-center">Bästa privatlånen</h3>
-              <div data-offers data-category="privatlan" data-limit="3">
-                <p className="text-center text-muted-foreground">Laddar aktuella privatlån...</p>
-              </div>
-            </div>
+            <OffersContainer 
+              category="privatlan" 
+              limit={3} 
+              title="Bästa privatlånen" 
+              className="mb-12"
+            />
 
             {/* Utan UC Offers */}
-            <div>
-              <h3 className="text-2xl font-semibold mb-6 text-center">Lån utan UC-kontroll</h3>
-              <div data-offers data-category="utan-uc" data-limit="3">
-                <p className="text-center text-muted-foreground">Laddar lån utan UC...</p>
-              </div>
-            </div>
+            <OffersContainer 
+              category="utan-uc" 
+              limit={3} 
+              title="Lån utan UC-kontroll"
+            />
           </div>
         </section>
 

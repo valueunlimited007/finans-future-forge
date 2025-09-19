@@ -11,6 +11,7 @@ import PrivatlanFAQ from "./PrivatlanFAQ";
 import PrivatlanGuideSteps from "./PrivatlanGuideSteps";
 import CustomBreadcrumb from "./CustomBreadcrumb";
 import FinancialCalculator from "@/components/FinancialCalculator";
+import OffersContainer from "@/components/OffersContainer";
 
 export default function RichPrivatlan() {
   return (
@@ -74,9 +75,11 @@ export default function RichPrivatlan() {
             <h2 className="text-3xl font-bold text-center mb-12">Populära privatlån just nu</h2>
             
             {/* Adtraction Offers Container */}
-            <div data-offers data-category="privatlan" data-limit="4" className="mb-12">
-              <p className="text-center text-muted-foreground">Laddar erbjudanden...</p>
-            </div>
+            <OffersContainer 
+              category="privatlan" 
+              limit={4}
+              className="mb-12" 
+            />
             
             <div className="text-center">
               <Button asChild variant="outline" size="lg" className="text-lg px-8">

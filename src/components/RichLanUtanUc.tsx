@@ -8,6 +8,7 @@ import LoanComparisonTable from "./LoanComparisonTable";
 import LoanFAQ from "./LoanFAQ";
 import LoanGuideSteps from "./LoanGuideSteps";
 import CustomBreadcrumb from "./CustomBreadcrumb";
+import OffersContainer from "./OffersContainer";
 
 export default function RichLanUtanUc() {
   const breadcrumbItems = [
@@ -294,9 +295,11 @@ export default function RichLanUtanUc() {
             </p>
             
             {/* Adtraction Utan UC Offers */}
-            <div data-offers data-category="utan-uc" data-limit="6" className="mb-12">
-              <p className="text-center text-muted-foreground">Laddar lån utan UC...</p>
-            </div>
+            <OffersContainer 
+              category="utan-uc" 
+              limit={6}
+              className="mb-12" 
+            />
           </div>
         </section>
 
