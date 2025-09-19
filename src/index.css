@@ -59,6 +59,22 @@ All colors MUST be HSL.
     --success-foreground: 355.7 100% 97.3%;
   }
 
+  /* Mobile navigation specific overrides */
+  @media (max-width: 640px) {
+    header .flex {
+      flex-direction: row !important;
+    }
+    
+    header .items-center {
+      align-items: center !important;
+    }
+    
+    .mobile-menu-trigger {
+      flex-direction: row !important;
+      align-items: center !important;
+    }
+  }
+
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
@@ -290,18 +306,18 @@ All colors MUST be HSL.
     max-width: 100%;
   }
 
-  /* Make flex containers wrap on mobile */
+  /* Make flex containers wrap on mobile - EXCEPT navigation */
   @media (max-width: 640px) {
-    .flex:not(.flex-col) {
+    .flex:not(.flex-col):not(header .flex) {
       flex-direction: column;
       gap: 0.5rem;
     }
 
-    .flex.justify-between {
+    .flex.justify-between:not(header .flex) {
       align-items: flex-start;
     }
 
-    .items-center {
+    .items-center:not(header .items-center) {
       align-items: flex-start !important;
     }
   }

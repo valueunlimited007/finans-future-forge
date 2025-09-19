@@ -288,7 +288,7 @@ const ModernNavigation = () => {
             <SheetTrigger asChild>
               <Button 
                 variant="ghost"
-                className="flex items-center gap-3 h-12 px-3 hover:bg-accent/50 transition-colors"
+                className="flex items-center gap-3 h-12 px-3 hover:bg-accent/50 transition-colors mobile-menu-trigger"
                 aria-label="Öppna navigeringsmeny"
               >
                 <span className="text-sm font-medium text-muted-foreground tracking-wider">MENY</span>
