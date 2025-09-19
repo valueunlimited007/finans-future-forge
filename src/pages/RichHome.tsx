@@ -82,6 +82,34 @@ export default function RichHome() {
           </div>
         </section>
 
+        {/* Featured Offers from Adtraction Partners */}
+        <section className="py-16 px-4 bg-gradient-to-br from-green-50 to-green-100 dark:from-green-950 dark:to-green-900">
+          <div className="container mx-auto max-w-6xl">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-4">Aktuella erbjudanden</h2>
+              <p className="text-xl text-muted-foreground">
+                Handplocka erbjudanden från våra verifierade partners - uppdaterade dagligen
+              </p>
+            </div>
+
+            {/* Privatlan Offers */}
+            <div className="mb-12">
+              <h3 className="text-2xl font-semibold mb-6 text-center">Bästa privatlånen</h3>
+              <div data-offers data-category="privatlan" data-limit="3">
+                <p className="text-center text-muted-foreground">Laddar aktuella privatlån...</p>
+              </div>
+            </div>
+
+            {/* Utan UC Offers */}
+            <div>
+              <h3 className="text-2xl font-semibold mb-6 text-center">Lån utan UC-kontroll</h3>
+              <div data-offers data-category="utan-uc" data-limit="3">
+                <p className="text-center text-muted-foreground">Laddar lån utan UC...</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Financial Products */}
         <section className="py-16 px-4">
           <div className="container mx-auto max-w-6xl">
@@ -311,18 +339,21 @@ export default function RichHome() {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-16 px-4 bg-blue-600 text-white">
+        {/* Final CTA */}
+        <section className="py-16 px-4 bg-primary text-primary-foreground">
           <div className="container mx-auto max-w-4xl text-center">
-            <h2 className="text-3xl font-bold mb-4">
-              Redo att hitta bästa lånet?
-            </h2>
-            <p className="text-xl mb-8">
-              Jämför alla långivare på 2 minuter - få svar direkt och spara tusenlappar
+            <h2 className="text-3xl font-bold mb-4">Redo att jämföra?</h2>
+            <p className="text-xl mb-8 opacity-90">
+              Börja din jämförelse idag och hitta bästa erbjudandena för din situation.
             </p>
-            <Button size="lg" className="text-lg px-8 bg-white text-blue-600 hover:bg-blue-50 shadow-lg">
-              Börja jämföra nu
-            </Button>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <Button size="lg" variant="secondary" className="text-lg px-8">
+                Jämför lån nu
+              </Button>
+              <Button size="lg" variant="outline" className="text-lg px-8 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
+                Läs våra guider
+              </Button>
+            </div>
           </div>
         </section>
       </main>

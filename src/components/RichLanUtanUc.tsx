@@ -284,13 +284,29 @@ export default function RichLanUtanUc() {
           </div>
         </section>
 
-        {/* Comparison Table */}
+        {/* Adtraction Offers Section */}
         <section className="py-16 px-4 bg-gray-50">
           <div className="container mx-auto max-w-6xl">
-            <h2 className="text-3xl font-bold text-center mb-4">Jämför lån utan UC 2025</h2>
+            <h2 className="text-3xl font-bold text-center mb-4">Lån utan UC - Godkända partners</h2>
             <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-              Vi har jämfört 17 långivare som erbjuder lån utan UC-kontroll. Här är de bästa alternativen 
-              baserat på räntor, villkor och användarrecensioner.
+              Dessa partners erbjuder lån utan traditionell UC-kontroll. Snabba beslut och 
+              möjlighet att få lån även med betalningsanmärkningar.
+            </p>
+            
+            {/* Adtraction Utan UC Offers */}
+            <div data-offers data-category="utan-uc" data-limit="6" className="mb-12">
+              <p className="text-center text-muted-foreground">Laddar lån utan UC...</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Comparison Table */}
+        <section className="py-16 px-4">
+          <div className="container mx-auto max-w-6xl">
+            <h2 className="text-3xl font-bold text-center mb-4">Fullständig jämförelse</h2>
+            <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+              Komplett översikt över alla långivare som erbjuder lån utan UC-kontroll, 
+              inklusive villkor och användarrecensioner.
             </p>
             <LoanComparisonTable />
           </div>

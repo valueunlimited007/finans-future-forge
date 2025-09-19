@@ -6,42 +6,77 @@
   // Helper to freeze objects lightly (avoid accidental mutation)
   function seal(o){ try { return Object.freeze(o); } catch(e){ return o; } }
 
-  // Seed data (manual for now). Later: fetch via Supabase Edge from Adtraction/CJ.
-  var foretagslan = [
+  // Real Adtraction partners - approved for Finansguiden.se
+  var privatlan = [
     {
-      id: 'krea', network: 'direct', name: 'Krea Företagslån',
-      url: 'https://www.krea.se/foretagslan/?utm_source=finansguiden&utm_medium=affiliate',
-      amountRange: '10 000 – 5 000 000 kr', aprFrom: 'från 4,95%', decision: '24–48h',
-      requirements: 'AB/EF, 6–12 mån drift', rating: 4.7,
-      highlights: ['Jämför 20+ långivare', 'En ansökan – flera svar']
+      id: 'enkelfinans', network: 'adtraction', name: 'Enkelfinans',
+      url: 'https://secure.adtraction.com/t/t?a=1996955997&as=1996955997&t=2&tk=1&epi=7894',
+      amountRange: '5 000 – 600 000 kr', aprFrom: 'från 4,95%', decision: 'Snabbt beslut',
+      requirements: 'Fast anställning', rating: 4.6,
+      highlights: ['Konkurrenskraftiga räntor', 'Snabb ansökan'],
+      logo: '/adtraction-logos/enkelfinans-logo.png'
     },
+    {
+      id: 'ekonomen', network: 'adtraction', name: 'Ekonomen',
+      url: 'https://secure.adtraction.com/t/t?a=1996955997&as=1996955997&t=2&tk=1&epi=7947',
+      amountRange: '10 000 – 800 000 kr', aprFrom: 'från 4,95%', decision: 'Snabbt beslut',
+      requirements: 'Stabil inkomst', rating: 4.5,
+      highlights: ['Hög lånebelopp', 'Flexibla villkor'],
+      logo: '/adtraction-logos/ekonomen-logo.png'
+    },
+    {
+      id: 'loans-se', network: 'adtraction', name: 'Loans.se',
+      url: 'https://secure.adtraction.com/t/t?a=1996955997&as=1996955997&t=2&tk=1&epi=10024',
+      amountRange: '5 000 – 600 000 kr', aprFrom: 'Jämför räntor', decision: 'Omedelbart',
+      requirements: 'Jämförelsesida', rating: 4.7,
+      highlights: ['Jämför många långivare', 'Hitta bästa räntan'],
+      logo: '/adtraction-logos/loans-logo.png'
+    },
+    {
+      id: 'finlo-se', network: 'adtraction', name: 'Finlo.se',
+      url: 'https://secure.adtraction.com/t/t?a=1996955997&as=1996955997&t=2&tk=1&epi=10019',
+      amountRange: '5 000 – 800 000 kr', aprFrom: 'Jämför räntor', decision: 'Omedelbart',
+      requirements: 'Jämförelsesida', rating: 4.6,
+      highlights: ['Omfattande jämförelse', 'Enkel process'],
+      logo: '/adtraction-logos/finlo-logo.png'
+    }
+  ].map(seal);
+
+  var utanUc = [
+    {
+      id: 'fairlo', network: 'adtraction', name: 'Fairlo SE',
+      url: 'https://secure.adtraction.com/t/t?a=1996955997&as=1996955997&t=2&tk=1&epi=8008',
+      amountRange: '5 000 – 500 000 kr', aprFrom: 'från 4,95%', decision: 'Snabbt beslut',
+      requirements: 'Accepterar anmärkningar', rating: 4.4,
+      highlights: ['Utan UC-kontroll', 'Även med anmärkningar'],
+      logo: '/adtraction-logos/fairlo-logo.png'
+    },
+    {
+      id: 'enklare', network: 'adtraction', name: 'Enklare',
+      url: 'https://secure.adtraction.com/t/t?a=1996955997&as=1996955997&t=2&tk=1&epi=7825',
+      amountRange: '5 000 – 500 000 kr', aprFrom: 'från 4,95%', decision: 'Snabbt beslut',
+      requirements: 'Accepterar anmärkningar', rating: 4.5,
+      highlights: ['Flexibla villkor', 'Snabb utbetalning'],
+      logo: '/adtraction-logos/enklare-logo.png'
+    },
+    {
+      id: 'compari', network: 'adtraction', name: 'Compari',
+      url: 'https://secure.adtraction.com/t/t?a=1996955997&as=1996955997&t=2&tk=1&epi=7949',
+      amountRange: 'Jämför lån', aprFrom: 'Bästa räntan', decision: 'Omedelbart',
+      requirements: 'Accepterar anmärkningar', rating: 4.6,
+      highlights: ['Jämför utan UC', 'Personlig matchning'],
+      logo: '/adtraction-logos/compari-logo.png'
+    }
+  ].map(seal);
+
+  var foretagslan = [
+    // Keep some existing direct partners for now - no Adtraction business loan partners yet
     {
       id: 'lendo', network: 'direct', name: 'Lendo Företagslån',
       url: 'https://www.lendo.se/foretagslan?utm_source=finansguiden&utm_medium=affiliate',
       amountRange: '10 000 – 2 000 000 kr', aprFrom: 'från 4,5%', decision: '24h',
       requirements: 'AB/EF, 6–12 mån drift', rating: 4.6,
       highlights: ['Svar inom 24h', 'Många banker & långivare']
-    },
-    {
-      id: 'qred', network: 'direct', name: 'Qred Företagslån',
-      url: 'https://www.qred.se/foretagslan',
-      amountRange: '10 000 – 2 000 000 kr', aprFrom: 'individuell', decision: 'Snabbt',
-      requirements: '6 mån drift', rating: 4.5,
-      highlights: ['Snabb ansökan', 'Flexibel återbetalning']
-    },
-    {
-      id: 'capitalbox', network: 'direct', name: 'CapitalBox',
-      url: 'https://www.capitalbox.se/',
-      amountRange: '100 000 – 3 500 000 kr', aprFrom: 'individuell', decision: '1–2 dagar',
-      requirements: 'Omsättning & borgen', rating: 4.4,
-      highlights: ['Utan säkerhet', 'Snabb utbetalning']
-    },
-    {
-      id: 'froda', network: 'direct', name: 'Froda',
-      url: 'https://www.froda.se/',
-      amountRange: '50 000 – 3 000 000 kr', aprFrom: 'från 4,2%', decision: '48h',
-      requirements: '12 mån, 500k omsättning', rating: 4.5,
-      highlights: ['Särskilt bra för retail', 'Digital process']
     }
   ].map(seal);
 
@@ -76,7 +111,8 @@
   var OFFERS = Object.assign({}, existing, {
     foretagslan: existing.foretagslan || foretagslan,
     kreditkort: existing.kreditkort || kreditkort,
-    'utan-uc': existing['utan-uc'] || []
+    privatlan: existing.privatlan || privatlan,
+    'utan-uc': existing['utan-uc'] || utanUc
   });
 
   function pushUnique(cat, item){

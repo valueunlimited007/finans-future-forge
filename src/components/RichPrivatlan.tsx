@@ -72,66 +72,15 @@ export default function RichPrivatlan() {
           <div className="container mx-auto max-w-6xl">
             <h2 className="text-3xl font-bold text-center mb-12">Populära privatlån just nu</h2>
             
-            <div className="grid md:grid-cols-3 gap-6 mb-12">
-              <Card className="relative overflow-hidden">
-                <div className="absolute top-4 right-4">
-                  <Badge className="bg-green-500">Bäst ränta</Badge>
-                </div>
-                <CardHeader>
-                  <div className="h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                    <span className="font-bold text-blue-600">BANK A</span>
-                  </div>
-                  <CardTitle>Från 2,9% ränta</CardTitle>
-                  <CardDescription>Upp till 600 000 kr</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="text-sm space-y-2 mb-6">
-                    <li>• Beslut inom 24 timmar</li>
-                    <li>• Inga uppläggningsavgifter</li>
-                    <li>• Fri användning</li>
-                    <li>• Möjlighet till amorteringsfri månader</li>
-                  </ul>
-                  <Button className="w-full">Ansök hos Bank A</Button>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <div className="h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                    <span className="font-bold text-green-600">BANK B</span>
-                  </div>
-                  <CardTitle>Från 3,2% ränta</CardTitle>
-                  <CardDescription>Upp till 500 000 kr</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="text-sm space-y-2 mb-6">
-                    <li>• Snabb handläggning</li>
-                    <li>• Flexibla villkor</li>
-                    <li>• Möjlighet till förtida återbetalning</li>
-                    <li>• Personlig rådgivning</li>
-                  </ul>
-                  <Button className="w-full">Ansök hos Bank B</Button>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <div className="h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                    <span className="font-bold text-purple-600">BANK C</span>
-                  </div>
-                  <CardTitle>Från 3,5% ränta</CardTitle>
-                  <CardDescription>Upp till 400 000 kr</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="text-sm space-y-2 mb-6">
-                    <li>• Låga månadsavgifter</li>
-                    <li>• Enkel ansökan online</li>
-                    <li>• Ingen krav på säkerhet</li>
-                    <li>• Konkurrenskraftiga villkor</li>
-                  </ul>
-                  <Button className="w-full">Ansök hos Bank C</Button>
-                </CardContent>
-              </Card>
+            {/* Adtraction Offers Container */}
+            <div data-offers data-category="privatlan" data-limit="4" className="mb-12">
+              <p className="text-center text-muted-foreground">Laddar erbjudanden...</p>
+            </div>
+            
+            <div className="text-center">
+              <Button variant="outline" size="lg" className="text-lg px-8">
+                Se alla privatlån
+              </Button>
             </div>
           </div>
         </section>

@@ -14,7 +14,19 @@
 
     items.slice(0, limit).forEach(function(item, idx){
       var featured = idx===0 ? ' featured' : '';
-      var badge = idx===0 ? '<span class="badge badge-featured">Bäst val</span>' : '';
+      var badge = '';
+      
+      // Dynamic badges based on item properties
+      if (idx === 0) {
+        badge = '<span class="badge badge-featured">Bäst val</span>';
+      } else if (item.highlights && item.highlights.includes('Utan UC-kontroll')) {
+        badge = '<span class="badge badge-utan-uc">Utan UC</span>';
+      } else if (item.highlights && item.highlights.includes('Jämför många långivare')) {
+        badge = '<span class="badge badge-comparison">Jämför</span>';
+      } else if (item.aprFrom && item.aprFrom.includes('4,95%')) {
+        badge = '<span class="badge badge-low-rate">Låg ränta</span>';
+      }
+
       var extraLeft = '';
       if (category === 'kreditkort') {
         extraLeft = `

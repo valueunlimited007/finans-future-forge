@@ -1,0 +1,21 @@
+# Adtraction Partner Logos
+
+This directory will contain logos for Adtraction partners.
+
+## How to add logos:
+
+1. Download logos from Adtraction partner portal
+2. Optimize for web (max 200px width, PNG/WebP format)
+3. Name files consistently: `[partner-name]-logo.png`
+
+## Current partners:
+- Enkelfinans
+- Ekonomen  
+- Loans.se
+- Finlo.se
+- Fairlo SE  
+- Enklare
+- Compari
+
+## Fallback:
+If logo is missing, the offers renderer will show the partner name as text.
