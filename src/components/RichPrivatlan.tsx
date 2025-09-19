@@ -51,11 +51,11 @@ export default function RichPrivatlan() {
               </p>
               
               <div className="flex flex-wrap gap-4 justify-center mb-8">
-                <Button size="lg" className="text-lg px-8 bg-blue-600 text-white hover:bg-blue-700 shadow-lg">
-                  Jämför privatlån nu
+                <Button asChild size="lg" className="text-lg px-8 bg-blue-600 text-white hover:bg-blue-700 shadow-lg">
+                  <Link to="#jamfor">Jämför privatlån nu</Link>
                 </Button>
-                <Button variant="outline" size="lg" className="text-lg px-8 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white">
-                  Räkna lånet
+                <Button asChild variant="outline" size="lg" className="text-lg px-8 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white">
+                  <Link to="#kalkylator">Räkna lånet</Link>
                 </Button>
               </div>
 
@@ -70,7 +70,7 @@ export default function RichPrivatlan() {
         </section>
 
         {/* Quick Comparison */}
-        <section className="py-16 px-4">
+        <section id="jamfor" className="py-16 px-4">
           <div className="container mx-auto max-w-6xl">
             <h2 className="text-3xl font-bold text-center mb-12">Populära privatlån just nu</h2>
             
@@ -90,7 +90,7 @@ export default function RichPrivatlan() {
         </section>
 
         {/* Calculator Section */}
-        <section className="py-16 px-4 bg-muted/30">
+        <section id="kalkylator" className="py-16 px-4 bg-muted/30">
           <div className="container mx-auto max-w-6xl">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold mb-4">Räkna på ditt privatlån</h2>
@@ -118,7 +118,9 @@ export default function RichPrivatlan() {
                     Många söker efter lån utan UC-kontroll, men nästan alla seriösa långivare gör kreditkontroll. 
                     Undvik oseriösa aktörer som erbjuder "garanterade lån utan UC".
                   </p>
-                  <Button variant="outline" size="sm" className="w-full">Läs mer om UC</Button>
+                  <Button asChild variant="outline" size="sm" className="w-full">
+                    <Link to="/lan-utan-uc">Läs mer om UC</Link>
+                  </Button>
                 </CardContent>
               </Card>
 
