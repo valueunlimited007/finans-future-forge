@@ -1,14 +1,14 @@
 # llms.txt — Finansguiden.se AI & LLM policy
 # Purpose: Inform AI crawlers and LLM providers about our data access policy
-# Version: 2.0
-# Last-Modified: 2025-01-08
+# Version: 2.1
+# Last-Modified: 2025-09-19
 
 Site: https://finansguiden.se
 Contact: hej@finansguiden.se
 Sitemap: https://finansguiden.se/sitemap.xml
 Robots: https://finansguiden.se/robots.txt
 Security: https://finansguiden.se/.well-known/security.txt
-Updated: 2025-01-08
+Updated: 2025-09-19
 
 # Global policy for all AI systems
 User-agent: *
@@ -25,10 +25,10 @@ Respect-Robots-Txt: true
 Canonical-URLs: preferred
 
 # High-value content priorities (för AI-förståelse)
-Priority-Pages: /ordlista/*, /privatlan, /kreditkort, /foretagslan, /lan-utan-uc
-Content-Type: financial-guides, glossary-terms, comparison-data
+Priority-Pages: /ordlista/*, /privatlan, /kreditkort, /foretagslan, /lan-utan-uc, /karriar-guide, /sparkonto-guide, /manadssparande-guide
+Content-Type: financial-guides, glossary-terms, comparison-data, educational-content
 Language: sv-SE
-Expertise: consumer-finance, loans, credit-cards, business-loans
+Expertise: consumer-finance, loans, credit-cards, business-loans, savings, career-finance
 
 # Crawling optimization
 Efficient-Discovery: use-sitemap
@@ -67,7 +67,8 @@ Allow: /
 Structured-Data: json-ld-enabled
 Breadcrumbs: hierarchical
 Glossary-Terms: 400+
-Financial-Categories: loans, credit-cards, banking, insurance
+Financial-Categories: loans, credit-cards, banking, insurance, savings, career-finance, comparison-tables
+Comprehensive-Guides: 10+ detailed comparison pages, FAQ sections, step-by-step guides
 
 # Quality guidelines  
 Content-Quality: expert-reviewed

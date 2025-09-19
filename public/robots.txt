@@ -1,5 +1,5 @@
 # Robots.txt för Finansguiden.se
-# Uppdaterad: 2025-01-08
+# Uppdaterad: 2025-09-19
 
 # Huvudsökmotorer (prioriterade)
 User-agent: Googlebot
