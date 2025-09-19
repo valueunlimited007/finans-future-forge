@@ -339,7 +339,7 @@ const ModernNavigation = () => {
                 </div>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[320px] sm:w-[400px] overflow-y-auto border-0 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 p-0">
+            <SheetContent side="right" className="w-[320px] sm:w-[400px] overflow-y-auto border-0 bg-background p-0">
               {/* Accessibility requirements */}
               <SheetTitle className="sr-only">Navigeringsmeny</SheetTitle>
               <SheetDescription className="sr-only">
@@ -347,13 +347,13 @@ const ModernNavigation = () => {
               </SheetDescription>
               
               {/* Header in menu */}
-              <div className="sticky top-0 bg-background/95 backdrop-blur border-b border-border/20 p-6 pb-4">
+              <div className="sticky top-0 bg-background border-b border-border p-6 pb-4">
                 <div className="flex items-center gap-3">
                   <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
                     <Menu className="h-5 w-5 text-primary" />
                   </div>
                   <div>
-                    <h2 className="font-semibold text-lg">Meny</h2>
+                    <h2 className="font-semibold text-lg text-foreground">Meny</h2>
                     <p className="text-sm text-muted-foreground">Finansguiden</p>
                   </div>
                 </div>
