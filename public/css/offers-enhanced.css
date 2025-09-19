@@ -54,29 +54,22 @@
   border-radius: 0.75rem; /* rounded-xl to match UC */
   border: 1px solid #e5e7eb; /* border-gray-200 */
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); /* shadow-sm */
-  display: flex;
-  flex-direction: column;
   color: #111827; /* text-gray-900 */
   transition: all 0.15s ease-in-out;
   padding: 1.5rem; /* p-6 */
+  
+  /* Mobile: stack layout */
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
 }
 
-/* Mobile: stack layout */
-@media (max-width: 767px) {
-  .lender-card {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-}
-
-/* Desktop: grid layout (auto 1fr auto) */
+/* Desktop: grid layout (logo | content | CTA) */
 @media (min-width: 768px) {
   .lender-card {
     display: grid;
     grid-template-columns: auto 1fr auto;
-    gap: 1.5rem;
+    column-gap: 1.5rem;
     align-items: start;
   }
 }
@@ -94,14 +87,16 @@
 
 /* Logo column - constrained width and height */
 .lender-logo {
-  max-width: 120px;
-  width: 120px;
-  height: 40px;
-  max-height: 40px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   overflow: hidden;
+  
+  /* Constraints for consistent sizing */
+  max-width: 120px;
+  width: 120px;
+  height: 40px;
+  max-height: 40px;
 }
 
 .lender-logo img {
@@ -123,7 +118,24 @@
   line-height: 40px; /* Center vertically */
 }
 
-/* Features column - expandable with proper grid and min-width for text wrapping */
+/* Content column - expandable with min-width for text wrapping */
+.lender-info {
+  min-width: 0; /* Critical: allows text to wrap properly */
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.lender-info h3 {
+  font-size: 1.125rem; /* text-lg */
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+}
+
+/* Features grid within content column */
 .lender-features {
   display: grid;
   grid-template-columns: 1fr; /* Default: Single column for mobile */
@@ -131,18 +143,11 @@
   min-width: 0; /* Allow text to wrap properly */
 }
 
-/* Tablet/Desktop: 2 columns at md breakpoint (≥768px) only if sufficient width */
+/* Desktop: 2 columns for features only if sufficient width */
 @media (min-width: 768px) {
   .lender-features {
-    grid-template-columns: repeat(2, minmax(240px, 1fr)); /* Ensure min 240px per column */
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 columns on desktop */
     gap: 0.75rem;
-  }
-  
-  /* Fallback to 1 column if container is too narrow */
-  @container (max-width: 500px) {
-    .lender-features {
-      grid-template-columns: 1fr;
-    }
   }
 }
 
@@ -186,10 +191,6 @@
     align-self: end; /* Align to bottom of card */
     text-align: right;
   }
-  
-  .lender-rating {
-    justify-self: end; /* Right-align rating on desktop */
-  }
 }
 
 /* Rating display - match UC cards positioning */
@@ -199,6 +200,12 @@
   gap: 0.5rem;
   font-size: 0.875rem;
   color: #6b7280; /* text-gray-500 */
+}
+
+@media (min-width: 768px) { 
+  .lender-rating {
+    justify-self: end; /* Right-align rating on desktop */
+  }
 }
 
 /* Stars styling for ratings */
