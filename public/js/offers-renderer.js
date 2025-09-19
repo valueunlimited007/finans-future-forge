@@ -93,25 +93,35 @@
 
       grid.appendChild(card);
 
-      // iPad Safari container query fallback - monitor actual width
-      if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
-        var resizeObserver = new ResizeObserver(function(entries) {
-          entries.forEach(function(entry) {
-            var card = entry.target;
-            var features = card.querySelector('.lender-features');
-            if (features) {
-              // Remove existing classes
-              features.classList.remove('cq-wide', 'cq-narrow');
-              // Add class based on actual measured width
-              if (card.offsetWidth >= 680) {
-                features.classList.add('cq-wide');
-              } else {
-                features.classList.add('cq-narrow');
-              }
-            }
-          });
-        });
-        resizeObserver.observe(card);
+      // iPad Safari zoom fallback - use visualViewport API for proper zoom detection
+      if (/iPad|iPhone|iPod/.test(navigator.userAgent) && window.visualViewport) {
+        var cardInner = card; // The card itself is our inner wrapper
+        
+        function measureAndSetClass() {
+          var rect = cardInner.getBoundingClientRect();
+          var scale = window.visualViewport ? window.visualViewport.scale : 1;
+          var effectiveWidth = rect.width / scale;
+          
+          // Remove both classes first
+          cardInner.classList.remove('cq-wide', 'cq-narrow');
+          
+          // Set exactly one class based on effective width
+          if (effectiveWidth >= 640) {
+            cardInner.classList.add('cq-wide');
+          } else {
+            cardInner.classList.add('cq-narrow');
+          }
+          
+          console.info('[CQ]', 'Card width:', rect.width, 'Scale:', scale, 'Effective:', effectiveWidth, 'Class:', cardInner.className);
+        }
+        
+        // Listen to proper zoom events
+        window.visualViewport.addEventListener('resize', measureAndSetClass);
+        window.addEventListener('resize', measureAndSetClass);
+        window.addEventListener('orientationchange', measureAndSetClass);
+        
+        // Initial measurement
+        setTimeout(measureAndSetClass, 10);
       }
     });
 

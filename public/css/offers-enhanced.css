@@ -134,6 +134,12 @@
   gap: 0.5rem;
 }
 
+/* Prevent min-content collapse on feature items */
+.lender-features > * {
+  min-width: 0;
+  max-width: none;
+}
+
 .lender-info h3 {
   font-size: 1.125rem; /* text-lg */
   font-weight: 600;
@@ -176,15 +182,24 @@
   }
 }
 
-/* iPad Safari JavaScript fallback classes */
-.lender-features.cq-wide {
+/* iPad Safari JavaScript fallback classes - HIGH SPECIFICITY */
+.lender-card.cq-narrow .lender-features {
+  grid-template-columns: 1fr !important;
+  gap: 0.5rem !important;
+}
+
+.lender-card.cq-wide .lender-features {
   grid-template-columns: repeat(2, minmax(240px, 1fr)) !important;
   gap: 0.75rem !important;
 }
 
-.lender-features.cq-narrow {
-  grid-template-columns: 1fr !important;
-  gap: 0.5rem !important;
+/* Debug classes for visual feedback */
+.lender-card.cq-narrow .lender-features {
+  /* outline: 2px solid red; */
+}
+
+.lender-card.cq-wide .lender-features {
+  /* outline: 2px solid green; */
 }
 
 /* Match UC card feature styling with proper typography and dividers */
