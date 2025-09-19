@@ -103,3 +103,23 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+/* Override legacy CSS button centering issues */
+@layer utilities {
+  /* Fix legacy .btn-full class that sets flex: 1 */
+  .btn-group .btn-full {
+    flex: none !important;
+    max-width: fit-content !important;
+  }
+
+  /* Ensure Tailwind centering works despite legacy CSS */
+  .flex.justify-center > * {
+    flex: none !important;
+  }
+
+  /* Specific fix for button containers in CTA sections */
+  div[class*="justify-center"] a[class*="inline-flex"] {
+    flex: none !important;
+    width: auto !important;
+  }
+}
