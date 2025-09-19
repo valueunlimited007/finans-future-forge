@@ -359,7 +359,7 @@ export default function RichHome() {
               <Button asChild size="lg" variant="secondary" className="text-lg px-8">
                 <Link to="/privatlan">Jämför lån nu</Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="text-lg px-8 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
+              <Button asChild size="lg" variant="outline" className="text-lg px-8 bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
                 <Link to="/bostadsmarknad-analys">Läs våra guider</Link>
               </Button>
             </div>
