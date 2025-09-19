@@ -18,6 +18,9 @@ import Om from "./pages/Om";
 import BostadsmarknadsAnalys from "./pages/BostadsmarknadsAnalys";
 import KarriärGuide from "./pages/KarriärGuide";
 import EkonomiskaLifehacks from "./pages/EkonomiskaLifehacks";
+import BilekonomyGuide from "./pages/BilekonomyGuide";
+import BankjämförelseGuide from "./pages/BankjämförelseGuide";
+import LöneoptimeringsGuide from "./pages/LöneoptimeringsGuide";
 import SparkontoGuide from "./pages/SparkontoGuide";
 import SvenskaInkomster from "./pages/SvenskaInkomster";
 import MånadssparandeGuide from "./pages/MånadssparandeGuide";
@@ -46,6 +49,9 @@ const App = () => (
             <Route path="/bostadsmarknad-analys-2025" element={<BostadsmarknadsAnalys />} />
             <Route path="/karriar-100k-guide" element={<KarriärGuide />} />
             <Route path="/ekonomiska-lifehacks" element={<EkonomiskaLifehacks />} />
+            <Route path="/bilekonomy-guide-2025" element={<BilekonomyGuide />} />
+            <Route path="/bankjämförelse-guide-2025" element={<BankjämförelseGuide />} />
+            <Route path="/löneoptimering-guide-2025" element={<LöneoptimeringsGuide />} />
             <Route path="/sparkonto-guide-2025" element={<SparkontoGuide />} />
             <Route path="/svenska-inkomster-2025" element={<SvenskaInkomster />} />
             <Route path="/manadssparande-guide" element={<MånadssparandeGuide />} />

@@ -91,6 +91,27 @@ const ModernNavigation = () => {
       description: "Jämför räntor och villkor - hitta bästa sparkontot",
       icon: Calculator,
       tag: "Aktuell"
+    },
+    {
+      title: "Bilekonomi Guide 2025",
+      href: "/bilekonomy-guide-2025",
+      description: "Verkliga kostnader att äga bil + smarta alternativ",
+      icon: TrendingUp,
+      tag: "Ny"
+    },
+    {
+      title: "Bankjämförelse 2025",
+      href: "/bankjämförelse-guide-2025", 
+      description: "Bästa bankerna för helkunder - räntor och avgifter",
+      icon: Building2,
+      tag: "Uppdaterad"
+    },
+    {
+      title: "Löneoptimering 2025",
+      href: "/löneoptimering-guide-2025",
+      description: "Maximera din inkomst genom förmåner och förhandling",
+      icon: TrendingUp,
+      tag: "Hett"
     }
   ];
 
@@ -193,7 +214,7 @@ const ModernNavigation = () => {
               <NavigationMenuContent>
                 <div className="grid gap-3 p-6 w-[550px]">
                   <div className="grid gap-1">
-                    <h3 className="font-medium">Populärt från RikaTillsammans</h3>
+                    <h3 className="font-medium">Populärt från Community</h3>
                     <p className="text-sm text-muted-foreground">
                       De hetaste ämnena från svenska sparare
                     </p>

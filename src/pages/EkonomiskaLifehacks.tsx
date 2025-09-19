@@ -121,7 +121,7 @@ export default function EkonomiskaLifehacks() {
     <>
       <Helmet>
         <title>Ekonomiska Life Hacks 2025: Beprövade Spartips från Svenska Sparare - Finansguiden</title>
-        <meta name="description" content="De bästa ekonomiska life hacks från RikaTillsammans-communityn. Sparar tusentals kronor per år med enkla knep som verkligen fungerar." />
+        <meta name="description" content="De bästa ekonomiska life hacks från svenska sparare. Sparar tusentals kronor per år med enkla knep som verkligen fungerar." />
         <link rel="canonical" href="https://finansguiden.se/ekonomiska-lifehacks" />
         <meta property="og:title" content="Ekonomiska Life Hacks 2025: Spartips som Förändrar Ekonomin" />
         <meta property="og:description" content="Upptäck de mest effektiva ekonomiska life hacks från svenska sparare. Enkla knep som sparar tusentals kronor per år." />
@@ -134,7 +134,7 @@ export default function EkonomiskaLifehacks() {
           "@context": "https://schema.org",
           "@type": "Article",
           "headline": "Ekonomiska Life Hacks 2025: Beprövade Spartips från Svenska Sparare",
-          "description": "De bästa ekonomiska life hacks från RikaTillsammans-communityn. Sparar tusentals kronor per år med enkla knep som verkligen fungerar.",
+          "description": "De bästa ekonomiska life hacks från svenska sparare. Sparar tusentals kronor per år med enkla knep som verkligen fungerar.",
           "author": {
             "@type": "Organization",
             "name": "Finansguiden"
