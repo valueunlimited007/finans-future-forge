@@ -485,7 +485,7 @@ export default function RichForetagslan() {
               <Button size="lg" variant="secondary" className="text-lg px-8">
                 Kostnadsfri rådgivning
               </Button>
-              <Button size="lg" variant="outline" className="text-lg px-8 border-white text-white bg-transparent hover:bg-white hover:text-emerald-600">
+              <Button size="lg" variant="outline" className="text-lg px-8 border-white text-white bg-white/10 hover:bg-white hover:text-emerald-600">
                 Jämför företagslån
               </Button>
             </div>
