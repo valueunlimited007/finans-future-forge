@@ -44,10 +44,10 @@ export default function RichPrivatlan() {
               </p>
               
               <div className="flex flex-wrap gap-4 justify-center mb-8">
-                <Button size="lg" className="text-lg px-8">
+                <Button size="lg" className="text-lg px-8 bg-blue-600 text-white hover:bg-blue-700 shadow-lg">
                   Jämför privatlån nu
                 </Button>
-                <Button variant="outline" size="lg" className="text-lg px-8">
+                <Button variant="outline" size="lg" className="text-lg px-8 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white">
                   Räkna lånet
                 </Button>
               </div>
