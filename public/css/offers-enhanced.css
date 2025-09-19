@@ -41,19 +41,19 @@
   overflow-wrap: normal !important;
 }
 
-/* CRITICAL: Override narrow 2-column grid layout that breaks text */
-/* Higher specificity to beat legacy.css */
+/* CRITICAL: Single source of truth for .lender-features layout */
+/* High specificity to beat legacy.css without !important */
 .offers-container .lender-card .lender-features {
-  display: grid !important;
-  grid-template-columns: 1fr !important; /* Single column to prevent narrow text breaking */
-  gap: 0.5rem !important;
-  margin: 0.5rem 0 !important;
+  display: grid;
+  grid-template-columns: 1fr; /* Single column prevents text breaking on narrow screens */
+  gap: 0.5rem;
+  margin: 0.5rem 0;
 }
 
 /* Only use 2 columns on wider screens where there's enough space */
 @media (min-width: 480px) {
   .offers-container .lender-card .lender-features {
-    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* minmax prevents narrow columns */
   }
 }
 
@@ -129,12 +129,6 @@
   align-items: center;
   gap: 0.5rem;
   line-height: 1.4 !important;
-}
-
-.lender-features {
-  display: grid;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
 }
 
 .lender-feature {
