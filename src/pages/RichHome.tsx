@@ -349,17 +349,17 @@ export default function RichHome() {
         </section>
 
         {/* Final CTA */}
-        <section className="py-16 px-4 bg-primary text-primary-foreground">
+        <section className="py-16 px-4 bg-gradient-to-br from-slate-800 to-slate-900 text-white">
           <div className="container mx-auto max-w-4xl text-center">
-            <h2 className="text-3xl font-bold mb-4">Redo att jämföra?</h2>
-            <p className="text-xl mb-8 opacity-90">
+            <h2 className="text-3xl font-bold mb-4 text-white">Redo att jämföra?</h2>
+            <p className="text-xl mb-8 text-white/90">
               Börja din jämförelse idag och hitta bästa erbjudandena för din situation.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <Button asChild size="lg" variant="secondary" className="text-lg px-8">
+              <Button asChild size="lg" className="text-lg px-8 bg-white text-slate-900 hover:bg-white/90">
                 <Link to="/privatlan">Jämför lån nu</Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="text-lg px-8 bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
+              <Button asChild size="lg" variant="outline" className="text-lg px-8 bg-transparent border-white text-white hover:bg-white hover:text-slate-900">
                 <Link to="/bostadsmarknad-analys">Läs våra guider</Link>
               </Button>
             </div>
