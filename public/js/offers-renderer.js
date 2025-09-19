@@ -92,6 +92,27 @@
       } catch(e) {}
 
       grid.appendChild(card);
+
+      // iPad Safari container query fallback - monitor actual width
+      if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+        var resizeObserver = new ResizeObserver(function(entries) {
+          entries.forEach(function(entry) {
+            var card = entry.target;
+            var features = card.querySelector('.lender-features');
+            if (features) {
+              // Remove existing classes
+              features.classList.remove('cq-wide', 'cq-narrow');
+              // Add class based on actual measured width
+              if (card.offsetWidth >= 680) {
+                features.classList.add('cq-wide');
+              } else {
+                features.classList.add('cq-narrow');
+              }
+            }
+          });
+        });
+        resizeObserver.observe(card);
+      }
     });
 
     container.innerHTML = '';

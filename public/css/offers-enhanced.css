@@ -176,6 +176,17 @@
   }
 }
 
+/* iPad Safari JavaScript fallback classes */
+.lender-features.cq-wide {
+  grid-template-columns: repeat(2, minmax(240px, 1fr)) !important;
+  gap: 0.75rem !important;
+}
+
+.lender-features.cq-narrow {
+  grid-template-columns: 1fr !important;
+  gap: 0.5rem !important;
+}
+
 /* Match UC card feature styling with proper typography and dividers */
 .lender-feature {
   font-size: 0.875rem; /* text-sm */
