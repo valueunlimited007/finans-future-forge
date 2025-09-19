@@ -58,6 +58,9 @@
   transition: all 0.15s ease-in-out;
   padding: 1.5rem; /* p-6 */
   
+  /* Enable container queries for responsive features */
+  container-type: inline-size;
+  
   /* Mobile: stack layout */
   display: flex;
   flex-direction: column;
@@ -68,7 +71,7 @@
 @media (min-width: 768px) {
   .lender-card {
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto minmax(0, 1fr) auto;
     column-gap: 1.5rem;
     align-items: start;
   }
@@ -79,29 +82,33 @@
   transform: translateY(-1px); /* subtle lift */
 }
 
-/* Match UC featured card styling - subtle outline instead of heavy border */
+/* Match UC featured card styling - subtle ring instead of heavy styling */
 .lender-card.featured {
-  outline: 1px solid #a7f3d0; /* outline-emerald-300 */
+  box-shadow: 0 0 0 1px #a7f3d0, 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); /* subtle emerald ring + normal shadow */
   background: white;
 }
 
-/* Logo column - constrained width and height */
+/* Logo column - proper sizing without clipping */
 .lender-logo {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  overflow: hidden;
   
-  /* Constraints for consistent sizing */
-  max-width: 120px;
-  width: 120px;
-  height: 40px;
-  max-height: 40px;
+  /* Mobile: flexible sizing */
+  max-height: 36px;
+  max-width: 100px;
+}
+
+@media (min-width: 768px) {
+  .lender-logo {
+    max-height: 40px;
+    max-width: 120px;
+  }
 }
 
 .lender-logo img {
-  max-height: 40px;
-  max-width: 120px;
+  max-height: 100%;
+  max-width: 100%;
   object-fit: contain;
   width: auto;
   height: auto;
@@ -112,10 +119,10 @@
   font-size: 0.875rem;
   font-weight: 600;  
   color: #6b7280;
-  text-overflow: ellipsis;
   overflow: hidden;
+  text-overflow: ellipsis;
   white-space: nowrap;
-  line-height: 40px; /* Center vertically */
+  line-height: 1.2;
 }
 
 /* Content column - expandable with min-width for text wrapping */
@@ -135,18 +142,18 @@
   letter-spacing: -0.025em;
 }
 
-/* Features grid within content column */
+/* Features grid - use container queries instead of viewport breakpoints */
 .lender-features {
   display: grid;
-  grid-template-columns: 1fr; /* Default: Single column for mobile */
+  grid-template-columns: 1fr; /* Default: single column */
   gap: 0.5rem;
   min-width: 0; /* Allow text to wrap properly */
 }
 
-/* Desktop: 2 columns for features only if sufficient width */
-@media (min-width: 768px) {
+/* Container query: 2 columns when card is wide enough (>= 560px) */
+@container (min-width: 560px) {
   .lender-features {
-    grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 columns on desktop */
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.75rem;
   }
 }
@@ -160,6 +167,7 @@
   gap: 0.5rem;
   padding: 0.25rem 0;
   border-bottom: 1px solid #f3f4f6; /* subtle divider like UC */
+  min-width: 0; /* Allow text to wrap */
 }
 
 .lender-feature:last-child {
@@ -170,6 +178,7 @@
   color: #111827; /* text-gray-900 */
   font-weight: 600; /* semibold */
   min-width: fit-content;
+  flex-shrink: 0;
 }
 
 .lender-feature span {
@@ -183,6 +192,7 @@
   flex-direction: column;
   gap: 0.5rem;
   white-space: nowrap; /* Prevent button text from wrapping */
+  flex-shrink: 0; /* Don't let CTA shrink */
 }
 
 @media (min-width: 768px) {
