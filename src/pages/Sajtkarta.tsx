@@ -43,12 +43,12 @@ export default function Sajtkarta() {
           </p>
         </header>
 
-        <div className="grid gap-8 md:grid-cols-2">
-          {/* Main Categories */}
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {/* Main Financial Products */}
           <section className="space-y-6">
             <div>
               <h2 className="text-2xl font-semibold mb-4 text-foreground border-b border-border pb-2">
-                Huvudkategorier
+                Lån & Krediter
               </h2>
               <ul className="space-y-3">
                 <li>
@@ -97,10 +97,123 @@ export default function Sajtkarta() {
                 </li>
               </ul>
             </div>
+          </section>
 
+          {/* Community & Guides */}
+          <section className="space-y-6">
             <div>
               <h2 className="text-2xl font-semibold mb-4 text-foreground border-b border-border pb-2">
-                Ordlista & Referenser
+                Community & Guider
+              </h2>
+              <ul className="space-y-3">
+                <li>
+                  <Link 
+                    to="/bostadsmarknad-analys" 
+                    className="block p-4 rounded-lg border border-border bg-card hover:bg-muted transition-colors"
+                  >
+                    <h3 className="font-medium text-primary">Bostadsmarknad 2025</h3>
+                    <p className="text-sm text-muted-foreground mt-1">
+                      Prisfall eller skrämskott? Expertanalys av marknaden
+                    </p>
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    to="/karriar-guide" 
+                    className="block p-4 rounded-lg border border-border bg-card hover:bg-muted transition-colors"
+                  >
+                    <h3 className="font-medium text-primary">Karriärguide: 100k+ i månaden</h3>
+                    <p className="text-sm text-muted-foreground mt-1">
+                      Konkreta strategier för att nå 100 000 kr/månad
+                    </p>
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    to="/ekonomiska-lifehacks" 
+                    className="block p-4 rounded-lg border border-border bg-card hover:bg-muted transition-colors"
+                  >
+                    <h3 className="font-medium text-primary">Ekonomiska Life Hacks 2025</h3>
+                    <p className="text-sm text-muted-foreground mt-1">
+                      Beprövade spartips från svenska sparare
+                    </p>
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    to="/manadssparande-guide" 
+                    className="block p-4 rounded-lg border border-border bg-card hover:bg-muted transition-colors"
+                  >
+                    <h3 className="font-medium text-primary">Månadssparande Guide</h3>
+                    <p className="text-sm text-muted-foreground mt-1">
+                      Bygg förmögenhet med automatiskt månadssparande
+                    </p>
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    to="/bilekonomy-guide" 
+                    className="block p-4 rounded-lg border border-border bg-card hover:bg-muted transition-colors"
+                  >
+                    <h3 className="font-medium text-primary">Bilekonomi Guide</h3>
+                    <p className="text-sm text-muted-foreground mt-1">
+                      Verkliga kostnader att äga bil + smarta alternativ
+                    </p>
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    to="/bankjamforelse-guide" 
+                    className="block p-4 rounded-lg border border-border bg-card hover:bg-muted transition-colors"
+                  >
+                    <h3 className="font-medium text-primary">Bankjämförelse Guide</h3>
+                    <p className="text-sm text-muted-foreground mt-1">
+                      Bästa bankerna för helkunder - räntor och avgifter
+                    </p>
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    to="/loneoptimeringsguide" 
+                    className="block p-4 rounded-lg border border-border bg-card hover:bg-muted transition-colors"
+                  >
+                    <h3 className="font-medium text-primary">Löneoptimering Guide</h3>
+                    <p className="text-sm text-muted-foreground mt-1">
+                      Maximera din inkomst genom förmåner och förhandling
+                    </p>
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    to="/sparkonto-guide" 
+                    className="block p-4 rounded-lg border border-border bg-card hover:bg-muted transition-colors"
+                  >
+                    <h3 className="font-medium text-primary">Sparkonto Guide 2025</h3>
+                    <p className="text-sm text-muted-foreground mt-1">
+                      Jämför räntor och villkor på sparkonton
+                    </p>
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    to="/svenska-inkomster" 
+                    className="block p-4 rounded-lg border border-border bg-card hover:bg-muted transition-colors"
+                  >
+                    <h3 className="font-medium text-primary">Svenska Inkomster 2025</h3>
+                    <p className="text-sm text-muted-foreground mt-1">
+                      Jämför din lön med andra svenskar
+                    </p>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          {/* Resources & Information */}
+          <section className="space-y-6">
+            <div>
+              <h2 className="text-2xl font-semibold mb-4 text-foreground border-b border-border pb-2">
+                Resurser
               </h2>
               <ul className="space-y-3">
                 <li>
@@ -114,12 +227,20 @@ export default function Sajtkarta() {
                     </p>
                   </Link>
                 </li>
+                <li>
+                  <Link 
+                    to="/om" 
+                    className="block p-4 rounded-lg border border-border bg-card hover:bg-muted transition-colors"
+                  >
+                    <h3 className="font-medium text-primary">Om oss</h3>
+                    <p className="text-sm text-muted-foreground mt-1">
+                      Läs mer om Finansguiden och vårt uppdrag
+                    </p>
+                  </Link>
+                </li>
               </ul>
             </div>
-          </section>
 
-          {/* Information & Legal */}
-          <section className="space-y-6">
             <div>
               <h2 className="text-2xl font-semibold mb-4 text-foreground border-b border-border pb-2">
                 Information & Villkor
