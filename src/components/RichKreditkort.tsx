@@ -541,7 +541,7 @@ export default function RichKreditkort() {
             <p className="text-xl mb-8">
               Jämför över 50 kreditkort och hitta det som passar dina behov bäst
             </p>
-            <Button size="lg" variant="secondary" className="text-lg px-8">
+            <Button size="lg" className="text-lg px-8 bg-white text-violet-600 hover:bg-violet-100 shadow-lg border-0">
               Jämför kreditkort nu
             </Button>
           </div>
