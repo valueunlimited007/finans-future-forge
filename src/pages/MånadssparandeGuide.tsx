@@ -617,7 +617,7 @@ export default function MånadssparandeGuide() {
                 <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
                   {autolink("Upptäck de bästa sparkontona 2025 och använd våra ekonomiska life hacks för att automatisera och maximera ditt månadsparande.")}
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full">
                   <a href="/sparkonto-guide-2025" className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primary/90 transition-colors">
                     Hitta Bästa Sparkonto
                   </a>

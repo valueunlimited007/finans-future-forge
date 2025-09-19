@@ -24,12 +24,12 @@ export default function RichLanUtanUc() {
               Snabba beslut och utbetalning samma dag.
             </p>
             
-            <div className="flex flex-wrap gap-4 justify-center mb-8">
+            <div className="flex flex-wrap gap-4 justify-center items-center mb-8 w-full">
               <Button size="lg" className="text-lg px-8 bg-orange-600 text-white hover:bg-orange-700 shadow-lg">Se lån utan UC</Button>
               <Button variant="outline" size="lg" className="text-lg px-8 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white">Läs mer</Button>
             </div>
 
-            <div className="flex flex-wrap gap-4 justify-center text-sm">
+            <div className="flex flex-wrap gap-4 justify-center items-center text-sm w-full">
               <Badge variant="secondary">✓ Ingen UC-kontroll</Badge>
               <Badge variant="secondary">✓ Även med anmärkningar</Badge>
               <Badge variant="secondary">✓ 17 långivare</Badge>

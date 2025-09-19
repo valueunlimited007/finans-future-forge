@@ -494,7 +494,7 @@ export default function KarriärGuide() {
                 <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
                   {autolink("Använd våra verktyg för att planera din karriär och beräkna vad olika val betyder för din ekonomi på lång sikt.")}
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full">
                   <a href="/ekonomiska-lifehacks" className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primary/90 transition-colors">
                     Ekonomiska Tips
                   </a>

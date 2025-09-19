@@ -37,7 +37,7 @@ export default function RichForetagslan() {
                 snabba beslut och konkurrenskraftiga villkor för alla typer av företag.
               </p>
               
-              <div className="flex flex-wrap gap-4 justify-center mb-8">
+              <div className="flex flex-wrap gap-4 justify-center items-center mb-8 w-full">
                 <Button size="lg" className="text-lg px-8 bg-emerald-600 text-white hover:bg-emerald-700 shadow-lg">
                   Ansök om företagslån
                 </Button>
@@ -46,7 +46,7 @@ export default function RichForetagslan() {
                 </Button>
               </div>
 
-              <div className="flex flex-wrap gap-4 justify-center text-sm">
+              <div className="flex flex-wrap gap-4 justify-center items-center text-sm w-full">
                 <Badge variant="secondary">✓ Upp till 5 miljoner kr</Badge>
                 <Badge variant="secondary">✓ Även utan säkerhet</Badge>
                 <Badge variant="secondary">✓ Flexibla återbetalningar</Badge>
@@ -481,7 +481,7 @@ export default function RichForetagslan() {
             <p className="text-xl mb-8">
               Få kostnadsfri rådgivning och hitta bästa finansieringslösningen för ditt företag
             </p>
-            <div className="flex flex-wrap gap-4 justify-center">
+            <div className="flex flex-wrap gap-4 justify-center items-center w-full">
               <Button size="lg" variant="secondary" className="text-lg px-8">
                 Kostnadsfri rådgivning
               </Button>
