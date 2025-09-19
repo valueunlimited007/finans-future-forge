@@ -322,7 +322,7 @@ export default function BostadsmarknadsAnalys() {
                 <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
                   {autolink("Använd våra kalkylatorer för att beräkna bolånekostnader, amortering och vad du har råd med i den nya marknadsläget.")}
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <a href="/privatlan" className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primary/90 transition-colors">
                     Bolånekalkylator
                   </a>

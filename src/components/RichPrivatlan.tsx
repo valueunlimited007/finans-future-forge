@@ -43,7 +43,7 @@ export default function RichPrivatlan() {
                 Låna 10 000 - 600 000 kr för alla ändamål.
               </p>
               
-              <div className="flex flex-wrap gap-4 justify-center items-center mb-8 w-full">
+              <div className="flex flex-wrap gap-4 justify-center mb-8">
                 <Button size="lg" className="text-lg px-8 bg-blue-600 text-white hover:bg-blue-700 shadow-lg">
                   Jämför privatlån nu
                 </Button>
@@ -52,7 +52,7 @@ export default function RichPrivatlan() {
                 </Button>
               </div>
 
-              <div className="flex flex-wrap gap-4 justify-center items-center text-sm w-full">
+              <div className="flex flex-wrap gap-4 justify-center text-sm">
                 <Badge variant="secondary">✓ Räntor från 2,9%</Badge>
                 <Badge variant="secondary">✓ Beslut inom 24h</Badge>
                 <Badge variant="secondary">✓ Upp till 600 000 kr</Badge>

@@ -477,7 +477,7 @@ export default function SvenskaInkomster() {
                 <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
                   {autolink("Läs vår karriärguide för konkreta strategier att nå 100k+ eller upptäck ekonomiska life hacks som sparar tusentals kronor per år.")}
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <a href="/karriar-100k-guide" className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primary/90 transition-colors">
                     Karriärguide 100k+
                   </a>
