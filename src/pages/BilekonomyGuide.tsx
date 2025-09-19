@@ -405,29 +405,6 @@ export default function BilekonomyGuide() {
             </div>
           </section>
 
-          {/* CTA Section */}
-          <section className="text-center">
-            <Card className="bg-gradient-to-r from-primary/10 to-secondary/10 border-primary/20">
-              <CardContent className="p-8">
-                <Calculator className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-foreground mb-4">
-                  Beräkna Din Bilekonomi
-                </h3>
-                <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-                  {autolink("Använd våra kalkylatorer för att jämföra kostnader mellan bil och alternativ, och se hur mycket du kan spara.")}
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mx-auto">
-                  <a href="/privatlan" className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primary/90 transition-colors">
-                    Bilkostnadskalkylator
-                  </a>
-                  <a href="/sparkonto-guide-2025" className="inline-flex items-center justify-center px-6 py-3 border border-primary text-base font-medium rounded-md text-primary bg-white hover:bg-primary/10 transition-colors">
-                    Spara Besparingarna
-                  </a>
-                </div>
-              </CardContent>
-            </Card>
-          </section>
-
         </div>
       </main>
 
