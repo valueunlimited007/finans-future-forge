@@ -68,8 +68,8 @@ main {
     flex: 1;
 }
 
-/* Header */
-header { 
+/* Header - only apply to main site navigation */
+header:has(nav), .site-header { 
     background: white; 
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); 
     position: sticky; 
