@@ -1,4 +1,4 @@
-import homeHtml from "../../home.html?raw";
+// Legacy chrome utilities - simplified version without home.html dependency
 
 function parseDoc(html: string) {
   try {
@@ -11,15 +11,11 @@ function parseDoc(html: string) {
 }
 
 export function getLegacyHeaderHtml(): string {
-  const doc = parseDoc(homeHtml);
-  const header = doc.querySelector("header");
-  return header ? header.outerHTML : "";
+  return "";
 }
 
 export function getLegacyFooterHtml(): string {
-  const doc = parseDoc(homeHtml);
-  const footer = doc.querySelector("footer");
-  return footer ? footer.outerHTML : "";
+  return "";
 }
 
 export function ensureLegacyStyles() {
