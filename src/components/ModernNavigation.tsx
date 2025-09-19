@@ -282,19 +282,19 @@ const ModernNavigation = () => {
           </NavigationMenuList>
         </NavigationMenu>
 
-        {/* Mobile Navigation */}
-        <div className="flex items-center gap-3 lg:hidden ml-auto">
-          <span className="text-sm font-medium text-muted-foreground tracking-wider">MENY</span>
+        {/* Mobile Navigation - Single unified trigger */}
+        <div className="lg:hidden ml-auto">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <Button 
-                variant="outline"
-                size="icon" 
-                className="h-10 w-10 rounded-full border-2 hover:bg-accent/50 transition-colors"
+                variant="ghost"
+                className="flex items-center gap-3 h-auto p-2 hover:bg-accent/50 transition-colors"
                 aria-label="Öppna navigeringsmeny"
               >
-                <Menu className="h-5 w-5" />
-                <span className="sr-only">Öppna meny</span>
+                <span className="text-sm font-medium text-muted-foreground tracking-wider">MENY</span>
+                <div className="h-10 w-10 rounded-full border-2 border-border flex items-center justify-center bg-background">
+                  <Menu className="h-5 w-5" />
+                </div>
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px] overflow-y-auto border-0 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
