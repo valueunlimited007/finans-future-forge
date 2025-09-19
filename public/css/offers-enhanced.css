@@ -14,6 +14,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* CRITICAL: Prevent writing-mode leakage from badges */
+  writing-mode: horizontal-tb !important;
+  text-orientation: mixed !important;
 }
 
 /* Re-establish proper typography for offers */
@@ -22,6 +25,20 @@
   font-size: 16px;
   line-height: 1.5;
   color: #1f2937;
+}
+
+/* Bulletproof protection for all text elements */
+.offers-container h3,
+.offers-container p,
+.offers-container span,
+.offers-container div,
+.offers-container strong,
+.offers-container small {
+  writing-mode: horizontal-tb !important;
+  text-orientation: mixed !important;
+  white-space: normal !important;
+  word-break: normal !important;
+  overflow-wrap: anywhere !important;
 }
 
 .lender-grid {
