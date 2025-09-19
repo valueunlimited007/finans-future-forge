@@ -38,7 +38,15 @@
   text-orientation: mixed !important;
   white-space: normal !important;
   word-break: normal !important;
-  overflow-wrap: anywhere !important;
+  overflow-wrap: normal !important;
+}
+
+/* CRITICAL: Override global card word-break from index.css */
+.offers-container .lender-card,
+.offers-container .lender-card * {
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  min-width: auto !important;
 }
 
 .lender-grid {
