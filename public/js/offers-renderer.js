@@ -13,11 +13,11 @@
     var grid = el('<div class="lender-grid"></div>');
 
     items.slice(0, limit).forEach(function(item, idx){
-      var featured = idx===0 ? ' featured' : '';
+      var featured = item.featured === true ? ' featured' : '';
       var badge = '';
       
-      // Dynamic badges based on item properties
-      if (idx === 0) {
+      // Dynamic badges based on item properties - data-driven
+      if (item.featured === true) {
         badge = '<span class="badge badge-featured">Bäst val</span>';
       } else if (item.highlights && item.highlights.includes('Utan UC-kontroll')) {
         badge = '<span class="badge badge-utan-uc">Utan UC</span>';
@@ -66,7 +66,7 @@
           </div>
           <div class="lender-cta">
             <div class="lender-rating"><span class="stars">★★★★★</span> ${esc((item.rating||4.5).toFixed ? item.rating.toFixed(1) : item.rating)}/5</div>
-            <a href="${esc(item.url)}" class="btn ${idx===0?'btn-primary':'btn-secondary'} btn-full" rel="nofollow sponsored noopener noreferrer" target="_blank"${dataAff}>Till ansökan</a>
+            <a href="${esc(item.url)}" class="btn ${item.featured === true ? 'btn-primary' : 'btn-secondary'} btn-full" rel="nofollow sponsored noopener noreferrer" target="_blank"${dataAff}>Till ansökan</a>
             <small class="text-muted">Sponsrad länk</small>
           </div>
         </article>`);

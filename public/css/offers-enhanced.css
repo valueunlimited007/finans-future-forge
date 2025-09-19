@@ -92,11 +92,12 @@
   background: white;
 }
 
-/* Logo column - constrained width */
+/* Logo column - constrained width and height */
 .lender-logo {
-  max-width: 140px;
-  width: 140px;
+  max-width: 120px;
+  width: 120px;
   height: 40px;
+  max-height: 40px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -105,13 +106,13 @@
 
 .lender-logo img {
   max-height: 40px;
-  max-width: 100%;
+  max-width: 120px;
   object-fit: contain;
   width: auto;
   height: auto;
 }
 
-/* Fallback text for missing logos */
+/* Fallback text for missing logos - truncate with ellipsis */
 .lender-logo:not(:has(img)) {
   font-size: 0.875rem;
   font-weight: 600;  
@@ -119,9 +120,10 @@
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  line-height: 40px; /* Center vertically */
 }
 
-/* Features column - expandable with proper grid */
+/* Features column - expandable with proper grid and min-width for text wrapping */
 .lender-features {
   display: grid;
   grid-template-columns: 1fr; /* Default: Single column for mobile */
@@ -129,15 +131,22 @@
   min-width: 0; /* Allow text to wrap properly */
 }
 
-/* Tablet/Desktop: 2 columns at md breakpoint (≥768px) */
+/* Tablet/Desktop: 2 columns at md breakpoint (≥768px) only if sufficient width */
 @media (min-width: 768px) {
   .lender-features {
-    grid-template-columns: repeat(2, minmax(0, 1fr)); /* Deterministic 2-column layout */
+    grid-template-columns: repeat(2, minmax(240px, 1fr)); /* Ensure min 240px per column */
     gap: 0.75rem;
+  }
+  
+  /* Fallback to 1 column if container is too narrow */
+  @container (max-width: 500px) {
+    .lender-features {
+      grid-template-columns: 1fr;
+    }
   }
 }
 
-/* Match UC card feature styling with proper typography */
+/* Match UC card feature styling with proper typography and dividers */
 .lender-feature {
   font-size: 0.875rem; /* text-sm */
   line-height: 1.5; /* leading-6 */
@@ -163,18 +172,23 @@
   font-weight: 400; /* normal */
 }
 
-/* CTA column - auto width with proper alignment */
+/* CTA column - auto width with proper alignment and no text wrapping */
 .lender-cta {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  white-space: nowrap;
+  white-space: nowrap; /* Prevent button text from wrapping */
 }
 
 @media (min-width: 768px) {
   .lender-cta {
     justify-self: end;
     align-self: end; /* Align to bottom of card */
+    text-align: right;
+  }
+  
+  .lender-rating {
+    justify-self: end; /* Right-align rating on desktop */
   }
 }
 
@@ -185,12 +199,6 @@
   gap: 0.5rem;
   font-size: 0.875rem;
   color: #6b7280; /* text-gray-500 */
-}
-
-@media (min-width: 768px) {
-  .lender-rating {
-    justify-self: end; /* Right-align on desktop */
-  }
 }
 
 /* Stars styling for ratings */
