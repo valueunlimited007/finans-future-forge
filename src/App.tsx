@@ -47,13 +47,13 @@ const App = () => (
             <Route path="/om" element={<Om />} />
             <Route path="/cookies" element={<Cookies />} />
             <Route path="/integritetspolicy" element={<Integritetspolicy />} />
-            <Route path="/bostadsmarknad-analys-2025" element={<BostadsmarknadsAnalys />} />
-            <Route path="/karriar-100k-guide" element={<KarriärGuide />} />
+            <Route path="/bostadsmarknad-analys" element={<BostadsmarknadsAnalys />} />
+            <Route path="/karriar-guide" element={<KarriärGuide />} />
             <Route path="/ekonomiska-lifehacks" element={<EkonomiskaLifehacks />} />
-            <Route path="/bilekonomy-guide-2025" element={<BilekonomyGuide />} />
-            <Route path="/bankjämförelse-guide-2025" element={<BankjämförelseGuide />} />
-            <Route path="/löneoptimering-guide-2025" element={<LöneoptimeringsGuide />} />
-            <Route path="/sparkonto-guide-2025" element={<SparkontoGuide />} />
+            <Route path="/bilekonomy-guide" element={<BilekonomyGuide />} />
+            <Route path="/bankjamforelse-guide" element={<BankjämförelseGuide />} />
+            <Route path="/loneoptimeringsguide" element={<LöneoptimeringsGuide />} />
+            <Route path="/sparkonto-guide" element={<SparkontoGuide />} />
             <Route path="/svenska-inkomster-2025" element={<SvenskaInkomster />} />
             <Route path="/manadssparande-guide" element={<MånadssparandeGuide />} />
             <Route path="*" element={<NotFoundBranded />} />
