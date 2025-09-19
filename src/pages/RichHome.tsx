@@ -30,10 +30,10 @@ export default function RichHome() {
 
       <main>
         {/* Hero Section */}
-        <section className="relative py-24 px-4 bg-gradient-to-br from-primary via-primary-foreground to-background">
+        <section className="py-16 px-4 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950 dark:to-blue-900">
           <div className="container mx-auto max-w-6xl text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-foreground">
-              Jämför lån, kreditkort och finansiering <span className="text-primary">2025</span>
+              Jämför lån, kreditkort och finansiering <span className="text-blue-600">2025</span>
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-muted-foreground max-w-3xl mx-auto">
               Se aktuella erbjudanden från ledande långivare – snabbt, enkelt och helt kostnadsfritt. 
@@ -41,10 +41,10 @@ export default function RichHome() {
             </p>
             
             <div className="flex flex-wrap gap-4 justify-center mb-8">
-              <Button size="lg" className="text-lg px-8">
+              <Button size="lg" className="text-lg px-8 bg-blue-600 text-white hover:bg-blue-700 shadow-lg">
                 Se erbjudanden
               </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8">
+              <Button variant="outline" size="lg" className="text-lg px-8 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white">
                 Läs guider
               </Button>
             </div>
@@ -312,7 +312,7 @@ export default function RichHome() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 px-4 bg-primary text-primary-foreground">
+        <section className="py-16 px-4 bg-blue-600 text-white">
           <div className="container mx-auto max-w-4xl text-center">
             <h2 className="text-3xl font-bold mb-4">
               Redo att hitta bästa lånet?
@@ -320,7 +320,7 @@ export default function RichHome() {
             <p className="text-xl mb-8">
               Jämför alla långivare på 2 minuter - få svar direkt och spara tusenlappar
             </p>
-            <Button size="lg" variant="secondary" className="text-lg px-8">
+            <Button size="lg" className="text-lg px-8 bg-white text-blue-600 hover:bg-blue-50 shadow-lg">
               Börja jämföra nu
             </Button>
           </div>
