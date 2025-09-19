@@ -1,7 +1,7 @@
 // Finansguiden.se - Offer schema & seed data (Adtraction/CJ ready)
 (function(){
   // Global config
-  window.FG_CONFIG = window.FG_CONFIG || { channelId: '1996955997' };
+  window.FG_CONFIG = window.FG_CONFIG || { channelId: '2005939977' };
 
   // Helper to freeze objects lightly (avoid accidental mutation)
   function seal(o){ try { return Object.freeze(o); } catch(e){ return o; } }
@@ -10,7 +10,7 @@
   var privatlan = [
     {
       id: 'enkelfinans', network: 'adtraction', name: 'Enkelfinans',
-      url: 'https://secure.adtraction.com/t/t?a=1996955997&as=1996955997&t=2&tk=1&epi=7894',
+      url: 'https://track.adtraction.com/t/t?a=2005939977&as=2005939977&t=2&tk=1&url=https://www.enkelfinans.se/privatlan?utm_source=adtraction&utm_campaign=2005939977&utm_medium=affiliate',
       amountRange: '5 000 – 600 000 kr', aprFrom: 'från 4,95%', decision: 'Snabbt beslut',
       requirements: 'Fast anställning', rating: 4.6,
       highlights: ['Konkurrenskraftiga räntor', 'Snabb ansökan'],
@@ -18,7 +18,7 @@
     },
     {
       id: 'ekonomen', network: 'adtraction', name: 'Ekonomen',
-      url: 'https://secure.adtraction.com/t/t?a=1996955997&as=1996955997&t=2&tk=1&epi=7947',
+      url: 'https://track.adtraction.com/t/t?a=2005939977&as=2005939977&t=2&tk=1&url=https://www.ekonomen.se/privatlan?utm_source=adtraction&utm_campaign=2005939977&utm_medium=affiliate',
       amountRange: '10 000 – 800 000 kr', aprFrom: 'från 4,95%', decision: 'Snabbt beslut',
       requirements: 'Stabil inkomst', rating: 4.5,
       highlights: ['Hög lånebelopp', 'Flexibla villkor'],
@@ -26,7 +26,7 @@
     },
     {
       id: 'loans-se', network: 'adtraction', name: 'Loans.se',
-      url: 'https://secure.adtraction.com/t/t?a=1996955997&as=1996955997&t=2&tk=1&epi=10024',
+      url: 'https://track.adtraction.com/t/t?a=2005939977&as=2005939977&t=2&tk=1&url=https://www.loans.se/?utm_source=adtraction&utm_campaign=2005939977&utm_medium=affiliate',
       amountRange: '5 000 – 600 000 kr', aprFrom: 'Jämför räntor', decision: 'Omedelbart',
       requirements: 'Jämförelsesida', rating: 4.7,
       highlights: ['Jämför många långivare', 'Hitta bästa räntan'],
@@ -34,7 +34,7 @@
     },
     {
       id: 'finlo-se', network: 'adtraction', name: 'Finlo.se',
-      url: 'https://secure.adtraction.com/t/t?a=1996955997&as=1996955997&t=2&tk=1&epi=10019',
+      url: 'https://track.adtraction.com/t/t?a=2005939977&as=2005939977&t=2&tk=1&url=https://www.finlo.se/?utm_source=adtraction&utm_campaign=2005939977&utm_medium=affiliate',
       amountRange: '5 000 – 800 000 kr', aprFrom: 'Jämför räntor', decision: 'Omedelbart',
       requirements: 'Jämförelsesida', rating: 4.6,
       highlights: ['Omfattande jämförelse', 'Enkel process'],
@@ -45,7 +45,7 @@
   var utanUc = [
     {
       id: 'fairlo', network: 'adtraction', name: 'Fairlo SE',
-      url: 'https://secure.adtraction.com/t/t?a=1996955997&as=1996955997&t=2&tk=1&epi=8008',
+      url: 'https://track.adtraction.com/t/t?a=2005939977&as=2005939977&t=2&tk=1&url=https://www.fairlo.se/se/?utm_source=adtraction&utm_campaign=2005939977&utm_medium=affiliate',
       amountRange: '5 000 – 500 000 kr', aprFrom: 'från 4,95%', decision: 'Snabbt beslut',
       requirements: 'Accepterar anmärkningar', rating: 4.4,
       highlights: ['Utan UC-kontroll', 'Även med anmärkningar'],
@@ -53,7 +53,7 @@
     },
     {
       id: 'enklare', network: 'adtraction', name: 'Enklare',
-      url: 'https://secure.adtraction.com/t/t?a=1996955997&as=1996955997&t=2&tk=1&epi=7825',
+      url: 'https://track.adtraction.com/t/t?a=2005939977&as=2005939977&t=2&tk=1&url=https://www.enklare.se/?utm_source=adtraction&utm_campaign=2005939977&utm_medium=affiliate',
       amountRange: '5 000 – 500 000 kr', aprFrom: 'från 4,95%', decision: 'Snabbt beslut',
       requirements: 'Accepterar anmärkningar', rating: 4.5,
       highlights: ['Flexibla villkor', 'Snabb utbetalning'],
@@ -61,7 +61,7 @@
     },
     {
       id: 'compari', network: 'adtraction', name: 'Compari',
-      url: 'https://secure.adtraction.com/t/t?a=1996955997&as=1996955997&t=2&tk=1&epi=7949',
+      url: 'https://track.adtraction.com/t/t?a=2005939977&as=2005939977&t=2&tk=1&url=https://www.compari.se/?utm_source=adtraction&utm_campaign=2005939977&utm_medium=affiliate',
       amountRange: 'Jämför lån', aprFrom: 'Bästa räntan', decision: 'Omedelbart',
       requirements: 'Accepterar anmärkningar', rating: 4.6,
       highlights: ['Jämför utan UC', 'Personlig matchning'],
