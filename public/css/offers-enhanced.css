@@ -60,6 +60,7 @@
   
   /* Enable container queries for responsive features */
   container-type: inline-size;
+  container-name: offer-card;
   
   /* Mobile: stack layout */
   display: flex;
@@ -148,13 +149,32 @@
   grid-template-columns: 1fr; /* Default: single column */
   gap: 0.5rem;
   min-width: 0; /* Allow text to wrap properly */
+  word-break: normal; /* Ensure normal word breaking */
+  overflow-wrap: break-word; /* Allow long words to break */
 }
 
 /* Container query: 2 columns when card is wide enough (>= 560px) */
-@container (min-width: 560px) {
+@container offer-card (min-width: 560px) {
   .lender-features {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(240px, 1fr)); /* Ensure min 240px per column */
     gap: 0.75rem;
+  }
+}
+
+/* Fallback for browsers without container query support */
+@supports not (container-type: inline-size) {
+  @media (min-width: 768px) {
+    .lender-features {
+      grid-template-columns: repeat(2, minmax(240px, 1fr));
+      gap: 0.75rem;
+    }
+  }
+  
+  /* Single column for smaller screens */
+  @media (max-width: 1200px) {
+    .lender-features {
+      grid-template-columns: 1fr;
+    }
   }
 }
 
@@ -168,6 +188,8 @@
   padding: 0.25rem 0;
   border-bottom: 1px solid #f3f4f6; /* subtle divider like UC */
   min-width: 0; /* Allow text to wrap */
+  word-break: normal; /* Prevent character-by-character breaking */
+  hyphens: auto; /* Allow hyphenation for long words */
 }
 
 .lender-feature:last-child {
