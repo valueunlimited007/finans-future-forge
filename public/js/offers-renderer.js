@@ -71,6 +71,26 @@
           </div>
         </article>`);
 
+      // Debug: Log text width issues
+      try {
+        setTimeout(function() {
+          var features = card.querySelectorAll('.lender-feature');
+          features.forEach(function(feature) {
+            var computedStyle = window.getComputedStyle(feature);
+            var width = feature.offsetWidth;
+            if (width < 100) {
+              console.warn('[OFFERS_DEBUG] Narrow feature detected:', {
+                text: feature.textContent,
+                width: width,
+                computedWidth: computedStyle.width,
+                maxWidth: computedStyle.maxWidth,
+                gridColumns: computedStyle.gridTemplateColumns
+              });
+            }
+          });
+        }, 100);
+      } catch(e) {}
+
       grid.appendChild(card);
     });
 

@@ -41,12 +41,19 @@
   overflow-wrap: normal !important;
 }
 
-/* CRITICAL: Override global card word-break from index.css */
-.offers-container .lender-card,
-.offers-container .lender-card * {
-  word-break: normal !important;
-  overflow-wrap: normal !important;
-  min-width: auto !important;
+/* CRITICAL: Override narrow 2-column grid layout that breaks text */
+.offers-container .lender-features {
+  display: grid !important;
+  grid-template-columns: 1fr !important; /* Single column to prevent narrow text breaking */
+  gap: 0.5rem !important;
+  margin: 0.5rem 0 !important;
+}
+
+/* Only use 2 columns on wider screens where there's enough space */
+@media (min-width: 480px) {
+  .offers-container .lender-features {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
 }
 
 .lender-grid {
