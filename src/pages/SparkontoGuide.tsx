@@ -523,11 +523,11 @@ export default function SparkontoGuide() {
                 <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
                   {autolink("Använd vår räntekalkylator för att se hur mycket du kan tjäna på olika sparkonton och jämför med andra placeringsalternativ.")}
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mx-auto">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <a href="/privatlan" className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primary/90 transition-colors">
                     Räntekalkylator
                   </a>
-                  <a href="/ekonomiska-lifehacks" className="inline-flex items-center justify-center px-6 py-3 border border-primary text-base font-medium rounded-md text-primary bg-white hover:bg-primary/10 transition-colors">
+                  <a href="/ekonomiska-lifehacks" className="inline-flex items-center justify-center px-6 py-3 border border-primary text-base font-medium rounded-md text-primary bg-transparent hover:bg-primary/10 transition-colors">
                     Fler Spartips
                   </a>
                 </div>
