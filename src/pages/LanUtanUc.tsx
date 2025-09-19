@@ -1,18 +1,11 @@
-import { useEffect } from "react";
-import LegacyPage from "./LegacyPage";
+import RichLanUtanUc from "../components/RichLanUtanUc";
 import SeoManager from "../seo/SeoManager";
-import lanHtml from "../../lan-utan-uc.html?raw";
 
 export default function LanUtanUc() {
-  useEffect(() => {
-    const path = window.location.pathname;
-    console.info("Mounted page:", path, "source:", "lan-utan-uc.html");
-    console.info("[FG_PAGE]", path, "src len:", lanHtml.length, "head:", lanHtml.slice(0,100));
-  }, []);
   return (
     <>
       <SeoManager />
-      <LegacyPage key={window.location.pathname} htmlRaw={lanHtml} />
+      <RichLanUtanUc />
     </>
   );
 }
