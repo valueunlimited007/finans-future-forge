@@ -675,7 +675,7 @@ export default function RichLanUtanUc() {
               <Button size="lg" className="text-lg px-8 bg-white text-orange-600 hover:bg-gray-100">
                 Jämför lån utan UC
               </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 border-white text-white hover:bg-white hover:text-orange-600">
+              <Button variant="outline" size="lg" className="text-lg px-8 border-white text-white hover:bg-white hover:text-orange-600 bg-white/10 backdrop-blur-sm">
                 Läs mer om privatlån
               </Button>
             </div>
