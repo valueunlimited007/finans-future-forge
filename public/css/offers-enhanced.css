@@ -149,14 +149,13 @@
   grid-template-columns: 1fr; /* Default: single column */
   gap: 0.5rem;
   min-width: 0; /* Allow text to wrap properly */
-  word-break: normal; /* Ensure normal word breaking */
-  overflow-wrap: break-word; /* Allow long words to break */
+  grid-auto-columns: auto; /* Prevent auto-placement issues */
 }
 
-/* Container query: 2 columns when card is wide enough (>= 560px) */
-@container offer-card (min-width: 560px) {
+/* Container query: 2 columns when card is wide enough (>= 600px) - raised threshold */
+@container offer-card (min-width: 600px) {
   .lender-features {
-    grid-template-columns: repeat(2, minmax(240px, 1fr)); /* Ensure min 240px per column */
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* Sharp min-width: 0 */
     gap: 0.75rem;
   }
 }
@@ -165,7 +164,7 @@
 @supports not (container-type: inline-size) {
   @media (min-width: 768px) {
     .lender-features {
-      grid-template-columns: repeat(2, minmax(240px, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr)); /* Sharp min-width: 0 */
       gap: 0.75rem;
     }
   }
@@ -187,8 +186,11 @@
   gap: 0.5rem;
   padding: 0.25rem 0;
   border-bottom: 1px solid #f3f4f6; /* subtle divider like UC */
-  min-width: 0; /* Allow text to wrap */
+  min-width: 0; /* Critical: Allow text to wrap */
+  max-width: none; /* Prevent min-content collapse */
+  white-space: normal; /* Normal text flow */
   word-break: normal; /* Prevent character-by-character breaking */
+  overflow-wrap: anywhere; /* Break long words naturally */
   hyphens: auto; /* Allow hyphenation for long words */
 }
 
