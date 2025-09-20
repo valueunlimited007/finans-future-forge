@@ -54,8 +54,18 @@ export default function RichPrivatlan() {
                 <Button asChild size="lg" className="text-lg px-8 bg-blue-600 text-white hover:bg-blue-700 shadow-lg">
                   <Link to="#jamfor">Jämför privatlån nu</Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="text-lg px-8 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white">
-                  <Link to="#kalkylator">Räkna lånet</Link>
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="text-lg px-8 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
+                  onClick={() => {
+                    const element = document.getElementById('kalkylator');
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                >
+                  Räkna lånet
                 </Button>
               </div>
 
