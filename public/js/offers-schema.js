@@ -129,15 +129,17 @@
       logo: '/adtraction-logos/compari-logo.png',
       isPartner: true
     },
+    {
+      id: 'creditstar', network: 'adtraction', name: 'CreditStar',
+      url: 'https://go.creditstar.se/t/t?a=1896267775&as=2005939977&t=2&tk=1',
+      amountRange: '1 000 – 90 000 kr', aprFrom: 'från 20%', decision: 'Inom minuter',
+      requirements: 'Över 21 år, fast anställning', rating: 4.1,
+      highlights: ['Direkt utbetalning samma dag', 'Lån utan UC upp till 90 000 kr'],
+      logo: '/adtraction-logos/creditstar-logo.png',
+      isPartner: true
+    },
     // ADDITIONAL LENDERS (pending partnership approval)
     {
-      id: 'creditstar', name: 'CreditStar',
-      url: 'https://www.creditstar.se/',
-      amountRange: '1 000 – 60 000 kr', aprFrom: 'från 14,95%', decision: 'Inom minuter',
-      requirements: 'Månadsinkomst 8000kr', rating: 4.1,
-      highlights: ['Mycket snabbt beslut', 'Lån upp till 60 000 kr utan UC'],
-      isPartner: false
-    },
     {
       id: 'smspengar', name: 'SMSpengar',
       url: 'https://www.smspengar.se/',
