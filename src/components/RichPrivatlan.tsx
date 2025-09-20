@@ -87,13 +87,23 @@ export default function RichPrivatlan() {
             {/* Adtraction Offers Container */}
             <OffersContainer 
               category="privatlan" 
-              limit={4}
+              limit={12}
               className="mb-12" 
             />
             
             <div className="text-center">
-              <Button asChild variant="outline" size="lg" className="text-lg px-8">
-                <Link to="/privatlan#jamfor">Se alla privatlån</Link>
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="text-lg px-8"
+                onClick={() => {
+                  const element = document.getElementById('jamfor');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
+                Se alla privatlån
               </Button>
             </div>
           </div>
