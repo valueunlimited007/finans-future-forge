@@ -10,6 +10,7 @@ import ForetagslanFAQ from "./ForetagslanFAQ";
 import ForetagslanGuideSteps from "./ForetagslanGuideSteps";
 import CustomBreadcrumb from "./CustomBreadcrumb";
 import FinancialCalculator from "@/components/FinancialCalculator";
+import OffersContainer from "./OffersContainer";
 
 export default function RichForetagslan() {
   const breadcrumbItems = [
@@ -326,7 +327,19 @@ export default function RichForetagslan() {
         {/* Comparison Table */}
         <section className="py-16 px-4 bg-gray-50">
           <div className="container mx-auto max-w-6xl">
-            <h2 className="text-3xl font-bold text-center mb-4">Jämför företagslån 2025</h2>
+            <h2 className="text-3xl font-bold text-center mb-4">Aktuella företagslån</h2>
+            <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+              Handplocka erbjudanden från våra verifierade partners - uppdaterade dagligen
+            </p>
+            
+            {/* Adtraction Offers for Business Loans */}
+            <OffersContainer 
+              category="foretagslan" 
+              limit={4}
+              className="mb-12" 
+            />
+            
+            <h2 className="text-3xl font-bold text-center mb-4 mt-16">Fullständig jämförelse 2025</h2>
             <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
               Vi har jämfört 10 långivare som erbjuder företagslån. Här är de bästa alternativen 
               baserat på räntor, villkor och specialiteter.
