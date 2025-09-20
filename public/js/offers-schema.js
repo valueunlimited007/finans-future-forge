@@ -140,7 +140,6 @@
     },
     // ADDITIONAL LENDERS (pending partnership approval)
     {
-    {
       id: 'smspengar', name: 'SMSpengar',
       url: 'https://www.smspengar.se/',
       amountRange: '500 – 30 000 kr', aprFrom: 'från 19,95%', decision: 'Inom minuter',
