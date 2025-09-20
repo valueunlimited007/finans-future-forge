@@ -627,8 +627,8 @@ export default function RichPrivatlan() {
             <p className="text-xl mb-8">
               Jämför räntor från 50+ långivare och hitta bästa erbjudandet för din situation
             </p>
-            <Button size="lg" variant="outline" className="text-lg px-8 bg-white text-primary border-2 border-white hover:bg-white/90 font-semibold">
-              Jämför privatlån nu
+            <Button asChild size="lg" variant="outline" className="text-lg px-8 bg-white text-primary border-2 border-white hover:bg-white/90 font-semibold">
+              <a href="#jamfor">Jämför privatlån nu</a>
             </Button>
           </div>
         </section>
