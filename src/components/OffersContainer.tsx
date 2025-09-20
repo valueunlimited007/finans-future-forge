@@ -14,11 +14,11 @@ const OffersContainer: React.FC<OffersContainerProps> = ({
   className = "" 
 }) => {
   useEffect(() => {
-    // Trigger offers re-render on component mount
-    console.log('[OffersContainer] Component mounted, triggering fg:offers-updated');
+    // Trigger offers re-render on component mount and when limit changes
+    console.log('[OffersContainer] Component mounted/updated, triggering fg:offers-updated');
     const event = new CustomEvent('fg:offers-updated');
     document.dispatchEvent(event);
-  }, []);
+  }, [limit]); // Add limit as dependency
 
   return (
     <div className={className}>
@@ -28,6 +28,7 @@ const OffersContainer: React.FC<OffersContainerProps> = ({
         data-category={category} 
         data-limit={limit}
         className="offers-container"
+        key={`${category}-${limit}`} // Force re-render when limit changes
       >
         <p className="text-center text-muted-foreground">Laddar erbjudanden...</p>
       </div>
