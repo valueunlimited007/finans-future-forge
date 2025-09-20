@@ -8,13 +8,15 @@
 
   // Real Adtraction partners - approved for Finansguiden.se
   var privatlan = [
+    // VERIFIED PARTNERS (with tracking links)
     {
       id: 'enkelfinans', network: 'adtraction', name: 'Enkelfinans',
       url: 'https://go.adt228.com/t/t?a=1587476854&as=2005939977&t=2&tk=1',
       amountRange: '5 000 – 600 000 kr', aprFrom: 'från 4,95%', decision: 'Snabbt beslut',
       requirements: 'Fast anställning', rating: 4.6,
       highlights: ['Konkurrenskraftiga räntor', 'Snabb ansökan'],
-      logo: '/adtraction-logos/enkelfinans-logo.png'
+      logo: '/adtraction-logos/enkelfinans-logo.png',
+      isPartner: true
     },
     {
       id: 'ekonomen', network: 'adtraction', name: 'Ekonomen',
@@ -22,7 +24,8 @@
       amountRange: '10 000 – 800 000 kr', aprFrom: 'från 4,95%', decision: 'Snabbt beslut',
       requirements: 'Stabil inkomst', rating: 4.5,
       highlights: ['Hög lånebelopp', 'Flexibla villkor'],
-      logo: '/adtraction-logos/ekonomen-logo.png'
+      logo: '/adtraction-logos/ekonomen-logo.png',
+      isPartner: true
     },
     {
       id: 'loans-se', network: 'adtraction', name: 'Loans.se',
@@ -30,7 +33,8 @@
       amountRange: '5 000 – 600 000 kr', aprFrom: 'Jämför räntor', decision: 'Omedelbart',
       requirements: 'Jämförelsesida', rating: 4.7,
       highlights: ['Jämför många långivare', 'Hitta bästa räntan'],
-      logo: '/adtraction-logos/loans-logo.png'
+      logo: '/adtraction-logos/loans-logo.png',
+      isPartner: true
     },
     {
       id: 'finlo-se', network: 'adtraction', name: 'Finlo.se',
@@ -38,18 +42,78 @@
       amountRange: '5 000 – 800 000 kr', aprFrom: 'Jämför räntor', decision: 'Omedelbart',
       requirements: 'Jämförelsesida', rating: 4.6,
       highlights: ['Omfattande jämförelse', 'Enkel process'],
-      logo: '/adtraction-logos/finlo-logo.png'
+      logo: '/adtraction-logos/finlo-logo.png',
+      isPartner: true
+    },
+    // ADDITIONAL LENDERS (pending partnership approval)
+    {
+      id: 'anyfin', name: 'Anyfin',
+      url: 'https://www.anyfin.com/sv/',
+      amountRange: '5 000 – 350 000 kr', aprFrom: 'från 4,95%', decision: 'Snabbt beslut',
+      requirements: 'Kreditupplysning', rating: 4.4,
+      highlights: ['Sänk dina kreditkostnader', 'Samla dina lån'],
+      isPartner: false
+    },
+    {
+      id: 'danske-bank', name: 'Danske Bank',
+      url: 'https://www.danskebank.se/privat/lana/privatlan',
+      amountRange: '25 000 – 600 000 kr', aprFrom: 'från 5,45%', decision: 'Inom några dagar',
+      requirements: 'Kund i banken', rating: 4.3,
+      highlights: ['Etablerad storbank', 'Konkurrenskraftiga räntor'],
+      isPartner: false
+    },
+    {
+      id: 'lendo', name: 'Lendo',
+      url: 'https://www.lendo.se/',
+      amountRange: '10 000 – 500 000 kr', aprFrom: 'Jämför räntor', decision: 'Omedelbart',
+      requirements: 'Jämförelsesida', rating: 4.5,
+      highlights: ['Snabbt och enkelt', 'Trygg lånejämförelse'],
+      isPartner: false
+    },
+    {
+      id: 'svea-ekonomi', name: 'Svea Ekonomi',
+      url: 'https://www.svea.com/se/sv/privatpersoner/privatlan/',
+      amountRange: '15 000 – 350 000 kr', aprFrom: 'från 5,95%', decision: 'Snabbt beslut',
+      requirements: 'Regelbunden inkomst', rating: 4.2,
+      highlights: ['Flexibel återbetalning', 'Snabb handläggning'],
+      isPartner: false
+    },
+    {
+      id: 'northmill-bank', name: 'Northmill Bank',
+      url: 'https://www.northmill.se/privatlan',
+      amountRange: '25 000 – 500 000 kr', aprFrom: 'från 4,95%', decision: 'Inom 24h',
+      requirements: 'Fast anställning', rating: 4.4,
+      highlights: ['Digital bank', 'Snabb process'],
+      isPartner: false
+    },
+    {
+      id: 'ferratum', name: 'Ferratum',
+      url: 'https://www.ferratum.se/privatlan',
+      amountRange: '5 000 – 200 000 kr', aprFrom: 'från 6,95%', decision: 'Inom minuter',
+      requirements: 'Månadsinkomst 8000kr', rating: 4.1,
+      highlights: ['Mycket snabbt beslut', 'Flexibla villkor'],
+      isPartner: false
+    },
+    {
+      id: 'klicklaan', name: 'KlickLån',
+      url: 'https://www.klicklaan.se/',
+      amountRange: '5 000 – 400 000 kr', aprFrom: 'från 4,95%', decision: 'Snabbt beslut',
+      requirements: 'Stabil ekonomi', rating: 4.3,
+      highlights: ['Enkel ansökan', 'Snabb utbetalning'],
+      isPartner: false
     }
   ].map(seal);
 
   var utanUc = [
+    // VERIFIED PARTNERS (with tracking links)
     {
       id: 'fairlo', network: 'adtraction', name: 'Fairlo SE',
       url: 'https://go.adt242.com/t/t?a=1433384226&as=2005939977&t=2&tk=1',
       amountRange: '5 000 – 500 000 kr', aprFrom: 'från 4,95%', decision: 'Snabbt beslut',
       requirements: 'Accepterar anmärkningar', rating: 4.4,
       highlights: ['Utan UC-kontroll', 'Även med anmärkningar'],
-      logo: '/adtraction-logos/fairlo-logo.png'
+      logo: '/adtraction-logos/fairlo-logo.png',
+      isPartner: true
     },
     {
       id: 'enklare', network: 'adtraction', name: 'Enklare',
@@ -57,7 +121,8 @@
       amountRange: '5 000 – 500 000 kr', aprFrom: 'från 4,95%', decision: 'Snabbt beslut',
       requirements: 'Accepterar anmärkningar', rating: 4.5,
       highlights: ['Flexibla villkor', 'Snabb utbetalning'],
-      logo: '/adtraction-logos/enklare-logo.png'
+      logo: '/adtraction-logos/enklare-logo.png',
+      isPartner: true
     },
     {
       id: 'compari', network: 'adtraction', name: 'Compari',
@@ -65,7 +130,33 @@
       amountRange: 'Jämför lån', aprFrom: 'Bästa räntan', decision: 'Omedelbart',
       requirements: 'Accepterar anmärkningar', rating: 4.6,
       highlights: ['Jämför utan UC', 'Personlig matchning'],
-      logo: '/adtraction-logos/compari-logo.png'
+      logo: '/adtraction-logos/compari-logo.png',
+      isPartner: true
+    },
+    // ADDITIONAL LENDERS (pending partnership approval)
+    {
+      id: 'creditstar', name: 'CreditStar',
+      url: 'https://www.creditstar.se/',
+      amountRange: '1 000 – 60 000 kr', aprFrom: 'från 14,95%', decision: 'Inom minuter',
+      requirements: 'Månadsinkomst 8000kr', rating: 4.1,
+      highlights: ['Mycket snabbt beslut', 'Lån upp till 60 000 kr utan UC'],
+      isPartner: false
+    },
+    {
+      id: 'smspengar', name: 'SMSpengar',
+      url: 'https://www.smspengar.se/',
+      amountRange: '500 – 30 000 kr', aprFrom: 'från 19,95%', decision: 'Inom minuter',
+      requirements: 'Månadsinkomst 5000kr', rating: 3.9,
+      highlights: ['Snabbaste lånet', 'Även med betalningsanmärkningar'],
+      isPartner: false
+    },
+    {
+      id: 'daypay', name: 'Daypay',
+      url: 'https://www.daypay.se/',
+      amountRange: '1 000 – 50 000 kr', aprFrom: 'från 12,95%', decision: 'Samma dag',
+      requirements: 'Regelbunden inkomst', rating: 4.0,
+      highlights: ['Lön på dagen', 'Flexibel återbetalning'],
+      isPartner: false
     }
   ].map(seal);
 
@@ -76,7 +167,49 @@
       url: 'https://www.lendo.se/foretagslan?utm_source=finansguiden&utm_medium=affiliate',
       amountRange: '10 000 – 2 000 000 kr', aprFrom: 'från 4,5%', decision: '24h',
       requirements: 'AB/EF, 6–12 mån drift', rating: 4.6,
-      highlights: ['Svar inom 24h', 'Många banker & långivare']
+      highlights: ['Svar inom 24h', 'Många banker & långivare'],
+      isPartner: false
+    },
+    // ADDITIONAL LENDERS (pending partnership approval)
+    {
+      id: 'qred', name: 'Qred',
+      url: 'https://www.qred.com/se/',
+      amountRange: '10 000 – 3 000 000 kr', aprFrom: 'från 0,99%', decision: 'Inom 24h',
+      requirements: 'Omsättning 100 000kr/år', rating: 4.6,
+      highlights: ['Snabbt beslut', 'Flexibla villkor'],
+      isPartner: false
+    },
+    {
+      id: 'froda', name: 'Froda',
+      url: 'https://www.froda.se/',
+      amountRange: '50 000 – 5 000 000 kr', aprFrom: 'från 4,95%', decision: 'Inom några dagar',
+      requirements: 'Etablerat företag', rating: 4.4,
+      highlights: ['Finansiering som går att växa', 'Inga dolda avgifter'],
+      isPartner: false
+    },
+    {
+      id: 'nordnet-foretag', name: 'Nordnet Företag',
+      url: 'https://www.nordnet.se/se/tjanster/lan/foretagslan',
+      amountRange: '100 000 – 10 000 000 kr', aprFrom: 'från 3,95%', decision: 'Inom en vecka',
+      requirements: 'Befintlig kund', rating: 4.3,
+      highlights: ['Stora lånebelopp', 'Till ditt nästa mål'],
+      isPartner: false
+    },
+    {
+      id: 'savelend', name: 'SaveLend',
+      url: 'https://www.savelend.se/',
+      amountRange: '25 000 – 1 500 000 kr', aprFrom: 'från 5,95%', decision: 'Inom några dagar',
+      requirements: 'Omsättning 200 000kr/år', rating: 4.2,
+      highlights: ['Investera i lån', 'P2P-plattform'],
+      isPartner: false
+    },
+    {
+      id: 'bluestep-foretag', name: 'Bluestep Bank Företag',
+      url: 'https://www.bluestep.se/foretag/',
+      amountRange: '50 000 – 2 000 000 kr', aprFrom: 'från 4,50%', decision: 'Inom en vecka',
+      requirements: 'Etablerat företag', rating: 4.1,
+      highlights: ['En bostadsbank för fler', 'Flexibel finansiering'],
+      isPartner: false
     }
   ].map(seal);
 
@@ -85,25 +218,51 @@
       id: 'coop', network: 'direct', name: 'Coop Mastercard',
       url: 'https://www.coop.se/bank-och-betala/coop-mastercard/',
       annualFee: '0 kr', cashback: '1–3%', creditLimit: 'upp till 100 000 kr', interestFreeDays: 'upp till 60 dagar', rating: 4.8,
-      highlights: ['Bäst totalt', 'Bra cashback']
+      highlights: ['Bäst totalt', 'Bra cashback'],
+      isPartner: false
     },
     {
       id: 'remember-flex', network: 'direct', name: 're:member flex',
       url: 'https://www.remember.se/kreditkort/flex',
       annualFee: '0 kr', cashback: 'upp till 25% (portal)', creditLimit: 'upp till 120 000 kr', interestFreeDays: '56 dagar', rating: 4.5,
-      highlights: ['Stor partnerportal', 'Ingen årsavgift']
+      highlights: ['Stor partnerportal', 'Ingen årsavgift'],
+      isPartner: false
     },
     {
       id: 'bank-norwegian', network: 'direct', name: 'Bank Norwegian Kreditkort',
       url: 'https://www.banknorwegian.se/kreditkort/',
       annualFee: '0 kr', cashback: 'CashPoints på resor', creditLimit: 'upp till 150 000 kr', interestFreeDays: '45 dagar', rating: 4.6,
-      highlights: ['Bra för resor', 'Ingen årsavgift']
+      highlights: ['Bra för resor', 'Ingen årsavgift'],
+      isPartner: false
     },
     {
       id: 'komplett', network: 'direct', name: 'Komplett Bank Mastercard',
       url: 'https://www.komplettbank.se/kreditkort',
       annualFee: '0 kr', cashback: '1% alla köp (mer hos Komplett)', creditLimit: 'upp till 100 000 kr', interestFreeDays: '50 dagar', rating: 4.5,
-      highlights: ['Stabil cashback', 'Utan årsavgift']
+      highlights: ['Stabil cashback', 'Utan årsavgift'],
+      isPartner: false
+    },
+    // ADDITIONAL LENDERS (pending partnership approval)
+    {
+      id: 'swedbank-kreditkort', name: 'Swedbank Kreditkort',
+      url: 'https://www.swedbank.se/privat/kort-och-betalningar/kreditkort/',
+      annualFee: '150-495 kr', cashback: 'Poäng på köp', creditLimit: 'upp till 300 000 kr', interestFreeDays: '56 dagar', rating: 4.5,
+      highlights: ['Betala och kreditkort Mastercard', 'Bra förmåner'],
+      isPartner: false
+    },
+    {
+      id: 'northmill-kreditkort', name: 'Northmill Bank Kreditkort',
+      url: 'https://www.northmill.se/kreditkort',
+      annualFee: '0 kr', cashback: 'Räntefritt', creditLimit: 'upp till 250 000 kr', interestFreeDays: '56 dagar', rating: 4.4,
+      highlights: ['Flexibel kredit', 'Digital process'],
+      isPartner: false
+    },
+    {
+      id: 'moregolf-mastercard', name: 'MoreGolf Kreditkort',
+      url: 'https://www.moregolf.se/mastercard/',
+      annualFee: '295 kr', cashback: 'Golfförmåner', creditLimit: 'upp till 150 000 kr', interestFreeDays: '56 dagar', rating: 4.1,
+      highlights: ['Bara för golfarna', 'Specialförmåner för golf'],
+      isPartner: false
     }
   ].map(seal);
 

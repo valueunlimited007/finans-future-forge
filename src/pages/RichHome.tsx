@@ -97,15 +97,15 @@ export default function RichHome() {
             {/* Privatlan Offers */}
             <OffersContainer 
               category="privatlan" 
-              limit={3} 
-              title="Bästa privatlånen" 
+              limit={6}
+              title="Bästa privatlånen"
               className="mb-12"
             />
 
             {/* Utan UC Offers */}
             <OffersContainer 
               category="utan-uc" 
-              limit={3} 
+              limit={6}
               title="Lån utan UC-kontroll"
             />
           </div>

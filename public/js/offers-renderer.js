@@ -12,12 +12,22 @@
 
     var grid = el('<div class="lender-grid"></div>');
 
-    items.slice(0, limit).forEach(function(item, idx){
+    // Sort offers to prioritize partners first, then by rating
+    var sortedOffers = offers.sort(function(a, b) {
+      if (a.isPartner && !b.isPartner) return -1;
+      if (!a.isPartner && b.isPartner) return 1;
+      return (b.rating || 0) - (a.rating || 0);
+    });
+
+    // Generate offer cards
+    var cards = sortedOffers.slice(0, limit).map(function(item, idx){
       var featured = item.featured === true ? ' featured' : '';
       var badge = '';
       
-      // Dynamic badges based on item properties - data-driven
-      if (item.featured === true) {
+      // Dynamic badges based on item properties - data-driven  
+      if (item.isPartner === true) {
+        badge = '<span class="badge badge-partner">Partner</span>';
+      } else if (item.featured === true) {
         badge = '<span class="badge badge-featured">Bäst val</span>';
       } else if (item.highlights && item.highlights.includes('Utan UC-kontroll')) {
         badge = '<span class="badge badge-utan-uc">Utan UC</span>';
@@ -57,7 +67,7 @@
         ? '<img src="'+esc(logoSrc)+'" alt="'+esc(item.name)+' logotyp" loading="lazy" decoding="async" />'
         : esc((item.name||'').split(' ')[0]||'');
       
-      var card = el(`
+      return el(`
         <article class="lender-card${featured}">
           <div class="lender-logo" aria-label="${esc(item.name)} logotyp">${logoHtml}</div>
           <div class="lender-info">
@@ -66,11 +76,13 @@
           </div>
           <div class="lender-cta">
             <div class="lender-rating"><span class="stars">★★★★★</span> ${esc((item.rating||4.5).toFixed ? item.rating.toFixed(1) : item.rating)}/5</div>
-            <a href="${esc(item.url)}" class="btn ${item.featured === true ? 'btn-primary' : 'btn-secondary'} btn-full" rel="nofollow sponsored noopener noreferrer" target="_blank"${dataAff}>Till ansökan</a>
+            <a href="${esc(item.url)}" class="btn ${item.featured === true ? 'btn-primary' : 'btn-secondary'} btn-full" rel="nofollow sponsored noopener noreferrer" target="_blank"${dataAff}>${item.isPartner ? 'Ansök nu' : 'Besök webbplats'}</a>
             <small class="text-muted">Sponsrad länk</small>
           </div>
         </article>`);
+    });
 
+    cards.forEach(function(card) {
       // Debug: Log text width issues
       try {
         setTimeout(function() {
@@ -92,7 +104,6 @@
       } catch(e) {}
 
       grid.appendChild(card);
-
       // iPad Safari zoom fallback - use visualViewport API for proper zoom detection
       if (/iPad|iPhone|iPod/.test(navigator.userAgent) && window.visualViewport) {
         var cardInner = card; // The card itself is our inner wrapper
