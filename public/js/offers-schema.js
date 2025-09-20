@@ -6,6 +6,9 @@
   // Helper to freeze objects lightly (avoid accidental mutation)
   function seal(o){ try { return Object.freeze(o); } catch(e){ return o; } }
 
+  // Cache buster for offers update
+  var cacheVersion = Date.now();
+
   // Real Adtraction partners - approved for Finansguiden.se
   var privatlan = [
     // VERIFIED PARTNERS (with tracking links)
@@ -259,13 +262,13 @@
     }
   ].map(seal);
 
-  var existing = window.FG_OFFERS || {};
-  var OFFERS = Object.assign({}, existing, {
-    foretagslan: existing.foretagslan || foretagslan,
-    kreditkort: existing.kreditkort || kreditkort,
-    privatlan: existing.privatlan || privatlan,
-    'utan-uc': existing['utan-uc'] || utanUc
-  });
+  // Force fresh data to clear any cache
+  var OFFERS = {
+    foretagslan: foretagslan,
+    kreditkort: kreditkort,
+    privatlan: privatlan,
+    'utan-uc': utanUc
+  };
 
   function pushUnique(cat, item){
     OFFERS[cat] = OFFERS[cat] || [];
