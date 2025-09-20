@@ -100,6 +100,7 @@
       amountRange: '5 000 – 400 000 kr', aprFrom: 'från 4,95%', decision: 'Snabbt beslut',
       requirements: 'Stabil ekonomi', rating: 4.3,
       highlights: ['Enkel ansökan', 'Snabb utbetalning'],
+      logo: '/adtraction-logos/klaralan-logo.png',
       isPartner: false
     }
   ].map(seal);

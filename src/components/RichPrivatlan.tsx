@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
@@ -14,6 +14,7 @@ import FinancialCalculator from "@/components/FinancialCalculator";
 import OffersContainer from "./OffersContainer";
 
 export default function RichPrivatlan() {
+  const [showAllLoans, setShowAllLoans] = useState(false);
   return (
     <>
       <Helmet>
@@ -87,7 +88,7 @@ export default function RichPrivatlan() {
             {/* Adtraction Offers Container */}
             <OffersContainer 
               category="privatlan" 
-              limit={12}
+              limit={showAllLoans ? 20 : 4}
               className="mb-12" 
             />
             
@@ -97,13 +98,17 @@ export default function RichPrivatlan() {
                 size="lg" 
                 className="text-lg px-8"
                 onClick={() => {
-                  const element = document.getElementById('jamfor');
-                  if (element) {
-                    element.scrollIntoView({ behavior: 'smooth' });
-                  }
+                  setShowAllLoans(!showAllLoans);
+                  // Smooth scroll to see the expanded content
+                  setTimeout(() => {
+                    const element = document.getElementById('jamfor');
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }, 100);
                 }}
               >
-                Se alla privatlån
+                {showAllLoans ? 'Visa färre' : 'Se alla privatlån'}
               </Button>
             </div>
           </div>
