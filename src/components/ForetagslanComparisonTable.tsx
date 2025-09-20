@@ -157,9 +157,10 @@ export default function ForetagslanComparisonTable() {
         </p>
       </div>
 
-      <div className="grid gap-6">
+      {/* Desktop: 2-column grid, Mobile: 1-column */}
+      <div className="grid gap-6 lg:grid-cols-2">
         {lenders.map((lender, index) => (
-          <Card key={index} className={`relative ${lender.recommended ? 'border-emerald-200 bg-emerald-50' : ''}`}>
+          <Card key={index} className={`relative ${lender.recommended ? 'border-emerald-200 bg-emerald-50' : ''} max-w-none`}>
             {lender.recommended && (
               <div className="absolute -top-3 left-6">
                 <Badge className="bg-emerald-500 text-white">
@@ -169,88 +170,99 @@ export default function ForetagslanComparisonTable() {
               </div>
             )}
             
-            <CardHeader>
+            <CardHeader className="pb-4">
               <div className="flex justify-between items-start">
-                <div>
-                  <CardTitle className="flex items-center gap-3">
+                <div className="flex-1">
+                  <CardTitle className="flex items-center gap-3 text-lg">
                     {lender.name}
-                    <Badge variant="outline">{lender.type}</Badge>
+                    <Badge variant="outline" className="text-xs">{lender.type}</Badge>
                   </CardTitle>
-                  <CardDescription className="mt-2">
+                  <CardDescription className="mt-1 text-sm">
                     {lender.minAmount} - {lender.maxAmount}
                   </CardDescription>
                 </div>
-                <div className="text-right">
-                  <div className="text-2xl font-bold text-emerald-600">{lender.interestRate}</div>
-                  <div className="text-sm text-muted-foreground">Effektiv ränta</div>
-                  <div className="flex items-center gap-1 mt-1">
-                    <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                    <span className="text-sm">{lender.rating}</span>
+                <div className="text-right flex-shrink-0">
+                  <div className="text-xl font-bold text-emerald-600">{lender.interestRate}</div>
+                  <div className="text-xs text-muted-foreground">Effektiv ränta</div>
+                  <div className="flex items-center gap-1 mt-1 justify-end">
+                    <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
+                    <span className="text-xs">{lender.rating}</span>
                   </div>
                 </div>
               </div>
             </CardHeader>
             
             <CardContent className="space-y-4">
-              <div className="grid md:grid-cols-3 gap-4 text-sm">
+              {/* Key info in compact grid */}
+              <div className="grid grid-cols-2 gap-4 text-xs bg-muted/30 p-3 rounded-lg">
                 <div>
                   <div className="font-semibold mb-1">Handläggningstid</div>
                   <div className="flex items-center gap-1">
-                    <Clock className="w-4 h-4 text-blue-500" />
+                    <Clock className="w-3 h-3 text-blue-500" />
                     {lender.processingTime}
                   </div>
                 </div>
                 <div>
                   <div className="font-semibold mb-1">Säkerhet</div>
-                  <div>{lender.collateral}</div>
-                </div>
-                <div>
-                  <div className="font-semibold mb-1">Typ</div>
-                  <div>{lender.type}</div>
+                  <div className="text-muted-foreground">{lender.collateral}</div>
                 </div>
               </div>
               
-              <div className="grid md:grid-cols-2 gap-4">
+              {/* Pros and cons in compact layout */}
+              <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <h4 className="font-semibold mb-2 text-green-700">✓ Fördelar</h4>
-                  <ul className="space-y-1 text-sm">
-                    {lender.pros.map((pro, idx) => (
-                      <li key={idx} className="flex items-center gap-2">
-                        <CheckCircle className="w-3 h-3 text-green-500" />
-                        {pro}
+                  <h4 className="font-semibold mb-2 text-green-700 text-sm">✓ Fördelar</h4>
+                  <ul className="space-y-1">
+                    {lender.pros.slice(0, 2).map((pro, idx) => (
+                      <li key={idx} className="flex items-start gap-2 text-xs">
+                        <CheckCircle className="w-3 h-3 text-green-500 mt-0.5 flex-shrink-0" />
+                        <span>{pro}</span>
                       </li>
                     ))}
+                    {lender.pros.length > 2 && (
+                      <li className="text-xs text-muted-foreground">+{lender.pros.length - 2} fler</li>
+                    )}
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold mb-2 text-red-700">⚠ Nackdelar</h4>
-                  <ul className="space-y-1 text-sm">
-                    {lender.cons.map((con, idx) => (
-                      <li key={idx} className="flex items-center gap-2">
-                        <XCircle className="w-3 h-3 text-red-500" />
-                        {con}
+                  <h4 className="font-semibold mb-2 text-red-700 text-sm">⚠ Nackdelar</h4>
+                  <ul className="space-y-1">
+                    {lender.cons.slice(0, 2).map((con, idx) => (
+                      <li key={idx} className="flex items-start gap-2 text-xs">
+                        <XCircle className="w-3 h-3 text-red-500 mt-0.5 flex-shrink-0" />
+                        <span>{con}</span>
                       </li>
                     ))}
+                    {lender.cons.length > 2 && (
+                      <li className="text-xs text-muted-foreground">+{lender.cons.length - 2} fler</li>
+                    )}
                   </ul>
                 </div>
               </div>
               
+              {/* Features as compact badges */}
               <div>
-                <h4 className="font-semibold mb-2">Specialiteter</h4>
-                <div className="flex flex-wrap gap-2">
-                  {lender.features.map((feature, idx) => (
-                    <Badge key={idx} variant="secondary" className="text-xs">
+                <h4 className="font-semibold mb-2 text-sm">Specialiteter</h4>
+                <div className="flex flex-wrap gap-1">
+                  {lender.features.slice(0, 3).map((feature, idx) => (
+                    <Badge key={idx} variant="secondary" className="text-xs px-2 py-1">
                       {feature}
                     </Badge>
                   ))}
+                  {lender.features.length > 3 && (
+                    <Badge variant="outline" className="text-xs px-2 py-1">
+                      +{lender.features.length - 3}
+                    </Badge>
+                  )}
                 </div>
               </div>
               
-              <div className="flex gap-3 pt-2">
-                <Button className="flex-1">
+              {/* Action buttons */}
+              <div className="flex gap-2 pt-2">
+                <Button size="sm" className="flex-1 text-xs">
                   Ansök hos {lender.name}
                 </Button>
-                <Button variant="outline">
+                <Button variant="outline" size="sm" className="text-xs px-3">
                   Läs mer
                 </Button>
               </div>
