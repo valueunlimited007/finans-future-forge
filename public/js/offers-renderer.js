@@ -13,7 +13,7 @@
     var grid = el('<div class="lender-grid"></div>');
 
     // Sort offers to prioritize partners first, then by rating
-    var sortedOffers = offers.sort(function(a, b) {
+    var sortedOffers = items.sort(function(a, b) {
       if (a.isPartner && !b.isPartner) return -1;
       if (!a.isPartner && b.isPartner) return 1;
       return (b.rating || 0) - (a.rating || 0);
