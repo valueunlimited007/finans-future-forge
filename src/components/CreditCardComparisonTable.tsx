@@ -263,25 +263,25 @@ export default function CreditCardComparisonTable() {
     }
   };
 
-  const getTypeColor = (type: CreditCard['type']) => {
+  const getButtonStyles = (type: CreditCard['type']) => {
     switch (type) {
-      case "cashback": return "green";
-      case "travel": return "blue";
-      case "premium": return "purple";
-      case "store": return "orange";
-      case "basic": return "gray";
-      case "fuel": return "red";
+      case "cashback": return "bg-green-600 hover:bg-green-700 text-white";
+      case "travel": return "bg-blue-600 hover:bg-blue-700 text-white";
+      case "premium": return "bg-purple-600 hover:bg-purple-700 text-white";
+      case "store": return "bg-orange-600 hover:bg-orange-700 text-white";
+      case "basic": return "bg-gray-600 hover:bg-gray-700 text-white";
+      case "fuel": return "bg-red-600 hover:bg-red-700 text-white";
     }
   };
 
   const CardComponent = ({ card }: { card: CreditCard }) => {
-    const typeColor = getTypeColor(card.type);
+    const buttonStyles = getButtonStyles(card.type);
     
     return (
       <Card className={`relative ${card.recommended ? 'border-2 border-green-400 bg-green-50' : ''}`}>
         {card.recommended && (
-          <div className="absolute -top-3 left-6">
-            <Badge className="bg-green-500 text-white">
+          <div className="absolute top-2 right-2 z-10">
+            <Badge className="bg-green-500 text-white shadow-md">
               <Star className="w-3 h-3 mr-1" />
               Rekommenderad
             </Badge>
@@ -386,7 +386,7 @@ export default function CreditCardComparisonTable() {
           </div>
           
           <Button 
-            className={`w-full bg-${typeColor}-600 hover:bg-${typeColor}-700`}
+            className={`w-full ${buttonStyles}`}
             asChild={!!card.url}
           >
             {card.url ? (
