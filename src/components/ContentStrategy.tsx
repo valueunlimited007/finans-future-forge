@@ -152,12 +152,12 @@ export default function ContentStrategy() {
           </Card>
         </div>
 
-        {/* Content Quality Metrics */}
+        {/* Why Our Guides Make a Difference */}
         <div className="mt-16 bg-gradient-to-r from-blue-50 to-green-50 p-8 rounded-lg">
           <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold mb-4">Innehållskvalitet som Google älskar</h3>
+            <h3 className="text-2xl font-bold mb-4">Varför våra guider gör skillnad</h3>
             <p className="text-muted-foreground">
-              Vårt innehåll uppfyller alla Google AdSense-krav för värdefull, unik information
+              Vi investerar tid och expertis för att ge dig den mest användbara finansiella informationen
             </p>
           </div>
 
@@ -165,23 +165,32 @@ export default function ContentStrategy() {
             <div>
               <div className="text-3xl font-bold text-green-600 mb-2">15 000+</div>
               <div className="text-sm text-muted-foreground">ord per guide</div>
-              <div className="text-xs text-muted-foreground mt-1">Djupgående innehåll</div>
+              <div className="text-xs text-muted-foreground mt-1">Omfattande och djupgående innehåll</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-blue-600 mb-2">100%</div>
-              <div className="text-sm text-muted-foreground">unikt innehåll</div>
-              <div className="text-xs text-muted-foreground mt-1">Ingen kopiering</div>
+              <div className="text-sm text-muted-foreground">originellt innehåll</div>
+              <div className="text-xs text-muted-foreground mt-1">Unik analys och insikter</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-purple-600 mb-2">2</div>
               <div className="text-sm text-muted-foreground">experter</div>
-              <div className="text-xs text-muted-foreground mt-1">Verifierad kunskap</div>
+              <div className="text-xs text-muted-foreground mt-1">Expertgranskad information</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-orange-600 mb-2">2025</div>
               <div className="text-sm text-muted-foreground">uppdaterat</div>
-              <div className="text-xs text-muted-foreground mt-1">Aktuell information</div>
+              <div className="text-xs text-muted-foreground mt-1">Alltid aktuell information</div>
             </div>
+          </div>
+          
+          <div className="text-center mt-6">
+            <a 
+              href="/om#kvalitetsarbete"
+              className="text-sm text-primary hover:underline"
+            >
+              Läs mer om vårt kvalitetsarbete →
+            </a>
           </div>
         </div>
       </div>

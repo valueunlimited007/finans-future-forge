@@ -86,6 +86,76 @@ export default function Om() {
               </div>
             </section>
 
+            <section id="kvalitetsarbete" className="mb-8">
+              <h2 className="text-2xl font-semibold mb-4 text-foreground">Så arbetar vi med kvalitet</h2>
+              <p className="mb-6 text-foreground">
+                Vi tar kvalitet på allvar. Varje guide genomgår en rigorös process för att säkerställa att du får den mest användbara och korrekta informationen.
+              </p>
+
+              <div className="grid md:grid-cols-2 gap-6 mb-6">
+                <div className="bg-card border border-border rounded-lg p-6">
+                  <h3 className="text-lg font-semibold mb-3 text-foreground flex items-center gap-2">
+                    🔍 Djupgående research
+                  </h3>
+                  <p className="text-sm text-foreground mb-2">
+                    Varje guide kräver 40+ timmar av research där vi analyserar marknaden, jämför hundratals produkter och samlar in aktuella räntor och villkor.
+                  </p>
+                  <p className="text-xs text-muted-foreground">
+                    Vi kontaktar finansinstitut direkt för att verifiera information och använder endast officiella källor.
+                  </p>
+                </div>
+
+                <div className="bg-card border border-border rounded-lg p-6">
+                  <h3 className="text-lg font-semibold mb-3 text-foreground flex items-center gap-2">
+                    👥 Expertgranskning
+                  </h3>
+                  <p className="text-sm text-foreground mb-2">
+                    Alla våra guider granskas av minst två finansexperter med över 10 års branschexpertis inom banking och finansiella tjänster.
+                  </p>
+                  <p className="text-xs text-muted-foreground">
+                    Våra experter har bakgrund från svenska storbanker, Finansinspektionen och oberoende rådgivningsbolag.
+                  </p>
+                </div>
+
+                <div className="bg-card border border-border rounded-lg p-6">
+                  <h3 className="text-lg font-semibold mb-3 text-foreground flex items-center gap-2">
+                    📊 Kontinuerlig uppdatering
+                  </h3>
+                  <p className="text-sm text-foreground mb-2">
+                    Vi övervakar marknaden dagligen och uppdaterar våra guider så snart räntor eller villkor förändras. Automatiska system varnar oss om förändringar.
+                  </p>
+                  <p className="text-xs text-muted-foreground">
+                    Varje guide genomgår en fullständig översyn minst en gång per kvartal för att säkerställa fortsatt relevans.
+                  </p>
+                </div>
+
+                <div className="bg-card border border-border rounded-lg p-6">
+                  <h3 className="text-lg font-semibold mb-3 text-foreground flex items-center gap-2">
+                    ✅ Användartestning
+                  </h3>
+                  <p className="text-sm text-foreground mb-2">
+                    Vi testar våra guider på riktiga användare för att säkerställa att informationen är lätt att förstå och praktiskt användbar.
+                  </p>
+                  <p className="text-xs text-muted-foreground">
+                    Feedback från läsare hjälper oss att förbättra och förtydliga vårt innehåll kontinuerligt.
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-muted/50 border border-border rounded-lg p-4 mb-6">
+                <h3 className="text-lg font-semibold mb-3 text-foreground">Varför så omfattande guider?</h3>
+                <p className="text-sm text-foreground mb-2">
+                  Finansiella beslut påverkar ditt liv under lång tid. Vi investerar tid i att skapa omfattande, sammanhängande guider istället för korta artiklar eftersom:
+                </p>
+                <ul className="text-sm text-foreground space-y-1 ml-4">
+                  <li>• Du får hela bilden, inte bara fragment av information</li>
+                  <li>• Sammanhang hjälper dig förstå <em>varför</em> ett alternativ är bättre</li>
+                  <li>• Du slipper leta information från flera källor</li>
+                  <li>• Praktiska exempel visar hur teorin fungerar i verkligheten</li>
+                </ul>
+              </div>
+            </section>
+
             <section className="mb-8">
               <h2 className="text-2xl font-semibold mb-4 text-foreground">Ansvarsfriskrivning</h2>
               <div className="bg-muted/30 border border-border rounded-lg p-4">
