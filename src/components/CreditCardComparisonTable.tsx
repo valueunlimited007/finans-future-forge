@@ -408,7 +408,7 @@ export default function CreditCardComparisonTable() {
     <div className="space-y-12">
       {/* Cashback Cards */}
       {cashbackCards.length > 0 && (
-        <div>
+        <div id="cashback">
           <div className="text-center mb-8">
             <h3 className="text-2xl font-bold mb-4 flex items-center justify-center gap-3">
               <Gift className="w-6 h-6 text-green-600" />
@@ -426,9 +426,29 @@ export default function CreditCardComparisonTable() {
         </div>
       )}
 
+      {/* Basic Cards */}
+      {basicCards.length > 0 && (
+        <div id="grundkort">
+          <div className="text-center mb-8">
+            <h3 className="text-2xl font-bold mb-4 flex items-center justify-center gap-3">
+              <Shield className="w-6 h-6 text-gray-600" />
+              Grundkort - Enkla och kostnadsfria
+            </h3>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Enkla kreditkort utan årsavgift. Perfekt för nybörjare eller som kompletterande kort.
+            </p>
+          </div>
+          <div className="grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2">
+            {basicCards.map((card, index) => (
+              <CardComponent key={index} card={card} />
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* Travel Cards */}
       {travelCards.length > 0 && (
-        <div>
+        <div id="resor">
           <div className="text-center mb-8">
             <h3 className="text-2xl font-bold mb-4 flex items-center justify-center gap-3">
               <Plane className="w-6 h-6 text-blue-600" />
@@ -448,7 +468,7 @@ export default function CreditCardComparisonTable() {
 
       {/* Premium Cards */}
       {premiumCards.length > 0 && (
-        <div>
+        <div id="premium">
           <div className="text-center mb-8">
             <h3 className="text-2xl font-bold mb-4 flex items-center justify-center gap-3">
               <Star className="w-6 h-6 text-purple-600" />
@@ -466,29 +486,9 @@ export default function CreditCardComparisonTable() {
         </div>
       )}
 
-      {/* Basic Cards */}
-      {basicCards.length > 0 && (
-        <div>
-          <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold mb-4 flex items-center justify-center gap-3">
-              <Shield className="w-6 h-6 text-gray-600" />
-              Grundkort - Enkla och kostnadsfria
-            </h3>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Enkla kreditkort utan årsavgift. Perfekt för nybörjare eller som kompletterande kort.
-            </p>
-          </div>
-          <div className="grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2">
-            {basicCards.map((card, index) => (
-              <CardComponent key={index} card={card} />
-            ))}
-          </div>
-        </div>
-      )}
-
       {/* Store Cards */}
       {storeCards.length > 0 && (
-        <div>
+        <div id="butikskort">
           <div className="text-center mb-8">
             <h3 className="text-2xl font-bold mb-4 flex items-center justify-center gap-3">
               <CreditCard className="w-6 h-6 text-orange-600" />
@@ -508,7 +508,7 @@ export default function CreditCardComparisonTable() {
 
       {/* Fuel Cards */}
       {fuelCards.length > 0 && (
-        <div>
+        <div id="bensin">
           <div className="text-center mb-8">
             <h3 className="text-2xl font-bold mb-4 flex items-center justify-center gap-3">
               <Car className="w-6 h-6 text-red-600" />
