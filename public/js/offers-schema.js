@@ -48,6 +48,33 @@
       logo: '/adtraction-logos/finlo-logo.png',
       isPartner: true
     },
+    {
+      id: 'trygga', network: 'adtraction', name: 'Trygga',
+      url: 'https://go.adt246.net/t/t?a=1318042077&as=2005939977&t=2&tk=1',
+      amountRange: '5 000 – 800 000 kr', aprFrom: '4,95% - 22,95%', decision: 'Snabbt beslut',
+      requirements: 'Noga utvalda långivare', rating: 4.6,
+      highlights: ['Endast 1 kreditupplysning', 'Personlig service'],
+      logo: '/adtraction-logos/trygga-logo.png',
+      isPartner: true
+    },
+    {
+      id: 'erafinans', network: 'adtraction', name: 'Erafinans',
+      url: 'https://go.adt242.com/t/t?a=1870931734&as=2005939977&t=2&tk=1',
+      amountRange: '25 000 – 600 000 kr', aprFrom: '3,06% - 29,99%', decision: 'Snabbt beslut',
+      requirements: 'Min 18 år, inkomst 8400kr/mån', rating: 4.5,
+      highlights: ['Upp till 40 långivare', 'Endast en kreditupplysning'],
+      logo: '/adtraction-logos/erafinans-logo.png',
+      isPartner: true
+    },
+    {
+      id: 'natfinans', network: 'adtraction', name: 'NätFinans',
+      url: 'https://go.adt228.com/t/t?a=1984506666&as=2005939977&t=2&tk=1',
+      amountRange: '25 000 – 800 000 kr', aprFrom: 'från 3,95%', decision: 'Snabbt beslut',
+      requirements: 'Jämför över 50 långivare', rating: 4.7,
+      highlights: ['Bred jämförelse', 'Flera erbjudanden'],
+      logo: '/adtraction-logos/natfinans-logo.png',
+      isPartner: true
+    },
     // ADDITIONAL LENDERS (pending partnership approval)
     {
       id: 'anyfin', name: 'Anyfin',
@@ -109,6 +136,69 @@
       requirements: 'Min. ålder 20 år', rating: 4.4,
       highlights: ['Ändra villkor med ett svajp', 'Utbetalning realtid 24/7'],
       logo: '/adtraction-logos/fairlo-logo.png',
+      isPartner: true
+    },
+    {
+      id: 'binly', network: 'adtraction', name: 'Binly',
+      url: 'https://go.adt231.net/t/t?a=1797620295&as=2005939977&t=2&tk=1',
+      amountRange: '2 000 – 70 000 kr', aprFrom: '68,52% - 270,13%', decision: 'Snabbt beslut',
+      requirements: 'Min 18 år', rating: 3.8,
+      highlights: ['4-19 månaders löptid', 'Snabb process'],
+      logo: '/adtraction-logos/binly-logo.png',
+      isPartner: true
+    },
+    {
+      id: 'credifi', network: 'adtraction', name: 'Credifi',
+      url: 'https://go.adt228.com/t/t?a=1673075264&as=2005939977&t=2&tk=1',
+      amountRange: '2 000 – 70 000 kr', aprFrom: '68,52% - 270,13%', decision: 'Snabbt beslut',
+      requirements: 'Min 18 år', rating: 3.8,
+      highlights: ['Svenskregistrerat', 'Licensierat företag'],
+      logo: '/adtraction-logos/credifi-logo.png',
+      isPartner: true
+    },
+    {
+      id: 'tomly', network: 'adtraction', name: 'Tomly',
+      url: 'https://go.adt256.com/t/t?a=1934379288&as=2005939977&t=2&tk=1',
+      amountRange: '2 000 – 70 000 kr', aprFrom: '68,52% - 270,13%', decision: 'Snabbt beslut',
+      requirements: 'Min 18 år', rating: 3.8,
+      highlights: ['4-19 månaders löptid', 'Flexibel återbetalning'],
+      logo: '/adtraction-logos/tomly-logo.png',
+      isPartner: true
+    },
+    {
+      id: 'lumify', network: 'adtraction', name: 'Lumify',
+      url: 'https://go.adt246.net/t/t?a=1278835897&as=2005939977&t=2&tk=1',
+      amountRange: '2 000 – 70 000 kr', aprFrom: '68,52% - 270,13%', decision: 'Snabbt beslut',
+      requirements: 'Min 18 år', rating: 3.8,
+      highlights: ['Luma Finans AB', 'Finansinspektionen licensierat'],
+      logo: '/adtraction-logos/lumify-logo.png',
+      isPartner: true
+    },
+    {
+      id: 'trygga-utanuc', network: 'adtraction', name: 'Trygga',
+      url: 'https://go.adt246.net/t/t?a=1318042077&as=2005939977&t=2&tk=1',
+      amountRange: '5 000 – 800 000 kr', aprFrom: '4,95% - 22,95%', decision: 'Snabbt beslut',
+      requirements: 'Noga utvalda långivare', rating: 4.6,
+      highlights: ['Endast 1 kreditupplysning', 'Personlig service'],
+      logo: '/adtraction-logos/trygga-logo.png',
+      isPartner: true
+    },
+    {
+      id: 'erafinans-utanuc', network: 'adtraction', name: 'Erafinans',
+      url: 'https://go.adt242.com/t/t?a=1870931734&as=2005939977&t=2&tk=1',
+      amountRange: '25 000 – 600 000 kr', aprFrom: '3,06% - 29,99%', decision: 'Snabbt beslut',
+      requirements: 'Min 18 år, inkomst 8400kr/mån', rating: 4.5,
+      highlights: ['Upp till 40 långivare', 'Endast en kreditupplysning'],
+      logo: '/adtraction-logos/erafinans-logo.png',
+      isPartner: true
+    },
+    {
+      id: 'natfinans-utanuc', network: 'adtraction', name: 'NätFinans',
+      url: 'https://go.adt228.com/t/t?a=1984506666&as=2005939977&t=2&tk=1',
+      amountRange: '25 000 – 800 000 kr', aprFrom: 'från 3,95%', decision: 'Snabbt beslut',
+      requirements: 'Jämför över 50 långivare', rating: 4.7,
+      highlights: ['Bred jämförelse', 'Flera erbjudanden'],
+      logo: '/adtraction-logos/natfinans-logo.png',
       isPartner: true
     },
     {
@@ -260,6 +350,22 @@
       annualFee: '295 kr', cashback: 'Golfförmåner', creditLimit: 'upp till 150 000 kr', interestFreeDays: '56 dagar', rating: 4.1,
       highlights: ['Bara för golfarna', 'Specialförmåner för golf'],
       isPartner: false
+    },
+    {
+      id: 'northmill-betalkort', network: 'adtraction', name: 'Northmill Betalkort',
+      url: 'https://go.adt212.net/t/t?a=1870916623&as=2005939977&t=2&tk=1',
+      annualFee: '0 kr', cashback: 'Reseförsäkring ingår', creditLimit: 'Personkonto med 2% ränta', interestFreeDays: 'Kostnadsfritt betalkort', rating: 4.7,
+      highlights: ['0% valutapåslag', 'Välkomstgåva 101 kr'],
+      logo: '/adtraction-logos/northmill-logo.png',
+      isPartner: true
+    },
+    {
+      id: 'northmill-betala-senare', network: 'adtraction', name: 'Northmill Betala Senare',
+      url: 'https://go.adt212.net/t/t?a=1870916623&as=2005939977&t=2&tk=1',
+      annualFee: '0 kr', cashback: 'Nej', creditLimit: '15 000 kr', interestFreeDays: 'Upp till 42 dagar', rating: 4.6,
+      highlights: ['21,9% ränta', 'Flexibla betalsätt'],
+      logo: '/adtraction-logos/northmill2-logo.png',
+      isPartner: true
     }
   ].map(seal);
 
