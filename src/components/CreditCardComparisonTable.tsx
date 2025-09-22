@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -19,6 +19,31 @@ interface CreditCard {
   recommended?: boolean;
   welcomeBonus?: string;
   issuer: string;
+  url?: string;
+  isPartner?: boolean;
+}
+
+interface OfferCard {
+  id: string;
+  name: string;
+  url: string;
+  annualFee: string;
+  cashback: string;
+  creditLimit: string;
+  interestFreeDays: string;
+  rating: number;
+  highlights: string[];
+  logo?: string;
+  isPartner: boolean;
+}
+
+// Declare global FG_OFFERS for TypeScript
+declare global {
+  interface Window {
+    FG_OFFERS?: {
+      kreditkort?: OfferCard[];
+    };
+  }
 }
 
 const creditCards: CreditCard[] = [
@@ -163,12 +188,69 @@ const creditCards: CreditCard[] = [
 ];
 
 export default function CreditCardComparisonTable() {
-  const cashbackCards = creditCards.filter(card => card.type === "cashback");
-  const travelCards = creditCards.filter(card => card.type === "travel");
-  const premiumCards = creditCards.filter(card => card.type === "premium");
-  const basicCards = creditCards.filter(card => card.type === "basic");
-  const storeCards = creditCards.filter(card => card.type === "store");
-  const fuelCards = creditCards.filter(card => card.type === "fuel");
+  const [allCards, setAllCards] = useState<CreditCard[]>(creditCards);
+
+  // Transform offer to CreditCard format
+  const transformOfferToCard = (offer: OfferCard): CreditCard => {
+    // Determine card type based on highlights and cashback info
+    let type: CreditCard['type'] = "basic";
+    const highlights = offer.highlights.join(' ').toLowerCase();
+    const cashback = offer.cashback.toLowerCase();
+    
+    if (cashback.includes('cashback') || cashback.includes('%')) type = "cashback";
+    else if (highlights.includes('resa') || highlights.includes('travel')) type = "travel";
+    else if (highlights.includes('premium') || offer.annualFee !== '0 kr') type = "premium";
+    else if (highlights.includes('butik') || highlights.includes('ica')) type = "store";
+    
+    return {
+      name: offer.name,
+      type,
+      issuer: offer.name.split(' ')[0], // Use first word as issuer
+      annualFee: offer.annualFee,
+      cashbackRate: offer.cashback !== 'Nej' ? offer.cashback : undefined,
+      interestFreeDays: offer.interestFreeDays,
+      creditLimit: offer.creditLimit,
+      features: offer.highlights,
+      pros: offer.highlights.slice(0, 3), // Use highlights as pros
+      cons: [], // No cons data available from offers
+      rating: offer.rating,
+      recommended: offer.isPartner,
+      url: offer.url,
+      isPartner: offer.isPartner
+    };
+  };
+
+  // Load offers and combine with static cards
+  useEffect(() => {
+    const loadOffers = () => {
+      const offerCards = window.FG_OFFERS?.kreditkort || [];
+      const partnerCards = offerCards
+        .filter(offer => offer.isPartner)
+        .map(transformOfferToCard);
+      
+      // Combine static cards with partner offers, prioritizing partners
+      const combined = [...partnerCards, ...creditCards];
+      setAllCards(combined);
+    };
+
+    // Load initial offers
+    loadOffers();
+
+    // Listen for offers updates
+    const handleOffersUpdate = () => loadOffers();
+    document.addEventListener('fg:offers-updated', handleOffersUpdate);
+
+    return () => {
+      document.removeEventListener('fg:offers-updated', handleOffersUpdate);
+    };
+  }, []);
+
+  const cashbackCards = allCards.filter(card => card.type === "cashback");
+  const travelCards = allCards.filter(card => card.type === "travel");
+  const premiumCards = allCards.filter(card => card.type === "premium");
+  const basicCards = allCards.filter(card => card.type === "basic");
+  const storeCards = allCards.filter(card => card.type === "store");
+  const fuelCards = allCards.filter(card => card.type === "fuel");
 
   const getTypeIcon = (type: CreditCard['type']) => {
     switch (type) {
@@ -287,18 +369,33 @@ export default function CreditCardComparisonTable() {
             <div>
               <h5 className="font-semibold text-sm mb-2 text-red-700">Nackdelar:</h5>
               <ul className="text-sm space-y-1">
-                {card.cons.slice(0, 3).map((con, idx) => (
-                  <li key={idx} className="flex items-start gap-2">
-                    <XCircle className="w-3 h-3 text-red-500 mt-0.5 flex-shrink-0" />
-                    <span>{con}</span>
+                {card.cons && card.cons.length > 0 ? (
+                  card.cons.slice(0, 3).map((con, idx) => (
+                    <li key={idx} className="flex items-start gap-2">
+                      <XCircle className="w-3 h-3 text-red-500 mt-0.5 flex-shrink-0" />
+                      <span>{con}</span>
+                    </li>
+                  ))
+                ) : (
+                  <li className="text-muted-foreground text-xs italic">
+                    Kontakta utgivaren för fullständig information
                   </li>
-                ))}
+                )}
               </ul>
             </div>
           </div>
           
-          <Button className={`w-full bg-${typeColor}-600 hover:bg-${typeColor}-700`}>
-            Ansök om {card.name}
+          <Button 
+            className={`w-full bg-${typeColor}-600 hover:bg-${typeColor}-700`}
+            asChild={!!card.url}
+          >
+            {card.url ? (
+              <a href={card.url} target="_blank" rel="noopener noreferrer">
+                Ansök om {card.name}
+              </a>
+            ) : (
+              <span>Ansök om {card.name}</span>
+            )}
           </Button>
         </CardContent>
       </Card>
