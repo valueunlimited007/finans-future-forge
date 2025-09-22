@@ -406,26 +406,6 @@ export default function CreditCardComparisonTable() {
 
   return (
     <div className="space-y-12">
-      {/* Cashback Cards */}
-      {cashbackCards.length > 0 && (
-        <div id="cashback">
-          <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold mb-4 flex items-center justify-center gap-3">
-              <Gift className="w-6 h-6 text-green-600" />
-              Cashback-kort - Få pengar tillbaka
-            </h3>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Få pengar tillbaka på dina köp. Perfekt för dig som vill tjäna på dina vardagsköp.
-            </p>
-          </div>
-          <div className="grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2">
-            {cashbackCards.map((card, index) => (
-              <CardComponent key={index} card={card} />
-            ))}
-          </div>
-        </div>
-      )}
-
       {/* Basic Cards */}
       {basicCards.length > 0 && (
         <div id="grundkort">
@@ -440,6 +420,26 @@ export default function CreditCardComparisonTable() {
           </div>
           <div className="grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2">
             {basicCards.map((card, index) => (
+              <CardComponent key={index} card={card} />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Cashback Cards */}
+      {cashbackCards.length > 0 && (
+        <div id="cashback">
+          <div className="text-center mb-8">
+            <h3 className="text-2xl font-bold mb-4 flex items-center justify-center gap-3">
+              <Gift className="w-6 h-6 text-green-600" />
+              Cashback-kort - Få pengar tillbaka
+            </h3>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Få pengar tillbaka på dina köp. Perfekt för dig som vill tjäna på dina vardagsköp.
+            </p>
+          </div>
+          <div className="grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2">
+            {cashbackCards.map((card, index) => (
               <CardComponent key={index} card={card} />
             ))}
           </div>
