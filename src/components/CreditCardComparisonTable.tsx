@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle, XCircle, Star, Gift, Shield, CreditCard, Plane, Car } from "lucide-react";
@@ -278,9 +278,9 @@ export default function CreditCardComparisonTable() {
     const buttonStyles = getButtonStyles(card.type);
     
     return (
-      <Card className={`relative ${card.recommended ? 'border-2 border-green-400 bg-green-50' : ''}`}>
+      <Card className={`relative flex flex-col h-full ${card.recommended ? 'border-2 border-green-400 bg-green-50' : ''}`}>
         {card.recommended && (
-          <div className="absolute top-2 right-2 z-10">
+          <div className="absolute -top-2 left-4 z-10">
             <Badge className="bg-green-500 text-white shadow-md">
               <Star className="w-3 h-3 mr-1" />
               Rekommenderad
@@ -331,7 +331,7 @@ export default function CreditCardComparisonTable() {
           </div>
         </CardHeader>
         
-        <CardContent className="space-y-4">
+        <CardContent className="space-y-4 flex-1">
           {card.welcomeBonus && (
             <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3">
               <div className="flex items-center gap-2">
@@ -384,7 +384,9 @@ export default function CreditCardComparisonTable() {
               </ul>
             </div>
           </div>
-          
+        </CardContent>
+        
+        <CardFooter className="pt-0">
           <Button 
             className={`w-full ${buttonStyles}`}
             asChild={!!card.url}
@@ -397,7 +399,7 @@ export default function CreditCardComparisonTable() {
               <span>Ansök om {card.name}</span>
             )}
           </Button>
-        </CardContent>
+        </CardFooter>
       </Card>
     );
   };
