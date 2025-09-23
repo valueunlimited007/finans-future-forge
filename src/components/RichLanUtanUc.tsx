@@ -50,8 +50,8 @@ export default function RichLanUtanUc() {
   return (
     <>
       <Helmet>
-        <title>Lån utan UC - 17 långivare som inte UC-kontrollerar 2025</title>
-        <meta name="description" content="Lån utan UC-kontroll från 17 långivare. ✓ Även med betalningsanmärkning ✓ Snabba beslut ✓ 10 000-500 000 kr. Få lån utan kreditupplysning idag." />
+        <title>Lån utan UC - 13 långivare som inte UC-kontrollerar 2025</title>
+        <meta name="description" content="Lån utan UC-kontroll från 13 långivare. ✓ Även med betalningsanmärkning ✓ Snabba beslut ✓ 1 000-800 000 kr. Få lån utan kreditupplysning idag." />
         <link rel="canonical" href="https://finansguiden.se/lan-utan-uc" />
         <script type="application/ld+json">
           {JSON.stringify(faqJsonLd)}
@@ -70,8 +70,8 @@ export default function RichLanUtanUc() {
               Lån <span className="text-orange-600">utan UC</span> 2025
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-              17 verifierade långivare som inte gör UC-kontroll. Få lån även med betalningsanmärkning. 
-              Snabba beslut och utbetalning samma dag med räntor från 4,95%.
+              13 verifierade långivare som inte gör UC-kontroll. Få lån även med betalningsanmärkning. 
+              Snabba beslut och utbetalning samma dag med räntor från 2,95%.
             </p>
             
             <div className="flex flex-wrap gap-4 justify-center mb-8">
@@ -90,7 +90,7 @@ export default function RichLanUtanUc() {
               </Badge>
               <Badge variant="secondary" className="bg-blue-100 text-blue-800">
                 <Users className="w-4 h-4 mr-1" />
-                17 verifierade långivare
+                13 verifierade långivare
               </Badge>
               <Badge variant="secondary" className="bg-purple-100 text-purple-800">
                 <Clock className="w-4 h-4 mr-1" />
@@ -98,22 +98,22 @@ export default function RichLanUtanUc() {
               </Badge>
               <Badge variant="secondary" className="bg-yellow-100 text-yellow-800">
                 <TrendingUp className="w-4 h-4 mr-1" />
-                10 000-500 000 kr
+                1 000-800 000 kr
               </Badge>
             </div>
 
             {/* Quick Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
               <div className="text-center">
-                <div className="text-2xl font-bold text-orange-600">17</div>
+                <div className="text-2xl font-bold text-orange-600">13</div>
                 <div className="text-sm text-muted-foreground">Långivare</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-orange-600">4,95%</div>
+                <div className="text-2xl font-bold text-orange-600">2,95%</div>
                 <div className="text-sm text-muted-foreground">Lägsta ränta</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-orange-600">500k</div>
+                <div className="text-2xl font-bold text-orange-600">800k</div>
                 <div className="text-sm text-muted-foreground">Max belopp</div>
               </div>
               <div className="text-center">
