@@ -13,6 +13,42 @@
   var privatlan = [
     // VERIFIED PARTNERS (with tracking links)
     {
+      id: 'leasy', network: 'adtraction', name: 'L\'EASY',
+      url: 'https://go.adt284.net/t/t?a=294654593&as=2005939977&t=2&tk=1',
+      amountRange: '10 000 – 100 000 kr', aprFrom: '14,88% - 21,6%', decision: 'Snabbt beslut',
+      requirements: 'Eff. ränta 25,05% (exempel)', rating: 4.5,
+      highlights: ['Digital långivare', 'Snabb process'],
+      logo: '/adtraction-logos/leasy-logo.png',
+      isPartner: true
+    },
+    {
+      id: 'thorn', network: 'adtraction', name: 'Thorn',
+      url: 'https://go.adt228.com/t/t?a=35567344&as=2005939977&t=2&tk=1',
+      amountRange: '10 000 – 150 000 kr', aprFrom: '14,88% - 21,6%', decision: 'Snabbt beslut',
+      requirements: 'Kreditupplysning', rating: 4.4,
+      highlights: ['Högre lånebelopp', 'Etablerad långivare'],
+      logo: '/adtraction-logos/thorn-logo.png',
+      isPartner: true
+    },
+    {
+      id: 'klicklan', network: 'adtraction', name: 'Klicklån',
+      url: 'https://go.adt284.net/t/t?a=1061611421&as=2005939977&t=2&tk=1',
+      amountRange: '10 000 – 40 000 kr', aprFrom: '14,88% - 21,6%', decision: 'Snabbt beslut',
+      requirements: 'Kreditupplysning', rating: 4.3,
+      highlights: ['Enkel ansökan', 'Flexibla villkor'],
+      logo: '/adtraction-logos/klicklan-logo.png',
+      isPartner: true
+    },
+    {
+      id: 'banknorwegian', network: 'adtraction', name: 'Bank Norwegian',
+      url: 'https://go.adt256.com/t/t?a=1882086706&as=2005939977&t=2&tk=1',
+      amountRange: '10 000 – 600 000 kr', aprFrom: '6,99% - 18,99%', decision: 'Snabbt beslut',
+      requirements: 'Eff. ränta 7,29% - 27,8%', rating: 4.6,
+      highlights: ['Stora lånebelopp', 'Konkurrenskraftiga räntor'],
+      logo: '/adtraction-logos/banknorwegian-logo.png',
+      isPartner: true
+    },
+    {
       id: 'enkelfinans', network: 'adtraction', name: 'Enkelfinans',
       url: 'https://go.adt228.com/t/t?a=1587476854&as=2005939977&t=2&tk=1',
       amountRange: '5 000 – 800 000 kr', aprFrom: '4,95% - 23%', decision: 'Snabbt beslut',
@@ -316,11 +352,12 @@
       isPartner: false
     },
     {
-      id: 'bank-norwegian', network: 'direct', name: 'Bank Norwegian Kreditkort',
-      url: 'https://www.banknorwegian.se/kreditkort/',
-      annualFee: '0 kr', cashback: 'CashPoints på resor', creditLimit: 'upp till 150 000 kr', interestFreeDays: '45 dagar', rating: 4.6,
-      highlights: ['Bra för resor', 'Ingen årsavgift'],
-      isPartner: false
+      id: 'banknorwegian-kreditkort', network: 'adtraction', name: 'Bank Norwegian Kreditkort',
+      url: 'https://go.adt256.com/t/t?a=1882086706&as=2005939977&t=2&tk=1',
+      annualFee: '0 kr', cashback: 'Cashback på köp', creditLimit: 'upp till 150 000 kr', interestFreeDays: '45 dagar', rating: 4.6,
+      highlights: ['Nominell ränta 22%, eff. ränta 24,36%', 'Representativt exempel enligt lag'],
+      logo: '/adtraction-logos/banknorwegian-logo.png',
+      isPartner: true
     },
     {
       id: 'komplett', network: 'direct', name: 'Komplett Bank Mastercard',
