@@ -298,7 +298,7 @@ export default function RichLanUtanUc() {
             {/* Adtraction Utan UC Offers */}
             <OffersContainer 
               category="utan-uc" 
-              limit={6}
+              limit={8}
               className="mb-12" 
             />
           </div>

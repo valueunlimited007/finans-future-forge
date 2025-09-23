@@ -20,8 +20,11 @@
     ]);
 
     ensure('utan-uc', [
-      { id:'brixo', network:'direct', name:'Brixo', url:'https://www.brixo.se/', amountRange:'10 000 – 350 000 kr', aprFrom:'från 9,9%', decision:'24h', requirements:'Creditsafe', rating:4.3 },
-      { id:'qred-privat', network:'direct', name:'Qred', url:'https://www.qred.se/', amountRange:'20 000 – 400 000 kr', aprFrom:'individuell', decision:'Samma dag', requirements:'Egen bedömning', rating:4.5 }
+      { id:'natfinans', network:'direct', name:'NätFinans', url:'https://www.natfinans.se/', amountRange:'15 000 – 400 000 kr', aprFrom:'från 4,95%', decision:'Samma dag', requirements:'Fast anställning', rating:4.7 },
+      { id:'enklare', network:'direct', name:'Enklare', url:'https://www.enklare.se/', amountRange:'5 000 – 500 000 kr', aprFrom:'från 4,95%', decision:'15 min', requirements:'18+, fast inkomst', rating:4.8 },
+      { id:'compari', network:'direct', name:'Compari', url:'https://www.compari.se/', amountRange:'upp till 600 000 kr', aprFrom:'2,95% - 29,27%', decision:'Omedelbart', requirements:'Endast en UC-upplysning', rating:4.6 },
+      { id:'brixo-utanuc', network:'direct', name:'Brixo', url:'https://www.brixo.se/', amountRange:'5 000 – 50 000 kr', aprFrom:'21,95%', decision:'Inom 24 timmar', requirements:'Använder Bisnode (ej UC)', rating:4.5 },
+      { id:'creditstar', network:'direct', name:'CreditStar', url:'https://www.creditstar.se/', amountRange:'1 000 – 90 000 kr', aprFrom:'från 20%', decision:'Inom minuter', requirements:'Över 21 år, fast anställning', rating:4.1 }
     ]);
 
     ensure('foretagslan', [
