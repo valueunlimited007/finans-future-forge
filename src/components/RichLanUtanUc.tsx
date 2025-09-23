@@ -94,7 +94,7 @@ export default function RichLanUtanUc() {
               </Badge>
               <Badge variant="secondary" className="bg-purple-100 text-purple-800">
                 <Clock className="w-4 h-4 mr-1" />
-                Beslut inom 30 min
+                Beslut inom 5 min
               </Badge>
               <Badge variant="secondary" className="bg-yellow-100 text-yellow-800">
                 <TrendingUp className="w-4 h-4 mr-1" />
@@ -117,7 +117,7 @@ export default function RichLanUtanUc() {
                 <div className="text-sm text-muted-foreground">Max belopp</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-orange-600">15 min</div>
+                <div className="text-2xl font-bold text-orange-600">5 min</div>
                 <div className="text-sm text-muted-foreground">Snabbaste beslut</div>
               </div>
             </div>
