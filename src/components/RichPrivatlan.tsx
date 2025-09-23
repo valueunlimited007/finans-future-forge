@@ -88,7 +88,7 @@ export default function RichPrivatlan() {
             {/* Adtraction Offers Container */}
             <OffersContainer 
               category="privatlan" 
-              limit={showAllLoans ? 12 : 4}
+              limit={showAllLoans ? 12 : 6}
               className="mb-12" 
             />
             

@@ -1,4 +1,4 @@
-// Finansguiden.se - Offer schema & seed data (Adtraction/CJ ready)
+// Finansguiden.se - Offer schema & seed data (Adtraction/CJ ready) - Updated Sep 23 2024
 (function(){
   // Global config
   window.FG_CONFIG = window.FG_CONFIG || { channelId: '2005939977' };
@@ -16,7 +16,7 @@
       id: 'leasy', network: 'adtraction', name: 'L\'EASY',
       url: 'https://go.adt284.net/t/t?a=294654593&as=2005939977&t=2&tk=1',
       amountRange: '10 000 – 100 000 kr', aprFrom: '14,88% - 21,6%', decision: 'Snabbt beslut',
-      requirements: 'Eff. ränta 25,05% (exempel)', rating: 4.5,
+      requirements: 'Eff. ränta 25,05% (exempel)', rating: 4.8,
       highlights: ['Digital långivare', 'Snabb process'],
       logo: '/adtraction-logos/leasy-logo.png',
       isPartner: true
@@ -25,7 +25,7 @@
       id: 'thorn', network: 'adtraction', name: 'Thorn',
       url: 'https://go.adt228.com/t/t?a=35567344&as=2005939977&t=2&tk=1',
       amountRange: '10 000 – 150 000 kr', aprFrom: '14,88% - 21,6%', decision: 'Snabbt beslut',
-      requirements: 'Kreditupplysning', rating: 4.4,
+      requirements: 'Kreditupplysning', rating: 4.7,
       highlights: ['Högre lånebelopp', 'Etablerad långivare'],
       logo: '/adtraction-logos/thorn-logo.png',
       isPartner: true
@@ -34,7 +34,7 @@
       id: 'klicklan', network: 'adtraction', name: 'Klicklån',
       url: 'https://go.adt284.net/t/t?a=1061611421&as=2005939977&t=2&tk=1',
       amountRange: '10 000 – 40 000 kr', aprFrom: '14,88% - 21,6%', decision: 'Snabbt beslut',
-      requirements: 'Kreditupplysning', rating: 4.3,
+      requirements: 'Kreditupplysning', rating: 4.6,
       highlights: ['Enkel ansökan', 'Flexibla villkor'],
       logo: '/adtraction-logos/klicklan-logo.png',
       isPartner: true
