@@ -76,7 +76,7 @@ export default function RichLanUtanUc() {
             
             <div className="flex flex-wrap gap-4 justify-center mb-8">
               <Button asChild size="lg" className="text-lg px-8 bg-orange-600 text-white hover:bg-orange-700 shadow-lg">
-                <a href="#erbjudanden">Jämför lån utan UC</a>
+                <a href="#godkanda-partners">Lån utan UC - Godkända partners</a>
               </Button>
               <Button asChild variant="outline" size="lg" className="text-lg px-8 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white">
                 <a href="#guide">Läs guide först</a>
@@ -287,7 +287,7 @@ export default function RichLanUtanUc() {
         </section>
 
         {/* Adtraction Offers Section */}
-        <section id="erbjudanden" className="py-16 px-4 bg-gray-50">
+        <section id="godkanda-partners" className="py-16 px-4 bg-gray-50">
           <div className="container mx-auto max-w-6xl">
             <h2 className="text-3xl font-bold text-center mb-4">Lån utan UC - Godkända partners</h2>
             <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
