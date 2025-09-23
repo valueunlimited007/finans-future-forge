@@ -49,6 +49,15 @@
       isPartner: true
     },
     {
+      id: 'brixo', network: 'adtraction', name: 'Brixo',
+      url: 'https://go.adt284.net/t/t?a=1091548601&as=2005939977&t=2&tk=1',
+      amountRange: '5 000 – 50 000 kr', aprFrom: '21,95%', decision: 'Inom 24 timmar',
+      requirements: 'Eff. ränta 24,3%, Min 21 år, 200 000kr/år', rating: 4.5,
+      highlights: ['Kontokredit', 'Flexibel återbetalning', 'Tillåter betalningsanmärkningar'],
+      logo: '/adtraction-logos/brixo-logo.png',
+      isPartner: true
+    },
+    {
       id: 'enkelfinans', network: 'adtraction', name: 'Enkelfinans',
       url: 'https://go.adt228.com/t/t?a=1587476854&as=2005939977&t=2&tk=1',
       amountRange: '5 000 – 800 000 kr', aprFrom: '4,95% - 23%', decision: 'Snabbt beslut',
@@ -253,6 +262,15 @@
       requirements: 'Endast en UC-upplysning', rating: 4.6,
       highlights: ['Upp till 40 långivare', 'En ansökan - många erbjudanden'],
       logo: '/adtraction-logos/compari-logo.png',
+      isPartner: true
+    },
+    {
+      id: 'brixo-utanuc', network: 'adtraction', name: 'Brixo',
+      url: 'https://go.adt284.net/t/t?a=1091548601&as=2005939977&t=2&tk=1',
+      amountRange: '5 000 – 50 000 kr', aprFrom: '21,95%', decision: 'Inom 24 timmar',
+      requirements: 'Eff. ränta 24,3%, Använder Bisnode (ej UC)', rating: 4.5,
+      highlights: ['Kontokredit', 'Tillåter betalningsanmärkningar', 'Flexibel återbetalning'],
+      logo: '/adtraction-logos/brixo-logo.png',
       isPartner: true
     },
     {
