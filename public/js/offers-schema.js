@@ -274,6 +274,15 @@
       isPartner: true
     },
     {
+      id: 'kredio', network: 'adtraction', name: 'Kredio',
+      url: 'https://go.adt246.net/t/t?a=1989974137&as=2005939977&t=2&tk=1',
+      amountRange: '1 000 – 75 000 kr', aprFrom: 'från 21,95%', decision: 'Snabbt beslut',
+      requirements: 'Kostnadsfri ansökan', rating: 4.3,
+      highlights: ['Kostnadsfri ansökan', 'Ingen UC-upplysning', 'Effektiv ränta 24,3%'],
+      logo: '/adtraction-logos/kredio-logo.png',
+      isPartner: true
+    },
+    {
       id: 'creditstar', network: 'adtraction', name: 'CreditStar',
       url: 'https://go.creditstar.se/t/t?a=1896267775&as=2005939977&t=2&tk=1',
       amountRange: '1 000 – 90 000 kr', aprFrom: 'från 20%', decision: 'Inom minuter',
