@@ -13,6 +13,8 @@ import {
 import CasinoComparisonTable from '@/components/CasinoComparisonTable';
 import ResponsibleGambling from '@/components/ResponsibleGambling';
 import { AffiliateDebugPanel } from '@/components/AffiliateDebugPanel';
+import { CasinoSeoHead } from '@/components/CasinoSeoHead';
+import { casinoSeoManager } from '@/lib/seo/casinoSeo';
 import { Separator } from '@/components/ui/separator';
 import { CASINO_BRANDS } from '@/data/casino-schema';
 
@@ -22,8 +24,16 @@ export default function CasinoBankIDPage() {
     brand.features.bankid && brand.markets.includes('SE')
   );
 
+  const seoData = casinoSeoManager.generateBankIdSeo();
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
+    <>
+      <CasinoSeoHead 
+        seoData={seoData}
+        ogImage="/images/og-bankid.png"
+      />
+      
+      <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-12">
         <div className="text-center max-w-4xl mx-auto space-y-6">
@@ -261,6 +271,7 @@ export default function CasinoBankIDPage() {
       </section>
 
       <AffiliateDebugPanel />
-    </div>
+      </div>
+    </>
   );
 }

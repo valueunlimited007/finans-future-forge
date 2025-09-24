@@ -15,6 +15,8 @@ import { Star, Shield, CreditCard, Zap, Search, ExternalLink } from 'lucide-reac
 import { Link } from 'react-router-dom';
 import { CASINO_BRANDS, type Brand } from '@/data/casino-schema';
 import { AffiliateButton } from '@/components/AffiliateButton';
+import { casinoAnalytics } from '@/components/CasinoAnalytics';
+import { ComplianceNotice } from '@/components/ComplianceNotice';
 import { cn } from '@/lib/utils';
 
 interface CasinoComparisonTableProps {
@@ -54,10 +56,21 @@ export function CasinoComparisonTable({
     .slice(0, limit);
 
   const toggleFilter = (filter: keyof typeof selectedFilters) => {
+    const newValue = !selectedFilters[filter];
     setSelectedFilters(prev => ({
       ...prev,
-      [filter]: !prev[filter]
+      [filter]: newValue
     }));
+
+    // Track filter analytics
+    casinoAnalytics.trackFilter(filter, newValue, filteredBrands.length);
+  };
+
+  const handleSearch = (value: string) => {
+    setSearchTerm(value);
+    if (value.trim()) {
+      casinoAnalytics.trackSearch(value, filteredBrands.length);
+    }
   };
 
   const renderStars = (rating: number) => {
@@ -93,7 +106,7 @@ export function CasinoComparisonTable({
               <Input
                 placeholder="Sök casino..."
                 value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
+                onChange={(e) => handleSearch(e.target.value)}
                 className="pl-10"
               />
             </div>
@@ -212,6 +225,7 @@ export function CasinoComparisonTable({
                         asChild 
                         size="sm" 
                         variant="outline"
+                        onClick={() => casinoAnalytics.trackCasinoInteraction('view_review', brand.id, brand.name, 'comparison_table')}
                       >
                         <Link to={`/casino/${brand.id}`}>
                           Läs recension
