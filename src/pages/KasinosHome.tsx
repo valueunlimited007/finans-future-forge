@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -11,7 +11,9 @@ import {
   TrendingUp,
   Star,
   Zap,
-  Phone
+  Phone,
+  Plus,
+  Scale
 } from 'lucide-react';
 import CasinoComparisonTable from '@/components/CasinoComparisonTable';
 import CasinoReviewCard from '@/components/CasinoReviewCard';
@@ -21,8 +23,10 @@ import TrustIndicators from '@/components/TrustIndicators';
 import CookieConsent from '@/components/CookieConsent';
 import AgeVerificationModal from '@/components/AgeVerificationModal';
 import EnhancedSeoHead from '@/components/EnhancedSeoHead';
+import { CasinoSearch } from '@/components/CasinoSearch';
+import { CasinoComparison } from '@/components/CasinoComparison';
 import { Separator } from '@/components/ui/separator';
-import { CASINO_BRANDS } from '@/data/casino-schema'; 
+import { CASINO_BRANDS, type Brand } from '@/data/casino-schema'; 
 import { useImagePreloader } from '@/hooks/useImagePreloader';
 import { 
   generateOrganizationSchema, 
@@ -32,8 +36,21 @@ import {
 } from '@/lib/seo/structuredData';
 import { openGraphGenerator } from '@/lib/seo/openGraphGenerator';
 import { casinoAnalytics } from '@/lib/analytics/casinoAnalytics';
+import { useCasinoComparison } from '@/hooks/useCasinoComparison';
 
 export default function KasinosHome() {
+  const [searchResults, setSearchResults] = useState<Brand[]>(CASINO_BRANDS);
+  
+  // Casino comparison hook
+  const {
+    selectedCasinos,
+    addCasino,
+    removeCasino,
+    clearAll,
+    isSelected,
+    canAddMore
+  } = useCasinoComparison();
+
   // Preload critical casino logos for better performance
   const criticalLogos = CASINO_BRANDS
     .slice(0, 10) // Top 10 casinos
@@ -43,6 +60,16 @@ export default function KasinosHome() {
     images: criticalLogos,
     priority: true
   });
+
+  // Performance optimizations
+  useEffect(() => {
+    // Basic image preloading handled by useImagePreloader hook above
+  }, []);
+
+  // Search results handler
+  const handleSearchResults = useCallback((results: Brand[]) => {
+    setSearchResults(results);
+  }, []);
 
   // Track page view
   React.useEffect(() => {
@@ -192,15 +219,66 @@ export default function KasinosHome() {
         <AffiliateDisclosure variant="banner" detailed />
       </section>
 
-      {/* Full Comparison Table */}
+      {/* Advanced search and filtering */}
       <section id="comparison" className="container mx-auto px-4 py-12">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold mb-4">Jämför alla casinon</h2>
-          <p className="text-muted-foreground">
-            Detaljerad jämförelse med filter och betyg.
+        <div className="mb-8">
+          <h2 className="text-3xl font-bold mb-4">Sök och jämför casinon</h2>
+          <p className="text-muted-foreground max-w-2xl">
+            Använd våra avancerade verktyg för att hitta det perfekta casinot för dig. 
+            Filtrera efter funktioner, jämför sida vid sida och läs detaljerade recensioner.
           </p>
         </div>
-        <CasinoComparisonTable showFilters={true} />
+        
+        <CasinoSearch onResults={handleSearchResults} className="mb-8" />
+        
+        <div className="mb-8">
+          <h3 className="text-xl font-semibold mb-4">
+            Sökresultat ({searchResults.length} casino{searchResults.length !== 1 ? 'n' : ''})
+          </h3>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {searchResults.map((brand) => (
+            <CasinoReviewCard
+              key={brand.id}
+              casino={brand}
+              actionSlot={
+                <div className="flex gap-2">
+                  <Button
+                    variant={isSelected(brand.id) ? "default" : "outline"}
+                    size="sm"
+                    onClick={() => isSelected(brand.id) ? removeCasino(brand.id) : addCasino(brand)}
+                    disabled={!isSelected(brand.id) && !canAddMore}
+                    className="flex-1"
+                  >
+                    {isSelected(brand.id) ? (
+                      <>
+                        <Scale className="h-3 w-3 mr-1" />
+                        Vald
+                      </>
+                    ) : (
+                      <>
+                        <Plus className="h-3 w-3 mr-1" />
+                        Jämför
+                      </>
+                    )}
+                  </Button>
+                </div>
+              }
+            />
+          ))}
+        </div>
+
+        {searchResults.length === 0 && (
+          <div className="text-center py-12">
+            <p className="text-muted-foreground mb-4">
+              Inga casinon matchade dina sökkriterier.
+            </p>
+            <Button variant="outline" onClick={() => setSearchResults(CASINO_BRANDS)}>
+              Visa alla casinon
+            </Button>
+          </div>
+        )}
       </section>
       <section className="container mx-auto px-4 py-12">
         <div className="text-center mb-8">
@@ -409,6 +487,13 @@ export default function KasinosHome() {
       <section className="container mx-auto px-4 py-12">
         <TrustIndicators variant="full" />
       </section>
+
+      {/* Comparison tool */}
+      <CasinoComparison
+        selectedCasinos={selectedCasinos}
+        onRemoveCasino={removeCasino}
+        onClearAll={clearAll}
+      />
     </>
   );
 }

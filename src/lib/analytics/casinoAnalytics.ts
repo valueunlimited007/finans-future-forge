@@ -161,6 +161,37 @@ export class CasinoAnalytics {
     this.sendEvent('casino_search', eventData);
   }
 
+  // Alias for compatibility
+  trackSearch(searchTerm: string, resultsCount: number) {
+    return this.trackCasinoSearch(searchTerm, resultsCount);
+  }
+
+  // Casino Interaction Tracking (generic)
+  trackCasinoInteraction(action: string, casinoId: string, casinoName: string, context?: string) {
+    const eventData = {
+      event_category: 'casino_interaction',
+      event_action: action,
+      casino_id: casinoId,
+      casino_name: casinoName,
+      context: context || 'unknown'
+    };
+
+    this.sendEvent('casino_interaction', eventData);
+  }
+
+  // Filter Tracking
+  trackFilter(filterType: string, filterValue: string | boolean, resultCount: number) {
+    const eventData = {
+      event_category: 'casino_filter',
+      event_action: 'filter_change',
+      filter_type: filterType,
+      filter_value: String(filterValue),
+      result_count: resultCount
+    };
+
+    this.sendEvent('filter_usage', eventData);
+  }
+
   // Responsible Gambling Interactions
   trackResponsibleGamblingAction(action: string, source: string) {
     const eventData = {
