@@ -102,7 +102,7 @@ export function CasinoFooter() {
               <img 
                 src={siteConfig.logo} 
                 alt={siteConfig.name}
-                className="h-8 w-auto"
+                className="h-10 w-auto"
               />
               <div>
                 <div className="font-bold text-casino-primary">{siteConfig.name}</div>

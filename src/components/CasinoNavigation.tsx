@@ -58,7 +58,7 @@ export function CasinoNavigation() {
             <img 
               src={siteConfig.logo} 
               alt={siteConfig.name}
-              className="h-8 w-auto"
+              className="h-8 sm:h-10 lg:h-12 w-auto"
             />
             <div className="flex flex-col">
               <span className="text-lg font-bold text-casino-primary">{siteConfig.name}</span>
@@ -138,7 +138,7 @@ export function CasinoNavigation() {
                     <img 
                       src={siteConfig.logo} 
                       alt={siteConfig.name}
-                      className="h-8 w-auto"
+                      className="h-10 w-auto"
                     />
                   </Link>
                   <Badge variant="outline" className="text-xs border-rg-primary/20 text-rg-primary">
