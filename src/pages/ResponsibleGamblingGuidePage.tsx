@@ -19,7 +19,22 @@ export default function ResponsibleGamblingGuidePage() {
   }, []);
 
   const faqs = [
-...
+    {
+      question: 'Vad är ansvarsfullt spelande?',
+      answer: 'Ansvarsfullt spelande innebär att spela på ett sätt som är säkert, kontrollerat och inom dina ekonomiska och tidsramar. Det handlar om att se spelande som underhållning, inte som en inkomstkälla.'
+    },
+    {
+      question: 'Hur vet jag om mitt spelande blivit problematiskt?',
+      answer: 'Varningssignaler inkluderar att spela för mer än du har råd med, ljuga om spelande, försumma ansvar, jaga förluster eller känna ångest kring spel. Om du känner igen dig bör du söka hjälp.'
+    },
+    {
+      question: 'Vad är Spelpaus och hur fungerar det?',
+      answer: 'Spelpaus är Sveriges nationella system för självavstängning. När du registrerar dig stängs du av från alla svenska licensierade casinon i 1 månad till permanent. Det är gratis och enkelt att använda.'
+    },
+    {
+      question: 'Vilka verktyg finns för att kontrollera spelandet?',
+      answer: 'Svenska casinon erbjuder insättningsgränser, förlustgränser, tidsgränser, spelpauser och självavstängning. Alla verktyg är obligatoriska enligt svensk lag och ska vara lätta att hitta och använda.'
+    }
   ];
 
   const seoData = {

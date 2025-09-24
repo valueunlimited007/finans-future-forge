@@ -38,6 +38,13 @@ import CasinoPayNPlayPageComponent from "./pages/CasinoPayNPlayPage";
 import CasinoLiveCasinoPageComponent from "./pages/CasinoLiveCasinoPage";
 import CasinoReviewPageComponent from "./pages/CasinoReviewPage";
 import SpelpausGuidePageComponent from "./pages/SpelpausGuidePage";
+import CasinoFastWithdrawalsPageComponent from "./pages/CasinoFastWithdrawalsPage";
+import CasinoSlotsPageComponent from "./pages/CasinoSlotsPage";
+import CasinoBordsspelPageComponent from "./pages/CasinoBordsspelPage";
+import CasinoBeginnerGuidePageComponent from "./pages/CasinoBeginnerGuidePage";
+import ResponsibleGamblingGuidePageComponent from "./pages/ResponsibleGamblingGuidePage";
+import SwedishLicenseGuidePageComponent from "./pages/SwedishLicenseGuidePage";
+import { FavoritesPage } from "./components/FavoriteCasinos";
 
 const queryClient = new QueryClient();
 
@@ -71,6 +78,8 @@ const App = () => {
                   <Route path="/se/guider/spelpaus" element={<SpelpausGuidePage />} />
                   <Route path="/se/guider/nyborjarguide" element={<CasinoBeginnerGuidePage />} />
                   <Route path="/se/guider/ansvarfullt-spelande" element={<ResponsibleGamblingGuidePage />} />
+                  <Route path="/se/guider/svenska-licenser" element={<SwedishLicenseGuidePage />} />
+                  <Route path="/se/favoriter" element={<FavoritesPageWrapper />} />
                   <Route path="/om" element={<Om />} />
                   <Route path="/cookies" element={<Cookies />} />
                   <Route path="/integritetspolicy" element={<Integritetspolicy />} />
@@ -122,6 +131,15 @@ const CasinoCategoryPage = ({ category }: { category: string }) => {
   if (category === 'live-casino') {
     return <KasinosSitePage><CasinoLiveCasinoPageComponent /></KasinosSitePage>;
   }
+  if (category === 'fast-withdrawals') {
+    return <KasinosSitePage><CasinoFastWithdrawalsPageComponent /></KasinosSitePage>;
+  }
+  if (category === 'slots') {
+    return <KasinosSitePage><CasinoSlotsPageComponent /></KasinosSitePage>;
+  }
+  if (category === 'bordsspel') {
+    return <KasinosSitePage><CasinoBordsspelPageComponent /></KasinosSitePage>;
+  }
   return <KasinosSitePage><div>Casino Category: {category} (Coming Soon)</div></KasinosSitePage>;
 };
 const CasinoReviewPage = () => (
@@ -129,6 +147,18 @@ const CasinoReviewPage = () => (
 );
 const SpelpausGuidePage = () => (
   <KasinosSitePage><SpelpausGuidePageComponent /></KasinosSitePage>
+);
+const CasinoBeginnerGuidePage = () => (
+  <KasinosSitePage><CasinoBeginnerGuidePageComponent /></KasinosSitePage>
+);
+const ResponsibleGamblingGuidePage = () => (
+  <KasinosSitePage><ResponsibleGamblingGuidePageComponent /></KasinosSitePage>
+);
+const SwedishLicenseGuidePage = () => (
+  <KasinosSitePage><SwedishLicenseGuidePageComponent /></KasinosSitePage>
+);
+const FavoritesPageWrapper = () => (
+  <KasinosSitePage><FavoritesPage /></KasinosSitePage>
 );
 
 // Site layout wrapper

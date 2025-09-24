@@ -41,6 +41,7 @@ export function CasinoNavigation() {
     {
       title: 'Guider',
       items: [
+        { title: 'Nybörjarguide', href: '/se/guider/nyborjarguide', icon: Shield, description: 'Komplett guide för nya casinospelare' },
         { title: 'Spelpaus', href: '/se/guider/spelpaus', icon: Shield, description: 'Så fungerar självavstängning via Spelpaus' },
         { title: 'Ansvarfullt spelande', href: '/se/guider/ansvarfullt-spelande', icon: Shield, description: 'Tips för säkert och ansvarsfullt spelande' },
         { title: 'Svenska licenser', href: '/se/guider/svenska-licenser', icon: Shield, description: 'Allt om Spelinspektionens regler' },
