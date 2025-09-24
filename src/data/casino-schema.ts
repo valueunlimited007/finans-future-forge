@@ -23,15 +23,18 @@ export interface Brand {
   id: string;
   operatorId: string;
   name: string;
+  description: string;
   markets: Market['id'][];
   licenses: License['id'][];
-  payNPlay?: boolean;
-  swish?: boolean;
-  bankId?: boolean;
-  logo: string;
-  rating: number;
   established: number;
-  description: string;
+  rating: number;
+  features: {
+    bankid: boolean;
+    swish: boolean;
+    payNPlay: boolean;
+    liveCasino: boolean;
+    mobileApp: boolean;
+  };
 }
 
 export interface AffiliateProgram {
@@ -54,11 +57,11 @@ export interface CasinoOffer {
   id: string;
   brandId: string;
   market: Market['id'];
-  type: 'welcome' | 'no-bonus' | 'other'; // In SE: only 'welcome' or 'no-bonus'
+  type: 'welcome' | 'no-bonus' | 'other';
   headline: string;
   legalSummary: string;
   wagering?: string;
-  showAmount?: boolean; // In SE: false
+  showAmount?: boolean;
   termsUrl: string;
   minDeposit?: string;
   maxWin?: string;
@@ -114,7 +117,7 @@ export const LICENSES: License[] = [
   {
     id: 'mga',
     authority: 'MGA',
-    market: 'SE', // Also valid in Sweden due to EU regulations
+    market: 'SE',
     url: 'https://www.mga.org.mt/',
     name: 'Malta Gaming Authority (MGA)',
   },
@@ -159,42 +162,85 @@ export const CASINO_BRANDS: Brand[] = [
     id: 'betsson',
     operatorId: 'betsson-group',
     name: 'Betsson',
+    description: 'Etablerat casino med svensk licens och starkt fokus på ansvarfullt spelande.',
     markets: ['SE'],
     licenses: ['sga-se'],
-    payNPlay: false,
-    swish: true,
-    bankId: true,
-    logo: '/casino-logos/betsson-logo.png',
-    rating: 4.2,
     established: 2001,
-    description: 'Etablerat casino med svensk licens och starkt fokus på ansvarfullt spelande.',
+    rating: 4.2,
+    features: {
+      bankid: true,
+      swish: true,
+      payNPlay: false,
+      liveCasino: true,
+      mobileApp: true,
+    },
   },
   {
     id: 'unibet',
     operatorId: 'kindred-group',
     name: 'Unibet',
+    description: 'En av Sveriges mest välkända speloperatörer med brett utbud av casino och sport.',
     markets: ['SE'],
     licenses: ['sga-se'],
-    payNPlay: false,
-    swish: true,
-    bankId: true,
-    logo: '/casino-logos/unibet-logo.png',
-    rating: 4.1,
     established: 1997,
-    description: 'Internationellt känt casino med bred spelportfölj och svenska kundtjänst.',
+    rating: 4.1,
+    features: {
+      bankid: true,
+      swish: true,
+      payNPlay: false,
+      liveCasino: true,
+      mobileApp: true,
+    },
   },
   {
     id: 'leovegas',
     operatorId: 'leovegas-group',
     name: 'LeoVegas',
+    description: 'Mobilfokuserat casino känt som "King of Casino" med stark användarupplevelse.',
     markets: ['SE'],
     licenses: ['sga-se'],
-    payNPlay: false,
-    swish: true,
-    bankId: true,
-    logo: '/casino-logos/leovegas-logo.png',
-    rating: 4.3,
     established: 2011,
-    description: 'Mobilfokuserat casino känt som "King of Casino" med stark användarupplevelse.',
+    rating: 4.3,
+    features: {
+      bankid: true,
+      swish: true,
+      payNPlay: true,
+      liveCasino: true,
+      mobileApp: true,
+    },
+  },
+  {
+    id: 'comeon',
+    operatorId: 'comeon-group',
+    name: 'ComeOn',
+    description: 'Populärt casino med fokus på användarupplevelse och snabba uttag.',
+    markets: ['SE'],
+    licenses: ['sga-se'],
+    established: 2008,
+    rating: 4.0,
+    features: {
+      bankid: true,
+      swish: false,
+      payNPlay: true,
+      liveCasino: true,
+      mobileApp: true,
+    },
+  },
+  {
+    id: 'paf',
+    operatorId: 'paf',
+    name: 'Paf',
+    description: 'Nordiskt casino med stark tradition av ansvarfullt spelande.',
+    markets: ['SE'],
+    licenses: ['sga-se'],
+    established: 1966,
+    rating: 3.9,
+    features: {
+      bankid: false,
+      swish: false,
+      payNPlay: false,
+      liveCasino: true,
+      mobileApp: true,
+    },
   },
 ];

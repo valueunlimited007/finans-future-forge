@@ -28,6 +28,7 @@ import MånadssparandeGuide from "./pages/MånadssparandeGuide";
 import NotFoundBranded from "./pages/NotFoundBranded";
 import KasinosHome from "./pages/KasinosHome";
 import { getSiteConfig, isCasinoSite } from "./lib/siteConfig";
+import SiteSelector from "./components/SiteSelector";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +43,7 @@ const App = () => {
         <TooltipProvider>
           <Toaster />
           <Sonner />
+          <SiteSelector />
           <BrowserRouter>
             <ScrollToTop />
             <Routes>
@@ -96,14 +98,17 @@ const App = () => {
 
 // Wrapper components for casino pages (to be implemented)
 const CasinoHomeWrapper = () => <KasinosSitePage><KasinosHome /></KasinosSitePage>;
-const CasinoCategoryPage = ({ category }: { category: string }) => (
-  <KasinosSitePage><div>Casino Category: {category} (Coming Soon)</div></KasinosSitePage>
-);
+const CasinoCategoryPage = ({ category }: { category: string }) => {
+  if (category === 'bankid') {
+    return <KasinosSitePage><CasinoBankIDPageComponent /></KasinosSitePage>;
+  }
+  return <KasinosSitePage><div>Casino Category: {category} (Coming Soon)</div></KasinosSitePage>;
+};
 const CasinoReviewPage = () => (
-  <KasinosSitePage><div>Casino Review Page (Coming Soon)</div></KasinosSitePage>
+  <KasinosSitePage><CasinoReviewPageComponent /></KasinosSitePage>
 );
 const SpelpausGuidePage = () => (
-  <KasinosSitePage><div>Spelpaus Guide (Coming Soon)</div></KasinosSitePage>
+  <KasinosSitePage><SpelpausGuidePageComponent /></KasinosSitePage>
 );
 
 // Site layout wrapper
@@ -115,8 +120,11 @@ const KasinosSitePage = ({ children }: { children: React.ReactNode }) => (
   </>
 );
 
-// Placeholder components (to be implemented)
+// Casino components
 import CasinoNavigation from "./components/CasinoNavigation";
 import CasinoFooter from "./components/CasinoFooter";
+import CasinoBankIDPageComponent from "./pages/CasinoBankIDPage";
+import CasinoReviewPageComponent from "./pages/CasinoReviewPage";
+import SpelpausGuidePageComponent from "./pages/SpelpausGuidePage";
 
 export default App;
