@@ -291,6 +291,15 @@
       logo: '/adtraction-logos/creditstar-logo.png',
       isPartner: true
     },
+    {
+      id: 'flexkontot', network: 'adtraction', name: 'Flexkontot',
+      url: 'https://go.adt291.com/t/t?a=1177156373&as=2005939977&t=2&tk=1',
+      amountRange: '3 000 – 30 000 kr', aprFrom: '22,98%', decision: 'Inom 24 timmar',
+      requirements: 'Min 21 år, 200 000kr/år, använder Bisnode (ej UC)', rating: 4.3,
+      highlights: ['Kontokredit utan kort', 'Utbetalning samma dag', 'Välj egen återbetalning'],
+      logo: '/adtraction-logos/flexkontot-logo.png',
+      isPartner: true
+    },
     // ADDITIONAL LENDERS (pending partnership approval)
     {
       id: 'smspengar', name: 'SMSpengar',
@@ -311,7 +320,17 @@
   ].map(seal);
 
   var foretagslan = [
-    // Keep some existing direct partners for now - no Adtraction business loan partners yet
+    // VERIFIED PARTNERS (with tracking links)
+    {
+      id: 'northmill-foretagslan', network: 'adtraction', name: 'Northmill Bank Företagslån',
+      url: 'https://go.adt253.net/t/t?a=1924643831&as=2005939977&t=2&tk=1',
+      amountRange: '25 000 – 1 000 000 kr', aprFrom: '11,5% - 29%', decision: 'Inom minuter',
+      requirements: 'Borgensman behövs, ingen UC på företag', rating: 4.4,
+      highlights: ['Flexibel kredit', 'Använd vid behov', 'Betala bara för det du använder'],
+      logo: '/adtraction-logos/northmill-logo.png',
+      isPartner: true
+    },
+    // Keep some existing direct partners for now
     {
       id: 'lendo', network: 'direct', name: 'Lendo Företagslån',
       url: 'https://www.lendo.se/foretagslan?utm_source=finansguiden&utm_medium=affiliate',
