@@ -1,18 +1,10 @@
-# Robots.txt för Finansguiden.se
-# Uppdaterad: 2025-09-19
+# Robots.txt för Kasinos.se
+# Uppdaterad: 2025-09-24
 
 # Huvudsökmotorer (prioriterade)
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 0
-
-# AdSense och nyhetsindexering (kritiskt för AdSense-godkännande)
-User-agent: AdsBot-Google
-Allow: /
-Crawl-delay: 0
-
-User-agent: Googlebot-News
-Allow: /
 
 User-agent: Bingbot  
 Allow: /
@@ -32,26 +24,30 @@ Allow: /
 User-agent: LinkedInBot
 Allow: /
 
-# AI-system crawlers (LLM training etc.)
+# Svenska Spel och spelreglering
+User-agent: Spelinspektionen
+Allow: /
+
+# AI-system crawlers (begränsad access för spelinnehåll)
 User-agent: GPTBot
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 3
 
 User-agent: Google-Extended
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 3
 
 User-agent: CCBot
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 3
 
 User-agent: ClaudeBot  
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 3
 
 User-agent: PerplexityBot
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 3
 
 User-agent: ChatGPT-User
 Allow: /
@@ -64,11 +60,11 @@ User-agent: *
 Allow: /
 Crawl-delay: 5
 
-# Minimal nödvändig blockering (endast tracking parameters)
-Disallow: /*?utm_*
-Disallow: /*?ref=*
+# Blockera känsliga områden
+Disallow: /api/
+Disallow: /admin/
 
 # Resurser för alla crawlers
-Sitemap: https://finansguiden.se/sitemap.xml
+Sitemap: https://kasinos.se/sitemap.xml
 
-# Notera: Se även /llms.txt för AI-specifik policy
+# Ansvarsfull spelreglering - se även /ansvarsfriskrivning

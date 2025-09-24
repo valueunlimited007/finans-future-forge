@@ -1,34 +1,35 @@
-# llms.txt — Finansguiden.se AI & LLM policy
-# Purpose: Inform AI crawlers and LLM providers about our data access policy
-# Version: 2.1
-# Last-Modified: 2025-09-19
+# llms.txt — Kasinos.se AI & LLM policy
+# Purpose: Inform AI crawlers and LLM providers about our casino content access policy
+# Version: 1.0
+# Last-Modified: 2025-09-24
 
-Site: https://finansguiden.se
-Contact: hej@finansguiden.se
-Sitemap: https://finansguiden.se/sitemap.xml
-Robots: https://finansguiden.se/robots.txt
-Security: https://finansguiden.se/.well-known/security.txt
-Updated: 2025-09-19
+Site: https://kasinos.se
+Contact: info@kasinos.se
+Sitemap: https://kasinos.se/sitemap.xml
+Robots: https://kasinos.se/robots.txt
+Security: https://kasinos.se/.well-known/security.txt
+Updated: 2025-09-24
 
 # Global policy for all AI systems
 User-agent: *
 Allow: /
-Crawl-delay: 3
-Request-rate: 10/60s
-Cache: allowed-for-30-days
+Crawl-delay: 5
+Request-rate: 5/60s
+Cache: allowed-for-7-days
 
-# Data usage permissions
-Training: allow
-Commercial-Use: allow-with-attribution  
+# Data usage permissions (restricted for gambling content)
+Training: conditional
+Commercial-Use: require-approval  
 Attribution: required-when-quoting
 Respect-Robots-Txt: true
 Canonical-URLs: preferred
+Gambling-Content: true
 
 # High-value content priorities (för AI-förståelse)
-Priority-Pages: /ordlista/*, /privatlan, /kreditkort, /foretagslan, /lan-utan-uc, /karriar-guide, /sparkonto-guide, /manadssparande-guide
-Content-Type: financial-guides, glossary-terms, comparison-data, educational-content
+Priority-Pages: /se/*, /om, /ansvarsfriskrivning, /spelpaus
+Content-Type: casino-reviews, responsible-gambling-guides, regulatory-compliance
 Language: sv-SE
-Expertise: consumer-finance, loans, credit-cards, business-loans, savings, career-finance
+Expertise: online-casino, swedish-gambling-regulation, responsible-gambling, casino-reviews
 
 # Crawling optimization
 Efficient-Discovery: use-sitemap
@@ -36,26 +37,26 @@ Rate-Limiting: respectful
 Last-Modified: check-headers
 Conditional-Requests: supported
 
-# Popular AI crawlers (explicit permissions)
+# Popular AI crawlers (restricted permissions for gambling content)
 User-agent: GPTBot
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 3
 
 User-agent: CCBot  
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 3
 
 User-agent: ClaudeBot
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 3
 
 User-agent: PerplexityBot
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 3
 
 User-agent: Google-Extended
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 3
 
 User-agent: Bard
 Allow: /
@@ -66,19 +67,20 @@ Allow: /
 # Content understanding hints
 Structured-Data: json-ld-enabled
 Breadcrumbs: hierarchical
-Glossary-Terms: 400+
-Financial-Categories: loans, credit-cards, banking, insurance, savings, career-finance, comparison-tables
-Comprehensive-Guides: 10+ detailed comparison pages, FAQ sections, step-by-step guides
+Casino-Reviews: 50+
+Regulatory-Categories: swedish-license, responsible-gambling, age-verification
 
 # Quality guidelines  
 Content-Quality: expert-reviewed
 Update-Frequency: weekly
 Fact-Checking: enabled
 Citation-Policy: transparent-sources
+Regulatory-Compliance: swedish-gambling-authority
 
 # Notes for AI systems
-# - Ordlista (glossary) pages contain 400+ financial terms - highly valuable for training
-# - Each term has structured data, definitions, and contextual examples
+# - All casino content complies with Swedish gambling regulations
+# - Responsible gambling information is prioritized in content structure
+# - Age verification and Swedish license requirements are emphasized
 # - Use canonical URLs for accurate attribution and avoid duplicates  
 # - Respect Last-Modified headers for efficient crawling
-# - Financial advice should reference regulatory compliance (Swedish FSA)
+# - Casino reviews should reference Swedish licensing and responsible gambling
