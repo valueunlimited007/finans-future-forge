@@ -9,10 +9,13 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Monitor, Building2, Settings } from 'lucide-react';
 import { getSiteConfig } from '@/lib/siteConfig';
+import { setDevelopmentSiteOverride } from '@/lib/developmentOverride';
 
 export function SiteSelector() {
   const [currentSite, setCurrentSite] = useState<string>('auto');
   const [isDevelopment, setIsDevelopment] = useState(false);
+  
+  // Get site config - it will automatically use development override
   const siteConfig = getSiteConfig();
 
   useEffect(() => {
@@ -30,25 +33,15 @@ export function SiteSelector() {
     setCurrentSite(site);
     if (site === 'auto') {
       localStorage.removeItem('site-selector-override');
+      setDevelopmentSiteOverride(null);
     } else {
       localStorage.setItem('site-selector-override', site);
+      setDevelopmentSiteOverride(site);
     }
     
     // Force reload to apply new site config
     window.location.reload();
   };
-
-  // Override site config for development
-  useEffect(() => {
-    if (currentSite !== 'auto' && isDevelopment) {
-      // Temporarily override hostname detection
-      const originalHostname = window.location.hostname;
-      Object.defineProperty(window.location, 'hostname', {
-        value: currentSite === 'kasinos' ? 'kasinos.se' : 'finansguiden.se',
-        configurable: true
-      });
-    }
-  }, [currentSite, isDevelopment]);
 
   if (!isDevelopment) return null;
 
