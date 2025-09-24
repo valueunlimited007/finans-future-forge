@@ -27,6 +27,7 @@ import SvenskaInkomster from "./pages/SvenskaInkomster";
 import MånadssparandeGuide from "./pages/MånadssparandeGuide";
 import NotFoundBranded from "./pages/NotFoundBranded";
 import KasinosHome from "./pages/KasinosHome";
+import KasinosOm from "./pages/KasinosOm";
 import { getSiteConfig, isCasinoSite } from "./lib/siteConfig";
 import SiteSelector from "./components/SiteSelector";
 
@@ -80,7 +81,7 @@ const App = () => {
                   <Route path="/se/guider/ansvarfullt-spelande" element={<ResponsibleGamblingGuidePage />} />
                   <Route path="/se/guider/svenska-licenser" element={<SwedishLicenseGuidePage />} />
                   <Route path="/se/favoriter" element={<FavoritesPageWrapper />} />
-                  <Route path="/om" element={<Om />} />
+        <Route path="/om" element={<KasinosSitePage><KasinosOm /></KasinosSitePage>} />
                   <Route path="/cookies" element={<Cookies />} />
                   <Route path="/integritetspolicy" element={<Integritetspolicy />} />
                   <Route path="*" element={<NotFoundBranded />} />
