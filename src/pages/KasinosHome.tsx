@@ -25,7 +25,7 @@ import AgeVerificationModal from '@/components/AgeVerificationModal';
 import EnhancedSeoHead from '@/components/EnhancedSeoHead';
 import { MobileOptimizedSearch } from '@/components/MobileOptimizedSearch';
 import { CasinoComparison } from '@/components/CasinoComparison';
-import { AccessibleNavigation } from '@/components/AccessibleNavigation';
+
 import { PWAFeaturesProvider, PushNotificationManager } from '@/components/PWAFeatures';
 import { Separator } from '@/components/ui/separator';
 import { CASINO_BRANDS, type Brand } from '@/data/casino-schema'; 
@@ -118,17 +118,6 @@ export default function KasinosHome() {
         ]}
       />
 
-      {/* Accessible navigation */}
-      <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-40">
-        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="text-xl font-bold">Finansguiden</div>
-            <Badge variant="secondary">Casino</Badge>
-          </Link>
-          
-          <AccessibleNavigation />
-        </div>
-      </header>
       
       <main id="main-content" className="min-h-screen bg-gradient-to-b from-background to-muted/20" tabIndex={-1}>
       {/* Hero Section */}

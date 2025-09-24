@@ -49,7 +49,7 @@ export function getSiteConfig(host: string = ''): SiteConfig {
       domain: 'kasinos.se',
       name: 'Kasinos.se',
       tagline: 'Svenska licensierade casinon - spela ansvarsfullt',
-      logo: '/finansguiden-logo-v2.png', // Will be replaced with casino logo
+      logo: '/kasinos-logo.png',
       rg: {
         showSpelpaus: true,
         age18: true,
