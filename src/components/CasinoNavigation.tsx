@@ -52,17 +52,17 @@ export function CasinoNavigation() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto px-4">
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-20 items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-3 flex-shrink-0">
             <img 
               src={siteConfig.logo} 
               alt={siteConfig.name}
-              className="h-8 sm:h-10 lg:h-12 w-auto"
+              className="h-10 sm:h-12 lg:h-14 xl:h-16 w-auto"
             />
             <div className="flex flex-col">
               <span className="text-lg font-bold text-casino-primary">{siteConfig.name}</span>
-              <span className="text-xs text-muted-foreground hidden sm:block">
+              <span className="text-xs text-muted-foreground hidden md:block">
                 {siteConfig.tagline}
               </span>
             </div>
@@ -138,7 +138,7 @@ export function CasinoNavigation() {
                     <img 
                       src={siteConfig.logo} 
                       alt={siteConfig.name}
-                      className="h-10 w-auto"
+                      className="h-12 w-auto"
                     />
                   </Link>
                   <Badge variant="outline" className="text-xs border-rg-primary/20 text-rg-primary">
