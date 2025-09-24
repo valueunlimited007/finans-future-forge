@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -38,13 +39,17 @@ export default function KasinosHome() {
           </p>
 
           <div className="flex flex-wrap justify-center gap-4 pt-4">
-            <Button size="lg" className="bg-casino-primary hover:bg-casino-primary/90 text-casino-primary-foreground">
-              <Star className="h-4 w-4 mr-2" />
-              Topprankade casinon
+            <Button size="lg" className="bg-casino-primary hover:bg-casino-primary/90 text-casino-primary-foreground" asChild>
+              <Link to="#top-casinos">
+                <Star className="h-4 w-4 mr-2" />
+                Topprankade casinon
+              </Link>
             </Button>
-            <Button variant="outline" size="lg">
-              <Zap className="h-4 w-4 mr-2" />
-              Pay-n-Play casinon
+            <Button variant="outline" size="lg" asChild>
+              <Link to="/se/pay-n-play">
+                <Zap className="h-4 w-4 mr-2" />
+                Pay-n-Play casinon
+              </Link>
             </Button>
           </div>
         </div>
@@ -109,8 +114,10 @@ export default function KasinosHome() {
             <p className="text-muted-foreground mb-4">
               Snabb registrering och verifiering med BankID. Kom igång på sekunder.
             </p>
-            <Button variant="outline" size="sm" className="w-full">
-              Se alla BankID-casinon
+            <Button variant="outline" size="sm" className="w-full" asChild>
+              <Link to="/se/casinon-med-bankid">
+                Se alla BankID-casinon
+              </Link>
             </Button>
           </Card>
 
@@ -124,8 +131,10 @@ export default function KasinosHome() {
             <p className="text-muted-foreground mb-4">
               Börja spela direkt utan registrering. Sätt in och spela på en gång.
             </p>
-            <Button variant="outline" size="sm" className="w-full">
-              Upptäck Pay-n-Play
+            <Button variant="outline" size="sm" className="w-full" asChild>
+              <Link to="/se/pay-n-play">
+                Upptäck Pay-n-Play
+              </Link>
             </Button>
           </Card>
 
@@ -139,8 +148,10 @@ export default function KasinosHome() {
             <p className="text-muted-foreground mb-4">
               Spela med riktiga dealers i realtid. Autentisk casinoupplevelse hemma.
             </p>
-            <Button variant="outline" size="sm" className="w-full">
-              Utforska Live Casino
+            <Button variant="outline" size="sm" className="w-full" asChild>
+              <Link to="/se/live-casino">
+                Utforska Live Casino
+              </Link>
             </Button>
           </Card>
         </div>

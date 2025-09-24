@@ -30,6 +30,15 @@ import KasinosHome from "./pages/KasinosHome";
 import { getSiteConfig, isCasinoSite } from "./lib/siteConfig";
 import SiteSelector from "./components/SiteSelector";
 
+// Casino components
+import CasinoNavigation from "./components/CasinoNavigation";
+import CasinoFooter from "./components/CasinoFooter";
+import CasinoBankIDPageComponent from "./pages/CasinoBankIDPage";
+import CasinoPayNPlayPageComponent from "./pages/CasinoPayNPlayPage";
+import CasinoLiveCasinoPageComponent from "./pages/CasinoLiveCasinoPage";
+import CasinoReviewPageComponent from "./pages/CasinoReviewPage";
+import SpelpausGuidePageComponent from "./pages/SpelpausGuidePage";
+
 const queryClient = new QueryClient();
 
 // Site-aware App component
@@ -48,13 +57,16 @@ const App = () => {
             <ScrollToTop />
             <Routes>
               {/* Casino site routes */}
-              {isCasino ? (
+{isCasino ? (
                 <>
                   <Route path="/" element={<CasinoHomeWrapper />} />
                   <Route path="/se" element={<CasinoHomeWrapper />} />
                   <Route path="/se/casinon-med-bankid" element={<CasinoCategoryPage category="bankid" />} />
-                  <Route path="/se/snabbast-uttag" element={<CasinoCategoryPage category="fast-withdrawals" />} />
+                  <Route path="/se/pay-n-play" element={<CasinoCategoryPage category="pay-n-play" />} />
                   <Route path="/se/live-casino" element={<CasinoCategoryPage category="live-casino" />} />
+                  <Route path="/se/snabbast-uttag" element={<CasinoCategoryPage category="fast-withdrawals" />} />
+                  <Route path="/se/slots" element={<CasinoCategoryPage category="slots" />} />
+                  <Route path="/se/bordsspel" element={<CasinoCategoryPage category="bordsspel" />} />
                   <Route path="/se/recension/:brandId" element={<CasinoReviewPage />} />
                   <Route path="/se/guider/spelpaus" element={<SpelpausGuidePage />} />
                   <Route path="/om" element={<Om />} />
@@ -102,6 +114,12 @@ const CasinoCategoryPage = ({ category }: { category: string }) => {
   if (category === 'bankid') {
     return <KasinosSitePage><CasinoBankIDPageComponent /></KasinosSitePage>;
   }
+  if (category === 'pay-n-play') {
+    return <KasinosSitePage><CasinoPayNPlayPageComponent /></KasinosSitePage>;
+  }
+  if (category === 'live-casino') {
+    return <KasinosSitePage><CasinoLiveCasinoPageComponent /></KasinosSitePage>;
+  }
   return <KasinosSitePage><div>Casino Category: {category} (Coming Soon)</div></KasinosSitePage>;
 };
 const CasinoReviewPage = () => (
@@ -119,12 +137,5 @@ const KasinosSitePage = ({ children }: { children: React.ReactNode }) => (
     <CasinoFooter />
   </>
 );
-
-// Casino components
-import CasinoNavigation from "./components/CasinoNavigation";
-import CasinoFooter from "./components/CasinoFooter";
-import CasinoBankIDPageComponent from "./pages/CasinoBankIDPage";
-import CasinoReviewPageComponent from "./pages/CasinoReviewPage";
-import SpelpausGuidePageComponent from "./pages/SpelpausGuidePage";
 
 export default App;
