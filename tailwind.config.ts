@@ -76,6 +76,18 @@ export default {
 				success: {
 					DEFAULT: 'hsl(var(--success))',
 					foreground: 'hsl(var(--success-foreground))'
+				},
+				casino: {
+					primary: 'hsl(var(--casino-primary))',
+					'primary-foreground': 'hsl(var(--casino-primary-foreground))',
+					accent: 'hsl(var(--casino-accent))',
+					'accent-foreground': 'hsl(var(--casino-accent-foreground))',
+					warning: 'hsl(var(--casino-warning))',
+					'warning-foreground': 'hsl(var(--casino-warning-foreground))'
+				},
+				rg: {
+					primary: 'hsl(var(--rg-primary))',
+					secondary: 'hsl(var(--rg-secondary))'
 				}
 			},
 			borderRadius: {

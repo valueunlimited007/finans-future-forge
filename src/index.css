@@ -57,6 +57,18 @@ All colors MUST be HSL.
     /* Custom brand colors */
     --success: 142 76% 36%;
     --success-foreground: 355.7 100% 97.3%;
+    
+    /* Casino theme colors */
+    --casino-primary: 338 79% 44%;  /* Deep red */
+    --casino-primary-foreground: 0 0% 100%;
+    --casino-accent: 16 100% 66%;   /* Orange accent */
+    --casino-accent-foreground: 0 0% 100%;
+    --casino-warning: 43 96% 56%;   /* Gold warning */
+    --casino-warning-foreground: 0 0% 100%;
+    
+    /* Responsible gambling colors */
+    --rg-primary: 142 71% 45%;      /* Green for responsible gambling */
+    --rg-secondary: 221 83% 53%;    /* Blue for info */
   }
 
   /* Mobile navigation specific overrides */
@@ -127,6 +139,18 @@ All colors MUST be HSL.
     /* Custom brand colors - dark mode */
     --success: 142 76% 36%;
     --success-foreground: 355.7 100% 97.3%;
+    
+    /* Casino theme colors - dark mode */
+    --casino-primary: 338 79% 44%;
+    --casino-primary-foreground: 0 0% 100%;
+    --casino-accent: 16 100% 66%;
+    --casino-accent-foreground: 0 0% 100%;
+    --casino-warning: 43 96% 56%;
+    --casino-warning-foreground: 0 0% 100%;
+    
+    /* Responsible gambling colors - dark mode */
+    --rg-primary: 142 71% 45%;
+    --rg-secondary: 221 83% 53%;
   }
 }
 
