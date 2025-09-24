@@ -42,9 +42,9 @@ export function CasinoComparisonTable({
                            brand.description.toLowerCase().includes(searchTerm.toLowerCase());
       
       const matchesFilters = 
-        (!selectedFilters.payNPlay || brand.payNPlay) &&
-        (!selectedFilters.bankId || brand.bankId) &&
-        (!selectedFilters.swish || brand.swish) &&
+        (!selectedFilters.payNPlay || brand.features.payNPlay) &&
+        (!selectedFilters.bankId || brand.features.bankid) &&
+        (!selectedFilters.swish || brand.features.swish) &&
         (brand.rating >= selectedFilters.minRating);
 
       return matchesSearch && matchesFilters;
@@ -179,17 +179,17 @@ export function CasinoComparisonTable({
                   
                   <TableCell>
                     <div className="flex flex-wrap gap-1">
-                      {brand.bankId && (
+                      {brand.features.bankid && (
                         <Badge variant="secondary" className="text-xs">
                           BankID
                         </Badge>
                       )}
-                      {brand.swish && (
+                      {brand.features.swish && (
                         <Badge variant="secondary" className="text-xs">
                           Swish
                         </Badge>
                       )}
-                      {brand.payNPlay && (
+                      {brand.features.payNPlay && (
                         <Badge variant="secondary" className="text-xs">
                           Pay-n-Play
                         </Badge>

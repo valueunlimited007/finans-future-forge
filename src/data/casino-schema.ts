@@ -24,6 +24,7 @@ export interface Brand {
   operatorId: string;
   name: string;
   description: string;
+  logo: string;
   markets: Market['id'][];
   licenses: License['id'][];
   established: number;
@@ -163,6 +164,7 @@ export const CASINO_BRANDS: Brand[] = [
     operatorId: 'betsson-group',
     name: 'Betsson',
     description: 'Etablerat casino med svensk licens och starkt fokus på ansvarfullt spelande.',
+    logo: '/adtraction-logos/betsson-logo.png',
     markets: ['SE'],
     licenses: ['sga-se'],
     established: 2001,
@@ -180,6 +182,7 @@ export const CASINO_BRANDS: Brand[] = [
     operatorId: 'kindred-group',
     name: 'Unibet',
     description: 'En av Sveriges mest välkända speloperatörer med brett utbud av casino och sport.',
+    logo: '/adtraction-logos/unibet-logo.png',
     markets: ['SE'],
     licenses: ['sga-se'],
     established: 1997,
@@ -197,6 +200,7 @@ export const CASINO_BRANDS: Brand[] = [
     operatorId: 'leovegas-group',
     name: 'LeoVegas',
     description: 'Mobilfokuserat casino känt som "King of Casino" med stark användarupplevelse.',
+    logo: '/adtraction-logos/leovegas-logo.png',
     markets: ['SE'],
     licenses: ['sga-se'],
     established: 2011,
@@ -214,6 +218,7 @@ export const CASINO_BRANDS: Brand[] = [
     operatorId: 'comeon-group',
     name: 'ComeOn',
     description: 'Populärt casino med fokus på användarupplevelse och snabba uttag.',
+    logo: '/adtraction-logos/comeon-logo.png',
     markets: ['SE'],
     licenses: ['sga-se'],
     established: 2008,
@@ -231,6 +236,7 @@ export const CASINO_BRANDS: Brand[] = [
     operatorId: 'paf',
     name: 'Paf',
     description: 'Nordiskt casino med stark tradition av ansvarfullt spelande.',
+    logo: '/adtraction-logos/paf-logo.png',
     markets: ['SE'],
     licenses: ['sga-se'],
     established: 1966,
