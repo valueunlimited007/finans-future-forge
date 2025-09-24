@@ -28,6 +28,11 @@ import MånadssparandeGuide from "./pages/MånadssparandeGuide";
 import NotFoundBranded from "./pages/NotFoundBranded";
 import KasinosHome from "./pages/KasinosHome";
 import KasinosOm from "./pages/KasinosOm";
+import KasinosCookies from "./pages/KasinosCookies";
+import KasinosIntegritetspolicy from "./pages/KasinosIntegritetspolicy";
+import KasinosKontakt from "./pages/KasinosKontakt";
+import KasinosAnsvarsfriskrivning from "./pages/KasinosAnsvarsfriskrivning";
+import KasinosSpelregler from "./pages/KasinosSpelregler";
 import { getSiteConfig, isCasinoSite } from "./lib/siteConfig";
 import SiteSelector from "./components/SiteSelector";
 
@@ -82,8 +87,11 @@ const App = () => {
                   <Route path="/se/guider/svenska-licenser" element={<SwedishLicenseGuidePage />} />
                   <Route path="/se/favoriter" element={<FavoritesPageWrapper />} />
         <Route path="/om" element={<KasinosSitePage><KasinosOm /></KasinosSitePage>} />
-                  <Route path="/cookies" element={<Cookies />} />
-                  <Route path="/integritetspolicy" element={<Integritetspolicy />} />
+                   <Route path="/cookies" element={<KasinosSitePage><KasinosCookies /></KasinosSitePage>} />
+                   <Route path="/integritetspolicy" element={<KasinosSitePage><KasinosIntegritetspolicy /></KasinosSitePage>} />
+                   <Route path="/kontakt" element={<KasinosSitePage><KasinosKontakt /></KasinosSitePage>} />
+                   <Route path="/ansvarsfriskrivning" element={<KasinosSitePage><KasinosAnsvarsfriskrivning /></KasinosSitePage>} />
+                   <Route path="/se/guider/spelregler" element={<KasinosSitePage><KasinosSpelregler /></KasinosSitePage>} />
                   <Route path="*" element={<NotFoundBranded />} />
                 </>
               ) : (
