@@ -21,6 +21,7 @@ import {
   Award
 } from 'lucide-react';
 import ResponsibleGambling from '@/components/ResponsibleGambling';
+import AffiliateDisclosure from '@/components/AffiliateDisclosure';
 import { Separator } from '@/components/ui/separator';
 import { CASINO_BRANDS, CASINO_REVIEWS, type Brand, type CasinoReview } from '@/data/casino-schema';
 import CasinoReviewSeoHead from '@/components/CasinoReviewSeoHead';
@@ -184,6 +185,11 @@ export default function CasinoReviewPage() {
       {/* Responsible Gambling Notice */}
       <section className="container mx-auto px-4 py-6">
         <ResponsibleGambling variant="notice" />
+      </section>
+
+      {/* Affiliate Disclosure */}
+      <section className="container mx-auto px-4 py-6">
+        <AffiliateDisclosure variant="banner" />
       </section>
 
       {/* Main Review Content */}

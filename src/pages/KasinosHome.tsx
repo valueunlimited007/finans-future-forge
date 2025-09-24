@@ -16,6 +16,10 @@ import {
 import CasinoComparisonTable from '@/components/CasinoComparisonTable';
 import CasinoReviewCard from '@/components/CasinoReviewCard';
 import ResponsibleGambling from '@/components/ResponsibleGambling';
+import AffiliateDisclosure from '@/components/AffiliateDisclosure';
+import TrustIndicators from '@/components/TrustIndicators';
+import CookieConsent from '@/components/CookieConsent';
+import AgeVerificationModal from '@/components/AgeVerificationModal';
 import { Separator } from '@/components/ui/separator';
 import { CASINO_BRANDS } from '@/data/casino-schema'; 
 import { useImagePreloader } from '@/hooks/useImagePreloader';
@@ -32,7 +36,11 @@ export default function KasinosHome() {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
+    <>
+      <CookieConsent />
+      <AgeVerificationModal />
+      
+      <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-12">
         <div className="text-center max-w-4xl mx-auto space-y-6">
@@ -128,6 +136,11 @@ export default function KasinosHome() {
             </Link>
           </Button>
         </div>
+      </section>
+
+      {/* Affiliate Disclosure Section */}
+      <section className="container mx-auto px-4 py-8">
+        <AffiliateDisclosure variant="banner" detailed />
       </section>
 
       {/* Full Comparison Table */}
@@ -338,6 +351,15 @@ export default function KasinosHome() {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+
+      {/* Affiliate Disclosure */}
+      <AffiliateDisclosure variant="footer" />
+      
+      {/* Trust Section */}
+      <section className="container mx-auto px-4 py-12">
+        <TrustIndicators variant="full" />
+      </section>
+    </>
   );
 }
