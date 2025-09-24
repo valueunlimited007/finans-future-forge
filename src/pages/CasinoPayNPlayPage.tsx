@@ -16,12 +16,23 @@ import { AffiliateDebugPanel } from '@/components/AffiliateDebugPanel';
 import { CasinoSeoHead } from '@/components/CasinoSeoHead';
 import { casinoSeoManager } from '@/lib/seo/casinoSeo';
 import { CASINO_BRANDS } from '@/data/casino-schema';
+import { useImagePreloader } from '@/hooks/useImagePreloader';
 
 export default function CasinoPayNPlayPage() {
   // Filter casinos that support Pay-n-Play
   const payNPlayCasinos = CASINO_BRANDS.filter(brand => 
     brand.features.payNPlay && brand.markets.includes('SE')
   );
+
+  // Preload critical casino logos
+  const criticalLogos = payNPlayCasinos
+    .slice(0, 8)
+    .map(brand => brand.logo);
+  
+  const { isLoading: imagesLoading } = useImagePreloader({
+    images: criticalLogos,
+    priority: true
+  });
 
   const seoData = {
     title: 'Pay-n-Play Casinon 2025 - Spela Direkt Utan Registrering',

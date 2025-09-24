@@ -15,14 +15,24 @@ import ResponsibleGambling from '@/components/ResponsibleGambling';
 import { AffiliateDebugPanel } from '@/components/AffiliateDebugPanel';
 import { CasinoSeoHead } from '@/components/CasinoSeoHead';
 import { casinoSeoManager } from '@/lib/seo/casinoSeo';
-import { Separator } from '@/components/ui/separator';
 import { CASINO_BRANDS } from '@/data/casino-schema';
+import { useImagePreloader } from '@/hooks/useImagePreloader';
 
 export default function CasinoBankIDPage() {
   // Filter casinos that support BankID
   const bankIdCasinos = CASINO_BRANDS.filter(brand => 
     brand.features.bankid && brand.markets.includes('SE')
   );
+
+  // Preload critical casino logos
+  const criticalLogos = bankIdCasinos
+    .slice(0, 8)
+    .map(brand => brand.logo);
+  
+  const { isLoading: imagesLoading } = useImagePreloader({
+    images: criticalLogos,
+    priority: true
+  });
 
   const seoData = casinoSeoManager.generateBankIdSeo();
 

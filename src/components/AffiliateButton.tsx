@@ -36,6 +36,7 @@ export const AffiliateButton: React.FC<AffiliateButtonProps> = ({
 }) => {
   const [trackingUrl, setTrackingUrl] = useState(href);
   const [isLoading, setIsLoading] = useState(false);
+  const [buttonText, setButtonText] = useState(label);
 
   useEffect(() => {
     if (brandId && affiliateManager.isMockMode()) {
@@ -53,6 +54,7 @@ export const AffiliateButton: React.FC<AffiliateButtonProps> = ({
 
   const onClick = async () => {
     setIsLoading(true);
+    setButtonText('Öppnar...');
     
     try {
       // Track click med affiliate manager
@@ -71,9 +73,15 @@ export const AffiliateButton: React.FC<AffiliateButtonProps> = ({
         page: location.pathname,
         ts: Date.now(),
       });
+
+      // Add slight delay for better UX
+      setTimeout(() => {
+        setButtonText(label);
+        setIsLoading(false);
+      }, 1000);
     } catch (error) {
       console.error('Error tracking affiliate click:', error);
-    } finally {
+      setButtonText(label);
       setIsLoading(false);
     }
   };
@@ -93,7 +101,14 @@ export const AffiliateButton: React.FC<AffiliateButtonProps> = ({
           onClick={onClick} 
           aria-label={`${label} (affiliatelänk - öppnas i nytt fönster)`}
         >
-          {isLoading ? "..." : label}
+          {isLoading ? (
+            <div className="flex items-center gap-1">
+              <div className="animate-spin h-3 w-3 border border-current border-t-transparent rounded-full" />
+              {buttonText}
+            </div>
+          ) : (
+            label
+          )}
         </a>
       </Button>
       <span 

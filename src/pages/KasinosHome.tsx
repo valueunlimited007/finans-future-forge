@@ -16,8 +16,20 @@ import {
 import CasinoComparisonTable from '@/components/CasinoComparisonTable';
 import ResponsibleGambling from '@/components/ResponsibleGambling';
 import { Separator } from '@/components/ui/separator';
+import { CASINO_BRANDS } from '@/data/casino-schema'; 
+import { useImagePreloader } from '@/hooks/useImagePreloader';
 
 export default function KasinosHome() {
+  // Preload critical casino logos for better performance
+  const criticalLogos = CASINO_BRANDS
+    .slice(0, 10) // Top 10 casinos
+    .map(brand => brand.logo);
+  
+  const { isLoading: imagesLoading, progress } = useImagePreloader({
+    images: criticalLogos,
+    priority: true
+  });
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
       {/* Hero Section */}

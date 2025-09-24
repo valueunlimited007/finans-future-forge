@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
+import { Skeleton } from '@/components/ui/skeleton';
 import { 
   Table, 
   TableBody, 
@@ -15,6 +16,7 @@ import { Star, Shield, CreditCard, Zap, Search, ExternalLink } from 'lucide-reac
 import { Link } from 'react-router-dom';
 import { CASINO_BRANDS, type Brand } from '@/data/casino-schema';
 import { AffiliateButton } from '@/components/AffiliateButton';
+import { LazyImage } from '@/components/LazyImage';
 import { casinoAnalytics } from '@/components/CasinoAnalytics';
 import { ComplianceNotice } from '@/components/ComplianceNotice';
 import { cn } from '@/lib/utils';
@@ -39,31 +41,41 @@ export function CasinoComparisonTable({
     swish: false,
     minRating: 0,
   });
+  const [isLoading, setIsLoading] = useState(false);
 
-  const filteredBrands = brands
-    .filter(brand => {
-      const matchesSearch = brand.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                           brand.description.toLowerCase().includes(searchTerm.toLowerCase());
-      
-      const matchesFilters = 
-        (!selectedFilters.payNPlay || brand.features.payNPlay) &&
-        (!selectedFilters.bankId || brand.features.bankid) &&
-        (!selectedFilters.swish || brand.features.swish) &&
-        (brand.rating >= selectedFilters.minRating);
+  // Memoize filtered results for better performance
+  const filteredBrands = useMemo(() => {
+    return brands
+      .filter(brand => {
+        const matchesSearch = brand.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                             brand.description.toLowerCase().includes(searchTerm.toLowerCase());
+        
+        const matchesFilters = 
+          (!selectedFilters.payNPlay || brand.features.payNPlay) &&
+          (!selectedFilters.bankId || brand.features.bankid) &&
+          (!selectedFilters.swish || brand.features.swish) &&
+          (brand.rating >= selectedFilters.minRating);
 
-      return matchesSearch && matchesFilters;
-    })
-    .slice(0, limit);
+        return matchesSearch && matchesFilters;
+      })
+      .slice(0, limit);
+  }, [brands, searchTerm, selectedFilters, limit]);
 
   const toggleFilter = (filter: keyof typeof selectedFilters) => {
-    const newValue = !selectedFilters[filter];
-    setSelectedFilters(prev => ({
-      ...prev,
-      [filter]: newValue
-    }));
+    setIsLoading(true);
+    
+    // Simulate slight delay for better UX
+    setTimeout(() => {
+      const newValue = !selectedFilters[filter];
+      setSelectedFilters(prev => ({
+        ...prev,
+        [filter]: newValue
+      }));
 
-    // Track filter analytics
-    casinoAnalytics.trackFilter(filter, newValue, filteredBrands.length);
+      // Track filter analytics
+      casinoAnalytics.trackFilter(filter, newValue, filteredBrands.length);
+      setIsLoading(false);
+    }, 100);
   };
 
   const handleSearch = (value: string) => {
@@ -90,7 +102,7 @@ export function CasinoComparisonTable({
   };
 
   return (
-    <Card className={cn('p-6', className)}>
+    <Card className={cn('p-6 relative', className)}>
       <div className="space-y-6">
         <div>
           <h2 className="text-2xl font-bold mb-2">Svenska licensierade casinon</h2>
@@ -145,6 +157,16 @@ export function CasinoComparisonTable({
           </div>
         )}
 
+        {/* Loading overlay */}
+        {isLoading && (
+          <div className="absolute inset-0 bg-background/80 backdrop-blur-sm flex items-center justify-center z-10">
+            <div className="flex items-center gap-2">
+              <div className="animate-spin h-4 w-4 border-2 border-primary border-t-transparent rounded-full" />
+              <span className="text-sm text-muted-foreground">Uppdaterar...</span>
+            </div>
+          </div>
+        )}
+
         <div className="overflow-x-auto">
           <Table>
             <TableHeader>
@@ -162,13 +184,12 @@ export function CasinoComparisonTable({
                 <TableRow key={brand.id}>
                   <TableCell>
                     <div className="flex items-center gap-3">
-                      <img 
+                      <LazyImage 
                         src={brand.logo} 
                         alt={`${brand.name} logotyp`}
                         className="h-8 w-8 rounded object-contain"
-                        onError={(e) => {
-                          e.currentTarget.src = '/finansguiden-logo-v2.png';
-                        }}
+                        skeletonClassName="h-8 w-8 rounded"
+                        fallbackSrc="/finansguiden-logo-v2.png"
                       />
                       <div>
                         <div className="font-medium">{brand.name}</div>
