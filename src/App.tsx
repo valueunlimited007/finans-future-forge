@@ -69,6 +69,8 @@ const App = () => {
                   <Route path="/se/bordsspel" element={<CasinoCategoryPage category="bordsspel" />} />
                   <Route path="/se/recension/:brandId" element={<CasinoReviewPage />} />
                   <Route path="/se/guider/spelpaus" element={<SpelpausGuidePage />} />
+                  <Route path="/se/guider/nyborjarguide" element={<CasinoBeginnerGuidePage />} />
+                  <Route path="/se/guider/ansvarfullt-spelande" element={<ResponsibleGamblingGuidePage />} />
                   <Route path="/om" element={<Om />} />
                   <Route path="/cookies" element={<Cookies />} />
                   <Route path="/integritetspolicy" element={<Integritetspolicy />} />
