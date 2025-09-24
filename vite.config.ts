@@ -19,7 +19,14 @@ export default defineConfig(({ mode }) => ({
         try {
           const scriptPath = path.resolve(__dirname, 'scripts/generate-seo-files.mjs');
           if (fs.existsSync(scriptPath)) {
-            const res = spawnSync('node', [scriptPath], { stdio: 'inherit' });
+            // Detect domain from environment or use hostname
+            const siteDomain = process.env.SITE_DOMAIN || 'finansguiden.se';
+            const env = { ...process.env, SITE_DOMAIN: siteDomain };
+            
+            const res = spawnSync('node', [scriptPath], { 
+              stdio: 'inherit',
+              env: env
+            });
             if (res.status !== 0) {
               console.warn('[SEO] generator script exited with code', res.status);
             }
