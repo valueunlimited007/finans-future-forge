@@ -1,11 +1,15 @@
 import { Button } from "@/components/ui/button";
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { affiliateManager } from "@/lib/affiliate/AffiliateManager";
 
 export interface AffiliateButtonProps {
   href: string;
   label?: string;
   termSlug?: string;
+  brandId?: string;
+  brandName?: string;
   className?: string;
+  variant?: "default" | "secondary" | "outline" | "ghost" | "link" | "destructive";
 }
 
 const safeEvent = (name: string, params: Record<string, any>) => {
@@ -21,26 +25,75 @@ const safeEvent = (name: string, params: Record<string, any>) => {
   } catch {}
 };
 
-export const AffiliateButton: React.FC<AffiliateButtonProps> = ({ href, label = "Jämför erbjudanden", termSlug, className }) => {
-  const onClick = () => {
-    safeEvent("affiliate_click", {
-      term: termSlug,
-      page: location.pathname,
-      ts: Date.now(),
-    });
+export const AffiliateButton: React.FC<AffiliateButtonProps> = ({ 
+  href, 
+  label = "Jämför erbjudanden", 
+  termSlug, 
+  brandId,
+  brandName,
+  className,
+  variant = "default"
+}) => {
+  const [trackingUrl, setTrackingUrl] = useState(href);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    if (brandId && affiliateManager.isMockMode()) {
+      // Generera tracking URL för casino brands
+      const tracked = affiliateManager.generateTrackingUrl(brandId, href, {
+        source: 'kasinos_se',
+        term: termSlug || '',
+        button_label: label
+      });
+      setTrackingUrl(tracked);
+    } else {
+      setTrackingUrl(href);
+    }
+  }, [href, brandId, termSlug, label]);
+
+  const onClick = async () => {
+    setIsLoading(true);
+    
+    try {
+      // Track click med affiliate manager
+      if (brandId && brandName) {
+        await affiliateManager.trackClick(brandId, brandName, undefined, {
+          term: termSlug || '',
+          button_label: label
+        });
+      }
+
+      // Legacy tracking för finansguiden
+      safeEvent("affiliate_click", {
+        term: termSlug,
+        brandId: brandId || 'unknown',
+        brandName: brandName || 'unknown',
+        page: location.pathname,
+        ts: Date.now(),
+      });
+    } catch (error) {
+      console.error('Error tracking affiliate click:', error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
     <div className="relative">
-      <Button asChild className={className}>
+      <Button 
+        asChild 
+        className={className} 
+        variant={variant}
+        disabled={isLoading}
+      >
         <a 
-          href={href} 
+          href={trackingUrl} 
           target="_blank" 
           rel="nofollow sponsored noopener" 
           onClick={onClick} 
           aria-label={`${label} (affiliatelänk - öppnas i nytt fönster)`}
         >
-          {label}
+          {isLoading ? "..." : label}
         </a>
       </Button>
       <span 
@@ -49,6 +102,14 @@ export const AffiliateButton: React.FC<AffiliateButtonProps> = ({ href, label = 
       >
         Reklam
       </span>
+      {affiliateManager.isMockMode() && (
+        <span 
+          className="absolute -bottom-1 -left-1 bg-yellow-500 text-yellow-900 text-xs px-1.5 py-0.5 rounded-full border text-[9px] leading-tight"
+          title="Mock mode - tracking är simulerad"
+        >
+          Mock
+        </span>
+      )}
     </div>
   );
 };

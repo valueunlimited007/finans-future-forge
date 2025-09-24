@@ -12,7 +12,9 @@ import {
   TableRow 
 } from '@/components/ui/table';
 import { Star, Shield, CreditCard, Zap, Search, ExternalLink } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { CASINO_BRANDS, type Brand } from '@/data/casino-schema';
+import { AffiliateButton } from '@/components/AffiliateButton';
 import { cn } from '@/lib/utils';
 
 interface CasinoComparisonTableProps {
@@ -205,19 +207,25 @@ export function CasinoComparisonTable({
                   </TableCell>
                   
                   <TableCell className="text-right">
-                    <Button 
-                      asChild 
-                      size="sm" 
-                      className="bg-casino-primary hover:bg-casino-primary/90 text-casino-primary-foreground"
-                    >
-                      <a 
-                        href={`/se/recension/${brand.id}`}
-                        className="inline-flex items-center gap-1"
+                    <div className="flex gap-2 justify-end">
+                      <Button 
+                        asChild 
+                        size="sm" 
+                        variant="outline"
                       >
-                        Läs recension
-                        <ExternalLink className="h-3 w-3" />
-                      </a>
-                    </Button>
+                        <Link to={`/casino/${brand.id}`}>
+                          Läs recension
+                        </Link>
+                      </Button>
+                      
+                      <AffiliateButton
+                        href={`https://www.${brand.name.toLowerCase().replace(/\s+/g, '')}.se`}
+                        label="Spela nu"
+                        brandId={brand.id}
+                        brandName={brand.name}
+                        className="h-9"
+                      />
+                    </div>
                   </TableCell>
                 </TableRow>
               ))}

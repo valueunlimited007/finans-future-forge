@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import CasinoComparisonTable from '@/components/CasinoComparisonTable';
 import ResponsibleGambling from '@/components/ResponsibleGambling';
+import { AffiliateDebugPanel } from '@/components/AffiliateDebugPanel';
 import { Separator } from '@/components/ui/separator';
 import { CASINO_BRANDS } from '@/data/casino-schema';
 
@@ -258,6 +259,8 @@ export default function CasinoBankIDPage() {
           </div>
         </div>
       </section>
+
+      <AffiliateDebugPanel />
     </div>
   );
 }
