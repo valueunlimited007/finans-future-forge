@@ -23,8 +23,10 @@ import TrustIndicators from '@/components/TrustIndicators';
 import CookieConsent from '@/components/CookieConsent';
 import AgeVerificationModal from '@/components/AgeVerificationModal';
 import EnhancedSeoHead from '@/components/EnhancedSeoHead';
-import { CasinoSearch } from '@/components/CasinoSearch';
+import { MobileOptimizedSearch } from '@/components/MobileOptimizedSearch';
 import { CasinoComparison } from '@/components/CasinoComparison';
+import { AccessibleNavigation } from '@/components/AccessibleNavigation';
+import { PWAFeaturesProvider, PushNotificationManager } from '@/components/PWAFeatures';
 import { Separator } from '@/components/ui/separator';
 import { CASINO_BRANDS, type Brand } from '@/data/casino-schema'; 
 import { useImagePreloader } from '@/hooks/useImagePreloader';
@@ -98,7 +100,7 @@ export default function KasinosHome() {
   ];
 
   return (
-    <>
+    <PWAFeaturesProvider>
       <CookieConsent />
       <AgeVerificationModal />
       
@@ -115,8 +117,20 @@ export default function KasinosHome() {
           { locale: 'x-default', url: 'https://kasinos.se' }
         ]}
       />
+
+      {/* Accessible navigation */}
+      <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-40">
+        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+          <Link to="/" className="flex items-center space-x-2">
+            <div className="text-xl font-bold">Finansguiden</div>
+            <Badge variant="secondary">Casino</Badge>
+          </Link>
+          
+          <AccessibleNavigation />
+        </div>
+      </header>
       
-      <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
+      <main id="main-content" className="min-h-screen bg-gradient-to-b from-background to-muted/20" tabIndex={-1}>
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-12">
         <div className="text-center max-w-4xl mx-auto space-y-6">
@@ -229,7 +243,7 @@ export default function KasinosHome() {
           </p>
         </div>
         
-        <CasinoSearch onResults={handleSearchResults} className="mb-8" />
+        <MobileOptimizedSearch onResults={handleSearchResults} className="mb-8 md:hidden" />
         
         <div className="mb-8">
           <h3 className="text-xl font-semibold mb-4">
@@ -473,12 +487,13 @@ export default function KasinosHome() {
             </Card>
           </div>
 
-          <div className="space-y-6">
-            <ResponsibleGambling variant="sidebar" />
-          </div>
+        <div className="space-y-6">
+          <ResponsibleGambling variant="sidebar" />
+          <PushNotificationManager />
+        </div>
         </div>
       </section>
-      </div>
+      </main>
 
       {/* Affiliate Disclosure */}
       <AffiliateDisclosure variant="footer" />
@@ -494,6 +509,6 @@ export default function KasinosHome() {
         onRemoveCasino={removeCasino}
         onClearAll={clearAll}
       />
-    </>
+    </PWAFeaturesProvider>
   );
 }

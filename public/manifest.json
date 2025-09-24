@@ -1,0 +1,66 @@
+{
+  "name": "Finansguiden Casino - Svenska Online Casinon",
+  "short_name": "Finansguiden Casino",
+  "description": "Jämför svenska licensierade casinon. Opartiska recensioner, säkra betalningar och ansvarfullt spelande.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "sv-SE",
+  "categories": ["entertainment", "finance"],
+  "icons": [
+    {
+      "src": "/finansguiden-logo-v2.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/finansguiden-logo-v2.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/images/og-home.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "platform": "wide",
+      "label": "Finansguiden Casino huvudsida"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "BankID Casinon",
+      "short_name": "BankID",
+      "description": "Casinon med BankID-registrering",
+      "url": "/se/casinon-med-bankid",
+      "icons": [{ "src": "/finansguiden-logo-v2.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Pay-n-Play",
+      "short_name": "PnP",
+      "description": "Spela direkt utan registrering",
+      "url": "/se/pay-n-play",
+      "icons": [{ "src": "/finansguiden-logo-v2.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Ansvarfullt Spelande",
+      "short_name": "Spelpaus",
+      "description": "Information om säkert spelande",
+      "url": "/se/spelpaus-guide",
+      "icons": [{ "src": "/finansguiden-logo-v2.png", "sizes": "96x96" }]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "dir": "ltr",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "edge_side_panel": {
+    "preferred_width": 400
+  }
+}
