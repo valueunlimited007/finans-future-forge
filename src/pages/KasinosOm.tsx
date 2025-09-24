@@ -183,10 +183,6 @@ export default function KasinosOm() {
                 </p>
               </div>
             </section>
-
-            <footer className="text-sm text-muted-foreground border-t border-border pt-4">
-              <p>Senast uppdaterad: {new Date().toLocaleDateString('sv-SE')}</p>
-            </footer>
           </article>
         </div>
       </main>
