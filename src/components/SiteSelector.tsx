@@ -8,91 +8,96 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Monitor, Building2, Settings } from 'lucide-react';
-import { getSiteConfig } from '@/lib/siteConfig';
-import { setDevelopmentSiteOverride } from '@/lib/developmentOverride';
 
+// Simple site selector without hostname manipulation
 export function SiteSelector() {
   const [currentSite, setCurrentSite] = useState<string>('auto');
   const [isDevelopment, setIsDevelopment] = useState(false);
-  
-  // Get site config - it will automatically use development override
-  const siteConfig = getSiteConfig();
 
   useEffect(() => {
     // Only show in development
     setIsDevelopment(import.meta.env.DEV);
     
     // Get stored preference
-    const stored = localStorage.getItem('site-selector-override');
-    if (stored) {
-      setCurrentSite(stored);
+    try {
+      const stored = localStorage.getItem('site-selector-override');
+      if (stored) {
+        setCurrentSite(stored);
+      }
+    } catch (error) {
+      console.log('Could not access localStorage:', error);
     }
   }, []);
 
   const handleSiteChange = (site: string) => {
     setCurrentSite(site);
-    if (site === 'auto') {
-      localStorage.removeItem('site-selector-override');
-      setDevelopmentSiteOverride(null);
-    } else {
-      localStorage.setItem('site-selector-override', site);
-      setDevelopmentSiteOverride(site);
-    }
     
-    // Force reload to apply new site config
-    window.location.reload();
+    try {
+      if (site === 'auto') {
+        localStorage.removeItem('site-selector-override');
+      } else {
+        localStorage.setItem('site-selector-override', site);
+      }
+      
+      // Simple reload without any hostname manipulation
+      window.location.reload();
+    } catch (error) {
+      console.log('Could not update site preference:', error);
+    }
   };
 
+  // Don't show in production
   if (!isDevelopment) return null;
+
+  // Determine current site based on URL
+  const hostname = window.location.hostname;
+  const detectedSite = hostname.includes('kasinos') ? 'kasinos' : 'finansguiden';
 
   const sites = [
     { 
       id: 'auto', 
-      name: 'Auto (Domain)', 
+      name: 'Auto Detection', 
       icon: Monitor,
-      description: 'Detect from hostname',
-      current: currentSite === 'auto'
+      description: `Currently: ${detectedSite}`,
     },
     { 
       id: 'finansguiden', 
-      name: 'Finansguiden', 
+      name: 'Finansguiden Mode', 
       icon: Building2,
       description: 'Financial comparison site',
-      current: siteConfig.site === 'finansguiden' 
     },
     { 
       id: 'kasinos', 
-      name: 'Kasinos', 
+      name: 'Kasinos Mode', 
       icon: Settings,
       description: 'Casino comparison site',
-      current: siteConfig.site === 'kasinos' 
     },
   ];
 
   return (
-    <div className="fixed bottom-4 right-4 z-50">
+    <div className="fixed bottom-4 left-4 z-50">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button 
             variant="outline" 
             size="sm" 
-            className="bg-background/95 backdrop-blur border-2 shadow-lg hover:shadow-xl transition-shadow"
+            className="bg-background/95 backdrop-blur border shadow-lg hover:shadow-xl transition-shadow"
           >
             <Settings className="h-3 w-3 mr-2" />
             <span className="text-xs font-medium">
-              {sites.find(s => s.id === currentSite)?.name || 'Site'}
+              {sites.find(s => s.id === currentSite)?.name || 'Dev Tools'}
             </span>
             <Badge 
-              variant={siteConfig.site === 'kasinos' ? 'default' : 'secondary'} 
+              variant={detectedSite === 'kasinos' ? 'default' : 'secondary'} 
               className="ml-2 px-1.5 py-0.5 text-xs"
             >
-              {siteConfig.site === 'kasinos' ? 'Casino' : 'Finance'}
+              {detectedSite === 'kasinos' ? 'Casino' : 'Finance'}
             </Badge>
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" className="w-64">
+        <DropdownMenuContent align="start" className="w-64">
           <div className="p-2 text-xs text-muted-foreground border-b mb-2">
-            Development Site Selector
+            Development Site Mode
           </div>
           {sites.map((site) => (
             <DropdownMenuItem
@@ -114,13 +119,8 @@ export function SiteSelector() {
               )}
             </DropdownMenuItem>
           ))}
-          <div className="p-2 pt-3 border-t mt-2">
-            <div className="text-xs text-muted-foreground">
-              <strong>Current:</strong> {siteConfig.name}
-            </div>
-            <div className="text-xs text-muted-foreground">
-              <strong>Theme:</strong> {siteConfig.theme}
-            </div>
+          <div className="p-2 pt-3 border-t mt-2 text-xs text-muted-foreground">
+            Note: Changes require page reload
           </div>
         </DropdownMenuContent>
       </DropdownMenu>

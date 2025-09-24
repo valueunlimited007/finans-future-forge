@@ -1,5 +1,3 @@
-import { getDevelopmentSiteOverride } from '@/lib/developmentOverride';
-
 export interface SiteConfig {
   site: 'finansguiden' | 'kasinos';
   market: 'SE' | 'NO' | 'FI' | 'DK' | 'UK';
@@ -27,17 +25,17 @@ export function getSiteConfig(host: string = ''): SiteConfig {
   // Handle both development and production hostnames
   let hostname = host || (typeof window !== 'undefined' ? window.location.hostname : '');
   
-  // Check for development override
+  // Simple development override check
   if (typeof window !== 'undefined' && import.meta.env.DEV) {
     try {
-      const override = getDevelopmentSiteOverride();
-      if (override === 'kasinos') {
+      const stored = localStorage.getItem('site-selector-override');
+      if (stored === 'kasinos') {
         hostname = 'kasinos.se';
-      } else if (override === 'finansguiden') {
+      } else if (stored === 'finansguiden') {
         hostname = 'finansguiden.se';
       }
     } catch (error) {
-      // Ignore errors when SiteSelector is not yet loaded
+      // Ignore localStorage errors
     }
   }
   
