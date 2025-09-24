@@ -14,6 +14,7 @@ import {
   Phone
 } from 'lucide-react';
 import CasinoComparisonTable from '@/components/CasinoComparisonTable';
+import CasinoReviewCard from '@/components/CasinoReviewCard';
 import ResponsibleGambling from '@/components/ResponsibleGambling';
 import { Separator } from '@/components/ui/separator';
 import { CASINO_BRANDS } from '@/data/casino-schema'; 
@@ -101,12 +102,44 @@ export default function KasinosHome() {
         <ResponsibleGambling variant="notice" />
       </section>
 
-      {/* Main Comparison Table */}
+      {/* Top Rated Casinos */}
       <section className="container mx-auto px-4 py-12">
-        <CasinoComparisonTable showFilters={true} />
+        <div className="text-center mb-8">
+          <h2 className="text-3xl font-bold mb-4">Bäst betygsatta casinon</h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Våra topprankade casinon med svensk licens och högsta säkerhet.
+          </p>
+        </div>
+        
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          {CASINO_BRANDS.slice(0, 6).map((casino) => (
+            <CasinoReviewCard 
+              key={casino.id} 
+              casino={casino}
+              featured={casino.rating >= 4.2}
+            />
+          ))}
+        </div>
+
+        <div className="text-center">
+          <Button variant="outline" size="lg" asChild>
+            <Link to="#comparison">
+              Se alla casinon
+            </Link>
+          </Button>
+        </div>
       </section>
 
-      {/* Popular Categories */}
+      {/* Full Comparison Table */}
+      <section id="comparison" className="container mx-auto px-4 py-12">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl font-bold mb-4">Jämför alla casinon</h2>
+          <p className="text-muted-foreground">
+            Detaljerad jämförelse med filter och betyg.
+          </p>
+        </div>
+        <CasinoComparisonTable showFilters={true} />
+      </section>
       <section className="container mx-auto px-4 py-12">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold mb-4">Populära kategorier</h2>
