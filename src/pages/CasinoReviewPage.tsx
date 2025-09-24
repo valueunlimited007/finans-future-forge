@@ -22,11 +22,20 @@ import {
 } from 'lucide-react';
 import ResponsibleGambling from '@/components/ResponsibleGambling';
 import AffiliateDisclosure from '@/components/AffiliateDisclosure';
+import EnhancedSeoHead from '@/components/EnhancedSeoHead';
 import { Separator } from '@/components/ui/separator';
 import { CASINO_BRANDS, CASINO_REVIEWS, type Brand, type CasinoReview } from '@/data/casino-schema';
 import CasinoReviewSeoHead from '@/components/CasinoReviewSeoHead';
 import AffiliateButton from '@/components/AffiliateButton';
 import LazyImage from '@/components/LazyImage';
+import { openGraphGenerator } from '@/lib/seo/openGraphGenerator';
+import { 
+  generateCasinoProductSchema, 
+  generateReviewSchema, 
+  generateFAQSchema,
+  generateBreadcrumbSchema 
+} from '@/lib/seo/structuredData';
+import { casinoAnalytics } from '@/lib/analytics/casinoAnalytics';
 
 export default function CasinoReviewPage() {
   const { brandId } = useParams<{ brandId: string }>();
@@ -39,6 +48,13 @@ export default function CasinoReviewPage() {
   // Find the corresponding review
   const review = casino ? CASINO_REVIEWS.find(r => r.brandId === casino.id) : undefined;
 
+  // Track analytics
+  React.useEffect(() => {
+    if (casino) {
+      casinoAnalytics.trackCasinoReviewView(casino.id, casino.name, casino.rating);
+    }
+  }, [casino]);
+
   if (!casino) {
     return (
       <div className="container mx-auto px-4 py-12">
@@ -49,6 +65,32 @@ export default function CasinoReviewPage() {
       </div>
     );
   }
+
+  // Generate SEO data
+  const ogData = openGraphGenerator.generateCasinoReview(casino);
+  const structuredData = [
+    generateCasinoProductSchema(casino),
+    generateReviewSchema(casino, review),
+    generateBreadcrumbSchema([
+      { name: 'Hem', url: '/' },
+      { name: 'Casino Recensioner', url: '/se' },
+      { name: `${casino.name} Recension`, url: `/se/recension/${casino.name.toLowerCase().replace(/[^\w]/g, '-')}` }
+    ]),
+    generateFAQSchema([
+      {
+        question: `Är ${casino.name} säkert att spela på?`,
+        answer: `Ja, ${casino.name} är licensierat av Spelinspektionen i Sverige och följer alla svenska regler för spelansvar och konsumentskydd.`
+      },
+      {
+        question: `Vilka betalningsmetoder accepterar ${casino.name}?`,
+        answer: `${casino.name} accepterar ${casino.features.bankid ? 'BankID, ' : ''}${casino.features.swish ? 'Swish, ' : ''}bankkort (Visa/Mastercard) och banköverföring.`
+      },
+      {
+        question: `Hur länge tar uttag från ${casino.name}?`,
+        answer: `Uttag från ${casino.name} behandlas vanligtvis inom 6-24 timmar till bankkonto.`
+      }
+    ])
+  ];
 
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }, (_, i) => (
@@ -61,7 +103,20 @@ export default function CasinoReviewPage() {
 
   return (
     <>
-      <CasinoReviewSeoHead casino={casino} review={review} />
+      <EnhancedSeoHead
+        title={ogData.title}
+        description={ogData.description}
+        keywords={[casino.name, 'casino recension', 'online casino', 'svensk licens', 'spelautomater']}
+        canonicalUrl={ogData.url}
+        openGraph={ogData}
+        structuredData={structuredData}
+        hreflang={[
+          { locale: 'sv-SE', url: ogData.url },
+          { locale: 'sv', url: ogData.url },
+          { locale: 'x-default', url: ogData.url }
+        ]}
+      />
+      
       <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
         {/* Hero Section */}
         <section className="container mx-auto px-4 py-12">

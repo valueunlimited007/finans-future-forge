@@ -21,7 +21,7 @@ interface CookiePreferences {
   functional: boolean;
 }
 
-// Extend Window interface for gtag
+// Extend Window interface for gtag (removed duplicate dataLayer)
 declare global {
   interface Window {
     gtag?: (...args: any[]) => void;

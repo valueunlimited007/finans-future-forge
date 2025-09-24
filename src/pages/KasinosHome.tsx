@@ -20,9 +20,18 @@ import AffiliateDisclosure from '@/components/AffiliateDisclosure';
 import TrustIndicators from '@/components/TrustIndicators';
 import CookieConsent from '@/components/CookieConsent';
 import AgeVerificationModal from '@/components/AgeVerificationModal';
+import EnhancedSeoHead from '@/components/EnhancedSeoHead';
 import { Separator } from '@/components/ui/separator';
 import { CASINO_BRANDS } from '@/data/casino-schema'; 
 import { useImagePreloader } from '@/hooks/useImagePreloader';
+import { 
+  generateOrganizationSchema, 
+  generateWebsiteSchema, 
+  generateCasinoCategorySchema,
+  generateLocalBusinessSchema
+} from '@/lib/seo/structuredData';
+import { openGraphGenerator } from '@/lib/seo/openGraphGenerator';
+import { casinoAnalytics } from '@/lib/analytics/casinoAnalytics';
 
 export default function KasinosHome() {
   // Preload critical casino logos for better performance
@@ -35,10 +44,50 @@ export default function KasinosHome() {
     priority: true
   });
 
+  // Track page view
+  React.useEffect(() => {
+    casinoAnalytics.trackPageView('Casino Home', {
+      total_casinos: CASINO_BRANDS.length,
+      featured_casinos: 6
+    });
+    
+    // Track performance metrics after page load
+    setTimeout(() => {
+      casinoAnalytics.trackPerformanceMetrics();
+    }, 2000);
+  }, []);
+
+  // Generate SEO data
+  const ogData = openGraphGenerator.generateHomePage();
+  const structuredData = [
+    generateWebsiteSchema(),
+    generateOrganizationSchema(),
+    generateCasinoCategorySchema(
+      'Svenska Casinon',
+      'Komplett lista över licensierade svenska casinon',
+      CASINO_BRANDS
+    ),
+    generateLocalBusinessSchema()
+  ];
+
   return (
     <>
       <CookieConsent />
       <AgeVerificationModal />
+      
+      <EnhancedSeoHead
+        title={ogData.title}
+        description={ogData.description}
+        keywords={['svenska casinon', 'casino med svensk licens', 'bankid casino', 'spelinspektionen', 'casinojämförelse']}
+        canonicalUrl={ogData.url}
+        openGraph={ogData}
+        structuredData={structuredData}
+        hreflang={[
+          { locale: 'sv-SE', url: 'https://kasinos.se' },
+          { locale: 'sv', url: 'https://kasinos.se' },
+          { locale: 'x-default', url: 'https://kasinos.se' }
+        ]}
+      />
       
       <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
       {/* Hero Section */}
