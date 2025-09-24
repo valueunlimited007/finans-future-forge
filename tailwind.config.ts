@@ -80,6 +80,8 @@ export default {
 				casino: {
 					primary: 'hsl(var(--casino-primary))',
 					'primary-foreground': 'hsl(var(--casino-primary-foreground))',
+					secondary: 'hsl(var(--casino-secondary))',
+					'secondary-foreground': 'hsl(var(--casino-secondary-foreground))',
 					accent: 'hsl(var(--casino-accent))',
 					'accent-foreground': 'hsl(var(--casino-accent-foreground))',
 					warning: 'hsl(var(--casino-warning))',

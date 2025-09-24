@@ -45,7 +45,7 @@ export function getSiteConfig(host: string = ''): SiteConfig {
       market: 'SE',
       locale: 'sv-SE',
       theme: 'casino',
-      brandColor: '#D21F3C',
+      brandColor: 'hsl(221, 83%, 30%)', // Deep navy blue from new logo
       domain: 'kasinos.se',
       name: 'Kasinos.se',
       tagline: 'Svenska licensierade casinon - spela ansvarsfullt',

@@ -59,10 +59,10 @@ All colors MUST be HSL.
     --success-foreground: 355.7 100% 97.3%;
     
     /* Casino theme colors */
-    --casino-primary: 338 79% 44%;  /* Deep red */
+    --casino-primary: 221 83% 30%;  /* Deep navy blue from logo */
     --casino-primary-foreground: 0 0% 100%;
-    --casino-accent: 16 100% 66%;   /* Orange accent */
-    --casino-accent-foreground: 0 0% 100%;
+    --casino-accent: 43 96% 53%;   /* Gold accent from logo */
+    --casino-accent-foreground: 221 83% 30%;  /* Dark blue text on gold */
     --casino-warning: 43 96% 56%;   /* Gold warning */
     --casino-warning-foreground: 0 0% 100%;
     
@@ -141,10 +141,10 @@ All colors MUST be HSL.
     --success-foreground: 355.7 100% 97.3%;
     
     /* Casino theme colors - dark mode */
-    --casino-primary: 338 79% 44%;
+    --casino-primary: 221 83% 30%;
     --casino-primary-foreground: 0 0% 100%;
-    --casino-accent: 16 100% 66%;
-    --casino-accent-foreground: 0 0% 100%;
+    --casino-accent: 43 96% 53%;
+    --casino-accent-foreground: 221 83% 30%;
     --casino-warning: 43 96% 56%;
     --casino-warning-foreground: 0 0% 100%;
     
