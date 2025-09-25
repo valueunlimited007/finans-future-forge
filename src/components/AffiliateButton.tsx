@@ -137,12 +137,14 @@ export const AffiliateButton: React.FC<AffiliateButtonProps> = ({
       )}
       
       {affiliateManager.isMockMode() && (
-        <span 
-          className="absolute -bottom-1 -left-1 bg-yellow-500 text-yellow-900 text-xs px-1.5 py-0.5 rounded-full border text-[9px] leading-tight"
-          title="Mock mode - tracking är simulerad"
-        >
-          Mock
-        </span>
+        <div className="inline-flex items-center gap-1 mt-1">
+          <span 
+            className="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full border border-yellow-300 font-medium"
+            title="Mock mode - tracking är simulerad"
+          >
+            Mock Mode
+          </span>
+        </div>
       )}
     </div>
   );

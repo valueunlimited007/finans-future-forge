@@ -53,28 +53,28 @@ const CasinoNavigationKasinos = () => {
     },
     {
       title: "BankID Casinon",
-      href: "/casino-bankid",
+      href: "/se/casinon-med-bankid",
       description: "Snabb registrering med BankID",
       icon: Shield,
       popular: true
     },
     {
       title: "Pay n Play",
-      href: "/casino-pay-n-play", 
+      href: "/se/pay-n-play", 
       description: "Spela direkt utan registrering",
       icon: Gamepad2,
       tag: "Populär"
     },
     {
       title: "Snabba Uttag",
-      href: "/casino-snabba-uttag",
+      href: "/se/snabbast-uttag",
       description: "Casinon med snabbast utbetalning",
       icon: ExternalLink,
       tag: "Hett"
     },
     {
       title: "Live Casino",
-      href: "/casino-live-casino",
+      href: "/se/live-casino",
       description: "Äkta dealers och live-action",
       icon: Users
     }
@@ -83,21 +83,21 @@ const CasinoNavigationKasinos = () => {
   const casinoGuides = [
     {
       title: "Nybörjarguide",
-      href: "/casino-guide-nyborjare",
+      href: "/se/guider/nyborjare",
       description: "Lär dig grunderna om online casino",
       icon: BookOpen,
       tag: "Grundläggande"
     },
     {
       title: "Svensk Licens Guide",
-      href: "/casino-svensk-licens-guide",
+      href: "/se/guider/svenska-licenser",
       description: "Vad betyder svensk spellicens?",
       icon: Shield,
       tag: "Viktig"
     },
     {
       title: "Spelansvar Guide",
-      href: "/casino-spelansvar-guide",
+      href: "/se/guider/ansvarfullt-spelande",
       description: "Spela säkert och ansvarsfullt",
       icon: AlertTriangle,
       tag: "RG"

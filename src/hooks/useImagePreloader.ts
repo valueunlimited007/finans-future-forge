@@ -27,7 +27,6 @@ export const useImagePreloader = ({ images, priority = false }: UseImagePreloade
     images.forEach(src => {
       initialStatuses.set(src, { src, loaded: false, error: false });
     });
-    setLoadedImages(initialStatuses);
 
     // Create preload promises
     const preloadPromises = images.map((src) => {
@@ -42,13 +41,13 @@ export const useImagePreloader = ({ images, priority = false }: UseImagePreloade
 
         img.onload = () => {
           const status: ImageLoadStatus = { src, loaded: true, error: false };
-          setLoadedImages(prev => new Map(prev).set(src, status));
+          initialStatuses.set(src, status);
           resolve(status);
         };
 
         img.onerror = () => {
           const status: ImageLoadStatus = { src, loaded: false, error: true };
-          setLoadedImages(prev => new Map(prev).set(src, status));
+          initialStatuses.set(src, status);
           resolve(status);
         };
 
@@ -67,10 +66,11 @@ export const useImagePreloader = ({ images, priority = false }: UseImagePreloade
 
     // Wait for all images to complete (loaded or errored)
     Promise.allSettled(preloadPromises).then(() => {
+      setLoadedImages(new Map(initialStatuses));
       setIsLoading(false);
     });
 
-  }, [images, priority]);
+  }, [images.join(','), priority]);
 
   const getImageStatus = (src: string): ImageLoadStatus | undefined => {
     return loadedImages.get(src);
