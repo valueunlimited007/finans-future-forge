@@ -25,10 +25,10 @@ export default function CasinoReviewCard({ casino, featured = false, actionSlot 
   const reviewSlug = casino.name.toLowerCase().replace(/[^\w]/g, '-');
 
   return (
-    <Card className={`group hover:shadow-lg transition-shadow ${featured ? 'border-primary/20 bg-gradient-to-br from-primary/5 to-accent/5' : ''}`}>
-      <CardHeader className="pb-3">
-        <div className="flex items-center justify-between">
-          <div className="w-12 h-12 bg-muted rounded-lg flex items-center justify-center">
+    <Card className={`group hover:shadow-lg transition-shadow duration-200 ${featured ? 'border-primary/20 bg-gradient-to-br from-primary/5 to-accent/5' : ''}`}>
+      <CardHeader className="pb-4">
+        <div className="flex items-center justify-between mb-3">
+          <div className="w-16 h-16 bg-muted rounded-lg flex items-center justify-center p-2">
             <LazyImage
               src={`/adtraction-logos/${casino.name.toLowerCase()}-logo.png`}
               alt={`${casino.name} logo`}
@@ -38,71 +38,71 @@ export default function CasinoReviewCard({ casino, featured = false, actionSlot 
           </div>
           <div className="flex items-center gap-1">
             {renderStars(casino.rating)}
-            <span className="text-sm text-muted-foreground ml-1">
+            <span className="text-sm font-medium text-foreground ml-1">
               {casino.rating}
             </span>
           </div>
         </div>
         
-        <CardTitle className="text-lg">
+        <CardTitle className="text-xl font-bold mb-3">
           <Link 
             to={`/se/recension/${reviewSlug}`}
-            className="hover:text-primary transition-colors"
+            className="hover:text-primary transition-colors duration-200"
           >
             {casino.name}
           </Link>
         </CardTitle>
         
-        <div className="flex flex-wrap gap-1">
+        <div className="flex flex-wrap gap-2">
           {casino.features.bankid && (
-            <Badge variant="secondary" className="text-xs bg-blue-500/10 text-blue-600">
+            <Badge variant="secondary" className="text-xs font-medium bg-blue-50 text-blue-700 border-blue-200">
               BankID
             </Badge>
           )}
           {casino.features.swish && (
-            <Badge variant="secondary" className="text-xs bg-purple-500/10 text-purple-600">
+            <Badge variant="secondary" className="text-xs font-medium bg-purple-50 text-purple-700 border-purple-200">
               Swish
             </Badge>
           )}
           {casino.features.payNPlay && (
-            <Badge variant="secondary" className="text-xs bg-green-500/10 text-green-600">
+            <Badge variant="secondary" className="text-xs font-medium bg-green-50 text-green-700 border-green-200">
               Pay-n-Play
             </Badge>
           )}
-          <Badge variant="secondary" className="text-xs bg-green-500/10 text-green-600">
+          <Badge variant="secondary" className="text-xs font-medium bg-green-50 text-green-700 border-green-200">
             Svensk licens
           </Badge>
         </div>
       </CardHeader>
 
-      <CardContent className="pt-0">
-        <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
+      <CardContent className="pt-0 space-y-4">
+        <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">
           {casino.description}
         </p>
 
-        <div className="grid grid-cols-3 gap-3 mb-4 text-xs">
+        <div className="grid grid-cols-3 gap-4 py-3 bg-muted/30 rounded-lg">
           <div className="text-center">
-            <div className="font-semibold text-foreground">Grundat</div>
-            <div className="text-muted-foreground">{casino.established}</div>
+            <div className="font-semibold text-foreground text-sm">Grundat</div>
+            <div className="text-muted-foreground text-xs mt-1">{casino.established}</div>
           </div>
           <div className="text-center">
-            <div className="font-semibold text-foreground">Uttag</div>
-            <div className="text-muted-foreground">6-24h</div>
+            <div className="font-semibold text-foreground text-sm">Uttag</div>
+            <div className="text-muted-foreground text-xs mt-1">6-24h</div>
           </div>
           <div className="text-center">
-            <div className="font-semibold text-foreground">Support</div>
-            <div className="text-muted-foreground">Svenska</div>
+            <div className="font-semibold text-foreground text-sm">Support</div>
+            <div className="text-muted-foreground text-xs mt-1">Svenska</div>
           </div>
         </div>
 
-        <div className="flex gap-2">
+        <div className="flex gap-2 pt-2">
           {actionSlot ? (
             actionSlot
           ) : (
             <>
               <Link 
                 to={`/se/recension/${reviewSlug}`}
-                className="flex-1 inline-flex items-center justify-center px-3 py-2 text-sm border border-border rounded-md hover:bg-accent transition-colors"
+                className="flex-1 inline-flex items-center justify-center px-4 py-2.5 text-sm font-medium border border-border rounded-md hover:bg-accent hover:text-accent-foreground transition-colors duration-200"
               >
                 Läs recension
               </Link>
@@ -112,7 +112,7 @@ export default function CasinoReviewCard({ casino, featured = false, actionSlot 
                 brandId={casino.id}
                 brandName={casino.name}
                 termSlug="casino-card"
-                className="flex-1 text-sm px-3 py-2"
+                className="flex-1 text-sm px-4 py-2.5 font-medium"
               />
             </>
           )}
