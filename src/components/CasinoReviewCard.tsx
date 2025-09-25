@@ -105,7 +105,8 @@ export default function CasinoReviewCard({ casino, featured = false, actionSlot 
               brandId={casino.id}
               brandName={casino.name}
               termSlug="casino-card"
-              className="w-full text-sm px-4 py-2.5 font-medium"
+              variant="outline"
+              className="w-full text-sm px-4 py-2.5 font-medium border-2 border-primary bg-background text-primary hover:bg-primary hover:text-primary-foreground"
             />
           )}
         </div>
