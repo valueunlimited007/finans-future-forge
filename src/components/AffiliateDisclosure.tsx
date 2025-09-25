@@ -87,9 +87,9 @@ export default function AffiliateDisclosure({
   if (variant === 'banner') {
     return (
       <Alert className={`border-orange-200 bg-orange-50 ${className}`}>
-        <DollarSign className="h-4 w-4 text-orange-600" />
-        <AlertDescription>
-          <div className="flex flex-wrap items-center gap-2 text-sm">
+        <DollarSign className="h-4 w-4 text-orange-600 mx-auto" />
+        <AlertDescription className="text-center">
+          <div className="flex flex-wrap items-center justify-center gap-2 text-sm">
             <Badge className="bg-orange-500/10 text-orange-600 border-orange-200">
               Reklam & Affiliate
             </Badge>
