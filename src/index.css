@@ -61,6 +61,8 @@ All colors MUST be HSL.
     /* Casino theme colors */
     --casino-primary: 221 83% 30%;  /* Deep navy blue from logo */
     --casino-primary-foreground: 0 0% 100%;
+    --casino-secondary: 210 40% 96.1%;  /* Light background */
+    --casino-secondary-foreground: 222.2 47.4% 11.2%;  /* Dark text */
     --casino-accent: 43 96% 53%;   /* Gold accent from logo */
     --casino-accent-foreground: 221 83% 30%;  /* Dark blue text on gold */
     --casino-warning: 43 96% 56%;   /* Gold warning */
@@ -143,6 +145,8 @@ All colors MUST be HSL.
     /* Casino theme colors - dark mode */
     --casino-primary: 221 83% 30%;
     --casino-primary-foreground: 0 0% 100%;
+    --casino-secondary: 217.2 32.6% 17.5%;  /* Dark background */
+    --casino-secondary-foreground: 210 40% 98%;  /* Light text */
     --casino-accent: 43 96% 53%;
     --casino-accent-foreground: 221 83% 30%;
     --casino-warning: 43 96% 56%;
