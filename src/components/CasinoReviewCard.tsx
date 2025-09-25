@@ -99,12 +99,14 @@ export default function CasinoReviewCard({ casino, featured = false, actionSlot 
           {actionSlot ? (
             actionSlot
           ) : (
-            <Link 
-              to={`/se/recension/${reviewSlug}`}
-              className="w-full inline-flex items-center justify-center px-4 py-2.5 text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 rounded-md transition-colors duration-200"
-            >
-              Läs recension
-            </Link>
+            <AffiliateButton
+              href={`https://${casino.name.toLowerCase()}.com`}
+              label="TILL CASINOT"
+              brandId={casino.id}
+              brandName={casino.name}
+              termSlug="casino-card"
+              className="w-full text-sm px-4 py-2.5 font-medium"
+            />
           )}
         </div>
       </CardContent>
