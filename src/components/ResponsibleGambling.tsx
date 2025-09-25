@@ -13,9 +13,9 @@ interface ResponsibleGamblingProps {
 export function ResponsibleGambling({ variant = 'widget', className }: ResponsibleGamblingProps) {
   if (variant === 'widget') {
     return (
-      <Card className={cn('p-4 bg-rg-primary/5 border-rg-primary/20 mx-auto max-w-md', className)}>
-        <div className="flex flex-col items-center text-center gap-3">
-          <Shield className="h-5 w-5 text-rg-primary flex-shrink-0" />
+      <Card className={cn('p-4 bg-rg-primary/5 border-rg-primary/20', className)}>
+        <div className="flex items-start gap-3">
+          <Shield className="h-5 w-5 text-rg-primary flex-shrink-0 mt-0.5" />
           <div className="space-y-3">
             <div>
               <h3 className="font-semibold text-sm mb-2">Spela ansvarsfullt</h3>
