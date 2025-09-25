@@ -25,7 +25,7 @@ export default function CasinoReviewCard({ casino, featured = false, actionSlot 
   const reviewSlug = casino.name.toLowerCase().replace(/[^\w]/g, '-');
 
   return (
-    <Card className={`group hover:shadow-lg transition-shadow duration-200 ${featured ? 'border-primary/20 bg-gradient-to-br from-primary/5 to-accent/5' : ''}`}>
+    <Card className={`group hover:shadow-lg transition-shadow duration-200 max-w-sm mx-auto w-full ${featured ? 'border-primary/20 bg-gradient-to-br from-primary/5 to-accent/5' : ''}`}>
       <CardHeader className="pb-4">
         <div className="flex items-center justify-between mb-3">
           <div className="w-16 h-16 bg-muted rounded-lg flex items-center justify-center p-2">

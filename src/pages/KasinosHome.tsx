@@ -198,7 +198,7 @@ export default function KasinosHome() {
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8 place-items-center">
           {CASINO_BRANDS.slice(0, 6).map((casino) => (
             <CasinoReviewCard 
               key={casino.id} 
@@ -240,7 +240,7 @@ export default function KasinosHome() {
           </h3>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 place-items-center">
           {searchResults.map((brand) => (
             <CasinoReviewCard
               key={brand.id}
