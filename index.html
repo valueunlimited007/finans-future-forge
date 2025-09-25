@@ -6,6 +6,13 @@
     <base href="/" />
     <title>Finansguiden</title>
     <link rel="icon" href="/favicon.png" type="image/png" />
+    <script>
+      // Dynamic favicon for kasinos.se
+      if (/(^|\.)kasinos\.se$/i.test(location.hostname)) {
+        document.querySelector('link[rel="icon"]').href = '/kasinos-favicon.png';
+        document.title = 'Kasinos.se – Licensierade Casinon i Sverige';
+      }
+    </script>
     
     
     <!-- Google Tag Manager (prod only) -->

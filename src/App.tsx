@@ -38,6 +38,7 @@ import SiteSelector from "./components/SiteSelector";
 
 // Casino components
 import CasinoNavigation from "./components/CasinoNavigation";
+import CasinoNavigationKasinos from "./components/CasinoNavigationKasinos";
 import CasinoFooter from "./components/CasinoFooter";
 import CasinoBankIDPageComponent from "./pages/CasinoBankIDPage";
 import CasinoPayNPlayPageComponent from "./pages/CasinoPayNPlayPage";
@@ -70,7 +71,7 @@ const App = () => {
             <ScrollToTop />
             <Routes>
               {/* Casino site routes */}
-{isCasino ? (
+              {isCasino ? (
                 <>
                   <Route path="/" element={<CasinoHomeWrapper />} />
                   <Route path="/se" element={<CasinoHomeWrapper />} />
@@ -86,12 +87,12 @@ const App = () => {
                   <Route path="/se/guider/ansvarfullt-spelande" element={<ResponsibleGamblingGuidePage />} />
                   <Route path="/se/guider/svenska-licenser" element={<SwedishLicenseGuidePage />} />
                   <Route path="/se/favoriter" element={<FavoritesPageWrapper />} />
-        <Route path="/om" element={<KasinosSitePage><KasinosOm /></KasinosSitePage>} />
-                   <Route path="/cookies" element={<KasinosSitePage><KasinosCookies /></KasinosSitePage>} />
-                   <Route path="/integritetspolicy" element={<KasinosSitePage><KasinosIntegritetspolicy /></KasinosSitePage>} />
-                   <Route path="/kontakt" element={<KasinosSitePage><KasinosKontakt /></KasinosSitePage>} />
-                   <Route path="/ansvarsfriskrivning" element={<KasinosSitePage><KasinosAnsvarsfriskrivning /></KasinosSitePage>} />
-                   <Route path="/se/guider/spelregler" element={<KasinosSitePage><KasinosSpelregler /></KasinosSitePage>} />
+                  <Route path="/om" element={<KasinosSitePage><KasinosOm /></KasinosSitePage>} />
+                  <Route path="/cookies" element={<KasinosSitePage><KasinosCookies /></KasinosSitePage>} />
+                  <Route path="/integritetspolicy" element={<KasinosSitePage><KasinosIntegritetspolicy /></KasinosSitePage>} />
+                  <Route path="/kontakt" element={<KasinosSitePage><KasinosKontakt /></KasinosSitePage>} />
+                  <Route path="/ansvarsfriskrivning" element={<KasinosSitePage><KasinosAnsvarsfriskrivning /></KasinosSitePage>} />
+                  <Route path="/se/guider/spelregler" element={<KasinosSitePage><KasinosSpelregler /></KasinosSitePage>} />
                   <Route path="*" element={<NotFoundBranded />} />
                 </>
               ) : (
@@ -171,12 +172,21 @@ const FavoritesPageWrapper = () => (
 );
 
 // Site layout wrapper
-const KasinosSitePage = ({ children }: { children: React.ReactNode }) => (
-  <>
-    <CasinoNavigation />
-    {children}
-    <CasinoFooter />
-  </>
-);
+const KasinosSitePage = ({ children }: { children: React.ReactNode }) => {
+  const siteConfig = getSiteConfig();
+  const isCasino = isCasinoSite();
+  
+  return (
+    <>
+      {isCasino ? (
+        <CasinoNavigationKasinos />
+      ) : (
+        <CasinoNavigation />
+      )}
+      {children}
+      <CasinoFooter />
+    </>
+  );
+};
 
 export default App;

@@ -83,8 +83,8 @@ export const CasinoSeoHead: React.FC<CasinoSeoHeadProps> = ({
       ))}
       
       {/* Casino-specific favicons and icons */}
-      <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
-      <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/kasinos-favicon.png" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/kasinos-favicon.png" />
       <meta name="theme-color" content="#D21F3C" />
       <meta name="msapplication-TileColor" content="#D21F3C" />
       

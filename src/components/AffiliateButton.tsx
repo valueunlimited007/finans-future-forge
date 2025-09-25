@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import React, { useState, useEffect } from "react";
 import { affiliateManager } from "@/lib/affiliate/AffiliateManager";
+import { AffiliateLinkBadge } from "./AffiliateLinkBadge";
+import { isCasinoSite } from "@/lib/siteConfig";
 
 export interface AffiliateButtonProps {
   href: string;
@@ -86,8 +88,10 @@ export const AffiliateButton: React.FC<AffiliateButtonProps> = ({
     }
   };
 
+  const showAffiliateBadge = isCasinoSite();
+
   return (
-    <div className="relative">
+    <div className={showAffiliateBadge ? "space-y-2" : "relative"}>
       <Button 
         asChild 
         className={className} 
@@ -111,12 +115,27 @@ export const AffiliateButton: React.FC<AffiliateButtonProps> = ({
           )}
         </a>
       </Button>
-      <span 
-        className="absolute -top-1 -right-1 bg-muted text-muted-foreground text-xs px-1.5 py-0.5 rounded-full border text-[9px] leading-tight"
-        title="Reklam - Vi får provision om du genomför ett köp via denna länk. Detta påverkar inte priset för dig."
-      >
-        Reklam
-      </span>
+      
+      {/* Affiliate disclosure for casino site */}
+      {showAffiliateBadge && (
+        <div className="flex items-center gap-2">
+          <AffiliateLinkBadge />
+          <span className="text-xs text-muted-foreground">
+            Vi kan få provision om du registrerar dig via denna länk
+          </span>
+        </div>
+      )}
+      
+      {/* Legacy finance site disclosure */}
+      {!showAffiliateBadge && (
+        <span 
+          className="absolute -top-1 -right-1 bg-muted text-muted-foreground text-xs px-1.5 py-0.5 rounded-full border text-[9px] leading-tight"
+          title="Reklam - Vi får provision om du genomför ett köp via denna länk. Detta påverkar inte priset för dig."
+        >
+          Reklam
+        </span>
+      )}
+      
       {affiliateManager.isMockMode() && (
         <span 
           className="absolute -bottom-1 -left-1 bg-yellow-500 text-yellow-900 text-xs px-1.5 py-0.5 rounded-full border text-[9px] leading-tight"
