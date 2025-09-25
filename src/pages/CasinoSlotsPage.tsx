@@ -222,7 +222,9 @@ export default function CasinoSlotsPage() {
           </div>
         </section>
 
-        <AffiliateDisclosure />
+        <section className="container mx-auto px-4 py-8">
+          <AffiliateDisclosure />
+        </section>
 
         {/* Tips Section */}
         <section className="py-12 bg-muted/30">

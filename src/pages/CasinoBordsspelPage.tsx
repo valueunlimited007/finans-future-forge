@@ -259,7 +259,9 @@ export default function CasinoBordsspelPage() {
           </div>
         </section>
 
-        <AffiliateDisclosure />
+        <section className="container mx-auto px-4 py-8">
+          <AffiliateDisclosure />
+        </section>
 
         {/* Strategy Tips Section */}
         <section className="py-12 bg-muted/30">

@@ -438,7 +438,9 @@ export default function ResponsibleGamblingGuidePage() {
           </div>
         </section>
 
-        <AffiliateDisclosure />
+        <section className="container mx-auto px-4 py-8">
+          <AffiliateDisclosure />
+        </section>
         <AffiliateDebugPanel />
       </main>
     </>

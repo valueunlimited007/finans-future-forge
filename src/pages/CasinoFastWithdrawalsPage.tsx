@@ -186,7 +186,9 @@ export default function CasinoFastWithdrawalsPage() {
           </div>
         </section>
 
-        <AffiliateDisclosure />
+        <section className="container mx-auto px-4 py-8">
+          <AffiliateDisclosure />
+        </section>
 
         {/* How Fast Withdrawals Work */}
         <section className="py-12 bg-muted/30">
