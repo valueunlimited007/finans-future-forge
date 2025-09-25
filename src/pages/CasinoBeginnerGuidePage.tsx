@@ -343,7 +343,11 @@ export default function CasinoBeginnerGuidePage() {
           </div>
         </section>
 
-        <ResponsibleGambling />
+        <section className="py-12">
+          <div className="container mx-auto px-4">
+            <ResponsibleGambling />
+          </div>
+        </section>
 
         {/* Next Steps */}
         <section className="py-12 bg-muted/30">

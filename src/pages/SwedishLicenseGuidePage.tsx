@@ -475,7 +475,11 @@ export default function SwedishLicenseGuidePage() {
           </div>
         </section>
 
-        <ResponsibleGambling />
+        <section className="py-12">
+          <div className="container mx-auto px-4">
+            <ResponsibleGambling />
+          </div>
+        </section>
 
         {/* Call to Action */}
         <section className="py-12">
