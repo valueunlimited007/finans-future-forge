@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import PillarGuide from "@/components/PillarGuide";
 import ContentStrategy from "@/components/ContentStrategy";
 import OffersContainer from "@/components/OffersContainer";
+import ConsumerCreditWarning from "@/components/ConsumerCreditWarning";
 
 export default function RichHome() {
   return (
@@ -101,6 +102,8 @@ export default function RichHome() {
               title="Bästa privatlånen"
               className="mb-12"
             />
+            
+            <ConsumerCreditWarning />
 
             {/* Utan UC Offers */}
             <OffersContainer 
@@ -108,6 +111,8 @@ export default function RichHome() {
               limit={6}
               title="Lån utan UC-kontroll"
             />
+            
+            <ConsumerCreditWarning />
           </div>
         </section>
 
