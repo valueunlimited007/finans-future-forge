@@ -74,7 +74,7 @@ const ModernNavigation = () => {
     {
       title: "Lån utan UC",
       href: "/lan-utan-uc", 
-      description: "17 långivare som lånar ut utan UC-kontroll",
+      description: "28 långivare som lånar ut utan UC-kontroll",
       icon: TrendingUp,
       popular: true
     },

@@ -601,15 +601,6 @@
       isPartner: true
     },
     {
-      id: 'brixo-privatlan-utanuc', network: 'adtraction', name: 'Brixo Privatlån',
-      url: 'https://go.adt291.com/t/t?a=1852499982&as=2005939977&t=2&tk=1',
-      amountRange: '5 000 – 50 000 kr', aprFrom: '21,95%', decision: 'Inom 24 timmar',
-      requirements: 'Eff. ränta 24,3%', rating: 4.5,
-      highlights: ['Kontokredit utan UC', 'Tillåter betalningsanmärkningar'],
-      logo: '/adtraction-logos/brixo2-logo.png',
-      isPartner: true
-    },
-    {
       id: 'merax-utanuc', network: 'adtraction', name: 'Merax SE',
       url: 'https://go.adt291.com/t/t?a=1184128142&as=2005939977&t=2&tk=1',
       amountRange: '10 000 – 500 000 kr', aprFrom: 'från 4,95%', decision: 'Snabbt beslut',
