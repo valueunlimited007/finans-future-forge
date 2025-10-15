@@ -9,8 +9,7 @@ import OffersContainer from "./OffersContainer";
 import AndraTjansterGuideSteps from "./AndraTjansterGuideSteps";
 import AndraTjansterFAQ from "./AndraTjansterFAQ";
 import BreadcrumbNavigation from "./BreadcrumbNavigation";
-import TrustIndicators from "./TrustIndicators";
-import ComplianceFooter from "./ComplianceFooter";
+import FinancialTrustIndicators from "./FinancialTrustIndicators";
 
 export default function RichAndraTjanster() {
   const breadcrumbItems = [
@@ -85,9 +84,9 @@ export default function RichAndraTjanster() {
                 <Button asChild size="lg" className="fg-btn">
                   <a href="#jamfor-tjanster">Jämför tjänster</a>
                 </Button>
-                <Button asChild variant="outline" size="lg">
-                  <a href="#guide">Läs guide</a>
-                </Button>
+              <Button asChild size="lg" className="fg-btn">
+                <a href="#guide">Läs guide</a>
+              </Button>
               </div>
               <div className="flex flex-wrap gap-3 justify-center pt-6">
                 <Badge variant="secondary" className="text-sm">
@@ -239,7 +238,7 @@ export default function RichAndraTjanster() {
         {/* Trust Indicators */}
         <section className="py-12 px-4 bg-background">
           <div className="container mx-auto max-w-6xl">
-            <TrustIndicators />
+            <FinancialTrustIndicators />
           </div>
         </section>
 
@@ -257,14 +256,13 @@ export default function RichAndraTjanster() {
               <Button asChild size="lg" className="fg-btn">
                 <a href="#jamfor-tjanster">Jämför tjänster</a>
               </Button>
-              <Button asChild variant="outline" size="lg">
+              <Button asChild size="lg" className="fg-btn">
                 <Link to="/">Tillbaka till startsidan</Link>
               </Button>
             </div>
           </div>
         </section>
 
-        <ComplianceFooter />
       </div>
     </>
   );
