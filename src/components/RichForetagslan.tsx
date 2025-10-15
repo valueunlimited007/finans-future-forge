@@ -92,7 +92,7 @@ export default function RichForetagslan() {
             </p>
             
             <div className="flex flex-wrap gap-4 justify-center mb-8">
-              <Button size="lg" className="text-lg px-8 bg-emerald-600 text-white hover:bg-emerald-700 shadow-lg">
+              <Button size="lg" className="text-lg px-8 fg-btn--business shadow-lg">
                 Jämför företagslån nu
               </Button>
               <Button variant="outline" size="lg" className="text-lg px-8 border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white">
