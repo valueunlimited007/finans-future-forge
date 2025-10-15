@@ -16,6 +16,11 @@ import ConsumerCreditWarning from "./ConsumerCreditWarning";
 
 export default function RichPrivatlan() {
   const [showAllLoans, setShowAllLoans] = useState(false);
+  
+  const breadcrumbItems = [
+    { label: "Privatlån" }
+  ];
+  
   return (
     <>
       <Helmet>
@@ -40,6 +45,10 @@ export default function RichPrivatlan() {
       </Helmet>
 
       <main>
+        <div className="container mx-auto max-w-6xl px-4">
+          <CustomBreadcrumb items={breadcrumbItems} />
+        </div>
+
         {/* Hero Section */}
         <section className="py-16 px-4 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950 dark:to-blue-900">
           <div className="container mx-auto max-w-6xl">

@@ -8,13 +8,12 @@ import { CheckCircle, TrendingUp, Shield, DollarSign, Globe, Wallet } from "luci
 import OffersContainer from "./OffersContainer";
 import AndraTjansterGuideSteps from "./AndraTjansterGuideSteps";
 import AndraTjansterFAQ from "./AndraTjansterFAQ";
-import BreadcrumbNavigation from "./BreadcrumbNavigation";
+import CustomBreadcrumb from "./CustomBreadcrumb";
 import ConsumerCreditWarning from "./ConsumerCreditWarning";
 
 export default function RichAndraTjanster() {
   const breadcrumbItems = [
-    { label: "Hem", path: "/" },
-    { label: "Andra finansiella tjänster", path: "/andra-tjanster" }
+    { label: "Andra finansiella tjänster" }
   ];
 
   const jsonLdSchema = {
@@ -66,8 +65,10 @@ export default function RichAndraTjanster() {
         </script>
       </Helmet>
 
-      <div className="min-h-screen bg-background">
-        <BreadcrumbNavigation items={breadcrumbItems} />
+      <main>
+        <div className="container mx-auto max-w-6xl px-4">
+          <CustomBreadcrumb items={breadcrumbItems} />
+        </div>
 
         {/* Hero Section */}
         <section className="py-16 px-4 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950 dark:to-blue-900">
@@ -237,7 +238,7 @@ export default function RichAndraTjanster() {
         </section>
 
         {/* Final CTA */}
-        <section className="py-16 px-4 bg-gradient-to-b from-primary/5 to-background">
+        <section className="py-16 px-4 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950 dark:to-blue-900">
           <div className="container mx-auto max-w-4xl text-center space-y-6">
             <h2 className="text-3xl md:text-4xl font-bold">
               Redo att komma igång?
@@ -262,7 +263,7 @@ export default function RichAndraTjanster() {
           </div>
         </section>
 
-      </div>
+      </main>
     </>
   );
 }
