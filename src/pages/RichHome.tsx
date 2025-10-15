@@ -126,8 +126,8 @@ export default function RichHome() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <Card data-fg-card className="hover:shadow-lg transition-shadow">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+              <Card data-fg-card className="h-full flex flex-col hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                     <span className="text-2xl">👤</span>
@@ -137,7 +137,7 @@ export default function RichHome() {
                     Jämför privatlån från 10 000 kr upp till 600 000 kr. Ansök direkt online och få svar inom 24h.
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="flex-1 flex flex-col justify-between">
                   <ul className="text-sm text-muted-foreground space-y-2 mb-4">
                     <li>• Räntor från 2,9% (effektiv)</li>
                     <li>• Upp till 15 års löptid</li>
@@ -150,7 +150,7 @@ export default function RichHome() {
                 </CardContent>
               </Card>
 
-              <Card data-fg-card className="hover:shadow-lg transition-shadow">
+              <Card data-fg-card className="h-full flex flex-col hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                     <span className="text-2xl">🏢</span>
@@ -160,7 +160,7 @@ export default function RichHome() {
                     Finansiering för företag. Från startkapital till expansion och kassaflöde. Även utan säkerhet.
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="flex-1 flex flex-col justify-between">
                   <ul className="text-sm text-muted-foreground space-y-2 mb-4">
                     <li>• Upp till 5 miljoner kr</li>
                     <li>• Flexibla återbetalningar</li>
@@ -173,7 +173,7 @@ export default function RichHome() {
                 </CardContent>
               </Card>
 
-              <Card data-fg-card className="hover:shadow-lg transition-shadow">
+              <Card data-fg-card className="h-full flex flex-col hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                     <span className="text-2xl">💳</span>
@@ -183,7 +183,7 @@ export default function RichHome() {
                     Hitta kreditkort med bonus, cashback och reseförsäkringar. Jämför över 50 olika kort.
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="flex-1 flex flex-col justify-between">
                   <ul className="text-sm text-muted-foreground space-y-2 mb-4">
                     <li>• Cashback upp till 3%</li>
                     <li>• Räntefria dagar</li>
@@ -196,7 +196,7 @@ export default function RichHome() {
                 </CardContent>
               </Card>
 
-              <Card data-fg-card className="hover:shadow-lg transition-shadow">
+              <Card data-fg-card className="h-full flex flex-col hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                     <span className="text-2xl">🔓</span>
@@ -206,7 +206,7 @@ export default function RichHome() {
                     28 långivare som inte gör UC-kontroll. Även med betalningsanmärkning. Svar inom 24h.
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="flex-1 flex flex-col justify-between">
                   <ul className="text-sm text-muted-foreground space-y-2 mb-4">
                     <li>• Ingen UC-kontroll</li>
                     <li>• Även med anmärkningar</li>
@@ -219,7 +219,7 @@ export default function RichHome() {
                 </CardContent>
               </Card>
 
-              <Card data-fg-card className="hover:shadow-lg transition-shadow">
+              <Card data-fg-card className="h-full flex flex-col hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                     <span className="text-2xl">💰</span>
@@ -229,7 +229,7 @@ export default function RichHome() {
                     Valutaväxling och sparande med hög avkastning.
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="flex-1 flex flex-col justify-between">
                   <ul className="text-sm text-muted-foreground space-y-2 mb-4">
                     <li>• Bästa växelkurserna</li>
                     <li>• FastRäntekonto 5,5%</li>
