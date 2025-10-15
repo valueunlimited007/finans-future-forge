@@ -9,7 +9,7 @@ import OffersContainer from "./OffersContainer";
 import AndraTjansterGuideSteps from "./AndraTjansterGuideSteps";
 import AndraTjansterFAQ from "./AndraTjansterFAQ";
 import BreadcrumbNavigation from "./BreadcrumbNavigation";
-import FinancialTrustIndicators from "./FinancialTrustIndicators";
+import ConsumerCreditWarning from "./ConsumerCreditWarning";
 
 export default function RichAndraTjanster() {
   const breadcrumbItems = [
@@ -70,50 +70,51 @@ export default function RichAndraTjanster() {
         <BreadcrumbNavigation items={breadcrumbItems} />
 
         {/* Hero Section */}
-        <section className="py-12 px-4 bg-gradient-to-b from-primary/5 to-background">
+        <section className="py-16 px-4 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950 dark:to-blue-900">
           <div className="container mx-auto max-w-6xl">
-            <div className="text-center space-y-6">
-              <h1 className="text-4xl md:text-5xl font-bold text-foreground">
-                Andra finansiella tjänster - Valutaväxling och Sparande
+            <div className="text-center mb-12">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">
+                Andra finansiella tjänster - <span className="text-blue-600">Valutaväxling och Sparande</span>
               </h1>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
                 Utforska smarta alternativ för valutaväxling och högavkastande sparkonton. 
                 Vi hjälper dig hitta bästa växelkurserna och trygga sparalternativ med högre ränta än traditionella sparkonton.
               </p>
-              <div className="flex flex-wrap gap-4 justify-center pt-4">
-                <Button asChild size="lg" className="fg-btn">
+              
+              <div className="flex flex-wrap gap-4 justify-center mb-8">
+                <Button asChild size="lg" className="text-lg px-8 bg-blue-600 text-white hover:bg-blue-700 shadow-lg">
                   <a href="#jamfor-tjanster">Jämför tjänster</a>
                 </Button>
-              <Button asChild size="lg" className="fg-btn">
-                <a href="#guide">Läs guide</a>
-              </Button>
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="text-lg px-8 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
+                  asChild
+                >
+                  <a href="#guide">Läs guide</a>
+                </Button>
               </div>
-              <div className="flex flex-wrap gap-3 justify-center pt-6">
-                <Badge variant="secondary" className="text-sm">
-                  <CheckCircle className="w-4 h-4 mr-1" />
-                  Oberoende jämförelser
-                </Badge>
-                <Badge variant="secondary" className="text-sm">
-                  <Shield className="w-4 h-4 mr-1" />
-                  Säkra tjänster
-                </Badge>
-                <Badge variant="secondary" className="text-sm">
-                  <TrendingUp className="w-4 h-4 mr-1" />
-                  Högre avkastning
-                </Badge>
+
+              <div className="flex flex-wrap gap-4 justify-center text-sm">
+                <Badge variant="secondary">✓ Oberoende jämförelser</Badge>
+                <Badge variant="secondary">✓ Säkra tjänster</Badge>
+                <Badge variant="secondary">✓ Högre avkastning</Badge>
+                <Badge variant="secondary">✓ Transparent affiliatemodell</Badge>
               </div>
             </div>
           </div>
         </section>
 
         {/* Offers Section */}
-        <section id="jamfor-tjanster" className="py-16 px-4 bg-background">
+        <section id="jamfor-tjanster" className="py-16 px-4">
           <div className="container mx-auto max-w-6xl">
             <OffersContainer 
               category="ovriga" 
               limit={10}
               title="Jämför våra partners"
             />
+            
+            <ConsumerCreditWarning />
           </div>
         </section>
 
@@ -235,13 +236,6 @@ export default function RichAndraTjanster() {
           </div>
         </section>
 
-        {/* Trust Indicators */}
-        <section className="py-12 px-4 bg-background">
-          <div className="container mx-auto max-w-6xl">
-            <FinancialTrustIndicators />
-          </div>
-        </section>
-
         {/* Final CTA */}
         <section className="py-16 px-4 bg-gradient-to-b from-primary/5 to-background">
           <div className="container mx-auto max-w-4xl text-center space-y-6">
@@ -253,10 +247,15 @@ export default function RichAndraTjanster() {
               Hitta tjänsten som passar dig bäst.
             </p>
             <div className="flex flex-wrap gap-4 justify-center pt-4">
-              <Button asChild size="lg" className="fg-btn">
+              <Button asChild size="lg" className="text-lg px-8 bg-blue-600 text-white hover:bg-blue-700 shadow-lg">
                 <a href="#jamfor-tjanster">Jämför tjänster</a>
               </Button>
-              <Button asChild size="lg" className="fg-btn">
+              <Button 
+                asChild 
+                size="lg" 
+                variant="outline"
+                className="text-lg px-8 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
+              >
                 <Link to="/">Tillbaka till startsidan</Link>
               </Button>
             </div>
