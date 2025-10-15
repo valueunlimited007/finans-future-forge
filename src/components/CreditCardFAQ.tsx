@@ -91,7 +91,7 @@ export default function CreditCardFAQ() {
           <Accordion type="single" collapsible className="space-y-2">
             {creditCardFaqData.map((faq, index) => (
               <AccordionItem key={index} value={`item-${index}`} className="border rounded-lg px-4">
-                <AccordionTrigger className="text-left hover:no-underline hover:text-primary">
+                <AccordionTrigger className="text-left hover:no-underline hover:text-primary text-base">
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground leading-relaxed">
