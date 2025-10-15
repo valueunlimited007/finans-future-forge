@@ -353,10 +353,24 @@ All colors MUST be HSL.
   }
 }
 
-/* Finansguiden button utility - always wins over legacy */
+/* Finansguiden button utilities - robust specificity */
 @layer utilities {
+  /* Huvudklass - fungerar överallt tack vare important: '#root' */
   .fg-btn {
     @apply bg-primary text-primary-foreground hover:bg-primary/90 font-semibold;
-    min-height: 44px; /* WCAG touch target */
+  }
+
+  /* Extra specificitet för knappar i kort (tryggt bälte-hängslen) */
+  [data-fg-card] .fg-btn {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90;
+  }
+
+  /* Business-variant för företagslån */
+  .fg-btn--business {
+    @apply bg-emerald-600 text-white hover:bg-emerald-700 font-semibold;
+  }
+
+  [data-fg-card] .fg-btn--business {
+    @apply bg-emerald-600 text-white hover:bg-emerald-700;
   }
 }

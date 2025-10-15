@@ -127,7 +127,7 @@ export default function RichHome() {
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <Card className="hover:shadow-lg transition-shadow">
+              <Card data-fg-card className="hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                     <span className="text-2xl">👤</span>
@@ -150,7 +150,7 @@ export default function RichHome() {
                 </CardContent>
               </Card>
 
-              <Card className="hover:shadow-lg transition-shadow">
+              <Card data-fg-card className="hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                     <span className="text-2xl">🏢</span>
@@ -167,13 +167,13 @@ export default function RichHome() {
                     <li>• Även utan säkerhet</li>
                     <li>• Snabba beslut</li>
                   </ul>
-                  <Button asChild className="w-full fg-btn">
+                  <Button asChild className="w-full fg-btn--business">
                     <Link to="/foretagslan">Jämför företagslån</Link>
                   </Button>
                 </CardContent>
               </Card>
 
-              <Card className="hover:shadow-lg transition-shadow">
+              <Card data-fg-card className="hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                     <span className="text-2xl">💳</span>
@@ -196,7 +196,7 @@ export default function RichHome() {
                 </CardContent>
               </Card>
 
-              <Card className="hover:shadow-lg transition-shadow">
+              <Card data-fg-card className="hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                     <span className="text-2xl">🔓</span>
@@ -219,7 +219,7 @@ export default function RichHome() {
                 </CardContent>
               </Card>
 
-              <Card className="hover:shadow-lg transition-shadow">
+              <Card data-fg-card className="hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                     <span className="text-2xl">💰</span>

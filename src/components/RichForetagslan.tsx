@@ -357,7 +357,7 @@ export default function RichForetagslan() {
             <h2 className="text-3xl font-bold text-center mb-12">Olika typer av företagsfinansiering</h2>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-              <Card className="hover:shadow-lg transition-shadow">
+              <Card data-fg-card className="hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-4">
                     <TrendingUp className="w-6 h-6 text-emerald-600" />
@@ -374,11 +374,11 @@ export default function RichForetagslan() {
                     <li>• Konkurrenskraftiga räntor från 4,2%</li>
                     <li>• Flexibel återbetalning</li>
                   </ul>
-                  <Button className="w-full">Läs mer om tillväxtlån</Button>
+                  <Button className="w-full fg-btn--business">Läs mer om tillväxtlån</Button>
                 </CardContent>
               </Card>
 
-              <Card className="hover:shadow-lg transition-shadow">
+              <Card data-fg-card className="hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                     <Clock className="w-6 h-6 text-blue-600" />
@@ -395,11 +395,11 @@ export default function RichForetagslan() {
                     <li>• Kort löptid (3-24 månader)</li>
                     <li>• Minimal dokumentation</li>
                   </ul>
-                  <Button className="w-full">Läs mer om kassaflödeslån</Button>
+                  <Button className="w-full fg-btn--business">Läs mer om kassaflödeslån</Button>
                 </CardContent>
               </Card>
 
-              <Card className="hover:shadow-lg transition-shadow">
+              <Card data-fg-card className="hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
                     <span className="text-2xl">🏗️</span>
@@ -416,11 +416,11 @@ export default function RichForetagslan() {
                     <li>• Långa löptider</li>
                     <li>• Gynnsamma villkor</li>
                   </ul>
-                  <Button className="w-full">Läs mer om investeringslån</Button>
+                  <Button className="w-full fg-btn--business">Läs mer om investeringslån</Button>
                 </CardContent>
               </Card>
 
-              <Card className="hover:shadow-lg transition-shadow">
+              <Card data-fg-card className="hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
                     <span className="text-2xl">⭐</span>
@@ -437,11 +437,11 @@ export default function RichForetagslan() {
                     <li>• Personlig borgen möjlig</li>
                     <li>• Rådgivning inkluderad</li>
                   </ul>
-                  <Button className="w-full">Läs mer om startupfinansiering</Button>
+                  <Button className="w-full fg-btn--business">Läs mer om startupfinansiering</Button>
                 </CardContent>
               </Card>
 
-              <Card className="hover:shadow-lg transition-shadow">
+              <Card data-fg-card className="hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
                     <span className="text-2xl">📄</span>
@@ -458,11 +458,11 @@ export default function RichForetagslan() {
                     <li>• Ingen kreditprövning</li>
                     <li>• Flexibel lösning</li>
                   </ul>
-                  <Button className="w-full">Läs mer om faktoring</Button>
+                  <Button className="w-full fg-btn--business">Läs mer om faktoring</Button>
                 </CardContent>
               </Card>
 
-              <Card className="hover:shadow-lg transition-shadow">
+              <Card data-fg-card className="hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
                     <span className="text-2xl">🏪</span>
@@ -479,7 +479,7 @@ export default function RichForetagslan() {
                     <li>• Rörlig ränta</li>
                     <li>• Perfekt för säsongsvariationer</li>
                   </ul>
-                  <Button className="w-full">Läs mer om handelskredit</Button>
+                  <Button className="w-full fg-btn--business">Läs mer om handelskredit</Button>
                 </CardContent>
               </Card>
             </div>
