@@ -89,7 +89,7 @@ export default function RichPrivatlan() {
             {/* Adtraction Offers Container */}
             <OffersContainer 
               category="privatlan" 
-              limit={showAllLoans ? 60 : 20}
+              limit={showAllLoans ? 40 : 15}
               className="mb-12" 
             />
             
@@ -111,7 +111,7 @@ export default function RichPrivatlan() {
                   }, 100);
                 }}
               >
-                {showAllLoans ? 'Visa färre' : 'Se alla 49 privatlån'}
+                {showAllLoans ? 'Visa färre' : 'Se alla 38 privatlån'}
               </Button>
             </div>
           </div>

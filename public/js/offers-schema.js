@@ -6,8 +6,8 @@
   // Helper to freeze objects lightly (avoid accidental mutation)
   function seal(o){ try { return Object.freeze(o); } catch(e){ return o; } }
 
-  // Cache buster for offers update - Updated with 62 Adtraction partners + 28 utan-UC lenders
-  var cacheVersion = Date.now();
+  // Cache buster for offers update - Updated with 38 Adtraction partners + 28 utan-UC lenders
+  var cacheVersion = 1736907600000;
 
   // Real Adtraction partners - approved for Finansguiden.se
   var privatlan = [
@@ -120,23 +120,6 @@
       logo: '/adtraction-logos/natfinans-logo.png',
       isPartner: true
     },
-    // ADDITIONAL LENDERS (pending partnership approval)
-    {
-      id: 'anyfin', name: 'Anyfin',
-      url: 'https://www.anyfin.com/sv/',
-      amountRange: '5 000 – 350 000 kr', aprFrom: 'från 4,95%', decision: 'Snabbt beslut',
-      requirements: 'Kreditupplysning', rating: 4.4,
-      highlights: ['Sänk dina kreditkostnader', 'Samla dina lån'],
-      isPartner: false
-    },
-    {
-      id: 'danske-bank', name: 'Danske Bank',
-      url: 'https://www.danskebank.se/privat/lana/privatlan',
-      amountRange: '25 000 – 600 000 kr', aprFrom: 'från 5,45%', decision: 'Inom några dagar',
-      requirements: 'Kund i banken', rating: 4.3,
-      highlights: ['Etablerad storbank', 'Konkurrenskraftiga räntor'],
-      isPartner: false
-    },
     {
       id: 'lendo', network: 'adtraction', name: 'Lendo SE',
       url: 'https://go.adt228.com/t/t?a=1060519344&as=2005939977&t=2&tk=1',
@@ -145,22 +128,6 @@
       highlights: ['Snabbt och enkelt', 'Trygg lånejämförelse'],
       logo: '/adtraction-logos/lendo-logo.png',
       isPartner: true
-    },
-    {
-      id: 'svea-ekonomi', name: 'Svea Ekonomi',
-      url: 'https://www.svea.com/se/sv/privatpersoner/privatlan/',
-      amountRange: '15 000 – 350 000 kr', aprFrom: 'från 5,95%', decision: 'Snabbt beslut',
-      requirements: 'Regelbunden inkomst', rating: 4.2,
-      highlights: ['Flexibel återbetalning', 'Snabb handläggning'],
-      isPartner: false
-    },
-    {
-      id: 'northmill-bank', name: 'Northmill Bank',
-      url: 'https://www.northmill.se/privatlan',
-      amountRange: '25 000 – 500 000 kr', aprFrom: 'från 4,95%', decision: 'Inom 24h',
-      requirements: 'Fast anställning', rating: 4.4,
-      highlights: ['Digital bank', 'Snabb process'],
-      isPartner: false
     },
     {
       id: 'ferratum', network: 'adtraction', name: 'Ferratum SE',
@@ -226,16 +193,7 @@
       isPartner: true
     },
     {
-      id: 'brixo-privatlan', network: 'adtraction', name: 'Brixo Privatlån',
-      url: 'https://go.adt291.com/t/t?a=1852499982&as=2005939977&t=2&tk=1',
-      amountRange: '5 000 – 50 000 kr', aprFrom: '21,95%', decision: 'Inom 24 timmar',
-      requirements: 'Eff. ränta 24,3%', rating: 4.5,
-      highlights: ['Kontokredit', 'Tillåter betalningsanmärkningar'],
-      logo: '/adtraction-logos/brixo2-logo.png',
-      isPartner: true
-    },
-    {
-      id: 'ekomni', network: 'adtraction', name: 'Ekonomi SE',
+      id: 'ekomni', network: 'adtraction', name: 'Ekomni',
       url: 'https://go.adt253.net/t/t?a=1860767369&as=2005939977&t=2&tk=1',
       amountRange: '5 000 – 600 000 kr', aprFrom: 'från 4,95%', decision: 'Snabbt beslut',
       requirements: 'Kreditupplysning', rating: 4.5,
