@@ -51,8 +51,8 @@ export default function RichLanUtanUc() {
   return (
     <>
       <Helmet>
-        <title>Lån utan UC - 13 långivare som inte UC-kontrollerar 2025</title>
-        <meta name="description" content="Lån utan UC-kontroll från 13 långivare. ✓ Även med betalningsanmärkning ✓ Snabba beslut ✓ 1 000-800 000 kr. Få lån utan kreditupplysning idag." />
+        <title>Lån utan UC - 28 långivare som inte UC-kontrollerar 2025</title>
+        <meta name="description" content="Lån utan UC-kontroll från 28 långivare. ✓ Även med betalningsanmärkning ✓ Snabba beslut ✓ 1 000-800 000 kr. Få lån utan kreditupplysning idag." />
         <link rel="canonical" href="https://finansguiden.se/lan-utan-uc" />
         <script type="application/ld+json">
           {JSON.stringify(faqJsonLd)}
@@ -71,7 +71,7 @@ export default function RichLanUtanUc() {
               Lån <span className="text-orange-600">utan UC</span> 2025
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-              13 verifierade långivare som inte gör UC-kontroll. Få lån även med betalningsanmärkning. 
+              28 verifierade långivare som inte gör UC-kontroll. Få lån även med betalningsanmärkning. 
               Snabba beslut och utbetalning samma dag med räntor från 2,95%.
             </p>
             
@@ -91,7 +91,7 @@ export default function RichLanUtanUc() {
               </Badge>
               <Badge variant="secondary" className="bg-blue-100 text-blue-800">
                 <Users className="w-4 h-4 mr-1" />
-                13 verifierade långivare
+                28 verifierade långivare
               </Badge>
               <Badge variant="secondary" className="bg-purple-100 text-purple-800">
                 <Clock className="w-4 h-4 mr-1" />
@@ -106,7 +106,7 @@ export default function RichLanUtanUc() {
             {/* Quick Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
               <div className="text-center">
-                <div className="text-2xl font-bold text-orange-600">13</div>
+                <div className="text-2xl font-bold text-orange-600">28</div>
                 <div className="text-sm text-muted-foreground">Långivare</div>
               </div>
               <div className="text-center">
@@ -299,7 +299,7 @@ export default function RichLanUtanUc() {
             {/* Adtraction Utan UC Offers */}
             <OffersContainer 
               category="utan-uc" 
-              limit={14}
+              limit={30}
               className="mb-12" 
             />
             

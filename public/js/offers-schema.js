@@ -6,7 +6,7 @@
   // Helper to freeze objects lightly (avoid accidental mutation)
   function seal(o){ try { return Object.freeze(o); } catch(e){ return o; } }
 
-  // Cache buster for offers update - Updated with 62 Adtraction partners
+  // Cache buster for offers update - Updated with 62 Adtraction partners + 28 utan-UC lenders
   var cacheVersion = Date.now();
 
   // Real Adtraction partners - approved for Finansguiden.se
@@ -543,6 +543,115 @@
       requirements: 'Regelbunden inkomst', rating: 4.0,
       highlights: ['Lön på dagen', 'Flexibel återbetalning'],
       logo: '/adtraction-logos/daypay-logo.png',
+      isPartner: true
+    },
+    // NEW ADDITIONS - Lenders that offer loans without UC check
+    {
+      id: 'moank-utanuc', network: 'adtraction', name: 'Moank',
+      url: 'https://go.adt246.net/t/t?a=1160891487&as=2005939977&t=2&tk=1',
+      amountRange: '3 000 – 30 000 kr', aprFrom: 'från 21,95%', decision: 'Snabbt beslut',
+      requirements: 'Min 21 år', rating: 4.3,
+      highlights: ['Kontokredit utan UC', 'Flexibel återbetalning'],
+      logo: '/adtraction-logos/moank-logo.png',
+      isPartner: true
+    },
+    {
+      id: 'banky-utanuc', network: 'adtraction', name: 'Banky SE',
+      url: 'https://go.adt267.com/t/t?a=1745445620&as=2005939977&t=2&tk=1',
+      amountRange: '5 000 – 500 000 kr', aprFrom: 'från 4,95%', decision: 'Snabbt beslut',
+      requirements: 'Alternativ kreditbedömning', rating: 4.5,
+      highlights: ['Digital långivare utan UC', 'Snabb process'],
+      logo: '/adtraction-logos/banky-logo.png',
+      isPartner: true
+    },
+    {
+      id: 'klaralan-utanuc', network: 'adtraction', name: 'Klara lån SE',
+      url: 'https://go.adt267.com/t/t?a=1153212131&as=2005939977&t=2&tk=1',
+      amountRange: '5 000 – 600 000 kr', aprFrom: 'från 3,95%', decision: 'Snabbt beslut',
+      requirements: 'Alternativ kreditbedömning', rating: 4.5,
+      highlights: ['Jämför långivare utan UC', 'En ansökan'],
+      logo: '/adtraction-logos/klaralan-logo.png',
+      isPartner: true
+    },
+    {
+      id: 'gfmoney-utanuc', network: 'adtraction', name: 'GF Money SE',
+      url: 'https://go.adt246.net/t/t?a=1400909618&as=2005939977&t=2&tk=1',
+      amountRange: '5 000 – 500 000 kr', aprFrom: 'från 4,95%', decision: 'Snabbt beslut',
+      requirements: 'Alternativ kreditbedömning', rating: 4.5,
+      highlights: ['Digital långivare utan UC', 'Flexibla villkor'],
+      logo: '/adtraction-logos/gfmoney-logo.png',
+      isPartner: true
+    },
+    {
+      id: 'loanstep-utanuc', network: 'adtraction', name: 'Loanstep SE',
+      url: 'https://go.adt284.net/t/t?a=1961010341&as=2005939977&t=2&tk=1',
+      amountRange: '5 000 – 600 000 kr', aprFrom: 'från 3,95%', decision: 'Snabbt beslut',
+      requirements: 'Alternativ kreditbedömning', rating: 4.5,
+      highlights: ['Jämför många långivare utan UC', 'En ansökan'],
+      logo: '/adtraction-logos/loanstep-logo.png',
+      isPartner: true
+    },
+    {
+      id: 'viaconto-utanuc', network: 'adtraction', name: 'ViaConto SE',
+      url: 'https://go.adt284.net/t/t?a=485150298&as=2005939977&t=2&tk=1',
+      amountRange: '10 000 – 500 000 kr', aprFrom: 'från 4,95%', decision: 'Snabbt beslut',
+      requirements: 'Alternativ kreditbedömning', rating: 4.6,
+      highlights: ['Digital långivare utan UC', 'Flexibla villkor'],
+      logo: '/adtraction-logos/viaconto-logo.png',
+      isPartner: true
+    },
+    {
+      id: 'brixo-privatlan-utanuc', network: 'adtraction', name: 'Brixo Privatlån',
+      url: 'https://go.adt291.com/t/t?a=1852499982&as=2005939977&t=2&tk=1',
+      amountRange: '5 000 – 50 000 kr', aprFrom: '21,95%', decision: 'Inom 24 timmar',
+      requirements: 'Eff. ränta 24,3%', rating: 4.5,
+      highlights: ['Kontokredit utan UC', 'Tillåter betalningsanmärkningar'],
+      logo: '/adtraction-logos/brixo2-logo.png',
+      isPartner: true
+    },
+    {
+      id: 'merax-utanuc', network: 'adtraction', name: 'Merax SE',
+      url: 'https://go.adt291.com/t/t?a=1184128142&as=2005939977&t=2&tk=1',
+      amountRange: '10 000 – 500 000 kr', aprFrom: 'från 4,95%', decision: 'Snabbt beslut',
+      requirements: 'Alternativ kreditbedömning', rating: 4.5,
+      highlights: ['Digital långivare utan UC', 'Flexibla villkor'],
+      logo: '/adtraction-logos/merax-logo.png',
+      isPartner: true
+    },
+    {
+      id: 'myloan24-utanuc', network: 'adtraction', name: 'Myloan24 SE',
+      url: 'https://go.adt291.com/t/t?a=1795653842&as=2005939977&t=2&tk=1',
+      amountRange: '5 000 – 600 000 kr', aprFrom: 'från 3,95%', decision: 'Snabbt beslut',
+      requirements: 'Alternativ kreditbedömning', rating: 4.5,
+      highlights: ['Jämför långivare utan UC', 'En ansökan'],
+      logo: '/adtraction-logos/myloan24-logo.png',
+      isPartner: true
+    },
+    {
+      id: 'northmill-kontokredit-utanuc', network: 'adtraction', name: 'Northmill Bank Kontokredit SE',
+      url: 'https://go.adt267.com/t/t?a=1105916291&as=2005939977&t=2&tk=1',
+      amountRange: '5 000 – 100 000 kr', aprFrom: 'från 14,95%', decision: 'Snabbt beslut',
+      requirements: 'Fast anställning', rating: 4.5,
+      highlights: ['Flexibel kredit utan UC', 'Digital process'],
+      logo: '/adtraction-logos/northmill-logo.png',
+      isPartner: true
+    },
+    {
+      id: 'saldobank-kontokredit-utanuc', network: 'adtraction', name: 'Saldo Bank Kontokredit',
+      url: 'https://go.adt256.com/t/t?a=1877254678&as=2005939977&t=2&tk=1',
+      amountRange: '5 000 – 50 000 kr', aprFrom: 'från 19,95%', decision: 'Snabbt beslut',
+      requirements: 'Min 21 år', rating: 4.4,
+      highlights: ['Kontokredit utan UC', 'Flexibel återbetalning'],
+      logo: '/adtraction-logos/saldobank-logo.png',
+      isPartner: true
+    },
+    {
+      id: 'pantlan-utanuc', network: 'adtraction', name: 'Pantlån SE',
+      url: 'https://ion.pantlan.se/t/t?a=1869711981&as=2005939977&t=2&tk=1',
+      amountRange: '1 000 – 50 000 kr', aprFrom: 'från 19,95%', decision: 'Samma dag',
+      requirements: 'Pant mot lån', rating: 4.2,
+      highlights: ['Lån mot värdesaker utan UC', 'Snabb utbetalning'],
+      logo: '/adtraction-logos/pantlan-logo.png',
       isPartner: true
     }
   ].map(seal);
