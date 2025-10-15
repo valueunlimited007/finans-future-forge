@@ -253,7 +253,7 @@ All colors MUST be HSL.
 
   /* Mobile-friendly buttons */
   @media (max-width: 640px) {
-    .btn, button, [role="button"] {
+    .btn, [role="button"] {
       min-height: 44px;
       padding: 0.75rem 1rem;
       font-size: 1rem;
@@ -350,5 +350,13 @@ All colors MUST be HSL.
   /* More selective max-width to prevent layout breaks */
   img, video, svg {
     max-width: 100%;
+  }
+}
+
+/* Finansguiden button utility - always wins over legacy */
+@layer utilities {
+  .fg-btn {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 font-semibold;
+    min-height: 44px; /* WCAG touch target */
   }
 }

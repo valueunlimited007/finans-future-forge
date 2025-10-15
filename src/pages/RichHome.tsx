@@ -144,7 +144,7 @@ export default function RichHome() {
                     <li>• Snabb handläggning</li>
                     <li>• Fri användning</li>
                   </ul>
-                  <Button asChild className="w-full !bg-primary !text-primary-foreground hover:!bg-primary/90 font-semibold">
+                  <Button asChild className="w-full fg-btn">
                     <Link to="/privatlan">Jämför privatlån</Link>
                   </Button>
                 </CardContent>
@@ -167,7 +167,7 @@ export default function RichHome() {
                     <li>• Även utan säkerhet</li>
                     <li>• Snabba beslut</li>
                   </ul>
-                  <Button asChild className="w-full !bg-primary !text-primary-foreground hover:!bg-primary/90 font-semibold">
+                  <Button asChild className="w-full fg-btn">
                     <Link to="/foretagslan">Jämför företagslån</Link>
                   </Button>
                 </CardContent>
@@ -190,7 +190,7 @@ export default function RichHome() {
                     <li>• Reseförsäkringar</li>
                     <li>• Bonusprogram</li>
                   </ul>
-                  <Button asChild className="w-full !bg-primary !text-primary-foreground hover:!bg-primary/90 font-semibold">
+                  <Button asChild className="w-full fg-btn">
                     <Link to="/kreditkort">Jämför kreditkort</Link>
                   </Button>
                 </CardContent>
@@ -213,7 +213,7 @@ export default function RichHome() {
                     <li>• Snabba utbetalningar</li>
                     <li>• 28 olika långivare</li>
                   </ul>
-                  <Button asChild className="w-full !bg-primary !text-primary-foreground hover:!bg-primary/90 font-semibold">
+                  <Button asChild className="w-full fg-btn">
                     <Link to="/lan-utan-uc">Jämför lån utan UC</Link>
                   </Button>
                 </CardContent>
@@ -236,11 +236,9 @@ export default function RichHome() {
                     <li>• Kapitalskydd ingår</li>
                     <li>• Högre än sparkonton</li>
                   </ul>
-                  <OffersContainer 
-                    category="ovriga" 
-                    limit={2}
-                    className="mb-4"
-                  />
+                  <Button asChild className="w-full fg-btn">
+                    <Link to="/andra-tjanster">Jämför tjänster</Link>
+                  </Button>
                 </CardContent>
               </Card>
 

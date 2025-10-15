@@ -10,6 +10,7 @@ import LanUtanUc from "./pages/LanUtanUc";
 import Kreditkort from "./pages/Kreditkort";
 import Privatlan from "./pages/Privatlan";
 import Foretagslan from "./pages/Foretagslan";
+import AndraTjanster from "./pages/AndraTjanster";
 import Cookies from "./pages/Cookies";
 import Integritetspolicy from "./pages/Integritetspolicy";
 import GlossaryIndex from "./routes/ordlista/index";
@@ -103,6 +104,7 @@ const App = () => {
                   <Route path="/kreditkort" element={<Kreditkort />} />
                   <Route path="/privatlan" element={<Privatlan />} />
                   <Route path="/foretagslan" element={<Foretagslan />} />
+                  <Route path="/andra-tjanster" element={<AndraTjanster />} />
                   <Route path="/ordlista" element={<GlossaryIndex />} />
                   <Route path="/ordlista/:slug" element={<GlossaryTermPage />} />
                   <Route path="/sajtkarta" element={<Sajtkarta />} />

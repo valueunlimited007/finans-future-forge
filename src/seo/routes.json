@@ -342,5 +342,33 @@
       "datePublished": "2025-01-08",
       "dateModified": "2025-01-08"
     }
+  },
+  "/andra-tjanster": {
+    "title": "Andra finansiella tjänster - Valutaväxling & Sparande | Finansguiden",
+    "description": "Jämför valutaväxling med bästa kurserna och högavkastande sparkonton. ChangeGroup för valuta och SaveLend FastRäntekonto med 5,5% ränta. Oberoende jämförelser.",
+    "canonical": "https://finansguiden.se/andra-tjanster",
+    "changefreq": "weekly",
+    "priority": 0.8,
+    "lastmod": "2025-01-08",
+    "jsonld": {
+      "@type": "FinancialService",
+      "name": "Andra finansiella tjänster - Finansguiden.se",
+      "description": "Jämför valutaväxling med bästa kurserna och högavkastande sparkonton. ChangeGroup och SaveLend.",
+      "url": "https://finansguiden.se/andra-tjanster",
+      "provider": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/",
+        "logo": "https://finansguiden.se/finansguiden-logo-v2.png"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "SEK",
+        "offerCount": "2"
+      },
+      "inLanguage": "sv-SE",
+      "datePublished": "2025-01-08",
+      "dateModified": "2025-01-08"
+    }
   }
 }
