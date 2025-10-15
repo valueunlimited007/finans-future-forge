@@ -203,7 +203,7 @@ export default function RichHome() {
                   </div>
                   <CardTitle>Lån utan UC</CardTitle>
                   <CardDescription>
-                    17 långivare som inte gör UC-kontroll. Även med betalningsanmärkning. Svar inom 24h.
+                    28 långivare som inte gör UC-kontroll. Även med betalningsanmärkning. Svar inom 24h.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -211,11 +211,36 @@ export default function RichHome() {
                     <li>• Ingen UC-kontroll</li>
                     <li>• Även med anmärkningar</li>
                     <li>• Snabba utbetalningar</li>
-                    <li>• 17 olika långivare</li>
+                    <li>• 28 olika långivare</li>
                   </ul>
                   <Button asChild className="w-full">
                     <Link to="/lan-utan-uc">Jämför lån utan UC</Link>
                   </Button>
+                </CardContent>
+              </Card>
+
+              <Card className="hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                    <span className="text-2xl">💰</span>
+                  </div>
+                  <CardTitle>Andra finansiella tjänster</CardTitle>
+                  <CardDescription>
+                    Valutaväxling och sparande med hög avkastning.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <ul className="text-sm text-muted-foreground space-y-2 mb-4">
+                    <li>• Bästa växelkurserna</li>
+                    <li>• FastRäntekonto 5,5%</li>
+                    <li>• Kapitalskydd ingår</li>
+                    <li>• Högre än sparkonton</li>
+                  </ul>
+                  <OffersContainer 
+                    category="ovriga" 
+                    limit={2}
+                    className="mb-4"
+                  />
                 </CardContent>
               </Card>
 

@@ -6,8 +6,8 @@
   // Helper to freeze objects lightly (avoid accidental mutation)
   function seal(o){ try { return Object.freeze(o); } catch(e){ return o; } }
 
-  // Cache buster for offers update - Updated with 38 Adtraction partners + 28 utan-UC lenders
-  var cacheVersion = 1736907600000;
+  // Cache buster for offers update - Updated with 38 Adtraction partners + 28 utan-UC lenders + 2 övriga
+  var cacheVersion = Date.now();
 
   // Real Adtraction partners - approved for Finansguiden.se
   var privatlan = [
@@ -680,15 +680,6 @@
       isPartner: false
     },
     {
-      id: 'savelend', network: 'adtraction', name: 'SaveLend SE',
-      url: 'https://go.adt228.com/t/t?a=1509487574&as=2005939977&t=2&tk=1',
-      amountRange: '25 000 – 1 500 000 kr', aprFrom: 'från 5,95%', decision: 'Inom några dagar',
-      requirements: 'Omsättning 200 000kr/år', rating: 4.2,
-      highlights: ['Investera i lån', 'P2P-plattform'],
-      logo: '/adtraction-logos/savelend-logo.png',
-      isPartner: true
-    },
-    {
       id: 'bluestep-foretag', name: 'Bluestep Bank Företag',
       url: 'https://www.bluestep.se/foretag/',
       amountRange: '50 000 – 2 000 000 kr', aprFrom: 'från 4,50%', decision: 'Inom en vecka',
@@ -776,7 +767,7 @@
     }
   ].map(seal);
 
-  // Övriga finansiella tjänster (valutaväxling, etc.)
+  // Övriga finansiella tjänster (valutaväxling, sparande, investering)
   var ovriga = [
     {
       id: 'changegroup', network: 'adtraction', name: 'ChangeGroup SE',
@@ -785,6 +776,18 @@
       requirements: 'Hämta på kontor eller Postombud', rating: 4.6,
       highlights: ['Bästa växelkursen i Sverige', '30+ kontor i Sverige', '0% provision online'],
       logo: '/adtraction-logos/changegroup-logo.png',
+      isPartner: true
+    },
+    {
+      id: 'savelend', network: 'adtraction', name: 'SaveLend',
+      url: 'https://go.adt228.com/t/t?a=1509487574&as=2005939977&t=2&tk=1',
+      amountRange: '10 000 – 2 000 000 kr', 
+      aprFrom: '5,5% fast ränta', 
+      decision: 'Skapa konto på minuter',
+      requirements: 'FastRäntekonto 12 mån', 
+      rating: 4.5,
+      highlights: ['FastRäntekonto 12 mån', 'Kapitalskydd ingår', 'Högre än sparkonton'],
+      logo: '/adtraction-logos/savelend-logo.png',
       isPartner: true
     }
   ].map(seal);
