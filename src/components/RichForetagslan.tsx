@@ -11,6 +11,7 @@ import ForetagslanGuideSteps from "./ForetagslanGuideSteps";
 import CustomBreadcrumb from "./CustomBreadcrumb";
 import FinancialCalculator from "@/components/FinancialCalculator";
 import OffersContainer from "./OffersContainer";
+import ConsumerCreditWarning from "./ConsumerCreditWarning";
 
 export default function RichForetagslan() {
   const breadcrumbItems = [
@@ -338,6 +339,8 @@ export default function RichForetagslan() {
               limit={4}
               className="mb-12" 
             />
+            
+            <ConsumerCreditWarning />
             
             <h2 className="text-3xl font-bold text-center mb-4 mt-16">Fullständig jämförelse 2025</h2>
             <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">

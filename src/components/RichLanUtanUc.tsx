@@ -10,6 +10,7 @@ import LoanFAQ from "./LoanFAQ";
 import LoanGuideSteps from "./LoanGuideSteps";
 import CustomBreadcrumb from "./CustomBreadcrumb";
 import OffersContainer from "./OffersContainer";
+import ConsumerCreditWarning from "./ConsumerCreditWarning";
 
 export default function RichLanUtanUc() {
   const breadcrumbItems = [
@@ -301,6 +302,8 @@ export default function RichLanUtanUc() {
               limit={14}
               className="mb-12" 
             />
+            
+            <ConsumerCreditWarning />
           </div>
         </section>
 

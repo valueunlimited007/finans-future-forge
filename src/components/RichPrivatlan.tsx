@@ -12,6 +12,7 @@ import PrivatlanGuideSteps from "./PrivatlanGuideSteps";
 import CustomBreadcrumb from "./CustomBreadcrumb";
 import FinancialCalculator from "@/components/FinancialCalculator";
 import OffersContainer from "./OffersContainer";
+import ConsumerCreditWarning from "./ConsumerCreditWarning";
 
 export default function RichPrivatlan() {
   const [showAllLoans, setShowAllLoans] = useState(false);
@@ -91,6 +92,8 @@ export default function RichPrivatlan() {
               limit={showAllLoans ? 12 : 6}
               className="mb-12" 
             />
+            
+            <ConsumerCreditWarning />
             
             <div className="text-center">
               <Button 

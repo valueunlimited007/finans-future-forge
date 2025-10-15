@@ -9,6 +9,7 @@ import CreditCardComparisonTable from "./CreditCardComparisonTable";
 import CreditCardFAQ from "./CreditCardFAQ";
 import CreditCardGuideSteps from "./CreditCardGuideSteps";
 import CustomBreadcrumb from "./CustomBreadcrumb";
+import ConsumerCreditWarning from "./ConsumerCreditWarning";
 
 export default function RichKreditkort() {
   const breadcrumbItems = [
@@ -187,6 +188,8 @@ export default function RichKreditkort() {
               Här hittar du allt från cashback-kort till premiumkort med exklusiva förmåner.
             </p>
             <CreditCardComparisonTable />
+            
+            <ConsumerCreditWarning />
           </div>
         </section>
 
