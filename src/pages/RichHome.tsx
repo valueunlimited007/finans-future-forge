@@ -167,7 +167,7 @@ export default function RichHome() {
                     <li>• Även utan säkerhet</li>
                     <li>• Snabba beslut</li>
                   </ul>
-                  <Button asChild className="w-full fg-btn--business">
+                  <Button asChild className="w-full fg-btn">
                     <Link to="/foretagslan">Jämför företagslån</Link>
                   </Button>
                 </CardContent>
