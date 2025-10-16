@@ -1,5 +1,5 @@
 // Service Worker for Finansguiden Casino PWA
-const CACHE_NAME = 'finansguiden-casino-v1.0.0';
+const CACHE_NAME = 'finansguiden-casino-v1.0.1';
 const OFFLINE_URL = '/offline.html';
 
 // Essential files to cache for offline functionality
