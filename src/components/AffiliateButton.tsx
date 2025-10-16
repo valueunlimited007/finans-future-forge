@@ -13,6 +13,7 @@ export interface AffiliateButtonProps {
   brandName?: string;
   className?: string;
   variant?: "default" | "secondary" | "outline" | "ghost" | "link" | "destructive";
+  showBadges?: boolean;
 }
 
 const safeEvent = (name: string, params: Record<string, any>) => {
@@ -35,7 +36,8 @@ export const AffiliateButton: React.FC<AffiliateButtonProps> = ({
   brandId,
   brandName,
   className,
-  variant = "default"
+  variant = "default",
+  showBadges = true
 }) => {
   const [trackingUrl, setTrackingUrl] = useState(href);
   const [isLoading, setIsLoading] = useState(false);
@@ -119,7 +121,7 @@ export const AffiliateButton: React.FC<AffiliateButtonProps> = ({
       </Button>
       
       {/* Affiliate disclosure for casino site */}
-      {showAffiliateBadge && (
+      {showBadges && showAffiliateBadge && (
         <div className="flex items-center gap-2">
           <AffiliateLinkBadge />
           <span className="text-xs text-muted-foreground">
@@ -129,7 +131,7 @@ export const AffiliateButton: React.FC<AffiliateButtonProps> = ({
       )}
       
       {/* Legacy finance site disclosure */}
-      {!showAffiliateBadge && (
+      {showBadges && !showAffiliateBadge && (
         <span 
           className="absolute -top-1 -right-1 bg-muted text-muted-foreground text-xs px-1.5 py-0.5 rounded-full border text-[9px] leading-tight"
           title="Reklam - Vi får provision om du genomför ett köp via denna länk. Detta påverkar inte priset för dig."
@@ -138,7 +140,7 @@ export const AffiliateButton: React.FC<AffiliateButtonProps> = ({
         </span>
       )}
       
-      {affiliateManager.isMockMode() && (
+      {showBadges && affiliateManager.isMockMode() && (
         <div className="inline-flex items-center gap-1 mt-1">
           <span 
             className="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full border border-yellow-300 font-medium"

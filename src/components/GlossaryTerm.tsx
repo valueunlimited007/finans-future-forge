@@ -151,6 +151,7 @@ const GlossaryTerm: React.FC<GlossaryTermProps> = ({ term, related }) => {
                       brandName={partner.name}
                       variant="default"
                       className="btn btn-primary btn-full"
+                      showBadges={false}
                     />
                     <small className="text-muted">Sponsrad länk</small>
                   </div>
