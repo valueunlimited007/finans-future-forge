@@ -52,7 +52,7 @@ const CATEGORIES: Record<string, string[]> = {
   lan: [
     "Amortering","Amorteringskrav","Annuitetslån","Rak amortering","Amorteringsfritt",
     "Bolån","Privatlån","Blancolån","Billån","Handpenningslån","Brygglån","Topplån","Top-up lån",
-    "Lånelöfte","Kreditprövning","Kreditupplysning","UC","Bisnode","Skuldsanering",
+    "Företagslån","Lånelöfte","Kreditprövning","Kreditupplysning","UC","Bisnode","Skuldsanering",
     "Betalningsanmärkning","Uppläggningsavgift","Aviavgift","Förseningsavgift","Avi",
     "Autogiro","E-faktura","Förtidslösen","Villkorsändring","Amorteringsplan","Betalningsplan",
     "Förfallodag","Skuldebrev","Borgensman","Proprieborgen","Enkel borgen","Säkerhet",
@@ -93,7 +93,7 @@ const CATEGORIES: Record<string, string[]> = {
 const EXTRA: Partial<Record<keyof typeof CATEGORIES, string[]>> = {
   lan: [
     "Lånelöfte","Snabblån","SMS-lån","Samlingslån","Omstartslån","Lån utan UC",
-    "Låneförmedlare","Kreditvärdighet","Kreditpoäng","Kreditlimit","Kreditgräns",
+    "Låneförmedlare","Kreditkort","Kreditvärdighet","Kreditpoäng","Kreditlimit","Kreditgräns",
     "Kredittid","Låneansökan","Utbetalningstid","Låneavtal","Återbetalningstid",
     "Kreditkostnad","Kreditavgift","Ränteavdrag","Förfallodag","Påminnelseavgift",
     "Inkasso","Kronofogden","Skuld hos Kronofogden","Betalningsföreläggande",

@@ -168,17 +168,6 @@
   text-orientation: mixed !important;
 }
 
-/* Force horizontal text on all text elements */
-.lender-card h3,
-.lender-card p,
-.lender-card span,
-.lender-card strong {
-  writing-mode: horizontal-tb !important;
-  text-orientation: mixed !important;
-  word-break: normal !important;
-  white-space: normal !important;
-}
-
 /* Prevent min-content collapse on feature items */
 .lender-features > * {
   min-width: 0;
@@ -196,8 +185,31 @@
   word-break: normal !important;
   writing-mode: horizontal-tb !important;
   text-orientation: mixed !important;
-  display: inline-block;
+  display: block !important;
   width: 100%;
+}
+
+/* Force all text elements to render horizontally */
+.lender-card *,
+.lender-info *,
+.lender-features * {
+  writing-mode: horizontal-tb !important;
+  text-orientation: mixed !important;
+  display: inline !important;
+}
+
+/* But keep structural elements as block/flex */
+.lender-card,
+.lender-logo,
+.lender-info,
+.lender-features,
+.lender-feature,
+.lender-cta {
+  display: flex !important;
+}
+
+.lender-info h3 {
+  display: block !important;
 }
 
 /* Features grid - use container queries instead of viewport breakpoints */
