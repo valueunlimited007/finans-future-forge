@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import type { GlossaryTerm as GlossaryType } from "@/data/glossary";
 import AffiliateButton from "@/components/AffiliateButton";
-import AdSlot from "@/components/AdSlot";
+import AdtractionBanner from "@/components/AdtractionBanner";
+import { getBannerForTerm } from "@/lib/adtractionBanners";
 import { autolink } from "@/lib/autolinkGlossary";
 import { buildFaq } from "@/lib/glossaryFaq";
 
@@ -13,6 +14,11 @@ interface GlossaryTermProps {
 
 const GlossaryTerm: React.FC<GlossaryTermProps> = ({ term, related }) => {
   const faqs = buildFaq(term);
+  
+  // Select appropriate banners based on term and placement
+  const topBanner = getBannerForTerm(term, 'top');
+  const sidebarBanner = getBannerForTerm(term, 'sidebar');
+  const midBanner = getBannerForTerm(term, 'mid');
 
   return (
     <div className="grid grid-cols-1 gap-8 md:grid-cols-[1fr_320px]">
@@ -42,7 +48,11 @@ const GlossaryTerm: React.FC<GlossaryTermProps> = ({ term, related }) => {
               <p>{autolink(p)}</p>
               {i === 0 && (
                 <div className="not-prose my-6">
-                  <AdSlot slot="glossary_top" />
+                  <AdtractionBanner 
+                    banner={topBanner} 
+                    placement="glossary_top"
+                    termSlug={term.slug}
+                  />
                 </div>
               )}
             </React.Fragment>
@@ -61,7 +71,11 @@ const GlossaryTerm: React.FC<GlossaryTermProps> = ({ term, related }) => {
               ))}
             </div>
             <div className="mt-4">
-              <AdSlot slot="glossary_mid" />
+              <AdtractionBanner 
+                banner={midBanner} 
+                placement="glossary_mid"
+                termSlug={term.slug}
+              />
             </div>
           </section>
         ) : null}
@@ -115,8 +129,11 @@ const GlossaryTerm: React.FC<GlossaryTermProps> = ({ term, related }) => {
 
       <aside className="hidden md:block">
         <div className="sticky top-24 space-y-4">
-          <AdSlot slot="glossary_sidebar" />
-          {/* Lägg fler moduler här vid behov */}
+          <AdtractionBanner 
+            banner={sidebarBanner} 
+            placement="glossary_sidebar"
+            termSlug={term.slug}
+          />
         </div>
       </aside>
     </div>
