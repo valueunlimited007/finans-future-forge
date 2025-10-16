@@ -850,17 +850,28 @@ All colors MUST be HSL.
 /* ============================================================================
    FIX: Förhindra offers-komponenten från att blockera navigation
    ============================================================================ */
-.offers-container,
-.offers-container *,
-[data-offers],
-[data-offers] * {
+/* Blockera BARA offers-element, inte navigation */
+.offers-container > *:not(a):not(button),
+[data-offers] > *:not(a):not(button) {
   pointer-events: none !important;
 }
 
-/* Men tillåt klick på länkar och knappar INOM offers */
+/* Tillåt explicit klick på länkar och knappar i offers */
 .offers-container a,
 .offers-container button,
 [data-offers] a,
 [data-offers] button {
+  pointer-events: auto !important;
+}
+
+/* GARANTERA att navigation ALDRIG blockeras */
+header,
+header *,
+nav,
+nav *,
+[role="navigation"],
+[role="navigation"] *,
+button[aria-label*="meny" i],
+button[aria-label*="menu" i] {
   pointer-events: auto !important;
 }
