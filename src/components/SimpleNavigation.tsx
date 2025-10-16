@@ -18,6 +18,7 @@ import {
 
 const SimpleNavigation = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [desktopMenuValue, setDesktopMenuValue] = useState<string>("");
   const location = useLocation();
 
   const isActive = (path: string) => location.pathname === path;
@@ -79,7 +80,11 @@ const SimpleNavigation = () => {
 
             {/* Desktop Menu */}
             <nav className="hidden lg:flex items-center gap-2">
-              <NavigationMenu delayDuration={200}>
+              <NavigationMenu 
+                value={desktopMenuValue} 
+                onValueChange={setDesktopMenuValue}
+                delayDuration={400}
+              >
                 <NavigationMenuList>
                   {/* Main Links */}
                   {menuCategories.main.map((item) => (
@@ -106,7 +111,7 @@ const SimpleNavigation = () => {
                   ))}
 
                   {/* Guider Dropdown */}
-                  <NavigationMenuItem>
+                  <NavigationMenuItem value="guider">
                     <NavigationMenuTrigger className="font-medium">
                       <BookOpen className="h-4 w-4 mr-2" />
                       Guider
@@ -139,7 +144,7 @@ const SimpleNavigation = () => {
                   </NavigationMenuItem>
 
                   {/* Fler Dropdown */}
-                  <NavigationMenuItem>
+                  <NavigationMenuItem value="fler">
                     <NavigationMenuTrigger className="font-medium">
                       <Building2 className="h-4 w-4 mr-2" />
                       Fler
