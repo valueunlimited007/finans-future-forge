@@ -195,22 +195,8 @@
 #root .lender-features * {
   writing-mode: horizontal-tb !important;
   text-orientation: mixed !important;
-  display: inline !important;
 }
 
-/* But keep structural elements as block/flex */
-#root .lender-card,
-#root .lender-logo,
-#root .lender-info,
-#root .lender-features,
-#root .lender-feature,
-#root .lender-cta {
-  display: flex !important;
-}
-
-#root .lender-info h3 {
-  display: block !important;
-}
 
 /* Features grid - use container queries instead of viewport breakpoints */
 #root .lender-features {

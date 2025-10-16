@@ -39,7 +39,7 @@ export function getSiteConfig(host: string = ''): SiteConfig {
     }
   }
   
-  if (hostname.includes('kasinos') || hostname.includes('casino')) {
+  if (/^(www\.)?kasinos\.se$/i.test(hostname) || hostname.endsWith('.kasinos.se')) {
     return {
       site: 'kasinos',
       market: 'SE',
