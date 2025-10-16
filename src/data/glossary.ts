@@ -6,6 +6,12 @@ export interface GlossaryPartner {
   description: string;
   url: string;
   brandId: string;
+  rating?: number;
+  amountRange?: string;
+  aprFrom?: string;
+  decision?: string;
+  requirements?: string;
+  isPartner?: boolean;
 }
 
 export interface GlossaryTerm {
@@ -521,23 +527,41 @@ override("Privatlån", {
     {
       name: "L'EASY",
       logo: "/adtraction-logos/leasy-logo.png",
-      description: "10 000 – 100 000 kr • 14,88% - 21,6% • Snabbt beslut",
+      description: "Digital långivare med snabb process",
       url: "https://go.adt284.net/t/t?a=294654593&as=2005939977&t=2&tk=1",
-      brandId: "leasy"
+      brandId: "leasy",
+      rating: 4.8,
+      amountRange: "10 000 – 100 000 kr",
+      aprFrom: "14,88% - 21,6%",
+      decision: "Snabbt beslut",
+      requirements: "Eff. ränta 25,05% (exempel)",
+      isPartner: true
     },
     {
       name: "Thorn",
       logo: "/adtraction-logos/thorn-logo.png",
-      description: "10 000 – 150 000 kr • 14,88% - 21,6% • Högre lånebelopp",
+      description: "Högre lånebelopp, etablerad långivare",
       url: "https://go.adt228.com/t/t?a=35567344&as=2005939977&t=2&tk=1",
-      brandId: "thorn"
+      brandId: "thorn",
+      rating: 4.7,
+      amountRange: "10 000 – 150 000 kr",
+      aprFrom: "14,88% - 21,6%",
+      decision: "Snabbt beslut",
+      requirements: "Kreditupplysning",
+      isPartner: true
     },
     {
       name: "Loans.se",
       logo: "/adtraction-logos/loans-logo.png",
-      description: "5 000 – 800 000 kr • 4,95% - 23% • Jämför många långivare",
+      description: "Jämför många långivare i en ansökan",
       url: "https://go.adt267.com/t/t?a=1810104150&as=2005939977&t=2&tk=1",
-      brandId: "loans-se"
+      brandId: "loans-se",
+      rating: 4.7,
+      amountRange: "5 000 – 800 000 kr",
+      aprFrom: "4,95% - 23%",
+      decision: "Snabbt beslut",
+      requirements: "Betalningsanmärkningar OK",
+      isPartner: true
     },
   ],
 });

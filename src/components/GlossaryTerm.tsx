@@ -114,17 +114,34 @@ const GlossaryTerm: React.FC<GlossaryTermProps> = ({ term, related }) => {
                   <div className="lender-info">
                     <h3>
                       {partner.name}
-                      <span className="badge badge-partner ml-2">Partner</span>
+                      {partner.isPartner && <span className="badge badge-partner">Partner</span>}
                     </h3>
                     <div className="lender-features">
-                      <div className="lender-feature">
-                        <strong>Beskrivning:</strong> <span>{partner.description}</span>
-                      </div>
+                      {partner.amountRange && (
+                        <div className="lender-feature">
+                          <strong>Belopp:</strong> <span>{partner.amountRange}</span>
+                        </div>
+                      )}
+                      {partner.aprFrom && (
+                        <div className="lender-feature">
+                          <strong>Ränta:</strong> <span>{partner.aprFrom}</span>
+                        </div>
+                      )}
+                      {partner.decision && (
+                        <div className="lender-feature">
+                          <strong>Besked:</strong> <span>{partner.decision}</span>
+                        </div>
+                      )}
+                      {partner.requirements && (
+                        <div className="lender-feature">
+                          <strong>Krav:</strong> <span>{partner.requirements}</span>
+                        </div>
+                      )}
                     </div>
                   </div>
                   <div className="lender-cta">
                     <div className="lender-rating">
-                      <span className="stars">★★★★★</span> 4.5/5
+                      <span className="stars">★★★★★</span> {partner.rating?.toFixed(1) || '4.5'}/5
                     </div>
                     <AffiliateButton
                       href={partner.url}
