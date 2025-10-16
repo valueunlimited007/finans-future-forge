@@ -65,6 +65,17 @@ export default function Sajtkarta() {
                   </li>
                   <li>
                     <Link 
+                      to="/laneformedlare" 
+                      className="block p-4 rounded-lg border border-border bg-card hover:bg-muted transition-colors"
+                    >
+                      <h3 className="font-medium text-primary">Låneförmedlare</h3>
+                      <p className="text-sm text-muted-foreground mt-1">
+                        Jämför flera banker med en ansökan - endast EN UC
+                      </p>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link 
                       to="/kreditkort" 
                       className="block p-4 rounded-lg border border-border bg-card hover:bg-muted transition-colors"
                     >

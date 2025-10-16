@@ -49,6 +49,7 @@ const SimpleNavigation = () => {
     ],
     financial: [
       { title: "Privatlån", href: "/privatlan", icon: Banknote, popular: true },
+      { title: "Låneförmedlare", href: "/laneformedlare", icon: Users },
       { title: "Lån utan UC", href: "/lan-utan-uc", icon: TrendingUp, popular: true },
       { title: "Företagslån", href: "/foretagslan", icon: Building2 },
       { title: "Kreditkort", href: "/kreditkort", icon: CreditCard },

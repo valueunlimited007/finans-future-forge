@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import LanUtanUc from "./pages/LanUtanUc";
 import Kreditkort from "./pages/Kreditkort";
 import Privatlan from "./pages/Privatlan";
+import Laneformedlare from "./pages/Laneformedlare";
 import Foretagslan from "./pages/Foretagslan";
 import AndraTjanster from "./pages/AndraTjanster";
 import Cookies from "./pages/Cookies";
@@ -103,6 +104,7 @@ const App = () => {
                   <Route path="/lan-utan-uc" element={<LanUtanUc />} />
                   <Route path="/kreditkort" element={<Kreditkort />} />
                   <Route path="/privatlan" element={<Privatlan />} />
+                  <Route path="/laneformedlare" element={<Laneformedlare />} />
                   <Route path="/foretagslan" element={<Foretagslan />} />
                   <Route path="/andra-tjanster" element={<AndraTjanster />} />
                   <Route path="/ordlista" element={<GlossaryIndex />} />

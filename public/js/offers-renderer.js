@@ -24,17 +24,18 @@
       var featured = item.featured === true ? ' featured' : '';
       var badge = '';
       
-      // Dynamic badges based on item properties - data-driven  
+      // Dynamic badges based on item properties - data-driven
+      if (item.isComparison === true) {
+        badge += '<span class="badge badge-comparison" title="Skickar din ansökan till flera banker och jämför erbjudanden">Låneförmedlare ℹ️</span>';
+      }
       if (item.isPartner === true) {
-        badge = '<span class="badge badge-partner">Partner</span>';
+        badge += '<span class="badge badge-partner">Partner</span>';
       } else if (item.featured === true) {
-        badge = '<span class="badge badge-featured">Bäst val</span>';
+        badge += '<span class="badge badge-featured">Bäst val</span>';
       } else if (item.highlights && item.highlights.includes('Utan UC-kontroll')) {
-        badge = '<span class="badge badge-utan-uc">Utan UC</span>';
-      } else if (item.highlights && item.highlights.includes('Jämför många långivare')) {
-        badge = '<span class="badge badge-comparison">Jämför</span>';
+        badge += '<span class="badge badge-utan-uc">Utan UC</span>';
       } else if (item.aprFrom && item.aprFrom.includes('4,95%')) {
-        badge = '<span class="badge badge-low-rate">Låg ränta</span>';
+        badge += '<span class="badge badge-low-rate">Låg ränta</span>';
       }
 
       var extraLeft = '';

@@ -82,7 +82,8 @@
       requirements: 'Betalningsanmärkningar OK', rating: 4.7,
       highlights: ['Del av Enklare Ekonomi', 'Jämför många långivare'],
       logo: '/adtraction-logos/loans-logo.png',
-      isPartner: true
+      isPartner: true,
+      isComparison: true
     },
     {
       id: 'finlo-se', network: 'adtraction', name: 'Finlo.se',
@@ -100,7 +101,8 @@
       requirements: 'Noga utvalda långivare', rating: 4.6,
       highlights: ['Endast 1 kreditupplysning', 'Personlig service'],
       logo: '/adtraction-logos/trygga-logo.png',
-      isPartner: true
+      isPartner: true,
+      isComparison: true
     },
     {
       id: 'erafinans', network: 'adtraction', name: 'Erafinans',
@@ -109,7 +111,8 @@
       requirements: 'Min 18 år, inkomst 8400kr/mån', rating: 4.5,
       highlights: ['Upp till 40 långivare', 'Endast en kreditupplysning'],
       logo: '/adtraction-logos/erafinans-logo.png',
-      isPartner: true
+      isPartner: true,
+      isComparison: true
     },
     {
       id: 'natfinans', network: 'adtraction', name: 'NätFinans',
@@ -118,7 +121,8 @@
       requirements: 'Jämför över 50 långivare', rating: 4.7,
       highlights: ['Bred jämförelse', 'Flera erbjudanden'],
       logo: '/adtraction-logos/natfinans-logo.png',
-      isPartner: true
+      isPartner: true,
+      isComparison: true
     },
     {
       id: 'lendo', network: 'adtraction', name: 'Lendo SE',
@@ -127,7 +131,8 @@
       requirements: 'Jämförelsesida', rating: 4.5,
       highlights: ['Snabbt och enkelt', 'Trygg lånejämförelse'],
       logo: '/adtraction-logos/lendo-logo.png',
-      isPartner: true
+      isPartner: true,
+      isComparison: true
     },
     {
       id: 'ferratum', network: 'adtraction', name: 'Ferratum SE',
@@ -163,7 +168,8 @@
       requirements: 'Kreditupplysning', rating: 4.5,
       highlights: ['Jämför många långivare', 'En ansökan'],
       logo: '/adtraction-logos/loanstep-logo.png',
-      isPartner: true
+      isPartner: true,
+      isComparison: true
     },
     {
       id: 'kompar', network: 'adtraction', name: 'Kompar SE',
@@ -172,7 +178,8 @@
       requirements: 'En ansökan - många erbjudanden', rating: 4.6,
       highlights: ['Jämför långivare', 'Endast en UC'],
       logo: '/adtraction-logos/kompar-logo.png',
-      isPartner: true
+      isPartner: true,
+      isComparison: true
     },
     {
       id: 'moank', network: 'adtraction', name: 'Moank',
@@ -217,7 +224,8 @@
       requirements: 'Kreditupplysning', rating: 4.5,
       highlights: ['Jämför långivare', 'En ansökan'],
       logo: '/adtraction-logos/klaralan-logo.png',
-      isPartner: true
+      isPartner: true,
+      isComparison: true
     },
     {
       id: 'merax', network: 'adtraction', name: 'Merax SE',
@@ -253,7 +261,8 @@
       requirements: 'En ansökan - många erbjudanden', rating: 4.6,
       highlights: ['Jämför långivare', 'Endast en UC'],
       logo: '/adtraction-logos/matchbanker-logo.png',
-      isPartner: true
+      isPartner: true,
+      isComparison: true
     },
     {
       id: 'multitude', network: 'adtraction', name: 'Multitude Bank SE',
@@ -271,7 +280,8 @@
       requirements: 'Kreditupplysning', rating: 4.5,
       highlights: ['Jämför långivare', 'En ansökan'],
       logo: '/adtraction-logos/myloan24-logo.png',
-      isPartner: true
+      isPartner: true,
+      isComparison: true
     },
     {
       id: 'valda', network: 'adtraction', name: 'Valda SE',
@@ -298,7 +308,8 @@
       requirements: 'Kreditupplysning', rating: 4.5,
       highlights: ['Jämför långivare', 'En ansökan'],
       logo: '/adtraction-logos/uscore-logo.png',
-      isPartner: true
+      isPartner: true,
+      isComparison: true
     },
     {
       id: 'creddo', network: 'adtraction', name: 'Creddo SE',
@@ -316,7 +327,8 @@
       requirements: 'Kreditupplysning', rating: 4.5,
       highlights: ['Jämför långivare', 'En ansökan'],
       logo: '/adtraction-logos/zensum-logo.png',
-      isPartner: true
+      isPartner: true,
+      isComparison: true
     },
     {
       id: 'lanekoll', network: 'adtraction', name: 'Lånekoll SE',
@@ -325,7 +337,8 @@
       requirements: 'En ansökan - många erbjudanden', rating: 4.6,
       highlights: ['Jämför långivare', 'Endast en UC'],
       logo: '/adtraction-logos/langekoll-logo.png',
-      isPartner: true
+      isPartner: true,
+      isComparison: true
     },
     {
       id: 'northmill-kontokredit', network: 'adtraction', name: 'Northmill Bank Kontokredit SE',
@@ -792,12 +805,201 @@
     }
   ].map(seal);
 
+  // ============= LÅNEFÖRMEDLARE (Jämförelsesajter) =============
+  var laneformedlare = [
+    // NYA FÖRMEDLARE (4 st)
+    {
+      id: 'advisa', network: 'adtraction', name: 'Advisa',
+      url: 'https://go.adt284.net/t/t?a=1923306192&as=2005939977&t=2&tk=1',
+      amountRange: 'Jämför 30+ banker',
+      aprFrom: 'Bästa villkoren från partners',
+      decision: 'Erbjudanden från flera banker',
+      requirements: 'Endast 1 kreditupplysning',
+      rating: 4.6,
+      highlights: ['Jämför 30+ banker', 'Endast 1 UC', 'Personlig rådgivning gratis', 'Helt kostnadsfritt'],
+      logo: '/adtraction-logos/advisa-logo.png',
+      isPartner: true,
+      isComparison: true
+    },
+    {
+      id: 'sambla', network: 'adtraction', name: 'Sambla',
+      url: 'https://go.adt284.net/t/t?a=1923302872&as=2005939977&t=2&tk=1',
+      amountRange: 'Upp till 600 000 kr',
+      aprFrom: 'Jämför räntor från 40+ långivare',
+      decision: 'Besked samma dag',
+      requirements: 'Min 18 år, 8400 kr/mån, folkbokförd 1 år',
+      rating: 4.8,
+      highlights: ['Jämför 40+ långivare', 'Endast 1 UC', 'Över 390 000 nöjda kunder', 'Ansök på 2 minuter'],
+      logo: '/adtraction-logos/sambla-logo.png',
+      isPartner: true,
+      isComparison: true
+    },
+    {
+      id: 'axofinans', network: 'adtraction', name: 'Axo Finans',
+      url: 'https://go.adt267.com/t/t?a=1948981390&as=2005939977&t=2&tk=1',
+      amountRange: '5 000 - 800 000 kr',
+      aprFrom: 'Jämför räntor från flera banker',
+      decision: 'Snabbt beslut',
+      requirements: 'Endast 1 kreditupplysning',
+      rating: 4.6,
+      highlights: ['Upp till 800 000 kr', 'Endast 1 UC', 'Kostnadsfritt och ej bindande', 'Samla lån'],
+      logo: '/adtraction-logos/axo-logo.png',
+      isPartner: true,
+      isComparison: true
+    },
+    {
+      id: 'pamind', network: 'adtraction', name: 'Påmind',
+      url: 'https://go.adt228.com/t/t?a=2007569774&as=2005939977&t=2&tk=1',
+      amountRange: 'Avtalsoptimering inkl. privatlån',
+      aprFrom: 'Förhandlar bättre villkor',
+      decision: 'Kostnadsfri tjänst',
+      requirements: 'El, mobil, bolån, privatlån, försäkring, bredband',
+      rating: 4.6,
+      highlights: ['Spar 2000 kr/år i snitt', '100% gratis', 'Bevakar avtal kontinuerligt', '26 000+ förbättrade avtal'],
+      logo: '/adtraction-logos/pamind-logo.png',
+      isPartner: true,
+      isComparison: true
+    },
+    // BEFINTLIGA FÖRMEDLARE (13 st från privatlan-arrayen)
+    {
+      id: 'lendo', network: 'adtraction', name: 'Lendo SE',
+      url: 'https://go.adt228.com/t/t?a=1060519344&as=2005939977&t=2&tk=1',
+      amountRange: '10 000 – 500 000 kr', aprFrom: 'Jämför räntor', decision: 'Omedelbart',
+      requirements: 'Jämförelsesida', rating: 4.5,
+      highlights: ['Snabbt och enkelt', 'Trygg lånejämförelse'],
+      logo: '/adtraction-logos/lendo-logo.png',
+      isPartner: true,
+      isComparison: true
+    },
+    {
+      id: 'trygga', network: 'adtraction', name: 'Trygga',
+      url: 'https://go.adt246.net/t/t?a=1318042077&as=2005939977&t=2&tk=1',
+      amountRange: '5 000 – 800 000 kr', aprFrom: '4,95% - 22,95%', decision: 'Snabbt beslut',
+      requirements: 'Noga utvalda långivare', rating: 4.6,
+      highlights: ['Endast 1 kreditupplysning', 'Personlig service'],
+      logo: '/adtraction-logos/trygga-logo.png',
+      isPartner: true,
+      isComparison: true
+    },
+    {
+      id: 'loans-se', network: 'adtraction', name: 'Loans.se',
+      url: 'https://go.adt267.com/t/t?a=1810104150&as=2005939977&t=2&tk=1',
+      amountRange: '5 000 – 800 000 kr', aprFrom: '4,95% - 23%', decision: 'Snabbt beslut',
+      requirements: 'Betalningsanmärkningar OK', rating: 4.7,
+      highlights: ['Del av Enklare Ekonomi', 'Jämför många långivare'],
+      logo: '/adtraction-logos/loans-logo.png',
+      isPartner: true,
+      isComparison: true
+    },
+    {
+      id: 'erafinans', network: 'adtraction', name: 'Erafinans',
+      url: 'https://go.adt242.com/t/t?a=1870931734&as=2005939977&t=2&tk=1',
+      amountRange: '25 000 – 600 000 kr', aprFrom: '3,06% - 29,99%', decision: 'Snabbt beslut',
+      requirements: 'Min 18 år, inkomst 8400kr/mån', rating: 4.5,
+      highlights: ['Upp till 40 långivare', 'Endast en kreditupplysning'],
+      logo: '/adtraction-logos/erafinans-logo.png',
+      isPartner: true,
+      isComparison: true
+    },
+    {
+      id: 'natfinans', network: 'adtraction', name: 'NätFinans',
+      url: 'https://go.adt228.com/t/t?a=1984506666&as=2005939977&t=2&tk=1',
+      amountRange: '25 000 – 800 000 kr', aprFrom: 'från 3,95%', decision: 'Snabbt beslut',
+      requirements: 'Jämför över 50 långivare', rating: 4.7,
+      highlights: ['Bred jämförelse', 'Flera erbjudanden'],
+      logo: '/adtraction-logos/natfinans-logo.png',
+      isPartner: true,
+      isComparison: true
+    },
+    {
+      id: 'loanstep', network: 'adtraction', name: 'Loanstep SE',
+      url: 'https://go.adt284.net/t/t?a=1961010341&as=2005939977&t=2&tk=1',
+      amountRange: '5 000 – 600 000 kr', aprFrom: 'från 3,95%', decision: 'Snabbt beslut',
+      requirements: 'Kreditupplysning', rating: 4.5,
+      highlights: ['Jämför många långivare', 'En ansökan'],
+      logo: '/adtraction-logos/loanstep-logo.png',
+      isPartner: true,
+      isComparison: true
+    },
+    {
+      id: 'kompar', network: 'adtraction', name: 'Kompar SE',
+      url: 'https://go.adt228.com/t/t?a=1269515747&as=2005939977&t=2&tk=1',
+      amountRange: '5 000 – 600 000 kr', aprFrom: 'från 2,95%', decision: 'Omedelbart',
+      requirements: 'En ansökan - många erbjudanden', rating: 4.6,
+      highlights: ['Jämför långivare', 'Endast en UC'],
+      logo: '/adtraction-logos/kompar-logo.png',
+      isPartner: true,
+      isComparison: true
+    },
+    {
+      id: 'klaralan', network: 'adtraction', name: 'Klara lån SE',
+      url: 'https://go.adt267.com/t/t?a=1153212131&as=2005939977&t=2&tk=1',
+      amountRange: '5 000 – 600 000 kr', aprFrom: 'från 3,95%', decision: 'Snabbt beslut',
+      requirements: 'Kreditupplysning', rating: 4.5,
+      highlights: ['Jämför långivare', 'En ansökan'],
+      logo: '/adtraction-logos/klaralan-logo.png',
+      isPartner: true,
+      isComparison: true
+    },
+    {
+      id: 'matchbanker', network: 'adtraction', name: 'Matchbanker SE',
+      url: 'https://go.adt256.com/t/t?a=1440280668&as=2005939977&t=2&tk=1',
+      amountRange: '5 000 – 600 000 kr', aprFrom: 'från 3,95%', decision: 'Omedelbart',
+      requirements: 'En ansökan - många erbjudanden', rating: 4.6,
+      highlights: ['Jämför långivare', 'Endast en UC'],
+      logo: '/adtraction-logos/matchbanker-logo.png',
+      isPartner: true,
+      isComparison: true
+    },
+    {
+      id: 'myloan24', network: 'adtraction', name: 'Myloan24 SE',
+      url: 'https://go.adt291.com/t/t?a=1795653842&as=2005939977&t=2&tk=1',
+      amountRange: '5 000 – 600 000 kr', aprFrom: 'från 3,95%', decision: 'Snabbt beslut',
+      requirements: 'Kreditupplysning', rating: 4.5,
+      highlights: ['Jämför långivare', 'En ansökan'],
+      logo: '/adtraction-logos/myloan24-logo.png',
+      isPartner: true,
+      isComparison: true
+    },
+    {
+      id: 'uscore', network: 'adtraction', name: 'uScore SE',
+      url: 'https://go.adt267.com/t/t?a=1646087132&as=2005939977&t=2&tk=1',
+      amountRange: '5 000 – 600 000 kr', aprFrom: 'från 3,95%', decision: 'Snabbt beslut',
+      requirements: 'Kreditupplysning', rating: 4.5,
+      highlights: ['Jämför långivare', 'En ansökan'],
+      logo: '/adtraction-logos/uscore-logo.png',
+      isPartner: true,
+      isComparison: true
+    },
+    {
+      id: 'zensum', network: 'adtraction', name: 'Zensum SE',
+      url: 'https://go.adt212.net/t/t?a=1548368523&as=2005939977&t=2&tk=1',
+      amountRange: '5 000 – 600 000 kr', aprFrom: 'från 3,95%', decision: 'Snabbt beslut',
+      requirements: 'Kreditupplysning', rating: 4.5,
+      highlights: ['Jämför långivare', 'En ansökan'],
+      logo: '/adtraction-logos/zensum-logo.png',
+      isPartner: true,
+      isComparison: true
+    },
+    {
+      id: 'lanekoll', network: 'adtraction', name: 'Lånekoll SE',
+      url: 'https://go.adt246.net/t/t?a=1077807847&as=2005939977&t=2&tk=1',
+      amountRange: '5 000 – 600 000 kr', aprFrom: 'från 3,95%', decision: 'Omedelbart',
+      requirements: 'En ansökan - många erbjudanden', rating: 4.6,
+      highlights: ['Jämför långivare', 'Endast en UC'],
+      logo: '/adtraction-logos/langekoll-logo.png',
+      isPartner: true,
+      isComparison: true
+    }
+  ].map(seal);
+
   // Force fresh data to clear any cache
   var OFFERS = {
     foretagslan: foretagslan,
     kreditkort: kreditkort,
     privatlan: privatlan,
     'utan-uc': utanUc,
+    laneformedlare: laneformedlare,
     ovriga: ovriga
   };
 

@@ -16,6 +16,7 @@ import ConsumerCreditWarning from "./ConsumerCreditWarning";
 
 export default function RichPrivatlan() {
   const [showAllLoans, setShowAllLoans] = useState(false);
+  const [showOnlyBrokers, setShowOnlyBrokers] = useState(false);
   
   const breadcrumbItems = [
     { label: "Privatlån" }
@@ -94,9 +95,25 @@ export default function RichPrivatlan() {
           <div className="container mx-auto max-w-6xl">
             <h2 className="text-3xl font-bold text-center mb-12">Populära privatlån just nu</h2>
             
+            {/* Filter Button */}
+            <div className="mb-8 text-center">
+              <Button
+                variant={showOnlyBrokers ? "default" : "outline"}
+                onClick={() => setShowOnlyBrokers(!showOnlyBrokers)}
+                className="px-6 py-3"
+              >
+                {showOnlyBrokers ? "Visa alla lån" : "Visa bara låneförmedlare"}
+              </Button>
+              {showOnlyBrokers && (
+                <p className="text-sm text-muted-foreground mt-3">
+                  Visar endast låneförmedlare som jämför flera banker med en ansökan
+                </p>
+              )}
+            </div>
+
             {/* Adtraction Offers Container */}
             <OffersContainer 
-              category="privatlan" 
+              category={showOnlyBrokers ? "laneformedlare" : "privatlan"}
               limit={showAllLoans ? 40 : 15}
               className="mb-12" 
             />
