@@ -442,8 +442,12 @@ All colors MUST be HSL.
    FIX: Förhindra offers-komponenten från att blockera navigation
    ============================================================================ */
 /* Blockera BARA offers-element, inte navigation */
-.offers-container > *:not(a):not(button),
-[data-offers] > *:not(a):not(button) {
+.offers-container,
+[data-offers] {
+  pointer-events: auto !important;
+}
+
+.offers-container .lender-card > *:not(.lender-cta):not(a):not(button) {
   pointer-events: none !important;
 }
 
@@ -465,4 +469,25 @@ nav *,
 button[aria-label*="meny" i],
 button[aria-label*="menu" i] {
   pointer-events: auto !important;
+}
+
+/* ============================================================================
+   OFFERS LOGO FIX: Maximum priority logo rules
+   ============================================================================ */
+.offers-container .lender-logo img {
+  max-height: 40px !important;
+  max-width: 120px !important;
+  object-fit: contain !important;
+  width: auto !important;
+  height: auto !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+}
+
+/* Mobile override */
+@media (max-width: 640px) {
+  .offers-container .lender-logo img {
+    max-height: 36px !important;
+    max-width: 100px !important;
+  }
 }
