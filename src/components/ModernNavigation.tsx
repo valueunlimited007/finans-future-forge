@@ -30,23 +30,6 @@ const ModernNavigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
-  // Lock body scroll when menu is open
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-      document.body.style.paddingRight = '0px'; // Prevent layout shift
-    } else {
-      document.body.style.overflow = 'unset';
-      document.body.style.paddingRight = 'unset';
-    }
-
-    // Cleanup on unmount
-    return () => {
-      document.body.style.overflow = 'unset';
-      document.body.style.paddingRight = 'unset';
-    };
-  }, [isOpen]);
-
   // Handle escape key
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
@@ -339,7 +322,7 @@ const ModernNavigation = () => {
                 </div>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[320px] sm:w-[400px] overflow-y-auto border-0 bg-background p-0">
+            <SheetContent side="right" className="w-[320px] sm:w-[400px] max-h-screen overflow-y-auto border-0 bg-background p-0">
               {/* Accessibility requirements */}
               <SheetTitle className="sr-only">Navigeringsmeny</SheetTitle>
               <SheetDescription className="sr-only">
@@ -359,7 +342,7 @@ const ModernNavigation = () => {
                 </div>
               </div>
 
-              <div className="flex flex-col px-6 pb-8 space-y-6">
+              <div className="flex flex-col px-6 pb-20 space-y-6">
                 {/* Home Link */}
                 <Link
                   to="/"

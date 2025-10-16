@@ -3,8 +3,54 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import ExpertProfile from "./ExpertProfile";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 export default function PillarGuide() {
+  const isMobile = useIsMobile();
+
+  const loanData = [
+    {
+      type: "Privatlån",
+      rate: "2,9-12%",
+      maxAmount: "600 000 kr",
+      duration: "1-15 år",
+      security: "Ingen",
+      bestFor: "Hemförbättring, bilköp, skuldsanering"
+    },
+    {
+      type: "Bolån",
+      rate: "2,5-5%",
+      maxAmount: "85% av bostadens värde",
+      duration: "Up till 50 år",
+      security: "Bostaden",
+      bestFor: "Bostadsköp, större renoveringar"
+    },
+    {
+      type: "Billån",
+      rate: "3,5-8%",
+      maxAmount: "100% av bilens värde",
+      duration: "1-8 år",
+      security: "Bilen",
+      bestFor: "Ny- och begagnade bilar"
+    },
+    {
+      type: "Företagslån",
+      rate: "4-15%",
+      maxAmount: "5 000 000 kr+",
+      duration: "1-10 år",
+      security: "Ofta krävs",
+      bestFor: "Expansion, kassaflöde, investeringar"
+    },
+    {
+      type: "Lån utan UC",
+      rate: "15-30%",
+      maxAmount: "100 000 kr",
+      duration: "6 mån-3 år",
+      security: "Ingen",
+      bestFor: "Akuta behov, dålig kredit"
+    }
+  ];
+
   return (
     <div className="space-y-8">
       {/* Expert Validation */}
@@ -56,62 +102,68 @@ export default function PillarGuide() {
                 <CardDescription>Baserat på verkliga marknadsdata från januari 2025</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="overflow-x-auto">
-                  <table className="w-full text-sm">
-                    <thead>
-                      <tr className="border-b">
-                        <th className="text-left p-2">Lånetyp</th>
-                        <th className="text-left p-2">Typisk ränta</th>
-                        <th className="text-left p-2">Max belopp</th>
-                        <th className="text-left p-2">Löptid</th>
-                        <th className="text-left p-2">Säkerhet</th>
-                        <th className="text-left p-2">Bäst för</th>
-                      </tr>
-                    </thead>
-                    <tbody className="text-sm">
-                      <tr className="border-b">
-                        <td className="p-2 font-medium">Privatlån</td>
-                        <td className="p-2">2,9-12%</td>
-                        <td className="p-2">600 000 kr</td>
-                        <td className="p-2">1-15 år</td>
-                        <td className="p-2">Ingen</td>
-                        <td className="p-2">Hemförbättring, bilköp, skuldsanering</td>
-                      </tr>
-                      <tr className="border-b">
-                        <td className="p-2 font-medium">Bolån</td>
-                        <td className="p-2">2,5-5%</td>
-                        <td className="p-2">85% av bostadens värde</td>
-                        <td className="p-2">Up till 50 år</td>
-                        <td className="p-2">Bostaden</td>
-                        <td className="p-2">Bostadsköp, större renoveringar</td>
-                      </tr>
-                      <tr className="border-b">
-                        <td className="p-2 font-medium">Billån</td>
-                        <td className="p-2">3,5-8%</td>
-                        <td className="p-2">100% av bilens värde</td>
-                        <td className="p-2">1-8 år</td>
-                        <td className="p-2">Bilen</td>
-                        <td className="p-2">Ny- och begagnade bilar</td>
-                      </tr>
-                      <tr className="border-b">
-                        <td className="p-2 font-medium">Företagslån</td>
-                        <td className="p-2">4-15%</td>
-                        <td className="p-2">5 000 000 kr+</td>
-                        <td className="p-2">1-10 år</td>
-                        <td className="p-2">Ofta krävs</td>
-                        <td className="p-2">Expansion, kassaflöde, investeringar</td>
-                      </tr>
-                      <tr className="border-b">
-                        <td className="p-2 font-medium">Lån utan UC</td>
-                        <td className="p-2">15-30%</td>
-                        <td className="p-2">100 000 kr</td>
-                        <td className="p-2">6 mån-3 år</td>
-                        <td className="p-2">Ingen</td>
-                        <td className="p-2">Akuta behov, dålig kredit</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
+                {isMobile ? (
+                  // Mobile: Stack cards
+                  <div className="space-y-4">
+                    {loanData.map((loan) => (
+                      <Card key={loan.type} className="shadow-sm">
+                        <CardContent className="p-4 space-y-3">
+                          <h3 className="font-bold text-lg text-primary">{loan.type}</h3>
+                          <div className="grid grid-cols-2 gap-3 text-sm">
+                            <div>
+                              <span className="text-muted-foreground font-medium">Ränta:</span>
+                              <p className="font-semibold">{loan.rate}</p>
+                            </div>
+                            <div>
+                              <span className="text-muted-foreground font-medium">Max belopp:</span>
+                              <p className="font-semibold">{loan.maxAmount}</p>
+                            </div>
+                            <div>
+                              <span className="text-muted-foreground font-medium">Löptid:</span>
+                              <p className="font-semibold">{loan.duration}</p>
+                            </div>
+                            <div>
+                              <span className="text-muted-foreground font-medium">Säkerhet:</span>
+                              <p className="font-semibold">{loan.security}</p>
+                            </div>
+                          </div>
+                          <div className="pt-2 border-t">
+                            <span className="text-muted-foreground text-xs font-medium">Bäst för:</span>
+                            <p className="text-sm mt-1">{loan.bestFor}</p>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    ))}
+                  </div>
+                ) : (
+                  // Desktop: Table
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-sm">
+                      <thead>
+                        <tr className="border-b">
+                          <th className="text-left p-2">Lånetyp</th>
+                          <th className="text-left p-2">Typisk ränta</th>
+                          <th className="text-left p-2">Max belopp</th>
+                          <th className="text-left p-2">Löptid</th>
+                          <th className="text-left p-2">Säkerhet</th>
+                          <th className="text-left p-2">Bäst för</th>
+                        </tr>
+                      </thead>
+                      <tbody className="text-sm">
+                        {loanData.map((loan) => (
+                          <tr key={loan.type} className="border-b">
+                            <td className="p-2 font-medium">{loan.type}</td>
+                            <td className="p-2">{loan.rate}</td>
+                            <td className="p-2">{loan.maxAmount}</td>
+                            <td className="p-2">{loan.duration}</td>
+                            <td className="p-2">{loan.security}</td>
+                            <td className="p-2">{loan.bestFor}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                )}
 
                 <div className="mt-6 space-y-4">
                   <div className="bg-green-50 p-4 rounded-lg">
