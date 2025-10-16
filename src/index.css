@@ -850,8 +850,9 @@ All colors MUST be HSL.
 /* ============================================================================
    LOGO SIZING - OUTSIDE LAYERS FOR MAXIMUM PRIORITY
    ============================================================================ */
-/* Force logo sizes - must be outside @layer to override Tailwind utilities */
-#root[data-site="finansguiden"] header img[alt="Finansguiden"] {
+/* Force Finansguiden logo sizes - simplified selector for reliability */
+header img[alt="Finansguiden"],
+header img[src*="finansguiden-logo"] {
   height: 64px !important;
   min-height: 64px !important;
   max-height: 64px !important;
@@ -859,7 +860,8 @@ All colors MUST be HSL.
 }
 
 @media (min-width: 640px) {
-  #root[data-site="finansguiden"] header img[alt="Finansguiden"] {
+  header img[alt="Finansguiden"],
+  header img[src*="finansguiden-logo"] {
     height: 72px !important;
     min-height: 72px !important;
     max-height: 72px !important;
@@ -867,7 +869,8 @@ All colors MUST be HSL.
 }
 
 @media (min-width: 768px) {
-  #root[data-site="finansguiden"] header img[alt="Finansguiden"] {
+  header img[alt="Finansguiden"],
+  header img[src*="finansguiden-logo"] {
     height: 80px !important;
     min-height: 80px !important;
     max-height: 80px !important;
@@ -875,7 +878,8 @@ All colors MUST be HSL.
 }
 
 @media (min-width: 1280px) {
-  #root[data-site="finansguiden"] header img[alt="Finansguiden"] {
+  header img[alt="Finansguiden"],
+  header img[src*="finansguiden-logo"] {
     height: 96px !important;
     min-height: 96px !important;
     max-height: 96px !important;

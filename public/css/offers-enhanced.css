@@ -320,6 +320,18 @@
   line-height: 1.25;
 }
 
+/* Dark green button for featured/partner offers - EXACT UC shade */
+.btn-primary {
+  background: #059669; /* UC dark green */
+  color: white;
+  border: 1px solid #059669;
+}
+
+.btn-primary:hover {
+  background: #047857; /* Darker on hover */
+  border-color: #047857;
+  color: white;
+}
 
 /* Match UC outline button for non-featured */
 .btn-secondary {
@@ -356,6 +368,12 @@
   font-weight: 500;
   line-height: 1;
   white-space: nowrap;
+}
+
+/* Partner badge - green to signal trusted partnership */
+.badge-partner {
+  background: #059669; /* UC dark green */
+  color: white;
 }
 
 /* Match UC "Ingen UC" badge - green */
