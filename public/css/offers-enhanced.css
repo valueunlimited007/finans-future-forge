@@ -322,14 +322,17 @@
 
 /* Match UC green primary button for featured cards */
 .btn-primary {
-  background: #16a34a; /* bg-green-600 */
+  background: #059669; /* Darker green for better contrast */
   color: white;
   border: 1px solid transparent;
+  font-weight: 600;
 }
 
 .btn-primary:hover {
-  background: #15803d; /* hover:bg-green-700 */
+  background: #047857; /* Even darker on hover */
   color: white;
+  box-shadow: 0 2px 8px rgba(5, 150, 105, 0.3);
+  transform: translateY(-1px);
 }
 
 /* Match UC outline button for non-featured */
