@@ -87,13 +87,13 @@ const SimpleNavigation = () => {
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-background border-b">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-44 md:h-52 lg:h-60">
+          <div className="flex items-center justify-between h-52 md:h-60 lg:h-72">
             {/* Logo */}
             <Link to="/" className="flex-shrink-0">
               <img 
                 src="/finansguiden-logo-new.png" 
                 alt="Finansguiden"
-                className="h-40 md:h-48 lg:h-56 xl:h-64 w-auto"
+                className="h-48 md:h-56 lg:h-68 xl:h-80 w-auto"
               />
             </Link>
 
