@@ -67,13 +67,13 @@ const SimpleNavigation = () => {
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-background border-b">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-32 md:h-40 lg:h-48">
+          <div className="flex items-center justify-between h-36 md:h-44 lg:h-52">
             {/* Logo */}
             <Link to="/" className="flex-shrink-0">
               <img 
                 src="/finansguiden-logo-new.png" 
                 alt="Finansguiden"
-                className="h-28 md:h-36 lg:h-44 xl:h-52 w-auto"
+                className="h-32 md:h-40 lg:h-48 xl:h-56 w-auto"
               />
             </Link>
 
@@ -308,7 +308,7 @@ const SimpleNavigation = () => {
       )}
 
       {/* Spacer to prevent content from going under fixed header */}
-      <div className="h-32 md:h-40 lg:h-48" />
+      <div className="h-36 md:h-44 lg:h-52" />
     </>
   );
 };
