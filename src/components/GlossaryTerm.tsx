@@ -112,7 +112,14 @@ const GlossaryTerm: React.FC<GlossaryTermProps> = ({ term, related }) => {
                     />
                   </div>
                   <div className="lender-info">
-                    <h3>
+                    <h3 style={{ 
+                      writingMode: 'horizontal-tb' as const,
+                      textOrientation: 'mixed' as const,
+                      whiteSpace: 'normal' as const,
+                      wordBreak: 'normal' as const,
+                      display: 'block' as const,
+                      width: '100%'
+                    }}>
                       {partner.name}
                       {partner.isPartner && <span className="badge badge-partner">Partner</span>}
                     </h3>
