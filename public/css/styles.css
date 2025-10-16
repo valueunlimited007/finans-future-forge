@@ -40,7 +40,12 @@ body {
 }
 
 /* Header */
-header { background: white; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); position: sticky; top: 0; z-index: 1000; }
+header { background: white; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); position: sticky; top: 0; z-index: 50; }
+
+/* Modern navigation får konsekvent z-index */
+header[data-version] {
+  z-index: 50 !important;
+}
 nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 0; }
 .logo { display: flex; align-items: center; text-decoration: none; font-size: 1.5rem; font-weight: bold; color: var(--primary); }
 .nav-links { display: flex; gap: 2rem; list-style: none; }
@@ -96,6 +101,14 @@ footer { background: var(--dark); color: white; padding: 3rem 0 1rem; margin-top
   .hero h1 { font-size: 1.8rem; }
   .comparison-table { font-size: 0.9rem; }
   .logo img { height: 56px; }
+  
+  /* Override för ModernNavigation specifikt */
+  header[data-version] img[alt="Finansguiden"],
+  header[data-version] img[src*="finansguiden-logo"] {
+    height: 48px !important;
+    min-height: 48px !important;
+    max-height: 48px !important;
+  }
 }
 
 /* Utilities */

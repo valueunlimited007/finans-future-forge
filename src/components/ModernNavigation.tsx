@@ -364,7 +364,12 @@ const ModernNavigation = () => {
                 </div>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[320px] sm:w-[400px] max-h-screen overflow-y-auto border-0 bg-background p-0" data-sheet-content>
+            <SheetContent 
+              side="right" 
+              className="w-[320px] sm:w-[400px] max-h-screen overflow-y-auto border-0 bg-background p-0" 
+              data-sheet-content
+              data-debug-visible="true"
+            >
               {/* Accessibility requirements */}
               <SheetTitle className="sr-only">Navigeringsmeny</SheetTitle>
               <SheetDescription className="sr-only">
