@@ -241,10 +241,13 @@ const ModernNavigation = () => {
   );
 
   return (
-    <header className={cn(
-      "fixed top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-transform duration-300",
-      scrollDirection === 'down' ? "-translate-y-full" : "translate-y-0"
-    )}>
+    <header 
+      data-version="v2.1"
+      className={cn(
+        "fixed top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-transform duration-300",
+        scrollDirection === 'down' ? "-translate-y-full" : "translate-y-0"
+      )}
+    >
       <div className="container flex h-16 sm:h-18 md:h-20 items-center justify-between px-4">
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-2 shrink-0">
@@ -353,6 +356,7 @@ const ModernNavigation = () => {
                 variant="ghost"
                 className="flex items-center gap-3 h-12 px-3 hover:bg-accent/50 transition-colors mobile-menu-trigger"
                 aria-label="Öppna navigeringsmeny"
+                data-menu-trigger="true"
               >
                 <span className="text-sm font-medium text-muted-foreground tracking-wider">MENY</span>
                 <div className="h-10 w-10 rounded-full border-2 border-border flex items-center justify-center bg-background">
