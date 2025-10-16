@@ -254,7 +254,7 @@ const ModernNavigation = () => {
           <img 
             src="/finansguiden-logo-new.png" 
             alt="Finansguiden"
-            className="w-auto h-[64px] sm:h-[80px] md:h-[96px] lg:h-[112px] xl:h-[128px]"
+            className="w-auto h-[80px] sm:h-[100px] md:h-[120px] lg:h-[140px] xl:h-[160px]"
           />
         </Link>
 
@@ -357,10 +357,6 @@ const ModernNavigation = () => {
                 size="lg"
                 className="h-12 gap-2 hover:bg-accent/50 transition-colors lg:hidden"
                 aria-label="Öppna navigeringsmeny"
-                onClick={(e) => {
-                  console.log("🍔 MENY KLICK!", { isOpen, target: e.target });
-                  e.stopPropagation();
-                }}
               >
                 <Menu className="h-5 w-5" />
                 <span className="text-sm font-medium">Meny</span>
