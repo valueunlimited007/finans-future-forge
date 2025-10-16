@@ -59,7 +59,7 @@ export default function RichLanUtanUc() {
         </script>
       </Helmet>
 
-      <main className="pt-[56px] sm:pt-[64px] md:pt-[80px] lg:pt-[96px]">
+      <main className="pt-[48px] sm:pt-[64px] md:pt-[80px] lg:pt-[96px]">
         <div className="container mx-auto max-w-6xl px-4">
           <CustomBreadcrumb items={breadcrumbItems} />
         </div>

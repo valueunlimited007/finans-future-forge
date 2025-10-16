@@ -26,7 +26,7 @@ export default function Laneformedlare() {
       <SeoManager />
       <SimpleNavigation />
       
-      <main className="min-h-screen pt-[56px] sm:pt-[64px] md:pt-[80px] lg:pt-[96px]">
+      <main className="min-h-screen pt-[48px] sm:pt-[64px] md:pt-[80px] lg:pt-[96px]">
         <div className="container mx-auto max-w-6xl px-4 py-8">
           <CustomBreadcrumb items={breadcrumbItems} />
         </div>
