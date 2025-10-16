@@ -181,14 +181,14 @@
     // DOM is ready, but React components may not be mounted yet
     // Retry with exponential backoff
     var attempts = 0;
-    var maxAttempts = 5;
+    var maxAttempts = 10; // Increased from 5 to 10
     function tryInit() {
       var targets = document.querySelectorAll('[data-offers]');
       if (targets.length > 0) {
         init();
       } else if (attempts < maxAttempts) {
         attempts++;
-        setTimeout(tryInit, Math.pow(2, attempts) * 50); // 100ms, 200ms, 400ms, 800ms, 1600ms
+        setTimeout(tryInit, Math.pow(2, attempts) * 100); // Increased from 50 to 100 (200ms, 400ms, 800ms, etc.)
         try { console.log('[FG_RENDERER] Retry', attempts, '/', maxAttempts); } catch(e) {}
       }
     }

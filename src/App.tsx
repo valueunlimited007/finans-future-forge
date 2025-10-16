@@ -62,14 +62,13 @@ const App = () => {
   const isCasino = isCasinoSite();
 
   return (
-    <div data-site={isCasino ? 'kasinos' : 'finansguiden'}>
-      <HelmetProvider>
-        <QueryClientProvider client={queryClient}>
-          <TooltipProvider>
-            <Toaster />
-            <Sonner />
-            <SiteSelector />
-            <BrowserRouter>
+    <HelmetProvider>
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <SiteSelector />
+          <BrowserRouter>
               <ScrollToTop />
               <Routes>
               {/* Casino site routes */}
@@ -129,7 +128,6 @@ const App = () => {
         </TooltipProvider>
       </QueryClientProvider>
     </HelmetProvider>
-    </div>
   );
 };
 
