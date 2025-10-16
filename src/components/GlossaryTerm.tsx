@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import type { GlossaryTerm as GlossaryType } from "@/data/glossary";
-import AffiliateButton from "@/components/AffiliateButton";
 import AdtractionBanner from "@/components/AdtractionBanner";
 import { getBannerForTerm } from "@/lib/adtractionBanners";
 import { autolink } from "@/lib/autolinkGlossary";
@@ -16,6 +15,7 @@ const GlossaryTerm: React.FC<GlossaryTermProps> = ({ term, related }) => {
   const faqs = buildFaq(term);
   
   // Select appropriate banners based on term and placement
+  const topBanner = getBannerForTerm(term, 'top');
   const sidebarBanner = getBannerForTerm(term, 'sidebar');
   const midBanner = getBannerForTerm(term, 'mid');
 
@@ -38,7 +38,11 @@ const GlossaryTerm: React.FC<GlossaryTermProps> = ({ term, related }) => {
         </header>
 
         <div className="mb-6">
-          <AffiliateButton href="/kreditkort" termSlug={term.slug} label="Se erbjudanden" />
+          <AdtractionBanner 
+            banner={topBanner} 
+            placement="glossary_top"
+            termSlug={term.slug}
+          />
         </div>
 
         <section className="prose prose-neutral dark:prose-invert">
