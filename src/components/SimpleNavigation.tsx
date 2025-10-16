@@ -15,11 +15,18 @@ const SimpleNavigation = () => {
     { title: "Lån utan UC", href: "/lan-utan-uc", icon: TrendingUp, popular: true },
     { title: "Företagslån", href: "/foretagslan", icon: Building2 },
     { title: "Kreditkort", href: "/kreditkort", icon: CreditCard },
-    { title: "Bostadsmarknad", href: "/bostadsmarknad-analys", icon: Home },
+    { title: "Andra Tjänster", href: "/andra-tjanster", icon: Building2 },
+    { title: "Bostadsmarknad 2025", href: "/bostadsmarknad-analys", icon: Home },
     { title: "Karriär Guide", href: "/karriar-guide", icon: TrendingUp },
     { title: "Ekonomiska Life Hacks", href: "/ekonomiska-lifehacks", icon: Lightbulb },
     { title: "Månadssparande", href: "/manadssparande-guide", icon: Calculator },
+    { title: "Bilekonomi", href: "/bilekonomy-guide", icon: TrendingUp },
+    { title: "Bankjämförelse", href: "/bankjamforelse-guide", icon: Building2 },
+    { title: "Löneoptimering", href: "/loneoptimeringsguide", icon: TrendingUp },
+    { title: "Sparkonto Guide", href: "/sparkonto-guide", icon: Banknote },
+    { title: "Svenska Inkomster", href: "/svenska-inkomster-2025", icon: TrendingUp },
     { title: "Ordlista", href: "/ordlista", icon: BookOpen },
+    { title: "Sajtkarta", href: "/sajtkarta", icon: BookOpen },
     { title: "Om oss", href: "/om", icon: Users },
   ];
 
@@ -30,13 +37,13 @@ const SimpleNavigation = () => {
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-background border-b">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-24 md:h-32 lg:h-36">
+          <div className="flex items-center justify-between h-32 md:h-40 lg:h-48">
             {/* Logo */}
             <Link to="/" className="flex-shrink-0">
               <img 
                 src="/finansguiden-logo-new.png" 
                 alt="Finansguiden"
-                className="h-20 md:h-28 lg:h-32 xl:h-40 w-auto"
+                className="h-28 md:h-36 lg:h-44 xl:h-52 w-auto"
               />
             </Link>
 
@@ -133,7 +140,7 @@ const SimpleNavigation = () => {
       )}
 
       {/* Spacer to prevent content from going under fixed header */}
-      <div className="h-24 md:h-32 lg:h-36" />
+      <div className="h-32 md:h-40 lg:h-48" />
     </>
   );
 };
