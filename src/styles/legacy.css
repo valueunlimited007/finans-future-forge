@@ -33,18 +33,19 @@
 }
 
 :root {
-    --primary: #1e3a8a;
-    --secondary: #10b981;
-    --accent: #f59e0b;
-    --danger: #ef4444;
-    --warning: #f59e0b;
-    --dark: #1f2937;
-    --light: #f9fafb;
-    --border: #e5e7eb;
+    /* HSL component values (no hsl() wrapper) for use with hsl(var(--primary)) */
+    --primary: 222 64% 33%;
+    --secondary: 160 84% 39%;
+    --accent: 38 92% 50%;
+    --danger: 0 84% 60%;
+    --warning: 38 92% 50%;
+    --dark: 217 33% 17%;
+    --light: 210 20% 98%;
+    --border: 214 32% 91%;
     --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     --gradient: linear-gradient(135deg, #667eea, #764ba2);
-    --premium: #7c3aed;
-    --gold: #fbbf24;
+    --premium: 258 90% 66%;
+    --gold: 43 96% 56%;
 }
 
 /* Base Styles */
@@ -188,8 +189,8 @@ nav {
     box-shadow: var(--shadow); 
 }
 
-/* Buttons */
-.btn { 
+/* Buttons - scoped to Finansguiden */
+[data-site="finansguiden"] .btn { 
     padding: 0.85rem 2rem; 
     border-radius: 999px; 
     font-weight: 700; 
@@ -205,7 +206,7 @@ nav {
     overflow: hidden; 
 }
 
-.btn::before{
+[data-site="finansguiden"] .btn::before{
     content:'';
     position:absolute;
     top:0;
@@ -216,29 +217,29 @@ nav {
     transition:width .3s ease;
 }
 
-.btn:hover::before{
+[data-site="finansguiden"] .btn:hover::before{
     width:100%;
 }
 
-.btn-primary { 
-    background: linear-gradient(135deg, var(--primary), #3b82f6); 
+[data-site="finansguiden"] .btn-primary { 
+    background: linear-gradient(135deg, hsl(var(--primary)), #3b82f6); 
     color: #fff; 
     border-color: rgba(255,255,255,.2); 
 }
 
-.btn-secondary { 
-    background: linear-gradient(135deg, var(--secondary), #059669); 
+[data-site="finansguiden"] .btn-secondary { 
+    background: linear-gradient(135deg, hsl(var(--secondary)), #059669); 
     color: #fff; 
     border: 1px solid rgba(255,255,255,0.3); 
     backdrop-filter: blur(6px); 
 }
 
-.btn:hover { 
+[data-site="finansguiden"] .btn:hover { 
     transform: translateY(-2px) scale(1.02); 
     box-shadow: 0 10px 25px rgba(30,58,138,.28); 
 }
 
-.btn:focus-visible { 
+[data-site="finansguiden"] .btn:focus-visible { 
     outline: 3px solid rgba(59,130,246,.5); 
     outline-offset: 2px; 
 }

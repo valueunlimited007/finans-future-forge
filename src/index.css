@@ -277,7 +277,7 @@ All colors MUST be HSL.
   }
 
   /* Card responsive improvements */
-  [class*="card"], .card {
+  [data-fg-card], .card {
     min-width: 0;
     overflow: hidden;
     word-break: break-word;

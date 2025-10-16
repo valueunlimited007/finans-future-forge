@@ -62,15 +62,16 @@ const App = () => {
   const isCasino = isCasinoSite();
 
   return (
-    <HelmetProvider>
-      <QueryClientProvider client={queryClient}>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <SiteSelector />
-          <BrowserRouter>
-            <ScrollToTop />
-            <Routes>
+    <div data-site={isCasino ? 'kasinos' : 'finansguiden'}>
+      <HelmetProvider>
+        <QueryClientProvider client={queryClient}>
+          <TooltipProvider>
+            <Toaster />
+            <Sonner />
+            <SiteSelector />
+            <BrowserRouter>
+              <ScrollToTop />
+              <Routes>
               {/* Casino site routes */}
               {isCasino ? (
                 <>
@@ -128,6 +129,7 @@ const App = () => {
         </TooltipProvider>
       </QueryClientProvider>
     </HelmetProvider>
+    </div>
   );
 };
 
