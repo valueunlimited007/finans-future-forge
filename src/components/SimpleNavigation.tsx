@@ -83,8 +83,8 @@ const SimpleNavigation = () => {
               <NavigationMenu 
                 value={desktopMenuValue} 
                 onValueChange={setDesktopMenuValue}
-                delayDuration={800}
-                skipDelayDuration={0}
+                delayDuration={0}
+                skipDelayDuration={1000}
               >
                 <NavigationMenuList>
                   {/* Main Links */}
