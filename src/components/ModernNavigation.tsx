@@ -248,13 +248,13 @@ const ModernNavigation = () => {
         scrollDirection === 'down' ? "-translate-y-full" : "translate-y-0"
       )}
     >
-      <div className="container flex h-16 sm:h-18 md:h-20 items-center justify-between px-4 min-w-full">
+      <div className="container flex h-16 sm:h-20 md:h-24 items-center justify-between px-4 min-w-full">
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-2 shrink-0">
           <img 
             src="/finansguiden-logo-new.png" 
             alt="Finansguiden"
-            className="w-auto h-12 sm:h-14 md:h-16 xl:h-[72px]"
+            className="w-auto h-14 sm:h-16 md:h-20 xl:h-[80px]"
           />
         </Link>
 
