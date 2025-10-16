@@ -96,6 +96,36 @@ const GlossaryTerm: React.FC<GlossaryTermProps> = ({ term, related }) => {
           </section>
         )}
 
+        {term.partners && term.partners.length > 0 && (
+          <section className="my-6 rounded-lg border border-primary/20 bg-primary/5 p-6">
+            <h2 className="mb-4 text-lg font-semibold">Rekommenderade tjänster</h2>
+            <div className="space-y-4">
+              {term.partners.map((partner, i) => (
+                <div key={i} className="flex flex-col gap-3 rounded-md border border-border bg-background p-4 sm:flex-row sm:items-center">
+                  <img 
+                    src={partner.logo} 
+                    alt={partner.name}
+                    className="h-10 w-auto object-contain sm:h-12"
+                    loading="lazy"
+                  />
+                  <div className="flex-1">
+                    <p className="font-medium text-foreground">{partner.name}</p>
+                    <p className="text-sm text-muted-foreground">{partner.description}</p>
+                  </div>
+                  <a 
+                    href={partner.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+                  >
+                    Läs mer
+                  </a>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
         {term.sources?.length ? (
           <section className="my-6">
             <h2 className="mb-2 font-semibold">Källor</h2>

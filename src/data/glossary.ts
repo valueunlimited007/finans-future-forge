@@ -1,4 +1,12 @@
 export interface GlossaryFAQ { q: string; a: string; }
+
+export interface GlossaryPartner {
+  name: string;
+  logo: string;
+  description: string;
+  url: string;
+}
+
 export interface GlossaryTerm {
   term: string;
   slug: string;
@@ -7,6 +15,7 @@ export interface GlossaryTerm {
   example?: string;
   relatedTerms?: string[];
   sources?: { title: string; url: string }[];
+  partners?: GlossaryPartner[];
   lastUpdated: string;
   faqs?: GlossaryFAQ[];
 }
@@ -362,6 +371,14 @@ override("Amortering", {
   sources: [
     { title: "Amortera.se - Beräkna lån och amorteringar", url: "https://amortera.se" },
   ],
+  partners: [
+    {
+      name: "Amortera.se",
+      logo: "/adtraction-logos/enklare-logo.png",
+      description: "Beräkna dina amorteringar och få koll på din ekonomi",
+      url: "https://amortera.se"
+    },
+  ],
   faqs: [
     { q: "Vad är amortering?", a: "Avbetalning på lånets skuld som minskar skulden vid varje betalning." },
     { q: "Vad är skillnaden mellan rak amortering och annuitet?", a: "Rak amortering ger samma amorteringsbelopp varje period, annuitet ger samma totalbelopp där ränta och amortering förskjuts över tid." },
@@ -499,9 +516,116 @@ override("Kapitalförlust", {
   example: "Ex: Säljer du aktier för 50 000 kr som köptes för 70 000 kr har du kapitalförlust 20 000 kr.",
   relatedTerms: ["Kapitalvinst","Omkostnadsbelopp","K4-blankett"],
   faqs: [
-    { q: "Vad är kapitalförlust?", a: "Förlust vid försäljning av tillgångar till ett pris under anskaffningsvärdet." },
-    { q: "Kan jag dra av kapitalförlust?", a: "Ja, mot kapitalvinst, reglerna beror på typ av tillgång." },
-    { q: "Hur deklarerar jag kapitalförlust?", a: "Använd rätt blankett, ofta K4 vid värdepapper." },
+    { q: "Vad är kapitalförlust?", a: "Förlust vid försäljning under anskaffningsvärdet." },
+    { q: "Kan jag dra av kapitalförlust?", a: "Ja, enligt särskilda regler kan du kvitta mot kapitalvinst." },
+    { q: "Var redovisar jag kapitalförlust?", a: "I deklarationen, ofta K4-blankett." },
+  ],
+});
+
+// Privatlån
+override("Privatlån", {
+  partners: [
+    {
+      name: "Enklare",
+      logo: "/adtraction-logos/enklare-logo.png",
+      description: "Jämför privatlån från flera banker samtidigt",
+      url: "https://www.enklare.se/privatlan"
+    },
+    {
+      name: "Northmill",
+      logo: "/adtraction-logos/northmill-logo.png",
+      description: "Flexibla privatlån med snabb handläggning",
+      url: "https://www.northmill.se"
+    },
+    {
+      name: "Marginalen Bank",
+      logo: "/adtraction-logos/marginalen-logo.png",
+      description: "Privatlån upp till 600 000 kr",
+      url: "https://www.marginalen.se"
+    },
+  ],
+});
+
+// Blancolån
+override("Blancolån", {
+  partners: [
+    {
+      name: "Enklare",
+      logo: "/adtraction-logos/enklare-logo.png",
+      description: "Jämför blancolån från flera banker samtidigt",
+      url: "https://www.enklare.se/privatlan"
+    },
+    {
+      name: "Northmill",
+      logo: "/adtraction-logos/northmill2-logo.png",
+      description: "Flexibla blancolån utan säkerhet",
+      url: "https://www.northmill.se"
+    },
+  ],
+});
+
+// Företagslån
+override("Företagslån", {
+  partners: [
+    {
+      name: "Qred",
+      logo: "/adtraction-logos/qred-logo.png",
+      description: "Företagslån med snabba beslut",
+      url: "https://www.qred.com/se"
+    },
+    {
+      name: "Lendo",
+      logo: "/adtraction-logos/lendo-logo.png",
+      description: "Jämför företagslån från flera banker",
+      url: "https://www.lendo.se/foretagslan"
+    },
+    {
+      name: "Froda",
+      logo: "/adtraction-logos/froda-logo.png",
+      description: "Rörelsekapital för företag",
+      url: "https://www.froda.se"
+    },
+  ],
+});
+
+// Kreditkort
+override("Kreditkort", {
+  partners: [
+    {
+      name: "Nordnet",
+      logo: "/adtraction-logos/nordnet-logo.png",
+      description: "Kreditkort med cashback på alla köp",
+      url: "https://www.nordnet.se/kreditkort"
+    },
+    {
+      name: "SEB",
+      logo: "/adtraction-logos/swedbank-logo.png",
+      description: "Kreditkort med förmåner och bonusprogram",
+      url: "https://seb.se/privat/kort"
+    },
+  ],
+});
+
+// UC / Kreditupplysning - lägg till partners för lån utan UC
+override("UC", {
+  partners: [
+    {
+      name: "Enklare",
+      logo: "/adtraction-logos/enklare-logo.png",
+      description: "Hitta lån utan hård UC-kontroll",
+      url: "https://www.enklare.se/lan-utan-uc"
+    },
+  ],
+});
+
+override("Kreditupplysning", {
+  partners: [
+    {
+      name: "Enklare",
+      logo: "/adtraction-logos/enklare-logo.png",
+      description: "Jämför lån med mjuk kreditkontroll",
+      url: "https://www.enklare.se/lan-utan-uc"
+    },
   ],
 });
 
