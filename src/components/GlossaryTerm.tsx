@@ -100,23 +100,32 @@ const GlossaryTerm: React.FC<GlossaryTermProps> = ({ term, related }) => {
         {term.partners && term.partners.length > 0 && (
           <section className="my-8">
             <h2 className="mb-4 text-2xl font-bold">Rekommenderade tjänster</h2>
-            <div className="grid gap-4">
+            <div className="lender-grid">
               {term.partners.map((partner, i) => (
-                <div 
-                  key={i} 
-                  className="flex flex-col sm:flex-row items-start gap-4 p-6 bg-card border border-border rounded-lg hover:border-primary/50 transition-colors"
-                >
-                  <img 
-                    src={partner.logo} 
-                    alt={`${partner.name} logotyp`}
-                    className="h-12 w-auto object-contain"
-                    loading="lazy"
-                  />
-                  <div className="flex-1 min-w-0">
-                    <p className="font-semibold text-lg text-foreground mb-1">{partner.name}</p>
-                    <p className="text-sm text-muted-foreground">{partner.description}</p>
+                <article key={i} className="lender-card">
+                  <div className="lender-logo" aria-label={`${partner.name} logotyp`}>
+                    <img 
+                      src={partner.logo} 
+                      alt={`${partner.name} logotyp`}
+                      loading="lazy"
+                      decoding="async"
+                    />
                   </div>
-                  <div className="w-full sm:w-auto sm:ml-auto">
+                  <div className="lender-info">
+                    <h3>
+                      {partner.name}
+                      <span className="badge badge-partner ml-2">Partner</span>
+                    </h3>
+                    <div className="lender-features">
+                      <div className="lender-feature">
+                        <strong>Beskrivning:</strong> <span>{partner.description}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="lender-cta">
+                    <div className="lender-rating">
+                      <span className="stars">★★★★★</span> 4.5/5
+                    </div>
                     <AffiliateButton
                       href={partner.url}
                       label="Ansök nu"
@@ -124,10 +133,11 @@ const GlossaryTerm: React.FC<GlossaryTermProps> = ({ term, related }) => {
                       brandId={partner.brandId}
                       brandName={partner.name}
                       variant="default"
-                      className="w-full sm:w-auto whitespace-nowrap"
+                      className="btn btn-primary btn-full"
                     />
+                    <small className="text-muted">Sponsrad länk</small>
                   </div>
-                </div>
+                </article>
               ))}
             </div>
           </section>
