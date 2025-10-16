@@ -107,7 +107,7 @@ export default function AgeVerificationModal() {
             <div className="grid grid-cols-1 gap-3">
               <Button 
                 onClick={confirmAge}
-                className="w-full bg-green-600 hover:bg-green-700 text-white"
+                className="w-full fg-btn"
               >
                 <Calendar className="h-4 w-4 mr-2" />
                 Jag är 18 år eller äldre
@@ -115,8 +115,8 @@ export default function AgeVerificationModal() {
               
               <Button 
                 onClick={rejectAge}
-                variant="outline"
-                className="w-full border-red-200 hover:bg-red-50 text-red-600"
+                variant="destructive"
+                className="w-full"
               >
                 <XCircle className="h-4 w-4 mr-2" />
                 Jag är under 18 år
