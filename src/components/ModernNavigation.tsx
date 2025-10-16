@@ -248,13 +248,13 @@ const ModernNavigation = () => {
         scrollDirection === 'down' ? "-translate-y-full" : "translate-y-0"
       )}
     >
-      <div className="container flex h-16 sm:h-18 md:h-20 items-center justify-between px-4">
+      <div className="container flex h-16 sm:h-18 md:h-20 items-center justify-between px-4 min-w-full">
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-2 shrink-0">
           <img 
             src="/finansguiden-logo-new.png" 
             alt="Finansguiden"
-            className="w-auto h-14 sm:h-16 md:h-18 xl:h-20"
+            className="w-auto h-12 sm:h-14 md:h-16 xl:h-[72px]"
           />
         </Link>
 
@@ -349,7 +349,7 @@ const ModernNavigation = () => {
         </NavigationMenu>
 
         {/* Mobile Navigation - Single unified trigger */}
-        <div className="lg:hidden flex-shrink-0">
+        <div className="lg:hidden flex-shrink-0 min-w-max">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <Button 
