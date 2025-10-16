@@ -397,3 +397,41 @@ All colors MUST be HSL.
     @apply text-destructive bg-transparent hover:bg-destructive/10 transition-colors;
   }
 }
+
+/* ========================================
+   OFFERS: Fixa "Ansök nu"-knappar
+   ======================================== */
+@layer components {
+  /* Högsta specificitet för offers-knappar */
+  #root[data-site="finansguiden"] .offers-container .lender-card .btn.btn-primary,
+  #root[data-site="finansguiden"] .offers-container .lender-card a.btn-primary,
+  #root[data-site="finansguiden"] .offers-container .lender-card button.btn-primary {
+    background: #059669 !important;         /* emerald-600 - mörkare grön */
+    background-image: none !important;       /* slå ut gradient */
+    color: #ffffff !important;
+    border: 1px solid transparent !important;
+    font-weight: 600 !important;
+    transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.05s ease;
+  }
+
+  /* Hover-state */
+  #root[data-site="finansguiden"] .offers-container .lender-card .btn.btn-primary:hover,
+  #root[data-site="finansguiden"] .offers-container .lender-card a.btn-primary:hover,
+  #root[data-site="finansguiden"] .offers-container .lender-card button.btn-primary:hover {
+    background: #047857 !important;         /* emerald-700 - ännu mörkare */
+    color: #ffffff !important;
+    box-shadow: 0 2px 8px rgba(5, 150, 105, 0.28) !important;
+    transform: translateY(-1px);
+  }
+
+  /* Nolla ev. pseudo-element gradient-overlays */
+  #root[data-site="finansguiden"] .offers-container .lender-card .btn.btn-primary::before,
+  #root[data-site="finansguiden"] .offers-container .lender-card .btn.btn-primary::after,
+  #root[data-site="finansguiden"] .offers-container .lender-card a.btn-primary::before,
+  #root[data-site="finansguiden"] .offers-container .lender-card a.btn-primary::after,
+  #root[data-site="finansguiden"] .offers-container .lender-card button.btn-primary::before,
+  #root[data-site="finansguiden"] .offers-container .lender-card button.btn-primary::after {
+    content: none !important;
+    background: none !important;
+  }
+}

@@ -224,13 +224,13 @@ const ModernNavigation = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-20 items-center justify-between px-4">
+      <div className="container flex h-20 sm:h-20 md:h-24 items-center justify-between px-4">
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-2 shrink-0">
           <img 
             src="/finansguiden-logo-new.png" 
             alt="Finansguiden"
-            className="h-14 sm:h-16 md:h-[72px] xl:h-20 w-auto"
+            className="h-16 sm:h-[72px] md:h-20 xl:h-24 w-auto"
           />
         </Link>
 
