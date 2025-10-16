@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import type { GlossaryTerm as GlossaryType } from "@/data/glossary";
 import AdtractionBanner from "@/components/AdtractionBanner";
+import AffiliateButton from "@/components/AffiliateButton";
 import { getBannerForTerm } from "@/lib/adtractionBanners";
 import { autolink } from "@/lib/autolinkGlossary";
 import { buildFaq } from "@/lib/glossaryFaq";
@@ -112,14 +113,15 @@ const GlossaryTerm: React.FC<GlossaryTermProps> = ({ term, related }) => {
                     <p className="font-medium text-foreground">{partner.name}</p>
                     <p className="text-sm text-muted-foreground">{partner.description}</p>
                   </div>
-                  <a 
+                  <AffiliateButton
                     href={partner.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-                  >
-                    Läs mer
-                  </a>
+                    label="Ansök nu"
+                    termSlug={term.slug}
+                    brandId={partner.brandId}
+                    brandName={partner.name}
+                    variant="default"
+                    className="w-full sm:w-auto"
+                  />
                 </div>
               ))}
             </div>

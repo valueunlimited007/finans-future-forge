@@ -5,6 +5,7 @@ export interface GlossaryPartner {
   logo: string;
   description: string;
   url: string;
+  brandId: string;
 }
 
 export interface GlossaryTerm {
@@ -376,7 +377,8 @@ override("Amortering", {
       name: "Amortera.se",
       logo: "/adtraction-logos/enklare-logo.png",
       description: "Beräkna dina amorteringar och få koll på din ekonomi",
-      url: "https://amortera.se"
+      url: "https://amortera.se",
+      brandId: "amortera"
     },
   ],
   faqs: [
@@ -529,19 +531,22 @@ override("Privatlån", {
       name: "Enklare",
       logo: "/adtraction-logos/enklare-logo.png",
       description: "Jämför privatlån från flera banker samtidigt",
-      url: "https://www.enklare.se/privatlan"
+      url: "https://www.enklare.se/privatlan",
+      brandId: "enklare"
     },
     {
       name: "Northmill",
       logo: "/adtraction-logos/northmill-logo.png",
       description: "Flexibla privatlån med snabb handläggning",
-      url: "https://www.northmill.se"
+      url: "https://www.northmill.se",
+      brandId: "northmill"
     },
     {
       name: "Marginalen Bank",
       logo: "/adtraction-logos/marginalen-logo.png",
       description: "Privatlån upp till 600 000 kr",
-      url: "https://www.marginalen.se"
+      url: "https://www.marginalen.se",
+      brandId: "marginalen"
     },
   ],
 });
@@ -553,13 +558,15 @@ override("Blancolån", {
       name: "Enklare",
       logo: "/adtraction-logos/enklare-logo.png",
       description: "Jämför blancolån från flera banker samtidigt",
-      url: "https://www.enklare.se/privatlan"
+      url: "https://www.enklare.se/privatlan",
+      brandId: "enklare"
     },
     {
       name: "Northmill",
       logo: "/adtraction-logos/northmill2-logo.png",
       description: "Flexibla blancolån utan säkerhet",
-      url: "https://www.northmill.se"
+      url: "https://www.northmill.se",
+      brandId: "northmill"
     },
   ],
 });
@@ -571,19 +578,22 @@ override("Företagslån", {
       name: "Qred",
       logo: "/adtraction-logos/qred-logo.png",
       description: "Företagslån med snabba beslut",
-      url: "https://www.qred.com/se"
+      url: "https://www.qred.com/se",
+      brandId: "qred"
     },
     {
       name: "Lendo",
       logo: "/adtraction-logos/lendo-logo.png",
       description: "Jämför företagslån från flera banker",
-      url: "https://www.lendo.se/foretagslan"
+      url: "https://www.lendo.se/foretagslan",
+      brandId: "lendo"
     },
     {
       name: "Froda",
       logo: "/adtraction-logos/froda-logo.png",
       description: "Rörelsekapital för företag",
-      url: "https://www.froda.se"
+      url: "https://www.froda.se",
+      brandId: "froda"
     },
   ],
 });
@@ -595,13 +605,15 @@ override("Kreditkort", {
       name: "Nordnet",
       logo: "/adtraction-logos/nordnet-logo.png",
       description: "Kreditkort med cashback på alla köp",
-      url: "https://www.nordnet.se/kreditkort"
+      url: "https://www.nordnet.se/kreditkort",
+      brandId: "nordnet"
     },
     {
       name: "SEB",
       logo: "/adtraction-logos/swedbank-logo.png",
       description: "Kreditkort med förmåner och bonusprogram",
-      url: "https://seb.se/privat/kort"
+      url: "https://seb.se/privat/kort",
+      brandId: "seb"
     },
   ],
 });
@@ -613,7 +625,8 @@ override("UC", {
       name: "Enklare",
       logo: "/adtraction-logos/enklare-logo.png",
       description: "Hitta lån utan hård UC-kontroll",
-      url: "https://www.enklare.se/lan-utan-uc"
+      url: "https://www.enklare.se/lan-utan-uc",
+      brandId: "enklare"
     },
   ],
 });
@@ -624,7 +637,8 @@ override("Kreditupplysning", {
       name: "Enklare",
       logo: "/adtraction-logos/enklare-logo.png",
       description: "Jämför lån med mjuk kreditkontroll",
-      url: "https://www.enklare.se/lan-utan-uc"
+      url: "https://www.enklare.se/lan-utan-uc",
+      brandId: "enklare"
     },
   ],
 });
