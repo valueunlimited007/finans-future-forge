@@ -1,4 +1,5 @@
 import { AffiliateNetwork } from './types';
+import { getSiteConfig } from '@/lib/siteConfig';
 
 export const AFFILIATE_CONFIG = {
   // Mock mode för utveckling och testning
@@ -17,6 +18,15 @@ export const AFFILIATE_CONFIG = {
   // Cache timeout för stats (5 minuter)
   statsCacheTimeout: 5 * 60 * 1000
 };
+
+export function getAffiliateParams() {
+  const config = getSiteConfig();
+  return {
+    source: config.site === 'kasinos' ? 'kasinos_se' : 'finansguiden_se',
+    medium: config.site === 'kasinos' ? 'cpc' : 'organic',
+    campaign: config.site === 'kasinos' ? 'casino_comparison' : 'loan_comparison'
+  };
+}
 
 export const AFFILIATE_NETWORKS: AffiliateNetwork[] = [
   {

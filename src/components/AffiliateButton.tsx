@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { affiliateManager } from "@/lib/affiliate/AffiliateManager";
 import { AffiliateLinkBadge } from "./AffiliateLinkBadge";
 import { isCasinoSite } from "@/lib/siteConfig";
+import { getAffiliateParams } from "@/lib/affiliate/config";
 
 export interface AffiliateButtonProps {
   href: string;
@@ -42,9 +43,10 @@ export const AffiliateButton: React.FC<AffiliateButtonProps> = ({
 
   useEffect(() => {
     if (brandId && affiliateManager.isMockMode()) {
-      // Generera tracking URL för casino brands
+      // Generera tracking URL med dynamiska params baserat på sajt
+      const params = getAffiliateParams();
       const tracked = affiliateManager.generateTrackingUrl(brandId, href, {
-        source: 'kasinos_se',
+        source: params.source,
         term: termSlug || '',
         button_label: label
       });

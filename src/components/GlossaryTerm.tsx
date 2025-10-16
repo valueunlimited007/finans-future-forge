@@ -98,30 +98,35 @@ const GlossaryTerm: React.FC<GlossaryTermProps> = ({ term, related }) => {
         )}
 
         {term.partners && term.partners.length > 0 && (
-          <section className="my-6 rounded-lg border border-primary/20 bg-primary/5 p-6">
-            <h2 className="mb-4 text-lg font-semibold">Rekommenderade tjänster</h2>
-            <div className="space-y-4">
+          <section className="my-8">
+            <h2 className="mb-4 text-2xl font-bold">Rekommenderade tjänster</h2>
+            <div className="grid gap-4">
               {term.partners.map((partner, i) => (
-                <div key={i} className="flex flex-col gap-3 rounded-md border border-border bg-background p-4 sm:flex-row sm:items-center">
+                <div 
+                  key={i} 
+                  className="flex flex-col sm:flex-row items-start gap-4 p-6 bg-card border border-border rounded-lg hover:border-primary/50 transition-colors"
+                >
                   <img 
                     src={partner.logo} 
-                    alt={partner.name}
-                    className="h-10 w-auto object-contain sm:h-12"
+                    alt={`${partner.name} logotyp`}
+                    className="h-12 w-auto object-contain"
                     loading="lazy"
                   />
-                  <div className="flex-1">
-                    <p className="font-medium text-foreground">{partner.name}</p>
+                  <div className="flex-1 min-w-0">
+                    <p className="font-semibold text-lg text-foreground mb-1">{partner.name}</p>
                     <p className="text-sm text-muted-foreground">{partner.description}</p>
                   </div>
-                  <AffiliateButton
-                    href={partner.url}
-                    label="Ansök nu"
-                    termSlug={term.slug}
-                    brandId={partner.brandId}
-                    brandName={partner.name}
-                    variant="default"
-                    className="w-full sm:w-auto"
-                  />
+                  <div className="w-full sm:w-auto sm:ml-auto">
+                    <AffiliateButton
+                      href={partner.url}
+                      label="Ansök nu"
+                      termSlug={term.slug}
+                      brandId={partner.brandId}
+                      brandName={partner.name}
+                      variant="default"
+                      className="w-full sm:w-auto whitespace-nowrap"
+                    />
+                  </div>
                 </div>
               ))}
             </div>

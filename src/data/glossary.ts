@@ -372,15 +372,6 @@ override("Amortering", {
   sources: [
     { title: "Amortera.se - Beräkna lån och amorteringar", url: "https://amortera.se" },
   ],
-  partners: [
-    {
-      name: "Amortera.se",
-      logo: "/adtraction-logos/enklare-logo.png",
-      description: "Beräkna dina amorteringar och få koll på din ekonomi",
-      url: "https://amortera.se",
-      brandId: "amortera"
-    },
-  ],
   faqs: [
     { q: "Vad är amortering?", a: "Avbetalning på lånets skuld som minskar skulden vid varje betalning." },
     { q: "Vad är skillnaden mellan rak amortering och annuitet?", a: "Rak amortering ger samma amorteringsbelopp varje period, annuitet ger samma totalbelopp där ränta och amortering förskjuts över tid." },
@@ -528,25 +519,25 @@ override("Kapitalförlust", {
 override("Privatlån", {
   partners: [
     {
-      name: "Enklare",
-      logo: "/adtraction-logos/enklare-logo.png",
-      description: "Jämför privatlån från flera banker samtidigt",
-      url: "https://www.enklare.se/privatlan",
-      brandId: "enklare"
+      name: "L'EASY",
+      logo: "/adtraction-logos/leasy-logo.png",
+      description: "10 000 – 100 000 kr • 14,88% - 21,6% • Snabbt beslut",
+      url: "https://go.adt284.net/t/t?a=294654593&as=2005939977&t=2&tk=1",
+      brandId: "leasy"
     },
     {
-      name: "Northmill",
-      logo: "/adtraction-logos/northmill-logo.png",
-      description: "Flexibla privatlån med snabb handläggning",
-      url: "https://www.northmill.se",
-      brandId: "northmill"
+      name: "Thorn",
+      logo: "/adtraction-logos/thorn-logo.png",
+      description: "10 000 – 150 000 kr • 14,88% - 21,6% • Högre lånebelopp",
+      url: "https://go.adt228.com/t/t?a=35567344&as=2005939977&t=2&tk=1",
+      brandId: "thorn"
     },
     {
-      name: "Marginalen Bank",
-      logo: "/adtraction-logos/marginalen-logo.png",
-      description: "Privatlån upp till 600 000 kr",
-      url: "https://www.marginalen.se",
-      brandId: "marginalen"
+      name: "Loans.se",
+      logo: "/adtraction-logos/loans-logo.png",
+      description: "5 000 – 800 000 kr • 4,95% - 23% • Jämför många långivare",
+      url: "https://go.adt267.com/t/t?a=1810104150&as=2005939977&t=2&tk=1",
+      brandId: "loans-se"
     },
   ],
 });
