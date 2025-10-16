@@ -2,6 +2,7 @@ import SimpleNavigation from "../components/SimpleNavigation";
 import LegacyFooter from "../components/LegacyFooter";
 import OffersContainer from "../components/OffersContainer";
 import SeoManager from "../seo/SeoManager";
+import ConsumerCreditWarning from "../components/ConsumerCreditWarning";
 import { Card } from "@/components/ui/card";
 import { CheckCircle } from "lucide-react";
 import { Helmet } from "react-helmet-async";
@@ -123,6 +124,7 @@ export default function Laneformedlare() {
               limit={25}
               className="mb-8"
             />
+            <ConsumerCreditWarning />
           </div>
         </section>
       </main>
