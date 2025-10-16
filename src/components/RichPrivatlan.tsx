@@ -62,7 +62,7 @@ export default function RichPrivatlan() {
               </p>
               
               <div className="flex flex-wrap gap-4 justify-center mb-8">
-                <Button asChild size="lg" className="text-lg px-8 bg-blue-600 text-white hover:bg-blue-700 shadow-lg">
+                <Button asChild size="lg" className="fg-btn text-lg px-8 shadow-lg">
                   <Link to="#jamfor">Jämför privatlån nu</Link>
                 </Button>
                 <Button 

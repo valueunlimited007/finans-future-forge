@@ -280,7 +280,7 @@ export default function ForetagslanComparisonTable() {
               Varje företag har unika behov. Kontakta oss för kostnadsfri rådgivning och 
               hjälp med att hitta den finansieringslösning som passar just ditt företag bäst.
             </p>
-            <Button className="bg-blue-600 hover:bg-blue-700">
+            <Button className="fg-btn--business">
               Få kostnadsfri rådgivning
             </Button>
           </div>
