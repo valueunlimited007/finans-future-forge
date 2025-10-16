@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import ModernNavigation from "../components/ModernNavigation";
+import SimpleNavigation from "../components/SimpleNavigation";
 import LegacyFooter from "../components/LegacyFooter";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -146,7 +146,7 @@ export default function BankjämförelseGuide() {
         </script>
       </Helmet>
 
-      <ModernNavigation />
+      <SimpleNavigation />
 
       <main className="min-h-screen bg-gradient-to-br from-background to-secondary/20">
         <div className="container mx-auto px-4 py-8">

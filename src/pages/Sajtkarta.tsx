@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import ModernNavigation from "../components/ModernNavigation";
+import SimpleNavigation from "../components/SimpleNavigation";
 import LegacyFooter from "../components/LegacyFooter";
 import { websiteJsonLd } from "@/lib/jsonld";
 
@@ -25,7 +25,7 @@ export default function Sajtkarta() {
 
   return (
     <>
-      <ModernNavigation />
+      <SimpleNavigation />
       <main className="min-h-screen">
         <Helmet>
           <title>Sajtkarta - Översikt av Finansguiden.se</title>

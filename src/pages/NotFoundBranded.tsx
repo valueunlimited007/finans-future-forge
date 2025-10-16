@@ -1,6 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
-import ModernNavigation from "@/components/ModernNavigation";
+import SimpleNavigation from "@/components/SimpleNavigation";
 import LegacyFooter from "@/components/LegacyFooter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -27,7 +27,7 @@ const NotFoundBranded = () => {
         />
       </Helmet>
 
-      <ModernNavigation />
+      <SimpleNavigation />
       
       <main className="min-h-screen bg-gradient-to-b from-background to-muted/20">
         <div className="container mx-auto px-4 py-12">
