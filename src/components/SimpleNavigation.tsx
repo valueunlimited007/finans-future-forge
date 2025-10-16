@@ -20,6 +20,8 @@ const SimpleNavigation = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [desktopMenuValue, setDesktopMenuValue] = useState<string>("");
   const [clickedMenu, setClickedMenu] = useState<string>("");
+  const [hoverMenuValue, setHoverMenuValue] = useState<string>("");
+  const closeTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
   const location = useLocation();
 
   const isActive = (path: string) => location.pathname === path;
@@ -40,6 +42,34 @@ const SimpleNavigation = () => {
       setDesktopMenuValue(value);
     }
   };
+
+  const handleMouseEnter = (menuValue: string) => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+    if (clickedMenu === "") {
+      setHoverMenuValue(menuValue);
+      setDesktopMenuValue(menuValue);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (clickedMenu === "") {
+      closeTimeoutRef.current = setTimeout(() => {
+        setHoverMenuValue("");
+        setDesktopMenuValue("");
+      }, 1000);
+    }
+  };
+
+  React.useEffect(() => {
+    return () => {
+      if (closeTimeoutRef.current) {
+        clearTimeout(closeTimeoutRef.current);
+      }
+    };
+  }, []);
 
   const menuCategories = {
     main: [
@@ -101,8 +131,7 @@ const SimpleNavigation = () => {
               <NavigationMenu 
                 value={clickedMenu || desktopMenuValue} 
                 onValueChange={handleMenuValueChange}
-                delayDuration={100}
-                skipDelayDuration={1000}
+                delayDuration={0}
               >
                 <NavigationMenuList>
                   {/* Main Links */}
@@ -134,17 +163,15 @@ const SimpleNavigation = () => {
                     <NavigationMenuTrigger 
                       className="font-medium"
                       onClick={() => handleMenuTriggerClick("guider")}
+                      onMouseEnter={() => handleMouseEnter("guider")}
+                      onMouseLeave={handleMouseLeave}
                     >
                       <BookOpen className="h-4 w-4 mr-2" />
                       Guider
                     </NavigationMenuTrigger>
                     <NavigationMenuContent 
-                      onPointerEnter={() => setDesktopMenuValue("guider")}
-                      onPointerLeave={() => {
-                        if (clickedMenu !== "guider") {
-                          setDesktopMenuValue("");
-                        }
-                      }}
+                      onMouseEnter={() => handleMouseEnter("guider")}
+                      onMouseLeave={handleMouseLeave}
                     >
                       <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-background">
                         {menuCategories.guides.map((item) => (
@@ -181,17 +208,15 @@ const SimpleNavigation = () => {
                     <NavigationMenuTrigger 
                       className="font-medium"
                       onClick={() => handleMenuTriggerClick("fler")}
+                      onMouseEnter={() => handleMouseEnter("fler")}
+                      onMouseLeave={handleMouseLeave}
                     >
                       <Building2 className="h-4 w-4 mr-2" />
                       Fler
                     </NavigationMenuTrigger>
                     <NavigationMenuContent
-                      onPointerEnter={() => setDesktopMenuValue("fler")}
-                      onPointerLeave={() => {
-                        if (clickedMenu !== "fler") {
-                          setDesktopMenuValue("");
-                        }
-                      }}
+                      onMouseEnter={() => handleMouseEnter("fler")}
+                      onMouseLeave={handleMouseLeave}
                     >
                       <ul className="grid w-[300px] gap-3 p-4 bg-background">
                         {menuCategories.more.map((item) => (
