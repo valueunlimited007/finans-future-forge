@@ -45,7 +45,7 @@ const SimpleNavigation = () => {
       { title: "Hem", href: "/", icon: Home },
       { title: "Privatlån", href: "/privatlan", icon: Banknote, popular: true },
       { title: "Lån utan UC", href: "/lan-utan-uc", icon: TrendingUp, popular: true },
-      { title: "Kreditkort", href: "/kreditkort", icon: CreditCard },
+      { title: "Låneförmedlare", href: "/laneformedlare", icon: Users },
     ],
     financial: [
       { title: "Privatlån", href: "/privatlan", icon: Banknote, popular: true },
@@ -68,6 +68,7 @@ const SimpleNavigation = () => {
     ],
     more: [
       { title: "Företagslån", href: "/foretagslan", icon: Building2 },
+      { title: "Kreditkort", href: "/kreditkort", icon: CreditCard },
       { title: "Andra Tjänster", href: "/andra-tjanster", icon: Building2 },
       { title: "Ordlista", href: "/ordlista", icon: BookOpen },
       { title: "Sajtkarta", href: "/sajtkarta", icon: BookOpen },
