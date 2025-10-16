@@ -370,5 +370,77 @@
       "datePublished": "2025-01-08",
       "dateModified": "2025-01-08"
     }
+  },
+  "/svenska-inkomster": {
+    "title": "Svenska Inkomster 2025: Jämför Din Lön mot Rikssnittet - Finansguiden",
+    "description": "Så rika är svenskarna 2025. Jämför din lön med medianlön per ålder, region och bransch. Aktuell statistik från SCB och fackförbund.",
+    "canonical": "https://finansguiden.se/svenska-inkomster",
+    "ogImage": "https://finansguiden.se/images/og/default.png",
+    "twitterImage": "https://finansguiden.se/images/og/default.png",
+    "changefreq": "monthly",
+    "priority": 0.7,
+    "lastmod": "2025-10-16",
+    "jsonld": {
+      "@type": "Article",
+      "headline": "Svenska Inkomster 2025: Jämför Din Lön mot Rikssnittet",
+      "description": "Så rika är svenskarna 2025. Jämför din lön med medianlön per ålder, region och bransch.",
+      "author": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/",
+        "logo": "https://finansguiden.se/finansguiden-logo-v2.png"
+      },
+      "mainEntityOfPage": "https://finansguiden.se/svenska-inkomster",
+      "datePublished": "2025-01-19",
+      "dateModified": "2025-10-16",
+      "inLanguage": "sv-SE",
+      "about": {
+        "@type": "Thing",
+        "name": "Lönestatistik Sverige",
+        "description": "Statistik och analys av svenska inkomster och löner"
+      },
+      "keywords": "svenska inkomster, lönestatistik, medianlön, genomsnittslön, lönejämförelse"
+    }
+  },
+  "/bostadsmarknad-analys-2025": {
+    "title": "Bostadsmarknad 2025: Prisfall eller Skrämskott? - Finansguiden",
+    "description": "Djupanalys av bostadsmarknaden 2025. Kommer bopriserna att falla? Expertanalys, marknadsdata och vad som påverkar bostadspriserna framöver.",
+    "canonical": "https://finansguiden.se/bostadsmarknad-analys-2025",
+    "ogImage": "https://finansguiden.se/images/og/default.png",
+    "twitterImage": "https://finansguiden.se/images/og/default.png",
+    "changefreq": "monthly",
+    "priority": 0.7,
+    "lastmod": "2025-10-16",
+    "jsonld": {
+      "@type": "Article",
+      "headline": "Bostadsmarknad 2025: Prisfall eller Skrämskott?",
+      "description": "Djupanalys av bostadsmarknaden 2025. Kommer bopriserna att falla? Expertanalys, marknadsdata och vad som påverkar bostadspriserna framöver.",
+      "author": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/",
+        "logo": "https://finansguiden.se/finansguiden-logo-v2.png"
+      },
+      "mainEntityOfPage": "https://finansguiden.se/bostadsmarknad-analys-2025",
+      "datePublished": "2025-01-19",
+      "dateModified": "2025-10-16",
+      "inLanguage": "sv-SE",
+      "about": {
+        "@type": "Thing",
+        "name": "Bostadsmarknad Sverige",
+        "description": "Analys av svensk bostadsmarknad och prisutveckling"
+      },
+      "keywords": "bostadsmarknad, bostadspriser, prisfall, bostadsanalys, fastighetspriser"
+    }
   }
 }
