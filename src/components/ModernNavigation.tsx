@@ -244,7 +244,7 @@ const ModernNavigation = () => {
     <header 
       data-version="v2.1"
       className={cn(
-        "fixed top-0 z-50 w-full bg-background backdrop-blur-sm border-b transition-transform duration-300",
+        "fixed top-0 z-[9999] w-full bg-background backdrop-blur-sm border-b transition-transform duration-300",
         scrollDirection === 'down' ? "-translate-y-full" : "translate-y-0"
       )}
     >
@@ -349,14 +349,18 @@ const ModernNavigation = () => {
         </NavigationMenu>
 
         {/* Mobile Navigation - Single unified trigger */}
-        <div className="lg:hidden flex-shrink-0 min-w-max">
+        <div className="lg:hidden flex-shrink-0 min-w-max relative z-[10000]">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <Button 
                 variant="ghost"
                 size="lg"
-                className="h-12 gap-2 hover:bg-accent/50 transition-colors lg:hidden relative z-[100]"
+                className="h-12 gap-2 hover:bg-accent/50 transition-colors lg:hidden"
                 aria-label="Öppna navigeringsmeny"
+                onClick={(e) => {
+                  console.log("🍔 MENY KLICK!", { isOpen, target: e.target });
+                  e.stopPropagation();
+                }}
               >
                 <Menu className="h-5 w-5" />
                 <span className="text-sm font-medium">Meny</span>
