@@ -93,7 +93,7 @@ const SimpleNavigation = () => {
               <img 
                 src="/finansguiden-logo-new.png" 
                 alt="Finansguiden"
-                className="h-20 md:h-36 lg:h-44 -my-2 md:-my-4 lg:-my-6 w-auto"
+                className="h-40 md:h-36 lg:h-44 -my-6 md:-my-4 lg:-my-6 w-auto"
               />
             </Link>
 
