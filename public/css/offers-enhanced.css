@@ -320,15 +320,16 @@
   line-height: 1.25;
 }
 
-/* Match UC green primary button for featured cards - Higher specificity */
-.offers-container .btn-primary {
+/* Match UC green primary button for featured cards - Highest specificity to override [data-site] selector */
+[data-site="finansguiden"] .offers-container .btn-primary {
   background: #059669 !important; /* Darker green for better contrast */
   color: white !important;
   border: 1px solid transparent !important;
   font-weight: 600 !important;
+  box-shadow: none !important;
 }
 
-.offers-container .btn-primary:hover {
+[data-site="finansguiden"] .offers-container .btn-primary:hover {
   background: #047857 !important; /* Even darker on hover */
   color: white !important;
   box-shadow: 0 2px 8px rgba(5, 150, 105, 0.3) !important;

@@ -95,9 +95,22 @@ nav {
 }
 
 .logo img { 
-    height: 72px; 
+    height: 56px; /* Base mobile size */
     width: auto; 
     margin-right: 10px; 
+}
+
+/* Larger logo for desktop - higher specificity */
+@media (min-width: 640px) {
+  .logo img { height: 64px; }
+}
+
+@media (min-width: 768px) {
+  .logo img { height: 72px; }
+}
+
+@media (min-width: 1280px) {
+  .logo img { height: 80px; }
 }
 
 .nav-links { 
