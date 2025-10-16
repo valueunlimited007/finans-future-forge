@@ -51,9 +51,9 @@
     {
       id: 'brixo', network: 'adtraction', name: 'Brixo',
       url: 'https://go.adt284.net/t/t?a=1091548601&as=2005939977&t=2&tk=1',
-      amountRange: '5 000 – 50 000 kr', aprFrom: '21,95%', decision: 'Inom 24 timmar',
-      requirements: 'Eff. ränta 24,3%, Min 21 år, 200 000kr/år', rating: 4.5,
-      highlights: ['Kontokredit', 'Flexibel återbetalning', 'Tillåter betalningsanmärkningar'],
+      amountRange: '10 000 – 150 000 kr', aprFrom: '19,95%', decision: 'Inom 24 timmar',
+      requirements: 'Eff. ränta 22,8%, Min 19 år', rating: 4.5,
+      highlights: ['Utan UC - Bisnode-kontroll', 'Utbetalning via Swish eller bank', 'Betalningsanmärkningar accepteras', 'Flexibel återbetalning 36-90 mån'],
       logo: '/adtraction-logos/brixo-logo.png',
       isPartner: true
     },
@@ -451,9 +451,9 @@
     {
       id: 'brixo-utanuc', network: 'adtraction', name: 'Brixo',
       url: 'https://go.adt284.net/t/t?a=1091548601&as=2005939977&t=2&tk=1',
-      amountRange: '5 000 – 50 000 kr', aprFrom: '21,95%', decision: 'Inom 24 timmar',
-      requirements: 'Eff. ränta 24,3%, Använder Bisnode (ej UC)', rating: 4.5,
-      highlights: ['Kontokredit', 'Tillåter betalningsanmärkningar', 'Flexibel återbetalning'],
+      amountRange: '10 000 – 150 000 kr', aprFrom: '19,95%', decision: 'Inom 24 timmar',
+      requirements: 'Eff. ränta 22,8%, Använder Bisnode (ej UC)', rating: 4.5,
+      highlights: ['Utan UC - Bisnode-kontroll', 'Betalningsanmärkningar accepteras', 'Utbetalning via Swish eller bank', 'Flexibel återbetalning'],
       logo: '/adtraction-logos/brixo-logo.png',
       isPartner: true
     },
@@ -478,7 +478,7 @@
     {
       id: 'flexkontot', network: 'adtraction', name: 'Flexkontot',
       url: 'https://go.adt291.com/t/t?a=1177156373&as=2005939977&t=2&tk=1',
-      amountRange: '3 000 – 30 000 kr', aprFrom: '22,98%', decision: 'Inom 24 timmar',
+      amountRange: '3 000 – 40 000 kr', aprFrom: '22,98%', decision: 'Inom 24 timmar',
       requirements: 'Min 21 år, 200 000kr/år, använder Bisnode (ej UC)', rating: 4.3,
       highlights: ['Kontokredit utan kort', 'Utbetalning samma dag', 'Välj egen återbetalning'],
       logo: '/adtraction-logos/flexkontot-logo.png',
