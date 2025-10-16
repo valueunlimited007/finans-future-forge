@@ -90,6 +90,12 @@ const ModernNavigation = () => {
       popular: true
     },
     {
+      title: "Låneförmedlare",
+      href: "/laneformedlare",
+      description: "Jämför flera banker med endast en ansökan",
+      icon: Users
+    },
+    {
       title: "Lån utan UC",
       href: "/lan-utan-uc", 
       description: "28 långivare som lånar ut utan UC-kontroll",

@@ -222,6 +222,29 @@ export default function RichHome() {
               <Card data-fg-card className="h-full flex flex-col hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                    <span className="text-2xl">🤝</span>
+                  </div>
+                  <CardTitle>Låneförmedlare</CardTitle>
+                  <CardDescription>
+                    Jämför erbjudanden från 30-50 banker med endast en ansökan. Endast EN UC-kontroll.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="flex-1 flex flex-col justify-between">
+                  <ul className="text-sm text-muted-foreground space-y-2 mb-4">
+                    <li>• Jämför 30-50 banker</li>
+                    <li>• Endast 1 UC-kontroll</li>
+                    <li>• Helt kostnadsfritt</li>
+                    <li>• Sparar tid och energi</li>
+                  </ul>
+                  <Button asChild className="w-full fg-btn">
+                    <Link to="/laneformedlare">Jämför låneförmedlare</Link>
+                  </Button>
+                </CardContent>
+              </Card>
+
+              <Card data-fg-card className="h-full flex flex-col hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                     <span className="text-2xl">💰</span>
                   </div>
                   <CardTitle>Andra finansiella tjänster</CardTitle>

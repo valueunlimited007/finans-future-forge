@@ -14,11 +14,11 @@ const OffersContainer: React.FC<OffersContainerProps> = ({
   className = "" 
 }) => {
   useEffect(() => {
-    // Trigger offers re-render on component mount and when limit changes
+    // Trigger offers re-render on component mount and when category or limit changes
     console.log('[OffersContainer] Component mounted/updated, triggering fg:offers-updated');
     const event = new CustomEvent('fg:offers-updated');
     document.dispatchEvent(event);
-  }, [limit]); // Add limit as dependency
+  }, [category, limit]); // Add both category and limit as dependencies
 
   return (
     <div className={className}>
