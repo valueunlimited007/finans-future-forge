@@ -18,7 +18,7 @@ const SheetOverlay = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof SheetPrimitive.Overlay>
 >(({ className, ...props }, ref) => (
   <SheetPrimitive.Overlay
-    style={{ zIndex: 9998 }}
+    style={{ zIndex: 99998 }}
     className={cn(
       "fixed inset-0 bg-black/50 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
       className
@@ -60,7 +60,7 @@ const SheetContent = React.forwardRef<
     <SheetOverlay />
     <SheetPrimitive.Content
       ref={ref}
-      style={{ zIndex: 9999 }}
+      style={{ zIndex: 99999 }}
       className={cn(sheetVariants({ side }), className)}
       {...props}
     >

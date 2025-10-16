@@ -248,13 +248,13 @@ const ModernNavigation = () => {
         scrollDirection === 'down' ? "-translate-y-full" : "translate-y-0"
       )}
     >
-      <div className="container flex h-16 sm:h-20 md:h-24 items-center justify-between px-4 min-w-full">
+      <div className="container flex h-20 sm:h-24 md:h-28 lg:h-32 items-center justify-between px-4 min-w-full">
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-2 shrink-0">
           <img 
             src="/finansguiden-logo-new.png" 
             alt="Finansguiden"
-            className="w-auto h-14 sm:h-16 md:h-20 xl:h-[80px]"
+            className="w-auto h-16 sm:h-20 md:h-24 lg:h-28 xl:h-32"
           />
         </Link>
 
@@ -352,12 +352,16 @@ const ModernNavigation = () => {
         <div className="lg:hidden flex-shrink-0 min-w-max">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
-              <Button 
-                variant="ghost"
-                size="lg"
-                className="h-12 gap-2 hover:bg-accent/50 transition-colors lg:hidden"
-                aria-label="Öppna navigeringsmeny"
-              >
+          <Button 
+            variant="ghost"
+            size="lg"
+            className="h-12 gap-2 hover:bg-accent/50 transition-colors lg:hidden relative z-[100]"
+            aria-label="Öppna navigeringsmeny"
+            onClick={() => {
+              console.log("🍔 MENY KLICK! isOpen:", isOpen);
+              setIsOpen(true);
+            }}
+          >
                 <Menu className="h-5 w-5" />
                 <span className="text-sm font-medium">Meny</span>
               </Button>

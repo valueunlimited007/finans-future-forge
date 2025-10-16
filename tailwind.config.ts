@@ -30,6 +30,13 @@ export default {
 			},
 		},
 		extend: {
+			spacing: {
+				'18': '4.5rem',  // 72px
+				'20': '5rem',    // 80px
+				'24': '6rem',    // 96px
+				'28': '7rem',    // 112px
+				'32': '8rem',    // 128px
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',

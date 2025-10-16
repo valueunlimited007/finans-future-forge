@@ -846,3 +846,21 @@ All colors MUST be HSL.
   }
   
 }
+
+/* ============================================================================
+   FIX: Förhindra offers-komponenten från att blockera navigation
+   ============================================================================ */
+.offers-container,
+.offers-container *,
+[data-offers],
+[data-offers] * {
+  pointer-events: none !important;
+}
+
+/* Men tillåt klick på länkar och knappar INOM offers */
+.offers-container a,
+.offers-container button,
+[data-offers] a,
+[data-offers] button {
+  pointer-events: auto !important;
+}
