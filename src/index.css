@@ -403,9 +403,9 @@ All colors MUST be HSL.
    ======================================== */
 @layer components {
   /* Högsta specificitet för offers-knappar */
-  #root[data-site="finansguiden"] .offers-container .lender-card .btn.btn-primary,
-  #root[data-site="finansguiden"] .offers-container .lender-card a.btn-primary,
-  #root[data-site="finansguiden"] .offers-container .lender-card button.btn-primary {
+  #root[data-site="finansguiden"] div.offers-container .lender-card .btn.btn-primary,
+  #root[data-site="finansguiden"] div.offers-container .lender-card a.btn-primary,
+  #root[data-site="finansguiden"] div.offers-container .lender-card button.btn-primary {
     background: #059669 !important;         /* emerald-600 - mörkare grön */
     background-image: none !important;       /* slå ut gradient */
     color: #ffffff !important;
@@ -415,9 +415,9 @@ All colors MUST be HSL.
   }
 
   /* Hover-state */
-  #root[data-site="finansguiden"] .offers-container .lender-card .btn.btn-primary:hover,
-  #root[data-site="finansguiden"] .offers-container .lender-card a.btn-primary:hover,
-  #root[data-site="finansguiden"] .offers-container .lender-card button.btn-primary:hover {
+  #root[data-site="finansguiden"] div.offers-container .lender-card .btn.btn-primary:hover,
+  #root[data-site="finansguiden"] div.offers-container .lender-card a.btn-primary:hover,
+  #root[data-site="finansguiden"] div.offers-container .lender-card button.btn-primary:hover {
     background: #047857 !important;         /* emerald-700 - ännu mörkare */
     color: #ffffff !important;
     box-shadow: 0 2px 8px rgba(5, 150, 105, 0.28) !important;
@@ -425,12 +425,12 @@ All colors MUST be HSL.
   }
 
   /* Nolla ev. pseudo-element gradient-overlays */
-  #root[data-site="finansguiden"] .offers-container .lender-card .btn.btn-primary::before,
-  #root[data-site="finansguiden"] .offers-container .lender-card .btn.btn-primary::after,
-  #root[data-site="finansguiden"] .offers-container .lender-card a.btn-primary::before,
-  #root[data-site="finansguiden"] .offers-container .lender-card a.btn-primary::after,
-  #root[data-site="finansguiden"] .offers-container .lender-card button.btn-primary::before,
-  #root[data-site="finansguiden"] .offers-container .lender-card button.btn-primary::after {
+  #root[data-site="finansguiden"] div.offers-container .lender-card .btn.btn-primary::before,
+  #root[data-site="finansguiden"] div.offers-container .lender-card .btn.btn-primary::after,
+  #root[data-site="finansguiden"] div.offers-container .lender-card a.btn-primary::before,
+  #root[data-site="finansguiden"] div.offers-container .lender-card a.btn-primary::after,
+  #root[data-site="finansguiden"] div.offers-container .lender-card button.btn-primary::before,
+  #root[data-site="finansguiden"] div.offers-container .lender-card button.btn-primary::after {
     content: none !important;
     background: none !important;
   }
@@ -438,29 +438,33 @@ All colors MUST be HSL.
   /* ========================================
      LOGO: Force Tailwind sizes to win
      ======================================== */
-  #root[data-site="finansguiden"] .logo img,
-  #root[data-site="finansguiden"] header img[alt="Finansguiden"] {
+  #root[data-site="finansguiden"] header .logo img,
+  #root[data-site="finansguiden"] header img[alt="Finansguiden"],
+  #root[data-site="finansguiden"] .logo img {
     height: 64px !important;  /* h-16 = 64px */
     width: auto !important;
   }
 
   @media (min-width: 640px) {
-    #root[data-site="finansguiden"] .logo img,
-    #root[data-site="finansguiden"] header img[alt="Finansguiden"] {
+    #root[data-site="finansguiden"] header .logo img,
+    #root[data-site="finansguiden"] header img[alt="Finansguiden"],
+    #root[data-site="finansguiden"] .logo img {
       height: 72px !important;  /* sm:h-[72px] */
     }
   }
 
   @media (min-width: 768px) {
-    #root[data-site="finansguiden"] .logo img,
-    #root[data-site="finansguiden"] header img[alt="Finansguiden"] {
+    #root[data-site="finansguiden"] header .logo img,
+    #root[data-site="finansguiden"] header img[alt="Finansguiden"],
+    #root[data-site="finansguiden"] .logo img {
       height: 80px !important;  /* md:h-20 = 80px */
     }
   }
 
   @media (min-width: 1280px) {
-    #root[data-site="finansguiden"] .logo img,
-    #root[data-site="finansguiden"] header img[alt="Finansguiden"] {
+    #root[data-site="finansguiden"] header .logo img,
+    #root[data-site="finansguiden"] header img[alt="Finansguiden"],
+    #root[data-site="finansguiden"] .logo img {
       height: 96px !important;  /* xl:h-24 = 96px */
     }
   }
