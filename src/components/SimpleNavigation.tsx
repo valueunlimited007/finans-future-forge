@@ -79,7 +79,7 @@ const SimpleNavigation = () => {
 
             {/* Desktop Menu */}
             <nav className="hidden lg:flex items-center gap-2">
-              <NavigationMenu>
+              <NavigationMenu delayDuration={200}>
                 <NavigationMenuList>
                   {/* Main Links */}
                   {menuCategories.main.map((item) => (

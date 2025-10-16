@@ -96,6 +96,17 @@ export default function Sajtkarta() {
                       </p>
                     </Link>
                   </li>
+                  <li>
+                    <Link 
+                      to="/andra-tjanster" 
+                      className="block p-4 rounded-lg border border-border bg-card hover:bg-muted transition-colors"
+                    >
+                      <h3 className="font-medium text-primary">Andra Tjänster</h3>
+                      <p className="text-sm text-muted-foreground mt-1">
+                        Jämför sparande, försäkringar och andra finansiella tjänster
+                      </p>
+                    </Link>
+                  </li>
                 </ul>
               </div>
             </section>
@@ -197,7 +208,7 @@ export default function Sajtkarta() {
                   </li>
                   <li>
                     <Link 
-                      to="/svenska-inkomster" 
+                      to="/svenska-inkomster-2025" 
                       className="block p-4 rounded-lg border border-border bg-card hover:bg-muted transition-colors"
                     >
                       <h3 className="font-medium text-primary">Svenska Inkomster 2025</h3>
