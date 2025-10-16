@@ -242,7 +242,7 @@ const ModernNavigation = () => {
 
   return (
     <header className={cn(
-      "fixed top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-transform duration-300",
+      "fixed top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-transform duration-300",
       scrollDirection === 'down' ? "-translate-y-full" : "translate-y-0"
     )}>
       <div className="container flex h-20 sm:h-20 md:h-24 items-center justify-between px-4">
@@ -360,7 +360,7 @@ const ModernNavigation = () => {
                 </div>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[320px] sm:w-[400px] max-h-screen overflow-y-auto border-0 bg-background p-0" data-sheet-content>
+            <SheetContent side="right" className="w-[320px] sm:w-[400px] max-h-screen overflow-y-auto border-0 bg-background p-0 !z-[60]" data-sheet-content>
               {/* Accessibility requirements */}
               <SheetTitle className="sr-only">Navigeringsmeny</SheetTitle>
               <SheetDescription className="sr-only">
