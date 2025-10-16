@@ -19,9 +19,27 @@ import {
 const SimpleNavigation = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [desktopMenuValue, setDesktopMenuValue] = useState<string>("");
+  const [clickedMenu, setClickedMenu] = useState<string>("");
   const location = useLocation();
 
   const isActive = (path: string) => location.pathname === path;
+
+  const handleMenuTriggerClick = (menuValue: string) => {
+    if (clickedMenu === menuValue) {
+      setClickedMenu("");
+      setDesktopMenuValue("");
+    } else {
+      setClickedMenu(menuValue);
+      setDesktopMenuValue(menuValue);
+    }
+  };
+
+  const handleMenuValueChange = (value: string) => {
+    // Om menyn inte är "clicked", tillåt normal hover-beteende
+    if (clickedMenu === "") {
+      setDesktopMenuValue(value);
+    }
+  };
 
   const menuCategories = {
     main: [
@@ -81,10 +99,10 @@ const SimpleNavigation = () => {
             {/* Desktop Menu */}
             <nav className="hidden lg:flex items-center gap-2">
               <NavigationMenu 
-                value={desktopMenuValue} 
-                onValueChange={setDesktopMenuValue}
-                delayDuration={0}
-                skipDelayDuration={1000}
+                value={clickedMenu || desktopMenuValue} 
+                onValueChange={handleMenuValueChange}
+                delayDuration={100}
+                skipDelayDuration={300}
               >
                 <NavigationMenuList>
                   {/* Main Links */}
@@ -113,17 +131,31 @@ const SimpleNavigation = () => {
 
                   {/* Guider Dropdown */}
                   <NavigationMenuItem value="guider">
-                    <NavigationMenuTrigger className="font-medium">
+                    <NavigationMenuTrigger 
+                      className="font-medium"
+                      onClick={() => handleMenuTriggerClick("guider")}
+                    >
                       <BookOpen className="h-4 w-4 mr-2" />
                       Guider
                     </NavigationMenuTrigger>
-                    <NavigationMenuContent>
+                    <NavigationMenuContent 
+                      onPointerEnter={() => setDesktopMenuValue("guider")}
+                      onPointerLeave={() => {
+                        if (clickedMenu !== "guider") {
+                          setDesktopMenuValue("");
+                        }
+                      }}
+                    >
                       <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-background">
                         {menuCategories.guides.map((item) => (
                           <li key={item.href}>
                             <Link
                               to={item.href}
-                              onClick={closeMobileMenu}
+                              onClick={() => {
+                                closeMobileMenu();
+                                setClickedMenu("");
+                                setDesktopMenuValue("");
+                              }}
                               className={cn(
                                 "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors",
                                 isActive(item.href)
@@ -146,17 +178,31 @@ const SimpleNavigation = () => {
 
                   {/* Fler Dropdown */}
                   <NavigationMenuItem value="fler">
-                    <NavigationMenuTrigger className="font-medium">
+                    <NavigationMenuTrigger 
+                      className="font-medium"
+                      onClick={() => handleMenuTriggerClick("fler")}
+                    >
                       <Building2 className="h-4 w-4 mr-2" />
                       Fler
                     </NavigationMenuTrigger>
-                    <NavigationMenuContent>
+                    <NavigationMenuContent
+                      onPointerEnter={() => setDesktopMenuValue("fler")}
+                      onPointerLeave={() => {
+                        if (clickedMenu !== "fler") {
+                          setDesktopMenuValue("");
+                        }
+                      }}
+                    >
                       <ul className="grid w-[300px] gap-3 p-4 bg-background">
                         {menuCategories.more.map((item) => (
                           <li key={item.href}>
                             <Link
                               to={item.href}
-                              onClick={closeMobileMenu}
+                              onClick={() => {
+                                closeMobileMenu();
+                                setClickedMenu("");
+                                setDesktopMenuValue("");
+                              }}
                               className={cn(
                                 "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors",
                                 isActive(item.href)
