@@ -87,9 +87,8 @@ export default function RichAndraTjanster() {
                   <a href="#jamfor-tjanster">Jämför tjänster</a>
                 </Button>
                 <Button 
-                  variant="outline" 
                   size="lg" 
-                  className="text-lg px-8 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
+                  className="fg-btn--secondary text-lg px-8"
                   asChild
                 >
                   <a href="#guide">Läs guide</a>
@@ -254,8 +253,7 @@ export default function RichAndraTjanster() {
               <Button 
                 asChild 
                 size="lg" 
-                variant="outline"
-                className="text-lg px-8 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
+                className="fg-btn--secondary text-lg px-8"
               >
                 <Link to="/">Tillbaka till startsidan</Link>
               </Button>

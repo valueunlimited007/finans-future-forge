@@ -95,7 +95,7 @@ export default function RichForetagslan() {
               <Button size="lg" className="text-lg px-8 fg-btn--business shadow-lg">
                 Jämför företagslån nu
               </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white">
+              <Button size="lg" className="fg-btn--secondary text-lg px-8">
                 Kostnadsfri rådgivning
               </Button>
             </div>

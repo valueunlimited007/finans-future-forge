@@ -79,7 +79,7 @@ export default function RichLanUtanUc() {
               <Button asChild size="lg" className="fg-btn text-lg px-8 shadow-lg">
                 <a href="#godkanda-partners">Jämför lån utan UC</a>
               </Button>
-              <Button asChild variant="outline" size="lg" className="text-lg px-8 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white">
+              <Button asChild size="lg" className="fg-btn--secondary text-lg px-8">
                 <a href="#guide">Läs guide först</a>
               </Button>
             </div>
@@ -544,7 +544,7 @@ export default function RichLanUtanUc() {
                     Innan du ansöker om lån, kontrollera att långivaren finns listad på Finansinspektionens 
                     webbplats över företag med tillstånd att bedriva finansiell verksamhet i Sverige.
                   </p>
-                  <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white">
+                  <Button className="fg-btn--secondary">
                     Kontrollera på FI.se
                   </Button>
                 </div>

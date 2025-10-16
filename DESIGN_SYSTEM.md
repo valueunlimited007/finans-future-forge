@@ -117,6 +117,37 @@ Specialized variant for business loan contexts.
 
 ---
 
+#### `.fg-btn--secondary` - Secondary CTA
+
+Variant for secondary actions alongside primary CTAs.
+
+**Properties:**
+- Border: 2px primary color
+- Text: Primary color
+- Background: Transparent
+- Hover: Filled primary background with white text
+- Same specificity as `.fg-btn`
+
+**Usage:**
+```tsx
+<Button className="fg-btn--secondary">
+  Läs guide
+</Button>
+
+<Button size="lg" className="fg-btn--secondary text-lg px-8">
+  Kostnadsfri rådgivning
+</Button>
+```
+
+**Where it's used:**
+- `src/components/RichPrivatlan.tsx` - Hero section
+- `src/components/RichAndraTjanster.tsx` - Hero and final CTA sections
+- `src/components/RichLanUtanUc.tsx` - Hero section and FI.se link
+- `src/components/RichForetagslan.tsx` - Hero section
+- All secondary CTAs next to primary `.fg-btn` buttons
+
+---
+
 ### Button Isolation with `data-fg-card`
 
 To prevent legacy styles from leaking into design system buttons, add `data-fg-card` to parent containers:

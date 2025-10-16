@@ -65,10 +65,9 @@ export default function RichPrivatlan() {
                 <Button asChild size="lg" className="fg-btn text-lg px-8 shadow-lg">
                   <Link to="#jamfor">Jämför privatlån nu</Link>
                 </Button>
-                <Button 
-                  variant="outline" 
+              <Button 
                   size="lg" 
-                  className="text-lg px-8 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
+                  className="fg-btn--secondary text-lg px-8"
                   onClick={() => {
                     const element = document.getElementById('kalkylator');
                     if (element) {

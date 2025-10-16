@@ -373,4 +373,13 @@ All colors MUST be HSL.
   [data-fg-card] .fg-btn--business {
     @apply bg-emerald-600 text-white hover:bg-emerald-700;
   }
+
+  /* Secondary-variant för sekundära actions */
+  .fg-btn--secondary {
+    @apply border-2 border-primary text-primary bg-transparent hover:bg-primary hover:text-white transition-colors font-semibold;
+  }
+
+  [data-fg-card] .fg-btn--secondary {
+    @apply border-2 border-primary text-primary bg-transparent hover:bg-primary hover:text-white;
+  }
 }
