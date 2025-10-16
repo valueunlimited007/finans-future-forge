@@ -853,35 +853,35 @@ All colors MUST be HSL.
 /* Force Finansguiden logo sizes - simplified selector for reliability */
 header img[alt="Finansguiden"],
 header img[src*="finansguiden-logo"] {
-  height: 72px !important;
-  min-height: 72px !important;
-  max-height: 72px !important;
+  height: 48px !important;
+  min-height: 48px !important;
+  max-height: 48px !important;
   width: auto !important;
 }
 
 @media (min-width: 640px) {
   header img[alt="Finansguiden"],
   header img[src*="finansguiden-logo"] {
-    height: 80px !important;
-    min-height: 80px !important;
-    max-height: 80px !important;
+    height: 56px !important;
+    min-height: 56px !important;
+    max-height: 56px !important;
   }
 }
 
 @media (min-width: 768px) {
   header img[alt="Finansguiden"],
   header img[src*="finansguiden-logo"] {
-    height: 96px !important;
-    min-height: 96px !important;
-    max-height: 96px !important;
+    height: 64px !important;
+    min-height: 64px !important;
+    max-height: 64px !important;
   }
 }
 
 @media (min-width: 1280px) {
   header img[alt="Finansguiden"],
   header img[src*="finansguiden-logo"] {
-    height: 112px !important;
-    min-height: 112px !important;
-    max-height: 112px !important;
+    height: 72px !important;
+    min-height: 72px !important;
+    max-height: 72px !important;
   }
 }

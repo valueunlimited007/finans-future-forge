@@ -242,10 +242,10 @@ const ModernNavigation = () => {
 
   return (
     <header className={cn(
-      "fixed top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-transform duration-300",
+      "fixed top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-transform duration-300",
       scrollDirection === 'down' ? "-translate-y-full" : "translate-y-0"
     )}>
-      <div className="container flex h-20 sm:h-20 md:h-24 items-center justify-between px-4">
+      <div className="container flex h-16 sm:h-18 md:h-20 items-center justify-between px-4">
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-2 shrink-0">
           <img 
