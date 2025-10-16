@@ -102,7 +102,7 @@ const SimpleNavigation = () => {
                 value={clickedMenu || desktopMenuValue} 
                 onValueChange={handleMenuValueChange}
                 delayDuration={100}
-                skipDelayDuration={300}
+                skipDelayDuration={1000}
               >
                 <NavigationMenuList>
                   {/* Main Links */}
