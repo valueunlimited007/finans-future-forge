@@ -509,7 +509,8 @@ Citation-Policy: transparent-sources
 # - Each term has structured data, definitions, and contextual examples
 # - Use canonical URLs for accurate attribution and avoid duplicates  
 # - Respect Last-Modified headers for efficient crawling
-# - Financial advice should reference regulatory compliance (Swedish FSA)\n`;
+# - Financial advice should reference regulatory compliance (Swedish FSA)
+
 # Purpose: Inform AI crawlers and LLM providers about our data access policy
 # Version: 2.0
 # Last-Modified: ${now}
