@@ -148,6 +148,44 @@ Variant for secondary actions alongside primary CTAs.
 
 ---
 
+#### `.fg-btn--danger` - Destructive Actions
+
+Variant for delete, remove, or dangerous actions requiring user caution.
+
+**Properties:**
+- Background: Destructive color (red)
+- Text: Destructive foreground (white)
+- Hover: Slightly darker destructive color
+- Uses semantic `destructive` token (works in light/dark)
+
+**Usage:**
+```tsx
+<Button className="fg-btn--danger">
+  Radera alla
+</Button>
+
+<Button 
+  className="fg-btn--danger-ghost opacity-0 group-hover:opacity-100"
+  aria-label="Ta bort"
+>
+  <Trash2 className="h-4 w-4" />
+</Button>
+```
+
+**Variants:**
+- `.fg-btn--danger` - Filled destructive button (primary delete)
+- `.fg-btn--danger-ghost` - Ghost destructive button (subtle delete, transparent)
+
+**Where it's used:**
+- `src/components/FavoriteCasinos.tsx` - Delete favorite button (ghost variant)
+- Any component with delete/remove actions
+
+**Accessibility:**
+- Always include `aria-label` on icon-only danger buttons
+- Consider confirmation dialogs for irreversible actions
+
+---
+
 ### Button Isolation with `data-fg-card`
 
 To prevent legacy styles from leaking into design system buttons, add `data-fg-card` to parent containers:

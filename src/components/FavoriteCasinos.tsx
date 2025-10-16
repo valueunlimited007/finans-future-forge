@@ -158,10 +158,10 @@ function FavoriteCasinoCard({ casino, onRemove }: { casino: Brand; onRemove: () 
         <div className="flex items-center justify-between">
           <CardTitle className="text-base">{casino.name}</CardTitle>
           <Button
-            variant="ghost"
             size="sm"
             onClick={onRemove}
-            className="opacity-0 group-hover:opacity-100 transition-opacity text-red-600 hover:text-red-700 hover:bg-red-50 dark:hover:bg-red-950/20"
+            className="fg-btn--danger-ghost opacity-0 group-hover:opacity-100 transition-opacity"
+            aria-label="Ta bort från favoriter"
           >
             <Trash2 className="h-4 w-4" />
           </Button>
