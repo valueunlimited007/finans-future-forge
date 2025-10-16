@@ -150,7 +150,7 @@ export default function LoanComparisonTable() {
         <h3 className="text-2xl font-bold mb-6 text-center">Långivare utan UC-kontroll</h3>
         <div className="grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2">
           {ucFreeLenders.map((provider, index) => (
-            <Card key={index} className="border-l-4 border-l-green-500">
+            <Card data-fg-card key={index} className="border-l-4 border-l-green-500">
               <CardHeader>
                 <div className="flex justify-between items-start">
                   <CardTitle className="text-lg">{provider.name}</CardTitle>
@@ -207,7 +207,7 @@ export default function LoanComparisonTable() {
                   </ul>
                 </div>
 
-                <Button className="w-full bg-green-600 hover:bg-green-700">
+                <Button className="w-full fg-btn">
                   Ansök hos {provider.name}
                 </Button>
               </CardContent>
@@ -220,7 +220,7 @@ export default function LoanComparisonTable() {
         <h3 className="text-2xl font-bold mb-6 text-center">Traditionella långivare (med UC-kontroll)</h3>
         <div className="grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2">
           {traditionalLenders.map((provider, index) => (
-            <Card key={index} className="border-l-4 border-l-blue-500">
+            <Card data-fg-card key={index} className="border-l-4 border-l-blue-500">
               <CardHeader>
                 <div className="flex justify-between items-start">
                   <CardTitle className="text-lg">{provider.name}</CardTitle>
@@ -271,7 +271,7 @@ export default function LoanComparisonTable() {
                   </ul>
                 </div>
 
-                <Button variant="outline" className="w-full">
+                <Button className="w-full fg-btn">
                   Ansök hos {provider.name}
                 </Button>
               </CardContent>
@@ -280,7 +280,7 @@ export default function LoanComparisonTable() {
         </div>
       </div>
 
-      <Card className="bg-amber-50 border-amber-200">
+      <Card data-fg-card className="bg-amber-50 border-amber-200">
         <CardContent className="pt-6">
           <div className="flex items-start gap-3">
             <AlertTriangle className="w-6 h-6 text-amber-600 mt-1 flex-shrink-0" />
