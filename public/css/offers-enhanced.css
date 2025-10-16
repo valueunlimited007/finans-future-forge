@@ -67,7 +67,7 @@
 }
 
 /* Match UC card styling exactly */
-.lender-card {
+#root .lender-card {
   background: white;
   border-radius: 0.75rem; /* rounded-xl to match UC */
   border: 1px solid #e5e7eb; /* border-gray-200 */
@@ -91,14 +91,14 @@
 }
 
 /* All elements inside lender-card should render text horizontally */
-.lender-card * {
+#root .lender-card * {
   writing-mode: horizontal-tb !important;
   text-orientation: mixed !important;
 }
 
 /* Desktop: grid layout (logo | content | CTA) */
 @media (min-width: 768px) {
-  .lender-card {
+  #root .lender-card {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr) auto;
     column-gap: 1.5rem;
@@ -106,19 +106,19 @@
   }
 }
 
-.lender-card:hover {
+#root .lender-card:hover {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
   transform: translateY(-1px); /* subtle lift */
 }
 
 /* Match UC featured card styling - subtle ring instead of heavy styling */
-.lender-card.featured {
+#root .lender-card.featured {
   box-shadow: 0 0 0 1px #a7f3d0, 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); /* subtle emerald ring + normal shadow */
   background: white;
 }
 
 /* Logo column - proper sizing without clipping */
-.lender-logo {
+#root .lender-logo {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -129,13 +129,13 @@
 }
 
 @media (min-width: 768px) {
-  .lender-logo {
+  #root .lender-logo {
     max-height: 40px;
     max-width: 120px;
   }
 }
 
-.lender-logo img {
+#root .lender-logo img {
   max-height: 100%;
   max-width: 100%;
   object-fit: contain;
@@ -148,7 +148,7 @@
 }
 
 /* Fallback text for missing logos - truncate with ellipsis */
-.lender-logo:not(:has(img)) {
+#root .lender-logo:not(:has(img)) {
   font-size: 0.875rem;
   font-weight: 600;  
   color: #6b7280;
@@ -159,7 +159,7 @@
 }
 
 /* Content column - expandable with min-width for text wrapping */
-.lender-info {
+#root .lender-info {
   min-width: 0; /* Critical: allows text to wrap properly */
   display: flex;
   flex-direction: column;
@@ -169,12 +169,12 @@
 }
 
 /* Prevent min-content collapse on feature items */
-.lender-features > * {
+#root .lender-features > * {
   min-width: 0;
   max-width: none;
 }
 
-.lender-info h3 {
+#root .lender-info h3 {
   font-size: 1.125rem; /* text-lg */
   font-weight: 600;
   color: #111827;
@@ -190,30 +190,30 @@
 }
 
 /* Force all text elements to render horizontally */
-.lender-card *,
-.lender-info *,
-.lender-features * {
+#root .lender-card *,
+#root .lender-info *,
+#root .lender-features * {
   writing-mode: horizontal-tb !important;
   text-orientation: mixed !important;
   display: inline !important;
 }
 
 /* But keep structural elements as block/flex */
-.lender-card,
-.lender-logo,
-.lender-info,
-.lender-features,
-.lender-feature,
-.lender-cta {
+#root .lender-card,
+#root .lender-logo,
+#root .lender-info,
+#root .lender-features,
+#root .lender-feature,
+#root .lender-cta {
   display: flex !important;
 }
 
-.lender-info h3 {
+#root .lender-info h3 {
   display: block !important;
 }
 
 /* Features grid - use container queries instead of viewport breakpoints */
-.lender-features {
+#root .lender-features {
   display: grid;
   grid-template-columns: 1fr; /* Default: single column */
   gap: 0.5rem;
@@ -222,7 +222,7 @@
 
 /* Container query: 2 columns only when card is definitely wide enough */
 @container offer-card (min-width: 680px) {
-  .lender-features {
+  #root .lender-features {
     grid-template-columns: repeat(2, minmax(240px, 1fr)); /* Never below 240px per column */
     gap: 0.75rem;
   }
@@ -231,7 +231,7 @@
 /* Fallback for browsers without container query support */
 @supports not (container-type: inline-size) {
   @media (min-width: 1024px) {
-    .lender-features {
+    #root .lender-features {
       grid-template-columns: repeat(2, minmax(240px, 1fr)); /* Never below 240px per column */
       gap: 0.75rem;
     }
@@ -239,34 +239,34 @@
   
   /* Single column for smaller screens */
   @media (max-width: 1023px) {
-    .lender-features {
+    #root .lender-features {
       grid-template-columns: 1fr;
     }
   }
 }
 
 /* iPad Safari JavaScript fallback classes - HIGH SPECIFICITY */
-.lender-card.cq-narrow .lender-features {
+#root .lender-card.cq-narrow .lender-features {
   grid-template-columns: 1fr !important;
   gap: 0.5rem !important;
 }
 
-.lender-card.cq-wide .lender-features {
+#root .lender-card.cq-wide .lender-features {
   grid-template-columns: repeat(2, minmax(240px, 1fr)) !important;
   gap: 0.75rem !important;
 }
 
 /* Debug classes for visual feedback */
-.lender-card.cq-narrow .lender-features {
+#root .lender-card.cq-narrow .lender-features {
   /* outline: 2px solid red; */
 }
 
-.lender-card.cq-wide .lender-features {
+#root .lender-card.cq-wide .lender-features {
   /* outline: 2px solid green; */
 }
 
 /* Match UC card feature styling with proper typography and dividers */
-.lender-feature {
+#root .lender-feature {
   font-size: 0.875rem; /* text-sm */
   line-height: 1.5; /* leading-6 */
   display: flex;
@@ -282,24 +282,24 @@
   hyphens: auto; /* Allow hyphenation for long words */
 }
 
-.lender-feature:last-child {
+#root .lender-feature:last-child {
   border-bottom: none;
 }
 
-.lender-feature strong {
+#root .lender-feature strong {
   color: #111827; /* text-gray-900 */
   font-weight: 600; /* semibold */
   min-width: fit-content;
   flex-shrink: 0;
 }
 
-.lender-feature span {
+#root .lender-feature span {
   color: #374151; /* text-gray-700 */
   font-weight: 400; /* normal */
 }
 
 /* CTA column - auto width with proper alignment and no text wrapping */
-.lender-cta {
+#root .lender-cta {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -308,7 +308,7 @@
 }
 
 @media (min-width: 768px) {
-  .lender-cta {
+  #root .lender-cta {
     justify-self: end;
     align-self: end; /* Align to bottom of card */
     text-align: right;
@@ -316,7 +316,7 @@
 }
 
 /* Rating display - match UC cards positioning */
-.lender-rating {
+#root .lender-rating {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -325,19 +325,19 @@
 }
 
 @media (min-width: 768px) { 
-  .lender-rating {
+  #root .lender-rating {
     justify-self: end; /* Right-align rating on desktop */
   }
 }
 
 /* Stars styling for ratings */
-.stars {
+#root .stars {
   color: #facc15; /* yellow-400 */
   font-size: 0.875rem;
 }
 
 /* Amount display - match UC card styling */
-.lender-amount {
+#root .lender-amount {
   font-size: 1.125rem; /* text-lg */
   font-weight: 600;
   color: #16a34a; /* green-600 - match UC cards */
@@ -345,7 +345,7 @@
 }
 
 /* Match UC card button styling exactly */
-.btn {
+#root .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -362,36 +362,36 @@
 }
 
 /* Dark green button for featured/partner offers - EXACT UC shade */
-.btn-primary {
+#root .btn-primary {
   background: #059669; /* UC dark green */
   color: white;
   border: 1px solid #059669;
 }
 
-.btn-primary:hover {
+#root .btn-primary:hover {
   background: #047857; /* Darker on hover */
   border-color: #047857;
   color: white;
 }
 
 /* Match UC outline button for non-featured */
-.btn-secondary {
+#root .btn-secondary {
   background: white;
   color: #374151; /* text-gray-700 */
   border: 1px solid #d1d5db; /* border-gray-300 */
 }
 
-.btn-secondary:hover {
+#root .btn-secondary:hover {
   background: #f9fafb; /* hover:bg-gray-50 */
   color: #374151;
 }
 
-.btn-full {
+#root .btn-full {
   width: 100%;
 }
 
 /* Sponsored text - match UC card muted styling */
-.text-muted {
+#root .text-muted {
   color: #9ca3af; /* text-gray-400 */
   font-size: 0.75rem; /* text-xs */
   text-align: center;
@@ -400,7 +400,7 @@
 }
 
 /* Match UC card badge styling exactly */
-.badge {
+#root .badge {
   display: inline-flex;
   align-items: center;
   border-radius: 9999px; /* rounded-full */
@@ -412,43 +412,43 @@
 }
 
 /* Partner badge - green to signal trusted partnership */
-.badge-partner {
+#root .badge-partner {
   background: #059669; /* UC dark green */
   color: white;
 }
 
 /* Match UC "Ingen UC" badge - green */
-.badge-utan-uc {
+#root .badge-utan-uc {
   background: #dcfce7; /* bg-green-100 */
   color: #166534; /* text-green-800 */
 }
 
 /* Featured badge */
-.badge-featured {
+#root .badge-featured {
   background: #dcfce7; /* bg-green-100 */
   color: #166534; /* text-green-800 */
 }
 
 /* Comparison/other badges */
-.badge-comparison {
+#root .badge-comparison {
   background: #3b82f6; /* Blue for broker badge */
   color: white;
   cursor: help;
   margin-right: 6px;
 }
 
-.badge-comparison:hover {
+#root .badge-comparison:hover {
   background: #2563eb;
 }
 
-.badge-low-rate {
+#root .badge-low-rate {
   background: #fef2f2; /* bg-red-100 */
   color: #dc2626; /* text-red-800 */
 }
 
 /* Mobile responsive adjustments for logo */
 @media (max-width: 640px) {
-  .lender-logo {
+  #root .lender-logo {
     height: 36px;
     width: 100px;
     max-width: 100px;
