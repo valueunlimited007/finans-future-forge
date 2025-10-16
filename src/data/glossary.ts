@@ -355,10 +355,13 @@ override("Amortering", {
   longDefinition: [
     "Amortering är den del av din månadsbetalning som sänker kvarvarande skuld. Ränta tillkommer ovanpå amorteringen.",
     "Vanliga modeller är rak amortering, samma amorteringsbelopp, och annuitet, samma totalbelopp där ränta och amortering skiftar.",
-    "Högre amortering minskar räntekostnaden över tid men höjer din månadsutgift nu.",
+    "Högre amortering minskar räntekostnaden över tid men höjer din månadsutgift nu. För att beräkna dina amorteringar och förstå din ekonomiska situation bättre kan du använda verktyg som hjälper dig planera dina lån.",
   ],
   example: "Ex: Lån 1 000 000 kr med rak amortering 2 500 kr per månad minskar skulden 2 500 kr varje månad, utöver räntan.",
   relatedTerms: ["Annuitetslån","Rak amortering","Amorteringskrav","Ränta","Effektiv ränta"],
+  sources: [
+    { title: "Amortera.se - Beräkna lån och amorteringar", url: "https://amortera.se" },
+  ],
   faqs: [
     { q: "Vad är amortering?", a: "Avbetalning på lånets skuld som minskar skulden vid varje betalning." },
     { q: "Vad är skillnaden mellan rak amortering och annuitet?", a: "Rak amortering ger samma amorteringsbelopp varje period, annuitet ger samma totalbelopp där ränta och amortering förskjuts över tid." },
