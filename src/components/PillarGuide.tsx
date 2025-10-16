@@ -9,8 +9,8 @@ export default function PillarGuide() {
     <div className="space-y-8">
       {/* Expert Validation */}
       <section className="mb-8">
-        <h2 className="text-xl md:text-2xl font-bold mb-4">Expertgranskad information</h2>
-        <div className="grid md:grid-cols-2 gap-4 max-w-5xl">
+        <h2 className="text-xl md:text-2xl font-bold mb-4 text-center">Expertgranskad information</h2>
+        <div className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto">
           <ExpertProfile
             name="Magnus Andersson"
             title="Auktoriserad Finansiell Rådgivare"
