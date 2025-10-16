@@ -873,12 +873,4 @@ All colors MUST be HSL.
     color: #dc2626; /* text-red-800 */
   }
   
-  /* Mobile responsive adjustments for logo */
-  @media (max-width: 640px) {
-    .lender-logo {
-      height: 36px;
-      width: 100px;
-      max-width: 100px;
-    }
-  }
 }
