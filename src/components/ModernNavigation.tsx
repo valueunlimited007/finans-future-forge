@@ -228,9 +228,9 @@ const ModernNavigation = () => {
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-2 flex-shrink-0">
           <img 
-            src="/finansguiden-logo-v2.png" 
+            src="/finansguiden-logo-new.png" 
             alt="Finansguiden"
-            className="h-8 w-auto"
+            className="h-12 w-auto max-h-12"
           />
         </Link>
 
