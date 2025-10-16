@@ -230,7 +230,7 @@ const ModernNavigation = () => {
           <img 
             src="/finansguiden-logo-new.png" 
             alt="Finansguiden"
-            className="h-12 w-auto max-h-12"
+            className="h-16 w-auto max-h-16"
           />
         </Link>
 
