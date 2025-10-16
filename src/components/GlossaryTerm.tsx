@@ -31,6 +31,12 @@ const GlossaryTerm: React.FC<GlossaryTermProps> = ({ term, related }) => {
           <span aria-current="page">{term.term}</span>
         </nav>
 
+        <AdtractionBanner 
+          banner={topBanner} 
+          placement="glossary_top"
+          termSlug={term.slug}
+        />
+
         <header className="mb-4">
           <h1 className="text-3xl font-bold leading-tight">{term.term}</h1>
           {term.shortDefinition && (
@@ -44,18 +50,7 @@ const GlossaryTerm: React.FC<GlossaryTermProps> = ({ term, related }) => {
 
         <section className="prose prose-neutral dark:prose-invert">
           {term.longDefinition?.map((p, i) => (
-            <React.Fragment key={i}>
-              <p>{autolink(p)}</p>
-              {i === 0 && (
-                <div className="not-prose my-6">
-                  <AdtractionBanner 
-                    banner={topBanner} 
-                    placement="glossary_top"
-                    termSlug={term.slug}
-                  />
-                </div>
-              )}
-            </React.Fragment>
+            <p key={i}>{autolink(p)}</p>
           ))}
         </section>
 

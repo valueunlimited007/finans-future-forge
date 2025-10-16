@@ -2,7 +2,7 @@ import { AffiliateNetwork } from './types';
 
 export const AFFILIATE_CONFIG = {
   // Mock mode för utveckling och testning
-  mockMode: process.env.NODE_ENV === 'development' || true, // Alltid mock för nu
+  mockMode: process.env.NODE_ENV === 'development',
   
   // Default tracking parametrar
   defaultParams: {

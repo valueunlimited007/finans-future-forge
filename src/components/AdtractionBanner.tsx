@@ -59,7 +59,9 @@ export default function AdtractionBanner({
   
   return (
     <div 
-      className="adtraction-banner flex justify-center my-4"
+      className={`adtraction-banner flex justify-center ${
+        placement === 'glossary_top' ? 'mb-4' : 'my-4'
+      }`}
       data-placement={placement}
       data-format={banner.format}
     >
@@ -75,7 +77,10 @@ export default function AdtractionBanner({
           width={banner.width}
           height={banner.height}
           alt="Enklare - Jämför lån och finansiella tjänster"
-          loading="lazy"
+          loading={placement === 'glossary_top' ? 'eager' : 'lazy'}
+          onError={(e) => {
+            e.currentTarget.style.display = 'none';
+          }}
           style={{ 
             maxWidth: '100%', 
             height: 'auto',
