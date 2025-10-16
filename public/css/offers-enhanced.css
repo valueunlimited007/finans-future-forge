@@ -276,10 +276,9 @@
   border-bottom: 1px solid #f3f4f6; /* subtle divider like UC */
   min-width: 0; /* Critical: Allow text to wrap */
   max-width: none; /* Prevent min-content collapse */
-  white-space: normal; /* Normal text flow */
-  word-break: normal; /* Prevent character-by-character breaking */
-  overflow-wrap: anywhere; /* Break long words naturally */
-  hyphens: auto; /* Allow hyphenation for long words */
+  white-space: nowrap; /* Prevent breaking of numbers and percentages */
+  overflow: hidden; /* Hide overflow */
+  text-overflow: ellipsis; /* Show ellipsis for long text */
 }
 
 .lender-feature:last-child {
