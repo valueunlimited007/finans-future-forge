@@ -29,6 +29,8 @@ import { cn } from "@/lib/utils";
 const ModernNavigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const [scrollDirection, setScrollDirection] = useState<'up' | 'down' | null>(null);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   // Handle escape key
   useEffect(() => {
@@ -41,6 +43,39 @@ const ModernNavigation = () => {
     document.addEventListener('keydown', handleEscape);
     return () => document.removeEventListener('keydown', handleEscape);
   }, [isOpen]);
+
+  // Scroll sheet content to top when menu opens
+  useEffect(() => {
+    if (isOpen) {
+      const sheetContent = document.querySelector('[data-sheet-content]');
+      if (sheetContent) {
+        sheetContent.scrollTop = 0;
+      }
+    }
+  }, [isOpen]);
+
+  // Smart header scroll behavior
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Ignorera små scrolls (< 10px)
+      if (Math.abs(currentScrollY - lastScrollY) < 10) return;
+      
+      if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        // Scrollar ner & har scrollat mer än 80px
+        setScrollDirection('down');
+      } else if (currentScrollY < lastScrollY) {
+        // Scrollar upp
+        setScrollDirection('up');
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
 
   const isActivePath = (path: string) => {
     return location.pathname === path;
@@ -206,7 +241,10 @@ const ModernNavigation = () => {
   );
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className={cn(
+      "fixed top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-transform duration-300",
+      scrollDirection === 'down' ? "-translate-y-full" : "translate-y-0"
+    )}>
       <div className="container flex h-20 sm:h-20 md:h-24 items-center justify-between px-4">
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-2 shrink-0">
@@ -322,7 +360,7 @@ const ModernNavigation = () => {
                 </div>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[320px] sm:w-[400px] max-h-screen overflow-y-auto border-0 bg-background p-0">
+            <SheetContent side="right" className="w-[320px] sm:w-[400px] max-h-screen overflow-y-auto border-0 bg-background p-0" data-sheet-content>
               {/* Accessibility requirements */}
               <SheetTitle className="sr-only">Navigeringsmeny</SheetTitle>
               <SheetDescription className="sr-only">
