@@ -788,6 +788,18 @@ All colors MUST be HSL.
     line-height: 1.25;
   }
   
+  /* Primary button - dark green for partner offers */
+  .offers-container .btn-primary {
+    background: #059669 !important; /* emerald-600 */
+    color: white !important;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .offers-container .btn-primary:hover {
+    background: #047857 !important; /* emerald-700 */
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(5, 150, 105, 0.28);
+  }
   
   /* Match UC outline button for non-featured */
   .btn-secondary {
@@ -834,6 +846,12 @@ All colors MUST be HSL.
   
   /* Featured badge */
   .badge-featured {
+    background: #dcfce7; /* bg-green-100 */
+    color: #166534; /* text-green-800 */
+  }
+  
+  /* Partner badge - emerald like featured */
+  .badge-partner {
     background: #dcfce7; /* bg-green-100 */
     color: #166534; /* text-green-800 */
   }
