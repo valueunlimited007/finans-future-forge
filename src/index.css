@@ -439,26 +439,29 @@ All colors MUST be HSL.
      LOGO: Force Tailwind sizes to win
      ======================================== */
   #root[data-site="finansguiden"] header img[alt="Finansguiden"] {
-    max-height: 64px !important;
+    height: 64px !important;
+    min-height: 64px !important;
     width: auto !important;
-    height: auto !important;
   }
 
   @media (min-width: 640px) {
     #root[data-site="finansguiden"] header img[alt="Finansguiden"] {
-      max-height: 72px !important;
+      height: 72px !important;
+      min-height: 72px !important;
     }
   }
 
   @media (min-width: 768px) {
     #root[data-site="finansguiden"] header img[alt="Finansguiden"] {
-      max-height: 80px !important;
+      height: 80px !important;
+      min-height: 80px !important;
     }
   }
 
   @media (min-width: 1280px) {
     #root[data-site="finansguiden"] header img[alt="Finansguiden"] {
-      max-height: 96px !important;
+      height: 96px !important;
+      min-height: 96px !important;
     }
   }
 }
@@ -576,21 +579,23 @@ All colors MUST be HSL.
     background: white;
   }
   
-  /* Logo column - proper sizing without clipping */
+  /* Logo column - LARGER sizing to match production */
   .lender-logo {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     
-    /* Mobile: flexible sizing */
-    max-height: 36px;
-    max-width: 100px;
+    /* Mobile: increase from 36px to 60px */
+    max-height: 60px;
+    max-width: 160px;
+    min-height: 50px; /* Ensure consistent minimum */
   }
   
   @media (min-width: 768px) {
     .lender-logo {
-      max-height: 40px;
-      max-width: 120px;
+      max-height: 80px; /* Increase from 40px to 80px */
+      max-width: 200px; /* Increase from 120px to 200px */
+      min-height: 60px;
     }
   }
   
