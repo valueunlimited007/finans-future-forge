@@ -16,7 +16,6 @@ const GlossaryTerm: React.FC<GlossaryTermProps> = ({ term, related }) => {
   const faqs = buildFaq(term);
   
   // Select appropriate banners based on term and placement
-  const topBanner = getBannerForTerm(term, 'top');
   const sidebarBanner = getBannerForTerm(term, 'sidebar');
   const midBanner = getBannerForTerm(term, 'mid');
 
@@ -30,12 +29,6 @@ const GlossaryTerm: React.FC<GlossaryTermProps> = ({ term, related }) => {
           <span className="mx-1">/</span>
           <span aria-current="page">{term.term}</span>
         </nav>
-
-        <AdtractionBanner 
-          banner={topBanner} 
-          placement="glossary_top"
-          termSlug={term.slug}
-        />
 
         <header className="mb-4">
           <h1 className="text-3xl font-bold leading-tight">{term.term}</h1>
