@@ -215,9 +215,10 @@ const SimpleNavigation = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(true)}
-              className="lg:hidden p-3 rounded-lg hover:bg-accent transition-colors"
+              className="lg:hidden p-3 rounded-lg hover:bg-accent transition-colors flex items-center gap-2"
               aria-label="Öppna meny"
             >
+              <span className="text-sm font-medium">Meny</span>
               <Menu className="h-6 w-6" />
             </button>
           </div>
