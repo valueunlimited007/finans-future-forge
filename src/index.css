@@ -438,34 +438,26 @@ All colors MUST be HSL.
   /* ========================================
      LOGO: Force Tailwind sizes to win
      ======================================== */
-  #root[data-site="finansguiden"] header .logo img,
-  #root[data-site="finansguiden"] header img[alt="Finansguiden"],
-  #root[data-site="finansguiden"] .logo img {
-    height: 64px !important;  /* h-16 = 64px */
+  #root[data-site="finansguiden"] header img[alt="Finansguiden"] {
+    height: 64px !important;
     width: auto !important;
   }
 
   @media (min-width: 640px) {
-    #root[data-site="finansguiden"] header .logo img,
-    #root[data-site="finansguiden"] header img[alt="Finansguiden"],
-    #root[data-site="finansguiden"] .logo img {
-      height: 72px !important;  /* sm:h-[72px] */
+    #root[data-site="finansguiden"] header img[alt="Finansguiden"] {
+      height: 72px !important;
     }
   }
 
   @media (min-width: 768px) {
-    #root[data-site="finansguiden"] header .logo img,
-    #root[data-site="finansguiden"] header img[alt="Finansguiden"],
-    #root[data-site="finansguiden"] .logo img {
-      height: 80px !important;  /* md:h-20 = 80px */
+    #root[data-site="finansguiden"] header img[alt="Finansguiden"] {
+      height: 80px !important;
     }
   }
 
   @media (min-width: 1280px) {
-    #root[data-site="finansguiden"] header .logo img,
-    #root[data-site="finansguiden"] header img[alt="Finansguiden"],
-    #root[data-site="finansguiden"] .logo img {
-      height: 96px !important;  /* xl:h-24 = 96px */
+    #root[data-site="finansguiden"] header img[alt="Finansguiden"] {
+      height: 96px !important;
     }
   }
 }
