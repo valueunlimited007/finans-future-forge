@@ -31,7 +31,7 @@ export default function RichHome() {
         </script>
       </Helmet>
 
-      <main>
+      <main className="pt-[80px] sm:pt-[96px] md:pt-[112px] lg:pt-[128px]">
         {/* Hero Section */}
         <section className="py-16 px-4 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950 dark:to-blue-900">
           <div className="container mx-auto max-w-6xl text-center">

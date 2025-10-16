@@ -244,7 +244,7 @@ const ModernNavigation = () => {
     <header 
       data-version="v2.1"
       className={cn(
-        "fixed top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-transform duration-300",
+        "fixed top-0 z-50 w-full bg-background backdrop-blur-sm border-b transition-transform duration-300",
         scrollDirection === 'down' ? "-translate-y-full" : "translate-y-0"
       )}
     >
