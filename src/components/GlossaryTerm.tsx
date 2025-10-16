@@ -97,74 +97,36 @@ const GlossaryTerm: React.FC<GlossaryTermProps> = ({ term, related }) => {
           </section>
         )}
 
-        {term.partners && term.partners.length > 0 && (
-          <section className="my-8">
-            <h2 className="mb-4 text-2xl font-bold">Rekommenderade tjänster</h2>
-            <div className="lender-grid">
-              {term.partners.map((partner, i) => (
-                <article key={i} className="lender-card">
-                  <div className="lender-logo" aria-label={`${partner.name} logotyp`}>
-                    <img 
-                      src={partner.logo} 
-                      alt={`${partner.name} logotyp`}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                  <div className="lender-info">
-                    <h3 style={{ 
-                      writingMode: 'horizontal-tb' as const,
-                      textOrientation: 'mixed' as const,
-                      whiteSpace: 'normal' as const,
-                      wordBreak: 'normal' as const,
-                      display: 'block' as const,
-                      width: '100%'
-                    }}>
-                      {partner.name}
-                      {partner.isPartner && <span className="badge badge-partner">Partner</span>}
-                    </h3>
-                    <div className="lender-features">
-                      {partner.amountRange && (
-                        <div className="lender-feature">
-                          <strong>Belopp:</strong> <span>{partner.amountRange}</span>
-                        </div>
-                      )}
-                      {partner.aprFrom && (
-                        <div className="lender-feature">
-                          <strong>Ränta:</strong> <span>{partner.aprFrom}</span>
-                        </div>
-                      )}
-                      {partner.decision && (
-                        <div className="lender-feature">
-                          <strong>Besked:</strong> <span>{partner.decision}</span>
-                        </div>
-                      )}
-                      {partner.requirements && (
-                        <div className="lender-feature">
-                          <strong>Krav:</strong> <span>{partner.requirements}</span>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                  <div className="lender-cta">
-                    <div className="lender-rating">
-                      <span className="stars">★★★★★</span> {partner.rating?.toFixed(1) || '4.5'}/5
-                    </div>
-                    <AffiliateButton
-                      href={partner.url}
-                      label="Ansök nu"
-                      termSlug={term.slug}
-                      brandId={partner.brandId}
-                      brandName={partner.name}
-                      variant="default"
-                      className="btn btn-primary btn-full"
-                      showBadges={false}
-                    />
-                    <small className="text-muted">Sponsrad länk</small>
-                  </div>
-                </article>
-              ))}
-            </div>
+        {/* Simple link to relevant comparison page */}
+        {(term.slug.includes('privatlan') || term.slug.includes('blancolån') || term.slug.includes('lån')) && (
+          <section className="my-6 rounded-lg border border-border bg-muted/20 p-4">
+            <p className="text-foreground">
+              Vill du jämföra olika lån? <Link to="/privatlan" className="underline underline-offset-2 hover:no-underline font-medium">Se våra rekommendationer här</Link>
+            </p>
+          </section>
+        )}
+        
+        {term.slug.includes('foretagslan') && (
+          <section className="my-6 rounded-lg border border-border bg-muted/20 p-4">
+            <p className="text-foreground">
+              Vill du jämföra företagslån? <Link to="/foretagslan" className="underline underline-offset-2 hover:no-underline font-medium">Se våra rekommendationer här</Link>
+            </p>
+          </section>
+        )}
+        
+        {term.slug.includes('kreditkort') && (
+          <section className="my-6 rounded-lg border border-border bg-muted/20 p-4">
+            <p className="text-foreground">
+              Vill du jämföra kreditkort? <Link to="/kreditkort" className="underline underline-offset-2 hover:no-underline font-medium">Se våra rekommendationer här</Link>
+            </p>
+          </section>
+        )}
+        
+        {(term.slug.includes('uc') || term.slug.includes('kreditupplysning')) && (
+          <section className="my-6 rounded-lg border border-border bg-muted/20 p-4">
+            <p className="text-foreground">
+              Behöver du lån utan UC? <Link to="/lan-utan-uc" className="underline underline-offset-2 hover:no-underline font-medium">Se våra rekommendationer här</Link>
+            </p>
           </section>
         )}
 
