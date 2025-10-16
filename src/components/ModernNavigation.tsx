@@ -254,7 +254,7 @@ const ModernNavigation = () => {
           <img 
             src="/finansguiden-logo-new.png" 
             alt="Finansguiden"
-            className="w-auto"
+            className="w-auto h-12 sm:h-14 md:h-16 xl:h-18"
           />
         </Link>
 
@@ -354,14 +354,12 @@ const ModernNavigation = () => {
             <SheetTrigger asChild>
               <Button 
                 variant="ghost"
-                className="flex items-center gap-3 h-12 px-3 hover:bg-accent/50 transition-colors mobile-menu-trigger"
+                size="lg"
+                className="h-12 gap-2 hover:bg-accent/50 transition-colors lg:hidden"
                 aria-label="Öppna navigeringsmeny"
-                data-menu-trigger="true"
               >
-                <span className="text-sm font-medium text-muted-foreground tracking-wider">MENY</span>
-                <div className="h-10 w-10 rounded-full border-2 border-border flex items-center justify-center bg-background">
-                  <Menu className="h-5 w-5" />
-                </div>
+                <Menu className="h-5 w-5" />
+                <span className="text-sm font-medium">Meny</span>
               </Button>
             </SheetTrigger>
             <SheetContent 
