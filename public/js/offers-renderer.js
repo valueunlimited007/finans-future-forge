@@ -76,7 +76,7 @@
           </div>
           <div class="lender-cta">
             <div class="lender-rating"><span class="stars">★★★★★</span> ${esc((item.rating||4.5).toFixed ? item.rating.toFixed(1) : item.rating)}/5</div>
-            <a href="${esc(item.url)}" class="btn ${item.featured === true ? 'btn-primary' : 'btn-secondary'} btn-full" rel="nofollow sponsored noopener noreferrer" target="_blank"${dataAff}>${item.isPartner ? 'Ansök nu' : 'Besök webbplats'}</a>
+            <a href="${esc(item.url)}" class="btn ${item.isPartner === true ? 'btn-primary' : 'btn-secondary'} btn-full" rel="nofollow sponsored noopener noreferrer" target="_blank"${dataAff}>${item.isPartner ? 'Ansök nu' : 'Besök webbplats'}</a>
             <small class="text-muted">Sponsrad länk</small>
           </div>
         </article>`);
