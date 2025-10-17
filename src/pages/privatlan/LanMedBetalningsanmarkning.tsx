@@ -4,6 +4,7 @@ import SeoManager from "@/seo/SeoManager";
 import CustomBreadcrumb from "@/components/CustomBreadcrumb";
 import RelatedPagesCluster from "@/components/RelatedPagesCluster";
 import OffersContainer from "@/components/OffersContainer";
+import ConsumerCreditWarning from "@/components/ConsumerCreditWarning";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -111,14 +112,7 @@ export default function PrivatlanLanMedBetalningsanmarkning() {
               className="mb-8" 
             />
             
-            <Alert>
-              <Info className="h-5 w-5" />
-              <AlertDescription className="ml-2">
-                <strong>OBS:</strong> Att en långivare "kan acceptera" anmärkning betyder inte att alla 
-                godkänns. De gör en individuell bedömning av din ekonomi, inkomst och skuldnivå. 
-                Räntan blir också högre än normalräntan.
-              </AlertDescription>
-            </Alert>
+            <ConsumerCreditWarning />
           </div>
         </section>
 
