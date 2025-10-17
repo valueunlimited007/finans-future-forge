@@ -178,6 +178,12 @@ ErrorDocument 503 /503.html
 # 301 REDIRECTS (för gamla URLer)
 # ==============================================================================
 
+# Redirect old yearly loan pages to evergreen
+Redirect 301 /privatlan/basta-privatlan-2022 /privatlan/basta
+Redirect 301 /privatlan/basta-privatlan-2021 /privatlan/basta
+Redirect 301 /privatlan/basta-privatlan-2020 /privatlan/basta
+Redirect 301 /privatlan/basta-privatlan-2019 /privatlan/basta
+
 # Exempel på redirects (anpassa efter behov)
 # Redirect 301 /gamla-sidan https://finansguiden.se/nya-sidan
 # Redirect 301 /lan https://finansguiden.se/privatlan

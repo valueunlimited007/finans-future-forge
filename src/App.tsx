@@ -9,6 +9,10 @@ import Home from "./pages/Home";
 import LanUtanUc from "./pages/LanUtanUc";
 import Kreditkort from "./pages/Kreditkort";
 import Privatlan from "./pages/Privatlan";
+import PrivatlanBasta from "./pages/privatlan/Basta";
+import PrivatlanJamfor from "./pages/privatlan/Jamfor";
+import PrivatlanRantejamforelse from "./pages/privatlan/Rantejamforelse";
+import PrivatlanLanMedBetalningsanmarkning from "./pages/privatlan/LanMedBetalningsanmarkning";
 import Laneformedlare from "./pages/Laneformedlare";
 import Foretagslan from "./pages/Foretagslan";
 import AndraTjanster from "./pages/AndraTjanster";
@@ -104,6 +108,10 @@ const App = () => {
                   <Route path="/lan-utan-uc" element={<LanUtanUc />} />
                   <Route path="/kreditkort" element={<Kreditkort />} />
                   <Route path="/privatlan" element={<Privatlan />} />
+                  <Route path="/privatlan/basta" element={<PrivatlanBasta />} />
+                  <Route path="/privatlan/jamfor" element={<PrivatlanJamfor />} />
+                  <Route path="/privatlan/rantejamforelse" element={<PrivatlanRantejamforelse />} />
+                  <Route path="/privatlan/lan-med-betalningsanmarkning" element={<PrivatlanLanMedBetalningsanmarkning />} />
                   <Route path="/laneformedlare" element={<Laneformedlare />} />
                   <Route path="/foretagslan" element={<Foretagslan />} />
                   <Route path="/andra-tjanster" element={<AndraTjanster />} />
