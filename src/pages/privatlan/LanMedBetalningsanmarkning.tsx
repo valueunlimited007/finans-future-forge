@@ -111,54 +111,6 @@ export default function PrivatlanLanMedBetalningsanmarkning() {
               className="mb-8" 
             />
             
-            <div className="grid md:grid-cols-2 gap-6 mb-8">
-              <Card>
-                <CardHeader>
-                  <div className="flex items-start justify-between">
-                    <CardTitle>Northmill Bank</CardTitle>
-                    <Badge variant="secondary">Kan acceptera anmärkning</Badge>
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div>
-                    <p className="text-sm text-muted-foreground mb-2">
-                      <strong>Ränta från:</strong> 9,95% (högre vid anmärkning)
-                    </p>
-                    <p className="text-sm text-muted-foreground mb-2">
-                      <strong>Belopp:</strong> 10 000 - 300 000 kr
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      <strong>Villkor:</strong> Individuell prövning, kräver fast inkomst
-                    </p>
-                  </div>
-                  <Button className="fg-btn w-full">Ansök hos Northmill</Button>
-                </CardContent>
-              </Card>
-              
-              <Card>
-                <CardHeader>
-                  <div className="flex items-start justify-between">
-                    <CardTitle>Resurs Bank</CardTitle>
-                    <Badge variant="secondary">Kan acceptera anmärkning</Badge>
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div>
-                    <p className="text-sm text-muted-foreground mb-2">
-                      <strong>Ränta från:</strong> 12,95% (högre vid anmärkning)
-                    </p>
-                    <p className="text-sm text-muted-foreground mb-2">
-                      <strong>Belopp:</strong> 20 000 - 400 000 kr
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      <strong>Villkor:</strong> Prövar varje fall individuellt
-                    </p>
-                  </div>
-                  <Button className="fg-btn w-full">Ansök hos Resurs</Button>
-                </CardContent>
-              </Card>
-            </div>
-            
             <Alert>
               <Info className="h-5 w-5" />
               <AlertDescription className="ml-2">
