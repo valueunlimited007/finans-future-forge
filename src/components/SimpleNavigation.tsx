@@ -43,7 +43,6 @@ const SimpleNavigation = () => {
   const menuCategories = {
     main: [
       { title: "Hem", href: "/", icon: Home },
-      { title: "Låneförmedlare", href: "/laneformedlare", icon: Users },
     ],
     privatlan: [
       { title: "Bästa privatlån", href: "/privatlan/basta", icon: Banknote },
@@ -169,6 +168,23 @@ const SimpleNavigation = () => {
                         ))}
                       </ul>
                     </NavigationMenuContent>
+                  </NavigationMenuItem>
+
+                  {/* Låneförmedlare */}
+                  <NavigationMenuItem>
+                    <Link to="/laneformedlare">
+                      <NavigationMenuLink
+                        className={cn(
+                          "flex items-center gap-2 px-4 py-2 rounded-lg transition-colors font-medium",
+                          isActive("/laneformedlare")
+                            ? "bg-primary text-primary-foreground"
+                            : "hover:bg-accent hover:text-accent-foreground"
+                        )}
+                      >
+                        <Users className="h-4 w-4" />
+                        Låneförmedlare
+                      </NavigationMenuLink>
+                    </Link>
                   </NavigationMenuItem>
 
                   {/* Guider Dropdown */}
