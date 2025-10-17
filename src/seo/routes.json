@@ -578,5 +578,89 @@
       },
       "keywords": "bostadsmarknad, bostadspriser, prisfall, bostadsanalys, fastighetspriser"
     }
+  },
+  "/guider/lagst-ranta-blancolan": {
+    "title": "Så får du lägst ränta på blancolån – 7 beprövade strategier",
+    "description": "Komplett guide för att sänka din låneränta. 7 strategier som kan spara dig tusentals kronor varje år. Uppdaterad 2025.",
+    "canonical": "https://finansguiden.se/guider/lagst-ranta-blancolan",
+    "ogImage": "https://finansguiden.se/images/og/privatlan.png",
+    "twitterImage": "https://finansguiden.se/images/og/privatlan.png",
+    "changefreq": "monthly",
+    "priority": 0.75,
+    "lastmod": "2025-01-17",
+    "jsonld": {
+      "@type": "HowTo",
+      "name": "Så får du lägst ränta på blancolån",
+      "description": "Guide med 7 beprövade strategier för att sänka din låneränta och spara tusentals kronor",
+      "author": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/",
+        "logo": "https://finansguiden.se/finansguiden-logo-v2.png"
+      },
+      "mainEntityOfPage": "https://finansguiden.se/guider/lagst-ranta-blancolan",
+      "datePublished": "2025-01-17",
+      "dateModified": "2025-01-17",
+      "inLanguage": "sv-SE",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Förbättra din kreditvärdighet",
+          "text": "Betala räkningar i tid, minska skulder och undvik nya UC-förfrågningar"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Jämför minst 3 långivare",
+          "text": "Ansök hos flera långivare för att jämföra faktiska erbjudanden"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Bli befintlig kund",
+          "text": "Få ränterabatt genom lönekonto och andra produkter hos banken"
+        }
+      ],
+      "keywords": "lägst ränta blancolån, sänka låneränta, bästa låneränta, låneränta tips"
+    }
+  },
+  "/guider/basta-lanet": {
+    "title": "Vilket är bästa lånet? Guide för att hitta rätt lån 2025",
+    "description": "Det finns inget universellt bästa lån. Lär dig hitta det bästa lånet för just din situation och ekonomi. Komplett guide 2025.",
+    "canonical": "https://finansguiden.se/guider/basta-lanet",
+    "ogImage": "https://finansguiden.se/images/og/privatlan.png",
+    "twitterImage": "https://finansguiden.se/images/og/privatlan.png",
+    "changefreq": "monthly",
+    "priority": 0.75,
+    "lastmod": "2025-01-17",
+    "jsonld": {
+      "@type": "Article",
+      "headline": "Vilket är bästa lånet? Guide för att hitta rätt lån",
+      "description": "Guide för att hitta det bästa lånet baserat på din profil, ekonomi och behov",
+      "author": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/",
+        "logo": "https://finansguiden.se/finansguiden-logo-v2.png"
+      },
+      "mainEntityOfPage": "https://finansguiden.se/guider/basta-lanet",
+      "datePublished": "2025-01-17",
+      "dateModified": "2025-01-17",
+      "inLanguage": "sv-SE",
+      "about": {
+        "@type": "Thing",
+        "name": "Låneval",
+        "description": "Guide för att välja rätt lån baserat på personlig situation"
+      },
+      "keywords": "bästa lånet, vilket lån ska jag välja, rätt lån för mig, låneguide"
+    }
   }
 }

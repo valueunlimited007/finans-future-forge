@@ -31,6 +31,8 @@ import LöneoptimeringsGuide from "./pages/LöneoptimeringsGuide";
 import SparkontoGuide from "./pages/SparkontoGuide";
 import SvenskaInkomster from "./pages/SvenskaInkomster";
 import MånadssparandeGuide from "./pages/MånadssparandeGuide";
+import LagstRantaBlancolan from "./pages/guider/LagstRantaBlancolan";
+import BastaLanet from "./pages/guider/BastaLanet";
 import NotFoundBranded from "./pages/NotFoundBranded";
 import KasinosHome from "./pages/KasinosHome";
 import KasinosOm from "./pages/KasinosOm";
@@ -130,6 +132,8 @@ const App = () => {
                   <Route path="/sparkonto-guide" element={<SparkontoGuide />} />
                   <Route path="/svenska-inkomster-2025" element={<SvenskaInkomster />} />
                   <Route path="/manadssparande-guide" element={<MånadssparandeGuide />} />
+                  <Route path="/guider/lagst-ranta-blancolan" element={<LagstRantaBlancolan />} />
+                  <Route path="/guider/basta-lanet" element={<BastaLanet />} />
                   <Route path="*" element={<NotFoundBranded />} />
                 </>
               )}
