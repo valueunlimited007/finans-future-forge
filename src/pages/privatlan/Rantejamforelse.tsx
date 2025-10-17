@@ -5,6 +5,7 @@ import CustomBreadcrumb from "@/components/CustomBreadcrumb";
 import RelatedPagesCluster from "@/components/RelatedPagesCluster";
 import RateChart from "@/components/RateChart";
 import AffiliateButton from "@/components/AffiliateButton";
+import ConsumerCreditWarning from "@/components/ConsumerCreditWarning";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -239,6 +240,8 @@ export default function PrivatlanRantejamforelse() {
                 <p className="text-muted-foreground">Laddar räntedata från våra partners...</p>
               </div>
             )}
+            
+            <ConsumerCreditWarning />
           </div>
         </section>
 
