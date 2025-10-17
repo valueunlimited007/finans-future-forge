@@ -100,18 +100,64 @@ export default function PrivatlanLanMedBetalningsanmarkning() {
         {/* Lenders Who Accept */}
         <section className="py-16 px-4 bg-muted/30">
           <div className="container mx-auto max-w-6xl">
-            <h2 className="text-3xl font-bold text-center mb-4">
+            <h2 className="text-3xl font-bold text-center mb-12">
               Långivare som kan godkänna lån med betalningsanmärkning
             </h2>
-            <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-              Dessa långivare gör individuell prövning och kan i vissa fall godkänna lån även med betalningsanmärkning.
-            </p>
             
+            {/* Real Adtraction Offers */}
             <OffersContainer 
               category="privatlån" 
               limit={4}
               className="mb-8" 
             />
+            
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              <Card>
+                <CardHeader>
+                  <div className="flex items-start justify-between">
+                    <CardTitle>Northmill Bank</CardTitle>
+                    <Badge variant="secondary">Kan acceptera anmärkning</Badge>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div>
+                    <p className="text-sm text-muted-foreground mb-2">
+                      <strong>Ränta från:</strong> 9,95% (högre vid anmärkning)
+                    </p>
+                    <p className="text-sm text-muted-foreground mb-2">
+                      <strong>Belopp:</strong> 10 000 - 300 000 kr
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      <strong>Villkor:</strong> Individuell prövning, kräver fast inkomst
+                    </p>
+                  </div>
+                  <Button className="fg-btn w-full">Ansök hos Northmill</Button>
+                </CardContent>
+              </Card>
+              
+              <Card>
+                <CardHeader>
+                  <div className="flex items-start justify-between">
+                    <CardTitle>Resurs Bank</CardTitle>
+                    <Badge variant="secondary">Kan acceptera anmärkning</Badge>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div>
+                    <p className="text-sm text-muted-foreground mb-2">
+                      <strong>Ränta från:</strong> 12,95% (högre vid anmärkning)
+                    </p>
+                    <p className="text-sm text-muted-foreground mb-2">
+                      <strong>Belopp:</strong> 20 000 - 400 000 kr
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      <strong>Villkor:</strong> Prövar varje fall individuellt
+                    </p>
+                  </div>
+                  <Button className="fg-btn w-full">Ansök hos Resurs</Button>
+                </CardContent>
+              </Card>
+            </div>
             
             <Alert>
               <Info className="h-5 w-5" />
