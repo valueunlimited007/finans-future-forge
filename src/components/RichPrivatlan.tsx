@@ -13,6 +13,7 @@ import CustomBreadcrumb from "./CustomBreadcrumb";
 import FinancialCalculator from "@/components/FinancialCalculator";
 import OffersContainer from "./OffersContainer";
 import ConsumerCreditWarning from "./ConsumerCreditWarning";
+import RelatedPagesCluster from "./RelatedPagesCluster";
 
 export default function RichPrivatlan() {
   const [showAllLoans, setShowAllLoans] = useState(false);
@@ -668,6 +669,18 @@ export default function RichPrivatlan() {
                 </CardContent>
               </Card>
             </div>
+          </div>
+        </section>
+
+        {/* Related Pages */}
+        <section className="py-16 px-4 bg-muted/30">
+          <div className="container mx-auto max-w-6xl">
+            <RelatedPagesCluster 
+              clusterId="privatlan" 
+              currentUrl="/privatlan"
+              title="Utforska mer om privatlån"
+              description="Läs mer om räntor, jämförelser och alternativ"
+            />
           </div>
         </section>
 

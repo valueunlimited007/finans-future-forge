@@ -11,6 +11,7 @@ import LoanGuideSteps from "./LoanGuideSteps";
 import CustomBreadcrumb from "./CustomBreadcrumb";
 import OffersContainer from "./OffersContainer";
 import ConsumerCreditWarning from "./ConsumerCreditWarning";
+import RelatedPagesCluster from "./RelatedPagesCluster";
 
 export default function RichLanUtanUc() {
   const breadcrumbItems = [
@@ -682,6 +683,18 @@ export default function RichLanUtanUc() {
                 </CardContent>
               </Card>
             </div>
+          </div>
+        </section>
+
+        {/* Related Pages */}
+        <section className="py-16 px-4 bg-muted/30">
+          <div className="container mx-auto max-w-6xl">
+            <RelatedPagesCluster 
+              clusterId="lan-utan-uc" 
+              currentUrl="/lan-utan-uc"
+              title="Utforska mer om lån"
+              description="Läs mer om privatlån och andra alternativ"
+            />
           </div>
         </section>
 

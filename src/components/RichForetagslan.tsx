@@ -12,6 +12,7 @@ import CustomBreadcrumb from "./CustomBreadcrumb";
 import FinancialCalculator from "@/components/FinancialCalculator";
 import OffersContainer from "./OffersContainer";
 import ConsumerCreditWarning from "./ConsumerCreditWarning";
+import RelatedPagesCluster from "./RelatedPagesCluster";
 
 export default function RichForetagslan() {
   const breadcrumbItems = [
@@ -906,6 +907,18 @@ export default function RichForetagslan() {
                 </div>
               </CardContent>
             </Card>
+          </div>
+        </section>
+
+        {/* Related Pages */}
+        <section className="py-16 px-4 bg-muted/30">
+          <div className="container mx-auto max-w-6xl">
+            <RelatedPagesCluster 
+              clusterId="foretagslan" 
+              currentUrl="/foretagslan"
+              title="Utforska mer om företagsfinansiering"
+              description="Läs mer om olika finansieringsalternativ för företag"
+            />
           </div>
         </section>
 

@@ -10,6 +10,7 @@ import CreditCardFAQ from "./CreditCardFAQ";
 import CreditCardGuideSteps from "./CreditCardGuideSteps";
 import CustomBreadcrumb from "./CustomBreadcrumb";
 import ConsumerCreditWarning from "./ConsumerCreditWarning";
+import RelatedPagesCluster from "./RelatedPagesCluster";
 
 export default function RichKreditkort() {
   const breadcrumbItems = [
@@ -204,6 +205,18 @@ export default function RichKreditkort() {
         <section className="py-16 px-4 bg-gray-50">
           <div className="container mx-auto max-w-4xl">
             <CreditCardFAQ />
+          </div>
+        </section>
+
+        {/* Related Pages */}
+        <section className="py-16 px-4 bg-muted/30">
+          <div className="container mx-auto max-w-6xl">
+            <RelatedPagesCluster 
+              clusterId="kreditkort" 
+              currentUrl="/kreditkort"
+              title="Utforska mer om finansiering"
+              description="Läs mer om lån och andra finansieringsalternativ"
+            />
           </div>
         </section>
 
