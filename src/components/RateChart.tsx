@@ -1,19 +1,12 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
-
-// Mock data - ersätt med riktig data från backend
-const mockRateData = [
-  { month: "Jan 2024", average: 8.5, lowest: 2.9 },
-  { month: "Feb 2024", average: 8.7, lowest: 3.0 },
-  { month: "Mar 2024", average: 8.4, lowest: 2.9 },
-  { month: "Apr 2024", average: 8.2, lowest: 2.9 },
-  { month: "Maj 2024", average: 8.0, lowest: 2.9 },
-  { month: "Jun 2024", average: 7.8, lowest: 2.9 },
-  { month: "Jul 2024", average: 7.6, lowest: 2.9 },
-  { month: "Aug 2024", average: 7.4, lowest: 2.9 },
-  { month: "Sep 2024", average: 7.2, lowest: 2.9 },
-  { month: "Okt 2024", average: 7.0, lowest: 2.9 },
-];
+import { useEffect, useState } from "react";
+import { 
+  getPartnerOffers, 
+  calculateAverageMinRate, 
+  findLowestRate,
+  generateHistoricalData 
+} from "@/lib/rateCalculations";
 
 interface RateChartProps {
   title?: string;
@@ -22,8 +15,28 @@ interface RateChartProps {
 
 export default function RateChart({ 
   title = "Ränteutveckling privatlån",
-  description = "Genomsnittlig ränta och lägsta ränta senaste 10 månaderna"
+  description = "Genomsnittlig ränta och lägsta ränta från våra partners"
 }: RateChartProps) {
+  const [rateData, setRateData] = useState<any[]>([]);
+  const [currentAverage, setCurrentAverage] = useState<number>(0);
+  const [currentLowest, setCurrentLowest] = useState<number>(0);
+  
+  useEffect(() => {
+    // Get real partner data
+    const partners = getPartnerOffers();
+    
+    if (partners.length > 0) {
+      const avgRate = calculateAverageMinRate(partners);
+      const lowestRate = findLowestRate(partners);
+      
+      setCurrentAverage(avgRate);
+      setCurrentLowest(lowestRate);
+      
+      // Generate historical trend based on current rates
+      const historicalData = generateHistoricalData(avgRate, lowestRate);
+      setRateData(historicalData);
+    }
+  }, []);
   return (
     <Card>
       <CardHeader>
@@ -31,8 +44,10 @@ export default function RateChart({
         <CardDescription>{description}</CardDescription>
       </CardHeader>
       <CardContent>
+        {rateData.length > 0 ? (
+          <>
         <ResponsiveContainer width="100%" height={400}>
-          <LineChart data={mockRateData}>
+          <LineChart data={rateData}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis 
               dataKey="month" 
@@ -71,17 +86,27 @@ export default function RateChart({
         
         <div className="mt-6 grid md:grid-cols-2 gap-4">
           <div className="p-4 bg-blue-50 dark:bg-blue-950 rounded-lg">
-            <p className="text-sm text-muted-foreground mb-1">Genomsnittlig ränta</p>
-            <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">7,0%</p>
-            <p className="text-xs text-muted-foreground mt-1">Oktober 2024</p>
+            <p className="text-sm text-muted-foreground mb-1">Genomsnittlig ränta (våra partners)</p>
+            <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">
+              {currentAverage > 0 ? `${currentAverage}%` : 'Laddar...'}
+            </p>
+            <p className="text-xs text-muted-foreground mt-1">Baserat på {getPartnerOffers().length} långivare</p>
           </div>
           
           <div className="p-4 bg-green-50 dark:bg-green-950 rounded-lg">
             <p className="text-sm text-muted-foreground mb-1">Lägsta tillgängliga ränta</p>
-            <p className="text-2xl font-bold text-green-600 dark:text-green-400">2,9%</p>
-            <p className="text-xs text-muted-foreground mt-1">Gäller vid god kreditvärdighet</p>
+            <p className="text-2xl font-bold text-green-600 dark:text-green-400">
+              {currentLowest > 0 ? `från ${currentLowest}%` : 'Laddar...'}
+            </p>
+            <p className="text-xs text-muted-foreground mt-1">Från våra samarbetspartners</p>
           </div>
         </div>
+          </>
+        ) : (
+          <div className="text-center py-8">
+            <p className="text-muted-foreground">Laddar räntedata...</p>
+          </div>
+        )}
       </CardContent>
     </Card>
   );

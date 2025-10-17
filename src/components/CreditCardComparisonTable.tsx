@@ -42,6 +42,12 @@ declare global {
   interface Window {
     FG_OFFERS?: {
       kreditkort?: OfferCard[];
+      privatlan?: any[];
+      utanUc?: any[];
+      foretagslan?: any[];
+      ovriga?: any[];
+      laneformedlare?: any[];
+      [key: string]: any;
     };
   }
 }

@@ -7,10 +7,31 @@ import RateChart from "@/components/RateChart";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { TrendingDown, TrendingUp, Calculator } from "lucide-react";
+import { Calculator, ExternalLink, Info } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { getTopPartnersByRate, parseAprRange, getPartnerOffers } from "@/lib/rateCalculations";
 
 export default function PrivatlanRantejamforelse() {
+  const [topPartners, setTopPartners] = useState<any[]>([]);
+  
+  useEffect(() => {
+    // Load partner data when component mounts
+    const loadPartners = () => {
+      const allPartners = getPartnerOffers();
+      const partners = getTopPartnersByRate(allPartners, 15);
+      setTopPartners(partners);
+    };
+    
+    // Try immediately
+    loadPartners();
+    
+    // Also try after a short delay (in case offers-schema.js loads after this component)
+    const timer = setTimeout(loadPartners, 500);
+    
+    return () => clearTimeout(timer);
+  }, []);
+  
   const breadcrumbItems = [
     { label: "Privatlån", href: "/privatlan" },
     { label: "Räntejämförelse" }
@@ -60,84 +81,93 @@ export default function PrivatlanRantejamforelse() {
         {/* Current Rates Table */}
         <section id="aktuella-rantor" className="py-16 px-4 bg-muted/30">
           <div className="container mx-auto max-w-6xl">
-            <h2 className="text-3xl font-bold text-center mb-12">
-              Aktuella räntor idag
+            <h2 className="text-3xl font-bold text-center mb-8">
+              Aktuella räntor från våra partners
             </h2>
             
-            <div className="overflow-x-auto">
-              <table className="w-full border-collapse bg-card rounded-lg shadow-sm">
-                <thead>
-                  <tr className="bg-muted">
-                    <th className="text-left p-4 border-b">Långivare</th>
-                    <th className="text-left p-4 border-b">Ränta från</th>
-                    <th className="text-left p-4 border-b">Ränta upp till</th>
-                    <th className="text-left p-4 border-b">Effektiv ränta</th>
-                    <th className="text-left p-4 border-b">Trend</th>
-                    <th className="text-center p-4 border-b">Ansök</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td className="p-4 border-b font-semibold">SEB</td>
-                    <td className="p-4 border-b">
-                      <span className="text-lg font-bold text-green-600">2,95%</span>
-                    </td>
-                    <td className="p-4 border-b">15,90%</td>
-                    <td className="p-4 border-b">3,05%</td>
-                    <td className="p-4 border-b">
-                      <Badge variant="secondary" className="gap-1">
-                        <TrendingDown className="w-3 h-3" />
-                        Sjunkit
-                      </Badge>
-                    </td>
-                    <td className="p-4 border-b text-center">
-                      <Button size="sm" className="fg-btn">Ansök</Button>
-                    </td>
-                  </tr>
-                  
-                  <tr className="bg-muted/30">
-                    <td className="p-4 border-b font-semibold">Nordea</td>
-                    <td className="p-4 border-b">
-                      <span className="text-lg font-bold text-green-600">3,15%</span>
-                    </td>
-                    <td className="p-4 border-b">16,50%</td>
-                    <td className="p-4 border-b">3,25%</td>
-                    <td className="p-4 border-b">
-                      <Badge variant="outline" className="gap-1">
-                        <TrendingUp className="w-3 h-3" />
-                        Oförändrat
-                      </Badge>
-                    </td>
-                    <td className="p-4 border-b text-center">
-                      <Button size="sm" className="fg-btn">Ansök</Button>
-                    </td>
-                  </tr>
-                  
-                  <tr>
-                    <td className="p-4 border-b font-semibold">Marginalen Bank</td>
-                    <td className="p-4 border-b">
-                      <span className="text-lg font-bold text-green-600">4,75%</span>
-                    </td>
-                    <td className="p-4 border-b">19,90%</td>
-                    <td className="p-4 border-b">5,10%</td>
-                    <td className="p-4 border-b">
-                      <Badge variant="secondary" className="gap-1">
-                        <TrendingDown className="w-3 h-3" />
-                        Sjunkit
-                      </Badge>
-                    </td>
-                    <td className="p-4 border-b text-center">
-                      <Button size="sm" className="fg-btn">Ansök</Button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+            <div className="mb-6 p-4 bg-blue-50 dark:bg-blue-950 rounded-lg flex items-start gap-3">
+              <Info className="w-5 h-5 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
+              <p className="text-sm text-muted-foreground">
+                Nedan visas räntor från de långivare vi samarbetar med på Finansguiden.se. 
+                För att se räntor från storbanker som SEB, Nordea och Swedbank, besök deras webbplatser direkt.
+              </p>
             </div>
             
-            <p className="text-sm text-muted-foreground text-center mt-6">
-              Räntorna uppdateras dagligen från långivarnas officiella webbplatser. 
-              Senast uppdaterad: {new Date().toLocaleDateString('sv-SE')}
-            </p>
+            {topPartners.length > 0 ? (
+              <>
+                <div className="overflow-x-auto">
+                  <table className="w-full border-collapse bg-card rounded-lg shadow-sm">
+                    <thead>
+                      <tr className="bg-muted">
+                        <th className="text-left p-4 border-b">Långivare</th>
+                        <th className="text-left p-4 border-b">Ränta</th>
+                        <th className="text-left p-4 border-b hidden md:table-cell">Typ</th>
+                        <th className="text-center p-4 border-b">Info</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {topPartners.map((partner, index) => {
+                        const { min, max } = parseAprRange(partner.aprFrom);
+                        return (
+                          <tr key={partner.id} className={index % 2 === 0 ? 'bg-muted/30' : ''}>
+                            <td className="p-4 border-b">
+                              <div className="flex items-center gap-3">
+                                {partner.logo && (
+                                  <img 
+                                    src={partner.logo} 
+                                    alt={`${partner.name} logo`}
+                                    className="h-8 w-auto object-contain"
+                                    loading="lazy"
+                                  />
+                                )}
+                                <span className="font-semibold">{partner.name}</span>
+                              </div>
+                            </td>
+                            <td className="p-4 border-b">
+                              <span className="text-lg font-bold text-green-600 dark:text-green-400">
+                                från {min}%
+                              </span>
+                              {max && (
+                                <span className="text-sm text-muted-foreground ml-2">
+                                  - {max}%
+                                </span>
+                              )}
+                            </td>
+                            <td className="p-4 border-b hidden md:table-cell">
+                              {partner.isComparison ? (
+                                <Badge variant="outline">Jämförelsetjänst</Badge>
+                              ) : (
+                                <Badge variant="secondary">Långivare</Badge>
+                              )}
+                            </td>
+                            <td className="p-4 border-b text-center">
+                              <a 
+                                href={partner.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
+                              >
+                                Läs mer
+                                <ExternalLink className="w-3 h-3" />
+                              </a>
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+                
+                <p className="text-sm text-muted-foreground text-center mt-6">
+                  Visar {topPartners.length} av våra samarbetspartners sorterade efter lägsta ränta. 
+                  Senast uppdaterad: {new Date().toLocaleDateString('sv-SE')}
+                </p>
+              </>
+            ) : (
+              <div className="text-center py-12">
+                <p className="text-muted-foreground">Laddar räntedata från våra partners...</p>
+              </div>
+            )}
           </div>
         </section>
 
