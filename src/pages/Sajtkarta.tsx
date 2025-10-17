@@ -62,6 +62,28 @@ export default function Sajtkarta() {
                         Jämför privatlån och hitta bästa räntan för dina behov
                       </p>
                     </Link>
+                    <ul className="ml-4 mt-2 space-y-2 text-sm">
+                      <li>
+                        <Link to="/privatlan/basta" className="text-muted-foreground hover:text-primary transition-colors">
+                          → Bästa privatlånen 2025
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/privatlan/jamfor" className="text-muted-foreground hover:text-primary transition-colors">
+                          → Jämför privatlån
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/privatlan/rantejamforelse" className="text-muted-foreground hover:text-primary transition-colors">
+                          → Räntejämförelse
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/privatlan/lan-med-betalningsanmarkning" className="text-muted-foreground hover:text-primary transition-colors">
+                          → Lån med betalningsanmärkning
+                        </Link>
+                      </li>
+                    </ul>
                   </li>
                   <li>
                     <Link 
@@ -124,6 +146,35 @@ export default function Sajtkarta() {
 
             {/* Community & Guides */}
             <section className="space-y-6">
+              <div>
+                <h2 className="text-2xl font-semibold mb-4 text-foreground border-b border-border pb-2">
+                  Låneguider
+                </h2>
+                <ul className="space-y-3">
+                  <li>
+                    <Link 
+                      to="/guider/basta-lanet" 
+                      className="block p-4 rounded-lg border border-border bg-card hover:bg-muted transition-colors"
+                    >
+                      <h3 className="font-medium text-primary">Bästa lånet - Guide</h3>
+                      <p className="text-sm text-muted-foreground mt-1">
+                        Så hittar du det bästa lånet för din situation
+                      </p>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link 
+                      to="/guider/lagst-ranta-blancolan" 
+                      className="block p-4 rounded-lg border border-border bg-card hover:bg-muted transition-colors"
+                    >
+                      <h3 className="font-medium text-primary">Lägst ränta blancolån</h3>
+                      <p className="text-sm text-muted-foreground mt-1">
+                        7 strategier för att få lägsta räntan på ditt blancolån
+                      </p>
+                    </Link>
+                  </li>
+                </ul>
+              </div>
               <div>
                 <h2 className="text-2xl font-semibold mb-4 text-foreground border-b border-border pb-2">
                   Community & Guider

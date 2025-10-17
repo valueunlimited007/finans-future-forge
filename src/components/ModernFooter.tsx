@@ -18,6 +18,16 @@ const ModernFooter: React.FC = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/privatlan/basta" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Bästa privatlånen
+                </Link>
+              </li>
+              <li>
+                <Link to="/privatlan/jamfor" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Jämför privatlån
+                </Link>
+              </li>
+              <li>
                 <Link to="/lan-utan-uc" className="text-muted-foreground hover:text-foreground transition-colors">
                   Lån utan UC
                 </Link>
@@ -78,6 +88,16 @@ const ModernFooter: React.FC = () => {
           <div>
             <h4 className="font-semibold text-foreground mb-4">Resurser</h4>
             <ul className="space-y-2 text-sm">
+              <li>
+                <Link to="/guider/basta-lanet" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Bästa lånet - Guide
+                </Link>
+              </li>
+              <li>
+                <Link to="/guider/lagst-ranta-blancolan" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Lägst ränta blancolån
+                </Link>
+              </li>
               <li>
                 <Link to="/ordlista" className="text-muted-foreground hover:text-foreground transition-colors">
                   Ordlista
