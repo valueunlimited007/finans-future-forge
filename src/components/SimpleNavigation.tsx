@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { X, Menu, Home, CreditCard, Banknote, Building2, TrendingUp, Users, BookOpen, Lightbulb, Calculator, ChevronDown } from "lucide-react";
+import { X, Menu, Home, CreditCard, Banknote, Building2, TrendingUp, Users, BookOpen, Lightbulb, Calculator, ChevronDown, CheckCircle2, AlertCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
   Collapsible,
@@ -43,14 +43,17 @@ const SimpleNavigation = () => {
   const menuCategories = {
     main: [
       { title: "Hem", href: "/", icon: Home },
-      { title: "Privatlån", href: "/privatlan", icon: Banknote, popular: true },
-      { title: "Lån utan UC", href: "/lan-utan-uc", icon: TrendingUp, popular: true },
       { title: "Låneförmedlare", href: "/laneformedlare", icon: Users },
     ],
+    privatlan: [
+      { title: "Bästa privatlån", href: "/privatlan/basta", icon: Banknote },
+      { title: "Jämför privatlån", href: "/privatlan/jamfor", icon: TrendingUp },
+      { title: "Räntor & villkor", href: "/privatlan/rantejamforelse", icon: Calculator },
+      { title: "Lån utan UC", href: "/lan-utan-uc", icon: CheckCircle2 },
+      { title: "Lån med betalningsanmärkning", href: "/privatlan/lan-med-betalningsanmarkning", icon: AlertCircle },
+    ],
     financial: [
-      { title: "Privatlån", href: "/privatlan", icon: Banknote, popular: true },
       { title: "Låneförmedlare", href: "/laneformedlare", icon: Users },
-      { title: "Lån utan UC", href: "/lan-utan-uc", icon: TrendingUp, popular: true },
       { title: "Företagslån", href: "/foretagslan", icon: Building2 },
       { title: "Kreditkort", href: "/kreditkort", icon: CreditCard },
       { title: "Andra Tjänster", href: "/andra-tjanster", icon: Building2 },
@@ -76,7 +79,8 @@ const SimpleNavigation = () => {
     ],
   };
 
-  const [financialOpen, setFinancialOpen] = useState(true);
+  const [privatlanOpen, setPrivatlanOpen] = useState(true);
+  const [financialOpen, setFinancialOpen] = useState(false);
   const [guidesOpen, setGuidesOpen] = useState(false);
   const [moreOpen, setMoreOpen] = useState(false);
 
@@ -119,15 +123,53 @@ const SimpleNavigation = () => {
                         >
                           <item.icon className="h-4 w-4" />
                           {item.title}
-                          {item.popular && (
-                            <span className="text-xs bg-green-500 text-white px-2 py-0.5 rounded ml-1">
-                              Populär
-                            </span>
-                          )}
                         </NavigationMenuLink>
                       </Link>
                     </NavigationMenuItem>
                   ))}
+
+                  {/* Privatlån Dropdown */}
+                  <NavigationMenuItem value="privatlan">
+                    <NavigationMenuTrigger 
+                      className="font-medium"
+                      onClick={() => handleMenuTriggerClick("privatlan")}
+                    >
+                      <Banknote className="h-4 w-4 mr-2" />
+                      Privatlån
+                      <span className="text-xs bg-green-500 text-white px-2 py-0.5 rounded ml-2">
+                        Populär
+                      </span>
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <ul className="grid w-[400px] gap-3 p-4 bg-background">
+                        {menuCategories.privatlan.map((item) => (
+                          <li key={item.href}>
+                            <Link
+                              to={item.href}
+                              onClick={() => {
+                                closeMobileMenu();
+                                setClickedMenu("");
+                                setDesktopMenuValue("");
+                              }}
+                              className={cn(
+                                "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors",
+                                isActive(item.href)
+                                  ? "bg-primary text-primary-foreground"
+                                  : "hover:bg-accent hover:text-accent-foreground"
+                              )}
+                            >
+                              <div className="flex items-center gap-2">
+                                <item.icon className="h-4 w-4" />
+                                <div className="text-sm font-medium leading-none">
+                                  {item.title}
+                                </div>
+                              </div>
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
 
                   {/* Guider Dropdown */}
                   <NavigationMenuItem value="guider">
@@ -250,6 +292,38 @@ const SimpleNavigation = () => {
 
             {/* Menu Items - Categorized with Accordions */}
             <nav className="p-6 space-y-4">
+              {/* Privatlån */}
+              <Collapsible open={privatlanOpen} onOpenChange={setPrivatlanOpen}>
+                <CollapsibleTrigger className="flex items-center justify-between w-full p-3 rounded-lg hover:bg-accent transition-colors">
+                  <div className="flex items-center gap-2">
+                    <Banknote className="h-5 w-5" />
+                    <span className="font-semibold text-base">Privatlån</span>
+                    <span className="text-xs bg-green-500 text-white px-2 py-0.5 rounded">
+                      Populär
+                    </span>
+                  </div>
+                  <ChevronDown className={cn("h-5 w-5 transition-transform", privatlanOpen && "rotate-180")} />
+                </CollapsibleTrigger>
+                <CollapsibleContent className="mt-2 space-y-1">
+                  {menuCategories.privatlan.map((item) => (
+                    <Link
+                      key={item.href}
+                      to={item.href}
+                      onClick={closeMobileMenu}
+                      className={cn(
+                        "flex items-center gap-3 p-3 pl-6 rounded-lg transition-all",
+                        isActive(item.href)
+                          ? "bg-primary text-primary-foreground font-semibold"
+                          : "hover:bg-accent"
+                      )}
+                    >
+                      <item.icon className="h-4 w-4" />
+                      <span className="flex-1 text-sm">{item.title}</span>
+                    </Link>
+                  ))}
+                </CollapsibleContent>
+              </Collapsible>
+
               {/* Finansiella Produkter */}
               <Collapsible open={financialOpen} onOpenChange={setFinancialOpen}>
                 <CollapsibleTrigger className="flex items-center justify-between w-full p-3 rounded-lg hover:bg-accent transition-colors">
@@ -274,11 +348,6 @@ const SimpleNavigation = () => {
                     >
                       <item.icon className="h-4 w-4" />
                       <span className="flex-1 text-sm">{item.title}</span>
-                      {item.popular && (
-                        <span className="text-xs bg-green-500 text-white px-2 py-0.5 rounded">
-                          Populär
-                        </span>
-                      )}
                     </Link>
                   ))}
                 </CollapsibleContent>
