@@ -266,13 +266,13 @@ export default function PrivatlanLanMedBetalningsanmarkning() {
         {/* FAQ */}
         <section className="py-16 px-4">
           <div className="container mx-auto max-w-4xl">
-            <h2 className="text-3xl font-bold text-center mb-12">
+            <h2 className="text-2xl font-bold text-center mb-12">
               Vanliga frågor om lån med betalningsanmärkning
             </h2>
             
-            <Accordion type="single" collapsible className="w-full">
-              <AccordionItem value="item-1">
-                <AccordionTrigger>Kan jag få lån med aktiv betalningsanmärkning?</AccordionTrigger>
+            <Accordion type="single" collapsible className="w-full space-y-2">
+              <AccordionItem value="item-1" className="border rounded-lg px-4">
+                <AccordionTrigger className="text-base">Kan jag få lån med aktiv betalningsanmärkning?</AccordionTrigger>
                 <AccordionContent>
                   <p className="mb-4">
                     Ja, det är möjligt men mycket svårt. De flesta banker och större långivare nekar 
@@ -290,8 +290,8 @@ export default function PrivatlanLanMedBetalningsanmarkning() {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="item-2">
-                <AccordionTrigger>Hur länge stannar betalningsanmärkningen kvar?</AccordionTrigger>
+              <AccordionItem value="item-2" className="border rounded-lg px-4">
+                <AccordionTrigger className="text-base">Hur länge stannar betalningsanmärkningen kvar?</AccordionTrigger>
                 <AccordionContent>
                   <p>
                     En betalningsanmärkning stannar i <strong>3 år från den dag skulden betalas</strong>. 
@@ -303,8 +303,8 @@ export default function PrivatlanLanMedBetalningsanmarkning() {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="item-3">
-                <AccordionTrigger>Kan jag få anmärkningen borttagen tidigare?</AccordionTrigger>
+              <AccordionItem value="item-3" className="border rounded-lg px-4">
+                <AccordionTrigger className="text-base">Kan jag få anmärkningen borttagen tidigare?</AccordionTrigger>
                 <AccordionContent>
                   <p className="mb-4">
                     Endast i undantagsfall:
@@ -321,8 +321,8 @@ export default function PrivatlanLanMedBetalningsanmarkning() {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="item-4">
-                <AccordionTrigger>Vad kostar det att låna med betalningsanmärkning?</AccordionTrigger>
+              <AccordionItem value="item-4" className="border rounded-lg px-4">
+                <AccordionTrigger className="text-base">Vad kostar det att låna med betalningsanmärkning?</AccordionTrigger>
                 <AccordionContent>
                   <p className="mb-4">
                     <strong>Exempel på 100 000 kr över 5 år:</strong>
