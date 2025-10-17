@@ -108,10 +108,10 @@ export default function PrivatlanRantejamforelse() {
                   <table className="w-full border-collapse bg-card rounded-lg shadow-sm">
                     <thead>
                       <tr className="bg-muted">
-                        <th className="text-left p-4 border-b">Långivare</th>
-                        <th className="text-left p-4 border-b">Ränta</th>
-                        <th className="text-left p-4 border-b hidden md:table-cell">Typ</th>
-                        <th className="text-center p-4 border-b">Info</th>
+                        <th className="text-left p-3 sm:p-4 border-b">Långivare</th>
+                        <th className="text-left p-3 sm:p-4 border-b">Ränta</th>
+                        <th className="text-left p-3 sm:p-4 border-b hidden lg:table-cell">Typ</th>
+                        <th className="text-center p-3 sm:p-4 border-b hidden md:table-cell">Info</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -119,42 +119,44 @@ export default function PrivatlanRantejamforelse() {
                         const { min, max } = parseAprRange(partner.aprFrom);
                         return (
                           <tr key={partner.id} className={index % 2 === 0 ? 'bg-muted/30' : ''}>
-                            <td className="p-4 border-b">
-                              <div className="flex items-center gap-3">
+                            <td className="p-3 sm:p-4 border-b">
+                              <div className="flex items-center gap-2 sm:gap-3">
                                 {partner.logo && (
                                   <img 
                                     src={partner.logo} 
                                     alt={`${partner.name} logo`}
-                                    className="h-8 w-auto object-contain"
+                                    className="h-6 sm:h-8 w-auto object-contain flex-shrink-0"
                                     loading="lazy"
                                   />
                                 )}
-                                <span className="font-semibold">{partner.name}</span>
+                                <span className="font-semibold text-sm sm:text-base">{partner.name}</span>
                               </div>
                             </td>
-                            <td className="p-4 border-b">
-                              <span className="text-lg font-bold text-green-600 dark:text-green-400">
-                                från {min}%
-                              </span>
-                              {max && (
-                                <span className="text-sm text-muted-foreground ml-2">
-                                  - {max}%
+                            <td className="p-3 sm:p-4 border-b whitespace-nowrap">
+                              <div className="flex flex-col sm:flex-row sm:items-baseline sm:gap-2">
+                                <span className="text-base sm:text-lg font-bold text-green-600 dark:text-green-400">
+                                  från {min}%
                                 </span>
-                              )}
+                                {max && (
+                                  <span className="text-xs sm:text-sm text-muted-foreground">
+                                    - {max}%
+                                  </span>
+                                )}
+                              </div>
                             </td>
-                            <td className="p-4 border-b hidden md:table-cell">
+                            <td className="p-3 sm:p-4 border-b hidden lg:table-cell">
                               {partner.isComparison ? (
-                                <Badge variant="outline">Jämförelsetjänst</Badge>
+                                <Badge variant="outline" className="text-xs">Jämförelsetjänst</Badge>
                               ) : (
-                                <Badge variant="secondary">Långivare</Badge>
+                                <Badge variant="secondary" className="text-xs">Långivare</Badge>
                               )}
                             </td>
-                            <td className="p-4 border-b text-center">
+                            <td className="p-3 sm:p-4 border-b text-center hidden md:table-cell">
                               <a 
                                 href={partner.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
+                                className="inline-flex items-center gap-1 text-xs sm:text-sm text-primary hover:underline"
                               >
                                 Läs mer
                                 <ExternalLink className="w-3 h-3" />
