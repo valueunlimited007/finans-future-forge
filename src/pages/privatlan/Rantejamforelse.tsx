@@ -60,8 +60,17 @@ export default function PrivatlanRantejamforelse() {
               </p>
               
               <div className="flex flex-wrap gap-4 justify-center">
-                <Button asChild size="lg" className="fg-btn text-lg px-8 shadow-lg">
-                  <Link to="#aktuella-rantor">Se aktuella räntor</Link>
+                <Button 
+                  size="lg" 
+                  className="fg-btn text-lg px-8 shadow-lg"
+                  onClick={() => {
+                    document.getElementById('aktuella-rantor')?.scrollIntoView({ 
+                      behavior: 'smooth',
+                      block: 'start'
+                    });
+                  }}
+                >
+                  Se aktuella räntor
                 </Button>
                 <Button asChild size="lg" variant="outline" className="text-lg px-8">
                   <Link to="/privatlan/basta">Se bästa lånen</Link>
