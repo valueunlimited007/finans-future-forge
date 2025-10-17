@@ -4,10 +4,11 @@ import SeoManager from "@/seo/SeoManager";
 import CustomBreadcrumb from "@/components/CustomBreadcrumb";
 import RelatedPagesCluster from "@/components/RelatedPagesCluster";
 import RateChart from "@/components/RateChart";
+import AffiliateButton from "@/components/AffiliateButton";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Calculator, ExternalLink, Info } from "lucide-react";
+import { Calculator, Info } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getTopPartnersByRate, parseAprRange, getPartnerOffers } from "@/lib/rateCalculations";
@@ -97,8 +98,9 @@ export default function PrivatlanRantejamforelse() {
             <div className="mb-6 p-4 bg-blue-50 dark:bg-blue-950 rounded-lg flex items-start gap-3">
               <Info className="w-5 h-5 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
               <p className="text-sm text-muted-foreground">
-                Nedan visas räntor från de långivare vi samarbetar med på Finansguiden.se. 
-                För att se räntor från storbanker som SEB, Nordea och Swedbank, besök deras webbplatser direkt.
+                Nedan visas räntor från långivare vi samarbetar med. Vi kan få provision 
+                om du ansöker via våra länkar. Alla jämförelser är objektiva och 
+                sorterade efter lägsta ränta först.
               </p>
             </div>
             
@@ -111,7 +113,7 @@ export default function PrivatlanRantejamforelse() {
                         <th className="text-left p-3 sm:p-4 border-b">Långivare</th>
                         <th className="text-left p-3 sm:p-4 border-b">Ränta</th>
                         <th className="text-left p-3 sm:p-4 border-b hidden lg:table-cell">Typ</th>
-                        <th className="text-center p-3 sm:p-4 border-b hidden md:table-cell">Info</th>
+                        <th className="text-center p-3 sm:p-4 border-b">Ansök</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -151,16 +153,16 @@ export default function PrivatlanRantejamforelse() {
                                 <Badge variant="secondary" className="text-xs">Långivare</Badge>
                               )}
                             </td>
-                            <td className="p-3 sm:p-4 border-b text-center hidden md:table-cell">
-                              <a 
+                            <td className="p-3 sm:p-4 border-b">
+                              <AffiliateButton
                                 href={partner.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1 text-xs sm:text-sm text-primary hover:underline"
-                              >
-                                Läs mer
-                                <ExternalLink className="w-3 h-3" />
-                              </a>
+                                label="Ansök"
+                                brandId={partner.id}
+                                brandName={partner.name}
+                                variant="default"
+                                className="w-full sm:w-auto text-xs sm:text-sm px-4 sm:px-6"
+                                showBadges={false}
+                              />
                             </td>
                           </tr>
                         );
