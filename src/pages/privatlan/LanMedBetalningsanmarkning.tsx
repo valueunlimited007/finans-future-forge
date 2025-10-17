@@ -106,7 +106,7 @@ export default function PrivatlanLanMedBetalningsanmarkning() {
             
             {/* Real Adtraction Offers */}
             <OffersContainer 
-              category="privatlån" 
+              category="privatlan" 
               limit={4}
               className="mb-8" 
             />
