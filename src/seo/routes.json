@@ -107,6 +107,142 @@
       "keywords": "privatlån, personliga lån, räntor, låneförmedlare, banker"
     }
   },
+  "/privatlan/basta": {
+    "title": "Bästa privatlån 2025 – topplista med lägst ränta",
+    "description": "Vi har jämfört 50+ långivare och rankat de bästa privatlånen. Hitta lån med lägst ränta, snabbast utbetalning och bästa villkor.",
+    "canonical": "https://finansguiden.se/privatlan/basta",
+    "ogImage": "https://finansguiden.se/images/og/privatlan.png",
+    "twitterImage": "https://finansguiden.se/images/og/privatlan.png",
+    "changefreq": "weekly",
+    "priority": 0.9,
+    "lastmod": "2025-01-17",
+    "jsonld": {
+      "@type": "ItemList",
+      "name": "Bästa privatlån 2025",
+      "description": "Topplista med de bästa privatlånen baserat på ränta, villkor och användarupplevelse",
+      "author": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/",
+        "logo": "https://finansguiden.se/finansguiden-logo-v2.png"
+      },
+      "mainEntityOfPage": "https://finansguiden.se/privatlan/basta",
+      "datePublished": "2025-01-17",
+      "dateModified": "2025-01-17",
+      "inLanguage": "sv-SE",
+      "keywords": "bästa privatlån, privatlån ranking, lägst ränta, topplista lån"
+    }
+  },
+  "/privatlan/jamfor": {
+    "title": "Jämför privatlån – interaktiv jämförelse av räntor",
+    "description": "Använd vårt jämförelseverktyg för att filtrera och hitta det privatlån som passar just dina behov. Jämför räntor, belopp och villkor.",
+    "canonical": "https://finansguiden.se/privatlan/jamfor",
+    "ogImage": "https://finansguiden.se/images/og/privatlan.png",
+    "twitterImage": "https://finansguiden.se/images/og/privatlan.png",
+    "changefreq": "weekly",
+    "priority": 0.85,
+    "lastmod": "2025-01-17",
+    "jsonld": {
+      "@type": "WebApplication",
+      "name": "Jämför privatlån",
+      "description": "Interaktivt jämförelseverktyg för privatlån med filter för ränta, belopp och villkor",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "author": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/",
+        "logo": "https://finansguiden.se/finansguiden-logo-v2.png"
+      },
+      "mainEntityOfPage": "https://finansguiden.se/privatlan/jamfor",
+      "datePublished": "2025-01-17",
+      "dateModified": "2025-01-17",
+      "inLanguage": "sv-SE",
+      "keywords": "jämför privatlån, räntejämförelse, lån jämförelse verktyg"
+    }
+  },
+  "/privatlan/rantejamforelse": {
+    "title": "Räntejämförelse privatlån – aktuella räntor 2025",
+    "description": "Se aktuella räntor och ränteutveckling för privatlån. Jämför räntor från 50+ långivare och hitta lägst ränta för din ekonomi.",
+    "canonical": "https://finansguiden.se/privatlan/rantejamforelse",
+    "ogImage": "https://finansguiden.se/images/og/privatlan.png",
+    "twitterImage": "https://finansguiden.se/images/og/privatlan.png",
+    "changefreq": "daily",
+    "priority": 0.85,
+    "lastmod": "2025-01-17",
+    "jsonld": {
+      "@type": "Article",
+      "headline": "Räntejämförelse privatlån – aktuella räntor 2025",
+      "description": "Aktuella räntor och ränteutveckling för privatlån från Sveriges långivare",
+      "author": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/",
+        "logo": "https://finansguiden.se/finansguiden-logo-v2.png"
+      },
+      "mainEntityOfPage": "https://finansguiden.se/privatlan/rantejamforelse",
+      "datePublished": "2025-01-17",
+      "dateModified": "2025-01-17",
+      "inLanguage": "sv-SE",
+      "about": {
+        "@type": "Thing",
+        "name": "Låneräntor",
+        "description": "Ränteutveckling och jämförelse av privatlåneräntor"
+      },
+      "keywords": "räntejämförelse privatlån, aktuella räntor, lägst ränta, ränteutveckling"
+    }
+  },
+  "/privatlan/lan-med-betalningsanmarkning": {
+    "title": "Lån med betalningsanmärkning – alternativ & råd 2025",
+    "description": "Har du betalningsanmärkning? Här hittar du långivare som kan godkänna din ansökan och alternativ att överväga. Viktiga råd och varningar.",
+    "canonical": "https://finansguiden.se/privatlan/lan-med-betalningsanmarkning",
+    "ogImage": "https://finansguiden.se/images/og/privatlan.png",
+    "twitterImage": "https://finansguiden.se/images/og/privatlan.png",
+    "changefreq": "monthly",
+    "priority": 0.75,
+    "lastmod": "2025-01-17",
+    "jsonld": {
+      "@type": "Article",
+      "headline": "Lån med betalningsanmärkning – alternativ & råd 2025",
+      "description": "Guide om hur du kan få lån med betalningsanmärkning, vilka långivare som kan godkänna och viktiga varningar",
+      "author": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Finansguiden.se",
+        "url": "https://finansguiden.se/",
+        "logo": "https://finansguiden.se/finansguiden-logo-v2.png"
+      },
+      "mainEntityOfPage": "https://finansguiden.se/privatlan/lan-med-betalningsanmarkning",
+      "datePublished": "2025-01-17",
+      "dateModified": "2025-01-17",
+      "inLanguage": "sv-SE",
+      "about": {
+        "@type": "Thing",
+        "name": "Betalningsanmärkning",
+        "description": "Lån och krediter vid betalningsanmärkning"
+      },
+      "keywords": "lån betalningsanmärkning, lån med anmärkning, kredit betalningsanmärkning"
+    }
+  },
   "/foretagslan": {
     "title": "Företagslån 2025 – din kompletta guide",
     "description": "Så fungerar företagslån: belopp, krav, räntor och alternativ. Jämför aktörer och finansiera verksamheten rätt.",

@@ -8,9 +8,20 @@ const GLOSSARY_TERMS = glossary
   .map((t) => ({ term: t.term, slug: t.slug, type: 'glossary' as const }))
   .sort((a, b) => b.term.length - a.term.length);
 
-// Combine internal links and glossary terms
+// New privatlan spokes
+const PRIVATLAN_SPOKES = [
+  { term: "bästa privatlån", path: "/privatlan/basta" },
+  { term: "jämför privatlån", path: "/privatlan/jamfor" },
+  { term: "räntejämförelse privatlån", path: "/privatlan/rantejamforelse" },
+  { term: "räntejämförelse", path: "/privatlan/rantejamforelse" },
+  { term: "lån med betalningsanmärkning", path: "/privatlan/lan-med-betalningsanmarkning" },
+  { term: "betalningsanmärkning", path: "/privatlan/lan-med-betalningsanmarkning" }
+];
+
+// Combine internal links, privatlan spokes and glossary terms
 const ALL_LINKABLE_TERMS = [
   ...INTERNAL_LINKS_SORTED.map(({ term, path }) => ({ term, path, type: 'internal' as const })),
+  ...PRIVATLAN_SPOKES.map(({ term, path }) => ({ term, path, type: 'internal' as const })),
   ...GLOSSARY_TERMS.map(({ term, slug }) => ({ term, path: `/ordlista/${slug}`, type: 'glossary' as const }))
 ].sort((a, b) => b.term.length - a.term.length);
 

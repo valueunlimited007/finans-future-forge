@@ -159,6 +159,25 @@ if (isKasinos) {
     priority: routes[p].priority ?? (p === '/' ? '1.0' : '0.8'),
   }));
 
+  // Add privatlan spokes (if not already in routes.json)
+  const privatlanSpokes = [
+    '/privatlan/basta',
+    '/privatlan/jamfor',
+    '/privatlan/rantejamforelse',
+    '/privatlan/lan-med-betalningsanmarkning'
+  ];
+
+  privatlanSpokes.forEach(path => {
+    if (!routes[path]) {
+      staticUrls.push({
+        loc: `${base}${path}`,
+        lastmod: now,
+        changefreq: 'weekly',
+        priority: '0.85'
+      });
+    }
+  });
+
   if (!routes['/ordlista']) {
     staticUrls.push({
       loc: `${base}/ordlista`,
