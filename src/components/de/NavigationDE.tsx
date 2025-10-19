@@ -188,11 +188,17 @@ const NavigationDE = () => {
     }
   ];
 
-  const MobileNavItem = ({ item, onClick }: { item: any; onClick?: () => void }) => (
-    <Link
-      to={item.href}
-      onClick={onClick}
-      className={cn(
+  const MobileNavItem = ({ item, onClick }: { item: any; onClick?: () => void }) => {
+    const handleClick = (e: React.MouseEvent) => {
+      console.log('🔗 MobileNavItem clicked:', item.href);
+      if (onClick) onClick(); // Close menu first
+    };
+
+    return (
+      <Link
+        to={item.href}
+        onClick={handleClick}
+        className={cn(
         "flex items-center gap-4 p-4 rounded-xl transition-all duration-200",
         "hover:bg-accent/50 active:scale-[0.98]",
         "min-h-[60px] touch-manipulation group",
@@ -223,7 +229,8 @@ const NavigationDE = () => {
         <div className="h-2 w-2 rounded-full bg-primary flex-shrink-0" />
       )}
     </Link>
-  );
+    );
+  };
 
   const NavMenuItem = ({ item }: { item: any }) => (
     <Link
@@ -351,7 +358,7 @@ const NavigationDE = () => {
         </NavigationMenu>
 
         {/* Mobile Navigation - Single unified trigger */}
-        <div className="lg:hidden flex-shrink-0 min-w-max relative z-[10000]">
+        <div className="lg:hidden flex-shrink-0 min-w-max">
           <Sheet open={isOpen} onOpenChange={handleOpenChange}>
             <SheetTrigger asChild>
               <button 
