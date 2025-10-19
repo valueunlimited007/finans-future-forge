@@ -218,13 +218,13 @@ const NavigationDE = () => {
       )}
     >
       <div className="container flex h-[80px] sm:h-[96px] md:h-[112px] lg:h-[128px] items-center justify-between px-4 min-w-full">
-        <Link to="/" className="flex flex-col items-start shrink-0 gap-1">
+        <Link to="/" className="flex items-center shrink-0 gap-2 sm:gap-3">
           <img 
             src={siteConfig.logo} 
             alt={siteConfig.name}
             className="h-8 sm:h-10 md:h-12 lg:h-14 w-auto"
           />
-          <span className="text-xs sm:text-sm text-muted-foreground">Kredite smart vergleichen</span>
+          <span className="hidden sm:inline text-xs sm:text-sm text-muted-foreground whitespace-nowrap">Kredite smart vergleichen</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -323,8 +323,8 @@ const NavigationDE = () => {
                 className="h-12 gap-2 hover:bg-accent/50 transition-colors lg:hidden"
                 aria-label="Navigationsmenü öffnen"
               >
-                <Menu className="h-5 w-5" />
                 <span className="text-sm font-medium">Menü</span>
+                <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>
             <SheetContent 
