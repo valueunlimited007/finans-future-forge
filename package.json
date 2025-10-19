@@ -10,7 +10,7 @@
     "build:kasinos": "SITE_DOMAIN=kasinos.se vite build",
 "build:finansguiden": "SITE_DOMAIN=finansguiden.se vite build",
 "build:finanzen": "SITE_DOMAIN=finanzen-guide.de vite build",
-"build:all": "npm run build:kasinos && npm run build:finansguiden && npm run build:finanzen"
+"build:all": "npm run build:kasinos && npm run build:finansguiden && npm run build:finanzen",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -85,4 +85,4 @@
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.38.0",
     "vite": "^5.4.19"
-  },
+  }
