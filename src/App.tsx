@@ -268,7 +268,7 @@ const GermanSiteWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <NavigationDESimple />
-      <main className="min-h-screen pt-[80px] sm:pt-[96px] md:pt-[112px] lg:pt-[128px]">
+      <main className="min-h-screen">
         {children}
       </main>
       <FooterDE />

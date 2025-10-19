@@ -85,13 +85,13 @@ const NavigationDESimple = () => {
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-background border-b">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-24 md:h-28 py-2">
+          <div className="flex items-center justify-between h-16 md:h-20 py-2">
             {/* Logo */}
             <Link to="/" className="flex-shrink-0">
               <img 
                 src={siteConfig.logo}
                 alt={siteConfig.name}
-                className="h-40 md:h-36 lg:h-44 -my-6 md:-my-4 lg:-my-6 w-auto"
+                className="h-12 md:h-14 lg:h-16 w-auto"
               />
             </Link>
 
@@ -450,7 +450,7 @@ const NavigationDESimple = () => {
       )}
 
       {/* Spacer to prevent content from going under fixed header */}
-      <div className="h-24 md:h-28" />
+      <div className="h-16 md:h-20" />
     </>
   );
 };
