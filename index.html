@@ -7,6 +7,33 @@
     <title>Finansguiden</title>
     <link rel="icon" href="/favicon.png" type="image/png" />
     
+    <!-- Block console advertising FIRST -->
+    <script>
+      (function() {
+        const originalLog = console.log;
+        const originalInfo = console.info;
+        const originalWarn = console.warn;
+        
+        console.log = function(...args) {
+          const msg = args.join(' ');
+          if (msg.includes('hiring') || msg.includes('lovable.dev/careers')) return;
+          originalLog.apply(console, args);
+        };
+        
+        console.info = function(...args) {
+          const msg = args.join(' ');
+          if (msg.includes('hiring') || msg.includes('lovable.dev/careers')) return;
+          originalInfo.apply(console, args);
+        };
+        
+        console.warn = function(...args) {
+          const msg = args.join(' ');
+          if (msg.includes('hiring') || msg.includes('lovable.dev/careers')) return;
+          originalWarn.apply(console, args);
+        };
+      })();
+    </script>
+    
     <!-- Load offers CSS BEFORE React for immediate styling -->
     <link rel="stylesheet" href="/css/offers-enhanced.css" />
     <script>

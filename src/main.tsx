@@ -2,6 +2,24 @@ import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 import { isCasinoSite } from './lib/siteConfig'
 
+// Block Lovable's console advertising
+const originalLog = console.log;
+const originalInfo = console.info;
+console.log = function(...args) {
+  const message = args.join(' ');
+  if (message.includes('hiring') || message.includes('lovable.dev/careers')) {
+    return; // Block the message
+  }
+  originalLog.apply(console, args);
+};
+console.info = function(...args) {
+  const message = args.join(' ');
+  if (message.includes('hiring') || message.includes('lovable.dev/careers')) {
+    return; // Block the message
+  }
+  originalInfo.apply(console, args);
+};
+
 // Async CSS loader to avoid top-level await
 async function loadStyles() {
   // Always load Tailwind last
