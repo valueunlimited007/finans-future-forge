@@ -4,7 +4,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
-import { CreditCard, Building2, TrendingDown, Shield, Search, Zap } from "lucide-react";
+import { CreditCard, Building2, TrendingDown, Shield, Search, Zap, Users, Clock, Star } from "lucide-react";
+import ConsumerCreditWarningDE from "@/components/de/ConsumerCreditWarningDE";
 
 export default function HomeDE() {
   const siteConfig = getSiteConfig();
@@ -23,7 +24,7 @@ export default function HomeDE() {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative py-20 px-4 bg-gradient-to-br from-primary/10 via-background to-primary/5">
+      <section className="relative py-20 px-4 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950 dark:to-blue-900">
         <div className="max-w-6xl mx-auto text-center">
           <Badge className="mb-4" variant="outline">
             🇩🇪 Deutschlands unabhängiger Kreditvergleich
@@ -36,12 +37,48 @@ export default function HomeDE() {
             Kostenlos, unverbindlich und TÜV-geprüft.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Button asChild size="lg">
+            <Button asChild size="lg" className="bg-blue-600 text-white hover:bg-blue-700 shadow-lg">
               <Link to="/de/ratenkredit">Ratenkredit vergleichen</Link>
             </Button>
-            <Button asChild size="lg" variant="outline">
+            <Button asChild size="lg" variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white">
               <Link to="/de/kreditkarten">Kreditkarten vergleichen</Link>
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Quick Stats */}
+      <section className="py-12 px-4 bg-muted/50 border-y">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="flex items-center justify-center mb-2">
+                <Users className="w-5 h-5 text-primary mr-2" />
+                <span className="text-3xl font-bold text-primary">20+</span>
+              </div>
+              <p className="text-sm text-muted-foreground">Banken im Vergleich</p>
+            </div>
+            <div className="text-center">
+              <div className="flex items-center justify-center mb-2">
+                <TrendingDown className="w-5 h-5 text-primary mr-2" />
+                <span className="text-3xl font-bold text-primary">ab 0,68%</span>
+              </div>
+              <p className="text-sm text-muted-foreground">eff. Jahreszins</p>
+            </div>
+            <div className="text-center">
+              <div className="flex items-center justify-center mb-2">
+                <Clock className="w-5 h-5 text-primary mr-2" />
+                <span className="text-3xl font-bold text-primary">24h</span>
+              </div>
+              <p className="text-sm text-muted-foreground">Schnelle Entscheidung</p>
+            </div>
+            <div className="text-center">
+              <div className="flex items-center justify-center mb-2">
+                <Star className="w-5 h-5 text-primary mr-2" />
+                <span className="text-3xl font-bold text-primary">4.8/5</span>
+              </div>
+              <p className="text-sm text-muted-foreground">Kundenbewertung</p>
+            </div>
           </div>
         </div>
       </section>
@@ -192,6 +229,9 @@ export default function HomeDE() {
         </div>
       </section>
 
+      {/* Consumer Credit Warning */}
+      <ConsumerCreditWarningDE />
+
       {/* Popular Topics */}
       <section className="py-16 px-4 bg-background">
         <div className="max-w-6xl mx-auto">
@@ -218,7 +258,7 @@ export default function HomeDE() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 bg-primary/5">
+      <section className="py-16 px-4 bg-blue-50 dark:bg-blue-950">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6">Bereit für Ihren Kredit?</h2>
           <p className="text-xl text-muted-foreground mb-8">
