@@ -357,19 +357,24 @@ const NavigationDE = () => {
           </NavigationMenuList>
         </NavigationMenu>
 
-        {/* Mobile Navigation - Single unified trigger */}
+        {/* Mobile Navigation - Manual trigger (Fas 5) */}
         <div className="lg:hidden flex-shrink-0 min-w-max">
+          <button 
+            type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              console.log('🔘 Manual trigger clicked, current state:', isOpen);
+              setIsOpen(true);
+            }}
+            className="inline-flex items-center gap-2 h-12 px-4 rounded-md text-sm font-medium hover:bg-accent/50 transition-colors"
+            aria-label="Navigationsmenü öffnen"
+          >
+            <Menu className="h-5 w-5" />
+            <span className="text-sm font-medium">Menü</span>
+          </button>
+          
           <Sheet open={isOpen} onOpenChange={handleOpenChange}>
-            <SheetTrigger asChild>
-              <button 
-                type="button"
-                className="inline-flex items-center gap-2 h-12 px-4 rounded-md text-sm font-medium hover:bg-accent/50 transition-colors"
-                aria-label="Navigationsmenü öffnen"
-              >
-                <Menu className="h-5 w-5" />
-                <span className="text-sm font-medium">Menü</span>
-              </button>
-            </SheetTrigger>
             <SheetContent 
               side="right" 
               className="w-[320px] sm:w-[400px] max-h-screen overflow-y-auto border-0 bg-background p-0" 
