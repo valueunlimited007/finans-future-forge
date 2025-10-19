@@ -70,7 +70,7 @@ import AutoKostenDE from "./pages/de/ratgeber/Auto-Kosten";
 import BankenVergleichDE from "./pages/de/ratgeber/Banken-Vergleich";
 import ImmobilienmarktDE from "./pages/de/ratgeber/Immobilienmarkt";
 import DeutscheEinkommenDE from "./pages/de/ratgeber/Deutsche-Einkommen";
-import NavigationDE from "./components/de/NavigationDE";
+import NavigationDEv2 from "./components/de/NavigationDEv2";
 import FooterDE from "./components/de/FooterDE";
 
 // Casino components
@@ -267,7 +267,7 @@ const KasinosSitePage = ({ children }: { children: React.ReactNode }) => {
 const GermanSiteWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
-      <NavigationDE />
+      <NavigationDEv2 />
       <main className="min-h-screen pt-[80px] sm:pt-[96px] md:pt-[112px] lg:pt-[128px]">
         {children}
       </main>

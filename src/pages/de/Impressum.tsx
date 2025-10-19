@@ -24,10 +24,10 @@ export default function ImpressumDE() {
           <CardContent className="space-y-4">
             <div>
               <p className="font-semibold">Betreiber:</p>
-              <p>[FÖRETAGSNAMN]</p>
-              <p>[FÖRETAGSADRESS]</p>
-              <p>[POSTNUMMER OCH ORT]</p>
-              <p>Deutschland</p>
+              <p>Value Unlimited</p>
+              <p>Arenavägen 29</p>
+              <p>Stockholm, Sweden</p>
+              <p>Schweden</p>
             </div>
 
             <div>
@@ -36,27 +36,9 @@ export default function ImpressumDE() {
             </div>
 
             <div>
-              <p className="font-semibold">Registereintrag:</p>
-              <p>Handelsregister: [HANDELSREGISTER-NUMMER]</p>
-              <p>Registergericht: [REGISTERGERICHT]</p>
-            </div>
-
-            <div>
               <p className="font-semibold">Umsatzsteuer-ID:</p>
-              <p>Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: [UST-ID]</p>
+              <p>Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: SE556936876301</p>
             </div>
-          </CardContent>
-        </Card>
-
-        <Card className="mb-8">
-          <CardHeader>
-            <CardTitle>Verantwortlich für den Inhalt gemäß § 55 Abs. 2 RStV</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p>[ANSVARLIG PERSON]</p>
-            <p>[FÖRETAGSADRESS]</p>
-            <p>[POSTNUMMER OCH ORT]</p>
-            <p>Deutschland</p>
           </CardContent>
         </Card>
 
