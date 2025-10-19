@@ -13,6 +13,14 @@ export class CasinoAnalytics {
 
   constructor() {
     if (typeof window !== 'undefined') {
+      // Only initialize on casino site - prevent leak to other sites
+      const isCasino = /(^|\.)kasinos\.se$/i.test(window.location.hostname);
+      if (!isCasino) {
+        if (this.debugMode) {
+          console.info('[CasinoAnalytics] Not a casino site, skipping initialization');
+        }
+        return; // Early exit for non-casino sites
+      }
       this.initializeAnalytics();
     }
   }
@@ -64,6 +72,10 @@ export class CasinoAnalytics {
   }
 
   private initializeCasinoTracking() {
+    // Double-check we're on casino site before setting up tracking
+    const isCasino = /(^|\.)kasinos\.se$/i.test(window.location.hostname);
+    if (!isCasino) return;
+    
     // Custom casino-specific tracking
     this.trackPageView();
     this.setupScrollTracking();

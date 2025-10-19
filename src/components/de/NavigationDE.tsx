@@ -45,30 +45,10 @@ const NavigationDE = () => {
     return () => document.removeEventListener('keydown', handleEscape);
   }, [isOpen]);
 
-  // Debug and scroll sheet content to top when menu opens
+  // Scroll sheet content to top when menu opens
   useEffect(() => {
-    console.log('🔍 [DE Menu] isOpen changed:', isOpen);
     if (isOpen) {
       const sheetContent = document.querySelector('[data-sheet-content]');
-      const portal = document.querySelector('[role="dialog"]');
-      const overlay = document.querySelector('[data-radix-dialog-overlay]');
-      
-      console.log('🔍 [DE Menu] Sheet content:', sheetContent);
-      console.log('🔍 [DE Menu] Portal:', portal);
-      console.log('🔍 [DE Menu] Overlay:', overlay);
-      
-      if (portal) {
-        const styles = window.getComputedStyle(portal);
-        console.log('🔍 [DE Menu] Portal styles:', {
-          position: styles.position,
-          transform: styles.transform,
-          opacity: styles.opacity,
-          zIndex: styles.zIndex,
-          display: styles.display,
-          visibility: styles.visibility
-        });
-      }
-      
       if (sheetContent) {
         sheetContent.scrollTop = 0;
       }
