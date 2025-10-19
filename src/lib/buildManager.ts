@@ -77,77 +77,12 @@ class BuildManager {
   async generateSEOFiles(site: SiteLabel): Promise<BuildResult> {
     const siteInfo = this.getSiteInfo(site);
     
-    this.emit({
-      site,
-      status: 'building',
-      message: `Generating SEO files for ${siteInfo.domain}...`,
-      progress: 10,
-    });
-
-    try {
-      await new Promise(resolve => setTimeout(resolve, 500));
-      
-      this.emit({
-        site,
-        status: 'building',
-        message: 'Generating sitemap.xml...',
-        progress: 30,
-      });
-      
-      await new Promise(resolve => setTimeout(resolve, 500));
-      
-      this.emit({
-        site,
-        status: 'building',
-        message: 'Generating robots.txt...',
-        progress: 60,
-      });
-      
-      await new Promise(resolve => setTimeout(resolve, 500));
-      
-      this.emit({
-        site,
-        status: 'building',
-        message: 'Generating llms.txt...',
-        progress: 90,
-      });
-      
-      await new Promise(resolve => setTimeout(resolve, 300));
-
-      this.emit({
-        site,
-        status: 'success',
-        message: 'SEO files generated successfully!',
-        progress: 100,
-      });
-
-      return {
-        success: true,
-        message: `SEO files generated for ${siteInfo.domain}`,
-        timestamp: new Date(),
-        files: [
-          'public/sitemap.xml',
-          'public/robots.txt',
-          'public/llms.txt',
-          'public/.well-known/security.txt',
-        ],
-      };
-    } catch (error) {
-      this.emit({
-        site,
-        status: 'error',
-        message: `Error: ${error instanceof Error ? error.message : 'Unknown error'}`,
-        progress: 0,
-      });
-
-      return {
-        success: false,
-        message: `Failed to generate SEO files: ${error instanceof Error ? error.message : 'Unknown error'}`,
-        timestamp: new Date(),
-        files: [],
-        errors: [error instanceof Error ? error.message : 'Unknown error'],
-      };
-    }
+    return {
+      success: true,
+      message: `Kör "npm run build:${site}" i terminalen för att generera SEO-filer för ${siteInfo.domain}`,
+      timestamp: new Date(),
+      files: [],
+    };
   }
 
   async validateSiteConfig(site: SiteLabel): Promise<{ valid: boolean; issues: string[] }> {
