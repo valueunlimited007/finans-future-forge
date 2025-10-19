@@ -5,12 +5,18 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import AffiliateButton from "@/components/AffiliateButton";
+import CustomBreadcrumb from "@/components/CustomBreadcrumb";
 import { Link } from "react-router-dom";
 import { TrendingDown, Shield, Zap, CheckCircle2 } from "lucide-react";
 
 export default function RatenkreditDE() {
   const siteConfig = getSiteConfig();
   const partners = getAllRatenkredite();
+
+  const breadcrumbItems = [
+    { label: "Startseite", href: "/" },
+    { label: "Ratenkredite", href: "/ratenkredit" }
+  ];
 
   return (
     <>
@@ -58,6 +64,13 @@ export default function RatenkreditDE() {
           })}
         </script>
       </Helmet>
+
+      {/* Breadcrumbs */}
+      <div className="bg-muted/30 py-4">
+        <div className="container mx-auto max-w-6xl px-4">
+          <CustomBreadcrumb items={breadcrumbItems} />
+        </div>
+      </div>
 
       {/* Hero Section */}
       <section className="py-16 px-4 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950 dark:to-blue-900">

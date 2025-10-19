@@ -6,11 +6,17 @@ import { BookOpen, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { getGlossaryByLetter } from "@/data/glossary-de";
+import CustomBreadcrumb from "@/components/CustomBreadcrumb";
 
 export default function GlossarDE() {
   const siteConfig = getSiteConfig();
   const [searchQuery, setSearchQuery] = useState("");
   const allTerms = getGlossaryByLetter();
+
+  const breadcrumbItems = [
+    { label: "Startseite", href: "/" },
+    { label: "Glossar", href: "/glossar" }
+  ];
 
   const filteredTerms = allTerms.map(group => ({
     ...group,
@@ -34,6 +40,13 @@ export default function GlossarDE() {
         <meta property="og:type" content="website" />
         <link rel="canonical" href={`https://${siteConfig.domain}/glossar`} />
       </Helmet>
+
+      {/* Breadcrumbs */}
+      <div className="bg-muted/30 py-4">
+        <div className="container mx-auto max-w-6xl px-4">
+          <CustomBreadcrumb items={breadcrumbItems} />
+        </div>
+      </div>
 
       <div className="container mx-auto max-w-6xl px-4 py-16">
         {/* Hero Section */}
