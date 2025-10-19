@@ -33,6 +33,28 @@ const NavigationDE = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
+  // Handle escape key
+  useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && isOpen) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [isOpen]);
+
+  // Scroll sheet content to top when menu opens
+  useEffect(() => {
+    if (isOpen) {
+      const sheetContent = document.querySelector('[data-sheet-content]');
+      if (sheetContent) {
+        sheetContent.scrollTop = 0;
+      }
+    }
+  }, [isOpen]);
+
   const isActivePath = (path: string) => location.pathname === path;
 
   const loanProducts = [
@@ -230,20 +252,19 @@ const NavigationDE = () => {
           </NavigationMenuList>
         </NavigationMenu>
 
-        {/* Mobile Navigation - Single unified trigger */}
-        <div className="lg:hidden flex-shrink-0 min-w-max relative z-[10000]">
-          <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild>
-              <Button 
-                variant="ghost"
-                size="lg"
-                className="h-12 gap-2 hover:bg-accent/50 transition-colors lg:hidden"
-                aria-label="Navigationsmenü öffnen"
-              >
-                <Menu className="h-5 w-5" />
-                <span className="text-sm font-medium">Menü</span>
-              </Button>
-            </SheetTrigger>
+        {/* Mobile Navigation */}
+        <Sheet open={isOpen} onOpenChange={setIsOpen}>
+          <SheetTrigger asChild>
+            <Button 
+              variant="ghost"
+              size="lg"
+              className="h-12 gap-2 hover:bg-accent/50 transition-colors lg:hidden relative z-[10000]"
+              aria-label="Navigationsmenü öffnen"
+            >
+              <Menu className="h-5 w-5" />
+              <span className="text-sm font-medium">Menü</span>
+            </Button>
+          </SheetTrigger>
             <SheetContent 
               side="right" 
               className="w-[320px] sm:w-[400px] max-h-screen overflow-y-auto border-0 bg-background p-0" 
@@ -347,8 +368,7 @@ const NavigationDE = () => {
               </Link>
               </div>
             </SheetContent>
-          </Sheet>
-        </div>
+        </Sheet>
       </div>
     </header>
   );
