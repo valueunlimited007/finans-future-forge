@@ -33,11 +33,50 @@ const NavigationDE = () => {
   const siteConfig = getSiteConfig();
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const [scrollDirection, setScrollDirection] = useState<'up' | 'down' | null>(null);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
-  // DEBUG: Log state changes
+  // Handle escape key to close mobile menu
   useEffect(() => {
-    console.log('=== NavigationDE Sheet State ===', { isOpen });
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && isOpen) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
   }, [isOpen]);
+
+  // Scroll mobile menu to top when opened
+  useEffect(() => {
+    if (isOpen) {
+      const sheetContent = document.querySelector('[data-sheet-content]');
+      if (sheetContent) {
+        sheetContent.scrollTop = 0;
+      }
+    }
+  }, [isOpen]);
+
+  // Smart header: hide on scroll down, show on scroll up
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      if (Math.abs(currentScrollY - lastScrollY) < 10) return;
+      
+      if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        setScrollDirection('down');
+      } else if (currentScrollY < lastScrollY) {
+        setScrollDirection('up');
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
 
   const isActivePath = (path: string) => {
     return location.pathname === path;
@@ -190,8 +229,11 @@ const NavigationDE = () => {
 
   return (
     <header 
-      data-minimal-test="v1.0"
-      className="fixed top-0 z-50 w-full bg-background border-b"
+      data-version="v2.1"
+      className={cn(
+        "fixed top-0 z-[9999] w-full bg-background backdrop-blur-sm border-b transition-transform duration-300",
+        scrollDirection === 'down' ? "-translate-y-full" : "translate-y-0"
+      )}
     >
       <div className="container flex h-[80px] sm:h-[96px] md:h-[112px] lg:h-[128px] items-center justify-between px-4 min-w-full">
         <Link to="/" className="flex items-center shrink-0 gap-3">
@@ -291,61 +333,115 @@ const NavigationDE = () => {
           </NavigationMenuList>
         </NavigationMenu>
 
-        {/* Mobile Navigation - MINIMAL TEST */}
-        <div className="lg:hidden">
-          <Sheet open={isOpen} onOpenChange={(open) => {
-            console.log('=== Sheet onOpenChange ===', { open });
-            setIsOpen(open);
-          }}>
+        {/* Mobile Navigation - Single unified trigger */}
+        <div className="lg:hidden flex-shrink-0 min-w-max relative z-[10000]">
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <Button 
-                variant="outline"
-                className="lg:hidden"
-                onClick={() => console.log('=== Trigger clicked ===')}
+                variant="ghost"
+                size="lg"
+                className="h-12 gap-2 hover:bg-accent/50 transition-colors lg:hidden"
+                aria-label="Navigationsmenü öffnen"
               >
-                <Menu className="h-5 w-5 mr-2" />
-                Menü
+                <Menu className="h-5 w-5" />
+                <span className="text-sm font-medium">Menü</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px]">
-              <SheetTitle>Navigation</SheetTitle>
-              <SheetDescription>Menü</SheetDescription>
+            <SheetContent 
+              side="right" 
+              className="w-[320px] sm:w-[400px] max-h-screen overflow-y-auto border-0 bg-background p-0" 
+              data-sheet-content
+              data-debug-visible="true"
+            >
+              {/* Accessibility requirements */}
+              <SheetTitle className="sr-only">Navigationsmenü</SheetTitle>
+              <SheetDescription className="sr-only">
+                Hauptnavigation für Finanzen-Guide.de mit Links zu Krediten und Kreditkarten
+              </SheetDescription>
               
-              <div className="mt-8 space-y-4">
+              {/* Header in menu */}
+              <div className="sticky top-0 bg-background border-b border-border p-6 pb-4">
+                <div className="flex items-center gap-3">
+                  <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Menu className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <h2 className="font-semibold text-lg text-foreground">Menü</h2>
+                    <p className="text-sm text-muted-foreground">Finanzen-Guide.de</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-col px-6 pb-20 space-y-6">
+                {/* Home Link */}
                 <Link
                   to="/"
                   onClick={() => setIsOpen(false)}
-                  className="block p-4 hover:bg-accent rounded-lg"
+                  className={cn(
+                    "flex items-center gap-4 p-4 rounded-xl transition-all duration-200",
+                    "hover:bg-primary/5 active:scale-[0.98]",
+                    "min-h-[60px] touch-manipulation",
+                    isActivePath("/") && "bg-primary/10 text-primary font-medium border border-primary/20"
+                  )}
                 >
-                  Startseite
+                  <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Home className="h-5 w-5 text-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <span className="font-medium text-base">Startseite</span>
+                    <p className="text-sm text-muted-foreground">Übersicht und Aktuelles</p>
+                  </div>
+                  {isActivePath("/") && (
+                    <div className="h-2 w-2 rounded-full bg-primary flex-shrink-0" />
+                  )}
                 </Link>
-                
-                <div className="space-y-2">
-                  <h3 className="font-semibold text-sm">Kredite & Karten</h3>
-                  {loanProducts.map((item) => (
-                    <Link
-                      key={item.href}
-                      to={item.href}
-                      onClick={() => setIsOpen(false)}
-                      className="block p-3 hover:bg-accent rounded-lg"
-                    >
-                      {item.title}
-                    </Link>
-                  ))}
+
+                {/* Loan Products Section */}
+                <div className="space-y-3">
+                  <div className="flex items-center gap-2 px-1 py-1">
+                    <div className="h-1 w-6 rounded-full bg-blue-500/60"></div>
+                    <h3 className="font-medium text-sm text-foreground/80 uppercase tracking-wide">
+                      Kredite & Karten
+                    </h3>
+                    <div className="flex-1 h-px bg-border/50"></div>
+                  </div>
+                  <div className="space-y-2">
+                    {loanProducts.map((item) => (
+                      <MobileNavItem key={item.href} item={item} onClick={() => setIsOpen(false)} />
+                    ))}
+                  </div>
                 </div>
 
-                <div className="space-y-2">
-                  <h3 className="font-semibold text-sm">Ratgeber</h3>
-                  {ratgeber.slice(0, 3).map((item) => (
-                    <Link
-                      key={item.href}
-                      to={item.href}
-                      onClick={() => setIsOpen(false)}
-                      className="block p-3 hover:bg-accent rounded-lg"
-                    >
-                      {item.title}
-                    </Link>
-                  ))}
+                {/* Ratgeber Section */}
+                <div className="space-y-3">
+                  <div className="flex items-center gap-2 px-1 py-1">
+                    <div className="h-1 w-6 rounded-full bg-green-500/60"></div>
+                    <h3 className="font-medium text-sm text-foreground/80 uppercase tracking-wide">
+                      Ratgeber
+                    </h3>
+                    <div className="flex-1 h-px bg-border/50"></div>
+                  </div>
+                  <div className="space-y-2">
+                    {ratgeber.map((item) => (
+                      <MobileNavItem key={item.href} item={item} onClick={() => setIsOpen(false)} />
+                    ))}
+                  </div>
+                </div>
+
+                {/* Resources Section */}
+                <div className="space-y-3">
+                  <div className="flex items-center gap-2 px-1 py-1">
+                    <div className="h-1 w-6 rounded-full bg-purple-500/60"></div>
+                    <h3 className="font-medium text-sm text-foreground/80 uppercase tracking-wide">
+                      Ressourcen
+                    </h3>
+                    <div className="flex-1 h-px bg-border/50"></div>
+                  </div>
+                  <div className="space-y-2">
+                    {resources.map((item) => (
+                      <MobileNavItem key={item.href} item={item} onClick={() => setIsOpen(false)} />
+                    ))}
+                  </div>
                 </div>
               </div>
             </SheetContent>
