@@ -5,7 +5,7 @@ export default function ConsumerCreditWarningDE() {
   return (
     <Alert variant="default" className="my-8 max-w-6xl mx-auto border-2 border-red-600 bg-background">
       <AlertTriangle className="h-10 w-10 flex-shrink-0 text-red-600" />
-      <div>
+      <div className="pl-4">
         <AlertTitle className="text-lg font-bold text-foreground">
           Achtung: Kredite kosten Geld!
         </AlertTitle>
