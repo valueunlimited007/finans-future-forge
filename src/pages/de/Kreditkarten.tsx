@@ -15,13 +15,42 @@ export default function KreditkartenDE() {
   return (
     <>
       <Helmet>
-        <title>Kreditkarten Vergleich 2025 - Kostenlos & mit Cashback | {siteConfig.name}</title>
+        <html lang="de" />
+        <title>Kreditkarten Vergleich 2025 - Kostenlos & Cashback | {siteConfig.name}</title>
         <meta 
           name="description" 
-          content="Vergleichen Sie die besten Kreditkarten in Deutschland. Kostenlose Karten, Cashback-Programme, Versicherungen. Jetzt beantragen!" 
+          content="Kreditkarten Vergleich Deutschland: Kostenlose Karten, Cashback bis 5%, Versicherungsschutz. Keine Jahresgebühr, weltweit akzeptiert. Jetzt vergleichen & beantragen!" 
         />
-        <meta property="og:title" content="Kreditkarten Vergleich - Finden Sie die perfekte Karte" />
+        <meta name="keywords" content="Kreditkarte kostenlos, Cashback Kreditkarte, beste Kreditkarte Deutschland, Kreditkarte ohne Gebühr, Visa Mastercard Vergleich, Prepaid Kreditkarte" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="Kreditkarten Vergleich 2025 - Kostenlos & mit Cashback" />
+        <meta property="og:description" content="Die besten Kreditkarten in Deutschland. Kostenlos, Cashback-Programme, Versicherungen. Jetzt vergleichen!" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`https://${siteConfig.domain}/kreditkarten`} />
+        <meta property="og:site_name" content={siteConfig.name} />
+        <meta property="og:locale" content="de_DE" />
+        
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Kreditkarten Vergleich - Kostenlos & Cashback" />
+        <meta name="twitter:description" content="Finden Sie die perfekte Kreditkarte. Kostenlos, weltweit akzeptiert, mit Cashback." />
+        
         <link rel="canonical" href={`https://${siteConfig.domain}/kreditkarten`} />
+        
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "serviceType": "Kreditkarten Vergleich",
+            "provider": {
+              "@type": "FinancialService",
+              "name": siteConfig.name
+            },
+            "areaServed": "DE"
+          })}
+        </script>
       </Helmet>
 
       {/* Hero Section */}

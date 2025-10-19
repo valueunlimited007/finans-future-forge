@@ -15,13 +15,48 @@ export default function UnternehmenskreditDE() {
   return (
     <>
       <Helmet>
-        <title>Unternehmenskredit Vergleich 2025 - Schnelle Finanzierung | {siteConfig.name}</title>
+        <html lang="de" />
+        <title>Unternehmenskredit Vergleich 2025 - Zusage in 24h | {siteConfig.name}</title>
         <meta 
           name="description" 
-          content="Unternehmenskredit ab 5.000 € - Entscheidung in 24 Stunden. Flexible Rückzahlung, keine versteckten Gebühren. Jetzt vergleichen!" 
+          content="Unternehmenskredit ab 5.000 € - Schnelle Entscheidung in 24 Stunden. Flexible Rückzahlung, bis 500.000 €, keine versteckten Gebühren. Jetzt Finanzierung sichern!" 
         />
-        <meta property="og:title" content="Unternehmenskredit - Schnelle Finanzierung für Ihr Business" />
+        <meta name="keywords" content="Unternehmenskredit, Firmenkredit, Geschäftskredit, Kredit für Selbstständige, Betriebsmittelkredit, Investitionskredit, schnelle Unternehmensfinanzierung" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="Unternehmenskredit Vergleich - Schnelle Finanzierung in 24h" />
+        <meta property="og:description" content="Unternehmenskredit ab 5.000 €. Entscheidung in 24 Stunden, flexible Rückzahlung, transparente Konditionen." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`https://${siteConfig.domain}/unternehmenskredit`} />
+        <meta property="og:site_name" content={siteConfig.name} />
+        <meta property="og:locale" content="de_DE" />
+        
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Unternehmenskredit - Zusage in 24h" />
+        <meta name="twitter:description" content="Schnelle Finanzierung für Ihr Unternehmen. Bis 500.000 €, flexible Rückzahlung." />
+        
         <link rel="canonical" href={`https://${siteConfig.domain}/unternehmenskredit`} />
+        
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "serviceType": "Unternehmenskredit Vergleich",
+            "provider": {
+              "@type": "FinancialService",
+              "name": siteConfig.name
+            },
+            "areaServed": "DE",
+            "offers": {
+              "@type": "AggregateOffer",
+              "lowPrice": "5000",
+              "highPrice": "500000",
+              "priceCurrency": "EUR"
+            }
+          })}
+        </script>
       </Helmet>
 
       {/* Hero Section */}

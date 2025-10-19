@@ -14,11 +14,26 @@ export default function RatenkreditZinsenDE() {
   return (
     <>
       <Helmet>
-        <title>Ratenkredit Zinsvergleich 2025 - Aktuelle Zinsen | {siteConfig.name}</title>
+        <html lang="de" />
+        <title>Ratenkredit Zinsen 2025 - Aktueller Zinsvergleich | {siteConfig.name}</title>
         <meta 
           name="description" 
-          content="Aktuelle Ratenkredit Zinsen 2025 im Vergleich ✓ Effektivzins ab 0,68% ✓ Zinsrechner ✓ Zinsen verstehen. Finden Sie den günstigsten Kredit!" 
+          content="Aktuelle Ratenkredit Zinsen 2025 im Vergleich: Effektivzins ab 0,68%. Zinsentwicklung verstehen, Zinsen sparen. Kostenloser Zinsrechner & Tipps für günstige Zinsen." 
         />
+        <meta name="keywords" content="Ratenkredit Zinsen, Effektivzins, Zinsvergleich, Kreditzinsen 2025, günstige Zinsen, Zinsentwicklung, Nominalzins" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="Ratenkredit Zinsen 2025 - Aktueller Zinsvergleich" />
+        <meta property="og:description" content="Vergleichen Sie aktuelle Kreditzinsen von über 20 Banken. Ab 0,68% Effektivzins." />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://${siteConfig.domain}/ratenkredit/zinsen`} />
+        <meta property="og:locale" content="de_DE" />
+        
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Ratenkredit Zinsen 2025 Vergleich" />
+        <meta name="twitter:description" content="Aktuelle Zinsen ab 0,68%. Tipps für günstigere Konditionen." />
+        
         <link rel="canonical" href={`https://${siteConfig.domain}/ratenkredit/zinsen`} />
       </Helmet>
 

@@ -15,13 +15,48 @@ export default function RatenkreditDE() {
   return (
     <>
       <Helmet>
-        <title>Ratenkredit Vergleich 2025 - Beste Zinsen ab 0,68% | {siteConfig.name}</title>
+        <html lang="de" />
+        <title>Ratenkredit Vergleich 2025 - Zinsen ab 0,68% | {siteConfig.name}</title>
         <meta 
           name="description" 
-          content="Vergleichen Sie Ratenkredite von über 20 Banken. Zinsen ab 0,68% eff. Jahreszins. Schnelle Entscheidung, kostenlos & unverbindlich. TÜV-geprüft." 
+          content="Ratenkredit Vergleich: Über 20 Banken, Zinsen ab 0,68% eff. Jahreszins. Schnelle Entscheidung in 24h, kostenlose Sondertilgung. TÜV-geprüft & SCHUFA-neutral vergleichen." 
         />
-        <meta property="og:title" content="Ratenkredit Vergleich - Beste Zinsen finden" />
+        <meta name="keywords" content="Ratenkredit, Kredit Vergleich, günstigster Kredit, Kredit 0,68%, Privatkredit, Sofortkredit, Online Kredit Deutschland, beste Zinsen" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="Ratenkredit Vergleich 2025 - Beste Zinsen ab 0,68%" />
+        <meta property="og:description" content="Vergleichen Sie Ratenkredite von über 20 Banken. Schnelle Entscheidung, kostenlos & unverbindlich." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`https://${siteConfig.domain}/ratenkredit`} />
+        <meta property="og:site_name" content={siteConfig.name} />
+        <meta property="og:locale" content="de_DE" />
+        
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Ratenkredit Vergleich - Zinsen ab 0,68%" />
+        <meta name="twitter:description" content="Über 20 Banken vergleichen. Schnelle Entscheidung in 24h. Kostenlos & unverbindlich." />
+        
         <link rel="canonical" href={`https://${siteConfig.domain}/ratenkredit`} />
+        
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "serviceType": "Ratenkredit Vergleich",
+            "provider": {
+              "@type": "FinancialService",
+              "name": siteConfig.name
+            },
+            "areaServed": "DE",
+            "offers": {
+              "@type": "AggregateOffer",
+              "lowPrice": "0.68",
+              "priceCurrency": "EUR",
+              "description": "Effektiver Jahreszins ab 0,68%"
+            }
+          })}
+        </script>
       </Helmet>
 
       {/* Hero Section */}

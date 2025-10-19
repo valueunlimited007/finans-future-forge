@@ -15,11 +15,26 @@ export default function BestRatenkreditDE() {
   return (
     <>
       <Helmet>
-        <title>Beste Ratenkredite 2025 - Top 5 Anbieter im Test | {siteConfig.name}</title>
+        <html lang="de" />
+        <title>Beste Ratenkredite 2025 - Top 5 im Test | {siteConfig.name}</title>
         <meta 
           name="description" 
-          content="Die 5 besten Ratenkredite 2025 im Test ✓ Niedrigste Zinsen ✓ Beste Konditionen ✓ TÜV-geprüft ✓ Schnelle Auszahlung. Jetzt vergleichen!" 
+          content="Die 5 besten Ratenkredite 2025 im Test: Niedrigste Zinsen, beste Konditionen, schnelle Auszahlung. TÜV-geprüfte Anbieter im Vergleich. Jetzt Testsieger finden!" 
         />
+        <meta name="keywords" content="beste Ratenkredite, Testsieger Kredit 2025, Kreditvergleich Test, günstigster Kredit, Ratenkredit Empfehlung" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="Beste Ratenkredite 2025 - Top 5 Anbieter im Test" />
+        <meta property="og:description" content="TÜV-geprüfte Ratenkredite mit niedrigsten Zinsen. Testsieger und Top-Angebote 2025 im Vergleich." />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://${siteConfig.domain}/ratenkredit/beste`} />
+        <meta property="og:locale" content="de_DE" />
+        
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Beste Ratenkredite 2025 - Top 5 im Test" />
+        <meta name="twitter:description" content="Die 5 besten Ratenkredite mit niedrigsten Zinsen und besten Konditionen." />
+        
         <link rel="canonical" href={`https://${siteConfig.domain}/ratenkredit/beste`} />
       </Helmet>
 

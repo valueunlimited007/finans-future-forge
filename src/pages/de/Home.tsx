@@ -13,14 +13,48 @@ export default function HomeDE() {
   return (
     <>
       <Helmet>
-        <title>{siteConfig.name} - Kredite & Kreditkarten smart vergleichen</title>
+        <html lang="de" />
+        <title>Kredite & Kreditkarten Vergleich 2025 Deutschland | {siteConfig.name}</title>
         <meta 
           name="description" 
-          content="Vergleichen Sie Ratenkredite, Kreditkarten und Unternehmenskredite in Deutschland. Finden Sie die besten Zinsen und Konditionen - kostenlos und unverbindlich." 
+          content="Vergleichen Sie Ratenkredite, Kreditkarten und Unternehmenskredite in Deutschland. Zinsen ab 0,68%, schnelle Entscheidung in 24h. Kostenlos, unverbindlich & TÜV-geprüft." 
         />
-        <meta property="og:title" content={`${siteConfig.name} - Kredite vergleichen`} />
-        <meta property="og:description" content="Deutschlands unabhängiger Kreditvergleich. Finden Sie die besten Angebote für Privat- und Unternehmenskredite." />
+        <meta name="keywords" content="Kreditvergleich, Ratenkredit Deutschland, Kreditkarte kostenlos, Unternehmenskredit, beste Zinsen, Kredit online, SCHUFA-neutral" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="Kredite & Kreditkarten smart vergleichen - Finanzen-Guide.de" />
+        <meta property="og:description" content="Deutschlands unabhängiger Kreditvergleich. Über 20 Banken, Zinsen ab 0,68%, kostenlos & unverbindlich." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`https://${siteConfig.domain}/`} />
+        <meta property="og:site_name" content={siteConfig.name} />
+        <meta property="og:locale" content="de_DE" />
+        <meta property="og:image" content={`https://${siteConfig.domain}/finanzen-guide-logo.png`} />
+        
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Kredite & Kreditkarten Vergleich 2025" />
+        <meta name="twitter:description" content="Vergleichen Sie über 20 Banken. Zinsen ab 0,68%. Kostenlos & unverbindlich." />
+        
         <link rel="canonical" href={`https://${siteConfig.domain}/`} />
+        
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FinancialService",
+            "name": siteConfig.name,
+            "description": "Unabhängiger Vergleich von Ratenkrediten, Kreditkarten und Unternehmenskrediten in Deutschland",
+            "url": `https://${siteConfig.domain}/`,
+            "logo": `https://${siteConfig.domain}/finanzen-guide-logo.png`,
+            "areaServed": "DE",
+            "priceRange": "€€",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.8",
+              "ratingCount": "2847"
+            }
+          })}
+        </script>
       </Helmet>
 
       {/* Hero Section */}

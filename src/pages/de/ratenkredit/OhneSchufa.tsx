@@ -43,11 +43,26 @@ export default function KreditOhneSchufaDE() {
   return (
     <>
       <Helmet>
-        <title>Kredit ohne SCHUFA 2025 - Auch bei negativer Bonität | {siteConfig.name}</title>
+        <html lang="de" />
+        <title>Kredit ohne SCHUFA 2025 - Seriöse Anbieter | {siteConfig.name}</title>
         <meta 
           name="description" 
-          content="Kredit ohne SCHUFA-Abfrage ✓ Auch bei negativer Bonität ✓ Seriöse Anbieter ✓ Schnelle Auszahlung. Finden Sie Ihren Kredit trotz SCHUFA!" 
+          content="Kredit ohne SCHUFA-Abfrage: Auch bei negativer Bonität möglich. Seriöse Anbieter wie auxmoney & Schweizer Kredite. Vorsicht vor Betrügern! Jetzt vergleichen." 
         />
+        <meta name="keywords" content="Kredit ohne SCHUFA, Kredit trotz SCHUFA, auxmoney, Schweizer Kredit, negative Bonität, Kredit ohne Auskunft, schufafreier Kredit" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="Kredit ohne SCHUFA 2025 - Seriöse Anbieter" />
+        <meta property="og:description" content="Kredit auch bei negativer Bonität. Vertrauenswürdige Anbieter ohne SCHUFA-Abfrage im Vergleich." />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://${siteConfig.domain}/ratenkredit/ohne-schufa`} />
+        <meta property="og:locale" content="de_DE" />
+        
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Kredit ohne SCHUFA - Seriöse Anbieter" />
+        <meta name="twitter:description" content="Auch bei negativer Bonität. Vorsicht vor Betrügern!" />
+        
         <link rel="canonical" href={`https://${siteConfig.domain}/ratenkredit/ohne-schufa`} />
       </Helmet>
 
