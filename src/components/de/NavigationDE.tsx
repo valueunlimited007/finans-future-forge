@@ -32,50 +32,11 @@ import { getSiteConfig } from "@/lib/siteConfig";
 const NavigationDE = () => {
   const siteConfig = getSiteConfig();
   const [isOpen, setIsOpen] = useState(false);
-  const [justOpened, setJustOpened] = useState(false);
   const location = useLocation();
   const [scrollDirection, setScrollDirection] = useState<'up' | 'down' | null>(null);
   const [lastScrollY, setLastScrollY] = useState(0);
 
-  // Mount/unmount tracking
-  useEffect(() => {
-    console.log('🟢 NavigationDE MOUNTED');
-    return () => console.log('🔴 NavigationDE UNMOUNTED');
-  }, []);
-
-  // State tracking
-  useEffect(() => {
-    console.log('📊 isOpen state:', isOpen);
-  }, [isOpen]);
-
-  // Enhanced onChange handler with delay protection
-  const handleOpenChange = (value: boolean) => {
-    console.log('🔄 onOpenChange called:', value, 'justOpened:', justOpened);
-    
-    // Prevent immediate close after opening
-    if (!value && justOpened) {
-      console.log('⏸️ Ignoring close - just opened');
-      return;
-    }
-    
-    setIsOpen(value);
-  };
-
-  const handleManualOpen = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    console.log('🔘 Manual trigger clicked, current state:', isOpen);
-    setIsOpen(true);
-    setJustOpened(true);
-    
-    // Clear the "just opened" flag after a short delay
-    setTimeout(() => {
-      console.log('✅ Just opened flag cleared');
-      setJustOpened(false);
-    }, 300);
-  };
-
-  // Handle escape key to close mobile menu
+  // Handle escape key
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === 'Escape' && isOpen) {
@@ -87,7 +48,7 @@ const NavigationDE = () => {
     return () => document.removeEventListener('keydown', handleEscape);
   }, [isOpen]);
 
-  // Scroll mobile menu to top when opened
+  // Scroll sheet content to top when menu opens
   useEffect(() => {
     if (isOpen) {
       const sheetContent = document.querySelector('[data-sheet-content]');
@@ -97,16 +58,19 @@ const NavigationDE = () => {
     }
   }, [isOpen]);
 
-  // Smart header: hide on scroll down, show on scroll up
+  // Smart header scroll behavior
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       
+      // Ignorera små scrolls (< 10px)
       if (Math.abs(currentScrollY - lastScrollY) < 10) return;
       
       if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        // Scrollar ner & har scrollat mer än 80px
         setScrollDirection('down');
       } else if (currentScrollY < lastScrollY) {
+        // Scrollar upp
         setScrollDirection('up');
       }
       
@@ -210,17 +174,11 @@ const NavigationDE = () => {
     }
   ];
 
-  const MobileNavItem = ({ item, onClick }: { item: any; onClick?: () => void }) => {
-    const handleClick = (e: React.MouseEvent) => {
-      console.log('🔗 MobileNavItem clicked:', item.href);
-      if (onClick) onClick(); // Close menu first
-    };
-
-    return (
-      <Link
-        to={item.href}
-        onClick={handleClick}
-        className={cn(
+  const MobileNavItem = ({ item, onClick }: { item: any; onClick?: () => void }) => (
+    <Link
+      to={item.href}
+      onClick={onClick}
+      className={cn(
         "flex items-center gap-4 p-4 rounded-xl transition-all duration-200",
         "hover:bg-accent/50 active:scale-[0.98]",
         "min-h-[60px] touch-manipulation group",
@@ -251,12 +209,12 @@ const NavigationDE = () => {
         <div className="h-2 w-2 rounded-full bg-primary flex-shrink-0" />
       )}
     </Link>
-    );
-  };
+  );
 
-  const NavMenuItem = ({ item }: { item: any }) => (
+  const NavMenuItem = ({ item, onClick }: { item: any; onClick?: () => void }) => (
     <Link
       to={item.href}
+      onClick={onClick}
       className={cn(
         "flex items-center gap-3 p-3 rounded-lg hover:bg-muted/50 transition-colors",
         isActivePath(item.href) && "bg-muted text-primary font-medium"
@@ -275,13 +233,14 @@ const NavigationDE = () => {
 
   return (
     <header 
-      data-version="v2.1"
+      data-version="v3.0"
       className={cn(
         "fixed top-0 z-[9999] w-full bg-background backdrop-blur-sm border-b transition-transform duration-300",
         scrollDirection === 'down' ? "-translate-y-full" : "translate-y-0"
       )}
     >
       <div className="container flex h-[80px] sm:h-[96px] md:h-[112px] lg:h-[128px] items-center justify-between px-4 min-w-full">
+        {/* Logo */}
         <Link to="/" className="flex items-center shrink-0 gap-3">
           <img 
             src={siteConfig.logo} 
@@ -296,6 +255,7 @@ const NavigationDE = () => {
         {/* Desktop Navigation */}
         <NavigationMenu className="hidden lg:flex">
           <NavigationMenuList>
+            {/* Home */}
             <NavigationMenuItem>
               <NavigationMenuLink asChild>
                 <Link
@@ -311,6 +271,7 @@ const NavigationDE = () => {
               </NavigationMenuLink>
             </NavigationMenuItem>
 
+            {/* Loan Products */}
             <NavigationMenuItem>
               <NavigationMenuTrigger>
                 <Banknote className="mr-2 h-4 w-4" />
@@ -333,13 +294,14 @@ const NavigationDE = () => {
               </NavigationMenuContent>
             </NavigationMenuItem>
 
+            {/* Ratgeber */}
             <NavigationMenuItem>
               <NavigationMenuTrigger>
                 <BookOpen className="mr-2 h-4 w-4" />
                 Ratgeber
               </NavigationMenuTrigger>
               <NavigationMenuContent>
-                <div className="grid gap-3 p-6 w-[500px] md:w-[550px] bg-background z-[100]">
+                <div className="grid gap-3 p-6 w-[500px] md:w-[550px]">
                   <div className="grid gap-1">
                     <h3 className="font-medium">Finanzwissen & Spartipps</h3>
                     <p className="text-sm text-muted-foreground">
@@ -355,13 +317,14 @@ const NavigationDE = () => {
               </NavigationMenuContent>
             </NavigationMenuItem>
 
+            {/* Resources */}
             <NavigationMenuItem>
               <NavigationMenuTrigger>
                 <BookOpen className="mr-2 h-4 w-4" />
                 Ressourcen
               </NavigationMenuTrigger>
               <NavigationMenuContent>
-                <div className="grid gap-3 p-6 w-[400px] bg-background z-[100]">
+                <div className="grid gap-3 p-6 w-[400px]">
                   <div className="grid gap-1">
                     <h3 className="font-medium">Mehr erfahren</h3>
                     <p className="text-sm text-muted-foreground">
@@ -379,26 +342,24 @@ const NavigationDE = () => {
           </NavigationMenuList>
         </NavigationMenu>
 
-        {/* Mobile Navigation - Manual trigger (Fas 5) */}
-        <div className="lg:hidden flex-shrink-0 min-w-max">
-          <button 
-            type="button"
-            onClick={handleManualOpen}
-            className="inline-flex items-center gap-2 h-12 px-4 rounded-md text-sm font-medium hover:bg-accent/50 transition-colors"
-            aria-label="Navigationsmenü öffnen"
-          >
-            <span className="text-sm font-medium">Menü</span>
-            <Menu className="h-5 w-5" />
-          </button>
-        </div>
-
-        {/* Sheet component - separate from trigger */}
-        <Sheet open={isOpen} onOpenChange={handleOpenChange}>
+        {/* Mobile Navigation - Single unified trigger */}
+        <div className="lg:hidden flex-shrink-0 min-w-max relative z-[10000]">
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
+            <SheetTrigger asChild>
+              <Button 
+                variant="ghost"
+                size="lg"
+                className="h-12 gap-2 hover:bg-accent/50 transition-colors lg:hidden"
+                aria-label="Navigationsmenü öffnen"
+              >
+                <Menu className="h-5 w-5" />
+                <span className="text-sm font-medium">Menü</span>
+              </Button>
+            </SheetTrigger>
             <SheetContent 
               side="right" 
               className="w-[320px] sm:w-[400px] max-h-screen overflow-y-auto border-0 bg-background p-0" 
               data-sheet-content
-              data-debug-visible="true"
             >
               {/* Accessibility requirements */}
               <SheetTitle className="sr-only">Navigationsmenü</SheetTitle>
@@ -492,7 +453,8 @@ const NavigationDE = () => {
                 </div>
               </div>
             </SheetContent>
-        </Sheet>
+          </Sheet>
+        </div>
       </div>
     </header>
   );
