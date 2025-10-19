@@ -153,15 +153,13 @@ const NavigationDE = () => {
       )}
     >
       <div className="container flex h-[80px] sm:h-[96px] md:h-[112px] lg:h-[128px] items-center justify-between px-4 min-w-full">
-        <Link to="/de" className="flex items-center space-x-3 shrink-0">
+        <Link to="/de" className="flex flex-col items-start shrink-0 gap-1">
           <img 
             src={siteConfig.logo} 
             alt={siteConfig.name}
             className="h-8 sm:h-10 md:h-12 lg:h-14 w-auto"
           />
-          <div className="flex flex-col">
-            <span className="text-xs sm:text-sm text-muted-foreground">Kredite smart vergleichen</span>
-          </div>
+          <span className="text-xs sm:text-sm text-muted-foreground">Kredite smart vergleichen</span>
         </Link>
 
         {/* Desktop Navigation */}
