@@ -51,7 +51,11 @@ export function SiteSelector() {
 
   // Determine current site based on URL
   const hostname = window.location.hostname;
-  const detectedSite = hostname.includes('kasinos') ? 'kasinos' : 'finansguiden';
+  const detectedSite = hostname.includes('kasinos') 
+    ? 'kasinos' 
+    : hostname.includes('finanzen-guide') 
+      ? 'finanzen-guide'
+      : 'finansguiden';
 
   const sites = [
     { 
@@ -64,7 +68,13 @@ export function SiteSelector() {
       id: 'finansguiden', 
       name: 'Finansguiden Mode', 
       icon: Building2,
-      description: 'Financial comparison site',
+      description: 'Financial comparison site (SE)',
+    },
+    { 
+      id: 'finanzen-guide', 
+      name: 'Finanzen-Guide Mode', 
+      icon: Building2,
+      description: 'Financial comparison site (DE)',
     },
     { 
       id: 'kasinos', 
