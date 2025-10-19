@@ -21,7 +21,9 @@ import {
   TrendingUp,
   Euro,
   Lightbulb,
-  Calculator
+  Calculator,
+  PiggyBank,
+  Car
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { getSiteConfig } from "@/lib/siteConfig";
@@ -89,6 +91,13 @@ const NavigationDE = () => {
       title: "Gehaltsoptimierung",
       href: "/ratgeber/gehaltsoptimierung",
       description: "Mehr Netto durch Steuervorteile & Benefits",
+      icon: TrendingUp,
+      popular: true
+    },
+    {
+      title: "Karriere Guide",
+      href: "/ratgeber/karriere",
+      description: "100.000 € Jahresgehalt erreichen",
       icon: TrendingUp
     },
     {
@@ -98,22 +107,22 @@ const NavigationDE = () => {
       icon: Euro
     },
     {
+      title: "Monatliches Sparen",
+      href: "/ratgeber/monatliches-sparen",
+      description: "Wie viel sollten Sie sparen?",
+      icon: PiggyBank
+    },
+    {
+      title: "Auto-Kosten Analyse",
+      href: "/ratgeber/auto-kosten",
+      description: "Wahre Kosten & clevere Alternativen",
+      icon: Car
+    },
+    {
       title: "Finanz Life Hacks",
       href: "/ratgeber/finanz-tipps",
       description: "Bewährte Spartipps für Deutschland",
       icon: Lightbulb
-    },
-    {
-      title: "Bester Kredit finden",
-      href: "/ratgeber/bester-kredit",
-      description: "So finden Sie den passenden Kredit",
-      icon: Calculator
-    },
-    {
-      title: "Zinsen verstehen",
-      href: "/ratgeber/zinsen",
-      description: "Effektivzins vs. Nominalzins erklärt",
-      icon: TrendingUp
     }
   ];
 

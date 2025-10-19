@@ -64,6 +64,9 @@ import ZinsenVerstehenDE from "./pages/de/ratgeber/Zinsen";
 import GehaltsoptimierungDE from "./pages/de/ratgeber/Gehaltsoptimierung";
 import SparkontoDE from "./pages/de/ratgeber/Sparkonto";
 import FinanzTippsDE from "./pages/de/ratgeber/Finanz-Tipps";
+import KarriereDE from "./pages/de/ratgeber/Karriere";
+import MonatlichesSparenDE from "./pages/de/ratgeber/Monatliches-Sparen";
+import AutoKostenDE from "./pages/de/ratgeber/Auto-Kosten";
 import NavigationDE from "./components/de/NavigationDE";
 import FooterDE from "./components/de/FooterDE";
 
@@ -122,6 +125,9 @@ const App = () => {
                   <Route path="/ratgeber/gehaltsoptimierung" element={<GermanSiteWrapper><GehaltsoptimierungDE /></GermanSiteWrapper>} />
                   <Route path="/ratgeber/sparkonto" element={<GermanSiteWrapper><SparkontoDE /></GermanSiteWrapper>} />
                   <Route path="/ratgeber/finanz-tipps" element={<GermanSiteWrapper><FinanzTippsDE /></GermanSiteWrapper>} />
+                  <Route path="/ratgeber/karriere" element={<GermanSiteWrapper><KarriereDE /></GermanSiteWrapper>} />
+                  <Route path="/ratgeber/monatliches-sparen" element={<GermanSiteWrapper><MonatlichesSparenDE /></GermanSiteWrapper>} />
+                  <Route path="/ratgeber/auto-kosten" element={<GermanSiteWrapper><AutoKostenDE /></GermanSiteWrapper>} />
                   <Route path="/affiliate" element={<GermanSiteWrapper><AffiliateDE /></GermanSiteWrapper>} />
                   <Route path="*" element={<GermanSiteWrapper><NotFoundBranded /></GermanSiteWrapper>} />
                 </>
