@@ -53,6 +53,13 @@ import ImpressumDE from "./pages/de/Impressum";
 import DatenschutzDE from "./pages/de/Datenschutz";
 import GlossarDE from "./pages/de/Glossar";
 import AffiliateDE from "./pages/de/Affiliate";
+import UberUnsDE from "./pages/de/UberUns";
+import CookiesDE from "./pages/de/Cookies";
+import BestRatenkreditDE from "./pages/de/ratenkredit/Beste";
+import RatenkreditZinsenDE from "./pages/de/ratenkredit/Zinsen";
+import KreditOhneSchufaDE from "./pages/de/ratenkredit/OhneSchufa";
+import BesterKreditRatgeberDE from "./pages/de/ratgeber/BesterKredit";
+import ZinsenVerstehenDE from "./pages/de/ratgeber/Zinsen";
 import NavigationDE from "./components/de/NavigationDE";
 import FooterDE from "./components/de/FooterDE";
 
@@ -95,11 +102,18 @@ const App = () => {
                 <>
                   <Route path="/" element={<GermanSiteWrapper><HomeDE /></GermanSiteWrapper>} />
                   <Route path="/ratenkredit" element={<GermanSiteWrapper><RatenkreditDE /></GermanSiteWrapper>} />
+                  <Route path="/ratenkredit/beste" element={<GermanSiteWrapper><BestRatenkreditDE /></GermanSiteWrapper>} />
+                  <Route path="/ratenkredit/zinsen" element={<GermanSiteWrapper><RatenkreditZinsenDE /></GermanSiteWrapper>} />
+                  <Route path="/ratenkredit/ohne-schufa" element={<GermanSiteWrapper><KreditOhneSchufaDE /></GermanSiteWrapper>} />
                   <Route path="/kreditkarten" element={<GermanSiteWrapper><KreditkartenDE /></GermanSiteWrapper>} />
                   <Route path="/unternehmenskredit" element={<GermanSiteWrapper><UnternehmenskreditDE /></GermanSiteWrapper>} />
                   <Route path="/glossar" element={<GermanSiteWrapper><GlossarDE /></GermanSiteWrapper>} />
                   <Route path="/impressum" element={<GermanSiteWrapper><ImpressumDE /></GermanSiteWrapper>} />
                   <Route path="/datenschutz" element={<GermanSiteWrapper><DatenschutzDE /></GermanSiteWrapper>} />
+                  <Route path="/cookies" element={<GermanSiteWrapper><CookiesDE /></GermanSiteWrapper>} />
+                  <Route path="/uber-uns" element={<GermanSiteWrapper><UberUnsDE /></GermanSiteWrapper>} />
+                  <Route path="/ratgeber/bester-kredit" element={<GermanSiteWrapper><BesterKreditRatgeberDE /></GermanSiteWrapper>} />
+                  <Route path="/ratgeber/zinsen" element={<GermanSiteWrapper><ZinsenVerstehenDE /></GermanSiteWrapper>} />
                   <Route path="/affiliate" element={<GermanSiteWrapper><AffiliateDE /></GermanSiteWrapper>} />
                   <Route path="*" element={<GermanSiteWrapper><NotFoundBranded /></GermanSiteWrapper>} />
                 </>
