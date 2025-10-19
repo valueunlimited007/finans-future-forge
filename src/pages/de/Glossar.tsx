@@ -76,13 +76,14 @@ export default function GlossarDE() {
               <CardContent>
                 <div className="grid gap-4">
                   {group.terms.map((term) => (
-                    <div
+                    <Link
                       key={term.slug}
-                      className="p-4 rounded-lg border hover:bg-muted/50 transition-colors"
+                      to={`/glossar/${term.slug}`}
+                      className="block p-4 rounded-lg border hover:bg-muted/50 hover:shadow-md transition-all"
                     >
                       <h3 className="font-semibold text-lg mb-1">{term.term}</h3>
                       <p className="text-sm text-muted-foreground">{term.shortDefinition}</p>
-                    </div>
+                    </Link>
                   ))}
                 </div>
               </CardContent>

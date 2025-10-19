@@ -52,6 +52,7 @@ import UnternehmenskreditDE from "./pages/de/Unternehmenskredit";
 import ImpressumDE from "./pages/de/Impressum";
 import DatenschutzDE from "./pages/de/Datenschutz";
 import GlossarDE from "./pages/de/Glossar";
+import GlossarSlugDE from "./routes/glossar/[slug]";
 import AffiliateDE from "./pages/de/Affiliate";
 import UberUnsDE from "./pages/de/UberUns";
 import CookiesDE from "./pages/de/Cookies";
@@ -108,6 +109,7 @@ const App = () => {
                   <Route path="/kreditkarten" element={<GermanSiteWrapper><KreditkartenDE /></GermanSiteWrapper>} />
                   <Route path="/unternehmenskredit" element={<GermanSiteWrapper><UnternehmenskreditDE /></GermanSiteWrapper>} />
                   <Route path="/glossar" element={<GermanSiteWrapper><GlossarDE /></GermanSiteWrapper>} />
+                  <Route path="/glossar/:slug" element={<GlossarSlugDE />} />
                   <Route path="/impressum" element={<GermanSiteWrapper><ImpressumDE /></GermanSiteWrapper>} />
                   <Route path="/datenschutz" element={<GermanSiteWrapper><DatenschutzDE /></GermanSiteWrapper>} />
                   <Route path="/cookies" element={<GermanSiteWrapper><CookiesDE /></GermanSiteWrapper>} />
