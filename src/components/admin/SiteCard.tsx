@@ -1,31 +1,52 @@
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Copy } from 'lucide-react';
+import { Loader2, Rocket } from 'lucide-react';
 import { buildManager, SiteLabel } from '@/lib/buildManager';
 import { toast } from '@/hooks/use-toast';
+import { supabase } from '@/integrations/supabase/client';
 
 interface SiteCardProps {
   site: SiteLabel;
+  onFilesGenerated?: (files: Record<string, string>) => void;
 }
 
-export function SiteCard({ site }: SiteCardProps) {
+export function SiteCard({ site, onFilesGenerated }: SiteCardProps) {
+  const [isGenerating, setIsGenerating] = useState(false);
   const siteInfo = buildManager.getSiteInfo(site);
-  const buildCommand = `npm run build:${site}`;
 
-  const handleCopyCommand = async () => {
+  const handleGenerate = async () => {
+    setIsGenerating(true);
+    
     try {
-      await navigator.clipboard.writeText(buildCommand);
-      toast({
-        title: 'Kopierat!',
-        description: 'Klistra in kommandot i terminalen',
+      const { data, error } = await supabase.functions.invoke('generate-seo', {
+        body: { site }
       });
-    } catch (error) {
+      
+      if (error) throw error;
+      
+      if (data.success) {
+        toast({
+          title: '✅ Genererat!',
+          description: `SEO-filer skapade för ${siteInfo.domain} (${data.urlCount} URLs)`,
+        });
+        
+        // Skicka filer till FilePreview om callback finns
+        if (onFilesGenerated) {
+          onFilesGenerated(data.files);
+        }
+      } else {
+        throw new Error(data.error || 'Unknown error');
+      }
+    } catch (error: any) {
       toast({
-        title: 'Kunde inte kopiera',
-        description: 'Kopiera kommandot manuellt',
+        title: 'Fel vid generering',
+        description: error.message,
         variant: 'destructive',
       });
+    } finally {
+      setIsGenerating(false);
     }
   };
 
@@ -48,25 +69,32 @@ export function SiteCard({ site }: SiteCardProps) {
       <CardContent>
         <div className="space-y-3">
           <p className="text-sm text-muted-foreground">
-            För att bygga SEO-filer för <strong>{siteInfo.domain}</strong>, kör:
+            Generera SEO-filer för <strong>{siteInfo.domain}</strong>
           </p>
-          <div className="bg-muted p-3 rounded-md font-mono">
-            <code className="text-sm">{buildCommand}</code>
-          </div>
           <div className="text-xs text-muted-foreground space-y-1">
-            <p>📁 Output: <code>dist/{site}/sitemap.xml</code></p>
-            <p>🚀 Deploy <code>dist/{site}/</code> mappen till {siteInfo.domain}</p>
+            <p>📄 sitemap.xml, robots.txt, llms.txt, security.txt</p>
+            <p>🌐 {siteInfo.routes} sidor inkluderade</p>
           </div>
         </div>
       </CardContent>
       
       <CardFooter>
         <Button 
-          onClick={handleCopyCommand}
+          onClick={handleGenerate}
+          disabled={isGenerating}
           className="w-full"
         >
-          <Copy className="mr-2 h-4 w-4" />
-          Kopiera Build-kommando
+          {isGenerating ? (
+            <>
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              Genererar...
+            </>
+          ) : (
+            <>
+              <Rocket className="mr-2 h-4 w-4" />
+              Generera SEO-filer
+            </>
+          )}
         </Button>
       </CardFooter>
     </Card>

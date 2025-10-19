@@ -10,12 +10,13 @@ import { toast } from '@/hooks/use-toast';
 
 export default function AdminDE() {
   const [isGeneratingAll, setIsGeneratingAll] = useState(false);
+  const [generatedFiles, setGeneratedFiles] = useState<Record<string, string> | undefined>();
 
   const handleGenerateAll = async () => {
     setIsGeneratingAll(true);
     toast({
-      title: 'Starting',
-      description: 'Generating SEO files for all sites...',
+      title: 'Startar',
+      description: 'Genererar SEO-filer för alla sajter...',
     });
 
     try {
@@ -23,18 +24,22 @@ export default function AdminDE() {
       const successCount = Object.values(results).filter(r => r.success).length;
       
       toast({
-        title: 'Complete',
-        description: `Generated SEO files for ${successCount}/3 sites`,
+        title: 'Klart',
+        description: `Genererade SEO-filer för ${successCount}/3 sajter`,
       });
     } catch (error) {
       toast({
-        title: 'Error',
-        description: 'Failed to generate SEO files',
+        title: 'Fel',
+        description: 'Kunde inte generera SEO-filer',
         variant: 'destructive',
       });
     } finally {
       setIsGeneratingAll(false);
     }
+  };
+
+  const handleFilesGenerated = (files: Record<string, string>) => {
+    setGeneratedFiles(files);
   };
 
   return (
@@ -72,15 +77,15 @@ export default function AdminDE() {
 
           {/* Site Cards Grid */}
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mb-8">
-            <SiteCard site="finanzen" />
-            <SiteCard site="finansguiden" />
-            <SiteCard site="kasinos" />
+            <SiteCard site="finanzen" onFilesGenerated={handleFilesGenerated} />
+            <SiteCard site="finansguiden" onFilesGenerated={handleFilesGenerated} />
+            <SiteCard site="kasinos" onFilesGenerated={handleFilesGenerated} />
           </div>
 
           {/* Log Viewer and File Preview */}
           <div className="grid gap-6 md:grid-cols-2">
             <LogViewer />
-            <FilePreview />
+            <FilePreview files={generatedFiles} />
           </div>
 
           {/* Info Footer */}
