@@ -5,11 +5,22 @@ import fs from "fs";
 import { componentTagger } from "lovable-tagger";
 import { spawnSync } from "child_process";
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
-  server: {
-    host: "::",
-    port: 8080,
-  },
+export default defineConfig(({ mode }) => {
+  // Determine site domain and label for separate build outputs
+  const siteDomain = process.env.SITE_DOMAIN || 'finansguiden.se';
+  const siteLabel = siteDomain === 'kasinos.se' ? 'kasinos' 
+                  : siteDomain === 'finanzen-guide.de' ? 'finanzen'
+                  : 'finansguiden';
+  
+  return {
+    server: {
+      host: "::",
+      port: 8080,
+    },
+    build: {
+      outDir: `dist/${siteLabel}`,
+      emptyOutDir: true,
+    },
   plugins: [
     react(),
     mode === 'development' && componentTagger(),
@@ -17,10 +28,8 @@ export default defineConfig(({ mode }) => ({
       name: 'seo-files-generator',
       buildStart() {
         try {
-          const scriptPath = path.resolve(__dirname, 'scripts/generate-seo-files.mjs');
+            const scriptPath = path.resolve(__dirname, 'scripts/generate-seo-files.mjs');
           if (fs.existsSync(scriptPath)) {
-            // Detect domain from environment or use hostname
-            const siteDomain = process.env.SITE_DOMAIN || 'finansguiden.se';
             const env = { ...process.env, SITE_DOMAIN: siteDomain };
             
             const res = spawnSync('node', [scriptPath], { 
@@ -45,4 +54,5 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-}));
+  };
+});
