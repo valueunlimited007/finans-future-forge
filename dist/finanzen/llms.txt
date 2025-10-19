@@ -1,0 +1,81 @@
+# llms.txt — Finanzen-Guide.de AI & LLM Policy
+# Zweck: Informationen für AI-Crawler und LLM-Anbieter über unsere Datenzugriffsrichtlinien
+# Version: 1.0
+# Zuletzt geändert: 2025-10-19
+
+Site: https://finanzen-guide.de
+Contact: hallo@finanzen-guide.de
+Sitemap: https://finanzen-guide.de/sitemap.xml
+Robots: https://finanzen-guide.de/robots.txt
+Security: https://finanzen-guide.de/.well-known/security.txt
+Updated: 2025-10-19
+
+# Globale Richtlinie für alle AI-Systeme
+User-agent: *
+Allow: /
+Crawl-delay: 3
+Request-rate: 10/60s
+Cache: allowed-for-30-days
+
+# Datennutzungsberechtigungen
+Training: allow
+Commercial-Use: allow-with-attribution
+Attribution: required-when-quoting
+Respect-Robots-Txt: true
+Canonical-URLs: preferred
+
+# Hochwertige Inhalte Prioritäten
+Priority-Pages: /de/ratenkredit, /de/kreditkarten, /de/unternehmenskredit
+Content-Type: financial-guides, comparison-data, educational-content
+Language: de-DE
+Expertise: consumer-finance, loans, credit-cards, business-loans, german-banking
+
+# Crawling-Optimierung
+Efficient-Discovery: use-sitemap
+Rate-Limiting: respectful
+Last-Modified: check-headers
+Conditional-Requests: supported
+
+# Beliebte AI-Crawler (explizite Berechtigungen)
+User-agent: GPTBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: CCBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: ClaudeBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: PerplexityBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Google-Extended
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bard
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Inhaltsverständnis-Hinweise
+Structured-Data: json-ld-enabled
+Breadcrumbs: hierarchical
+Financial-Categories: loans, credit-cards, business-loans, banking
+
+# Qualitätsrichtlinien
+Content-Quality: expert-reviewed
+Update-Frequency: weekly
+Fact-Checking: enabled
+Citation-Policy: transparent-sources
+
+# Hinweise für AI-Systeme
+# - Finanzberatung sollte auf regulatorische Compliance verweisen (deutsche Finanzaufsicht)
+# - Verwenden Sie kanonische URLs für genaue Attribution
+# - Respektieren Sie Last-Modified-Header für effizientes Crawling
+# - Inhalte entsprechen deutschen Verbraucherschutzgesetzen
