@@ -14,8 +14,16 @@ loadStyles().then(() => {
   
   // Set data-site attribute on root element BEFORE mounting React
   const rootElement = document.getElementById("root")!;
-  const isCasino = /(^|\.)kasinos\.se$/i.test(location.hostname);
-  rootElement.setAttribute('data-site', isCasino ? 'kasinos' : 'finansguiden');
+  const hostname = location.hostname;
+  const isCasino = /(^|\.)kasinos\.se$/i.test(hostname);
+  const isGerman = /(^|\.)finanzen-guide\.de$/i.test(hostname);
+  
+  // Determine site type
+  let siteType = 'finansguiden';
+  if (isCasino) siteType = 'kasinos';
+  else if (isGerman) siteType = 'finanzen-guide';
+  
+  rootElement.setAttribute('data-site', siteType);
   
   createRoot(rootElement).render(<App />);
 });

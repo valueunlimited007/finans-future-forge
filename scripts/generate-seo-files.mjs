@@ -4,14 +4,18 @@ import { resolve } from 'path';
 // Detect which site we're building based on environment variable
 const SITE_DOMAIN = process.env.SITE_DOMAIN || 'finansguiden.se';
 const isKasinos = SITE_DOMAIN === 'kasinos.se';
-const base = isKasinos ? 'https://kasinos.se' : 'https://finansguiden.se';
+const isGerman = SITE_DOMAIN === 'finanzen-guide.de';
+let base = 'https://finansguiden.se';
+if (isKasinos) base = 'https://kasinos.se';
+else if (isGerman) base = 'https://finanzen-guide.de';
 
 const routesPath = resolve('src/seo/routes.json');
 const routes = JSON.parse(readFileSync(routesPath, 'utf8'));
 
 const now = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
 
-console.log(`[SEO] Building SEO files for: ${SITE_DOMAIN} (${isKasinos ? 'kasinos' : 'finansguiden'})`);
+const siteLabel = isKasinos ? 'kasinos' : (isGerman ? 'finanzen-guide' : 'finansguiden');
+console.log(`[SEO] Building SEO files for: ${SITE_DOMAIN} (${siteLabel})`);
 
 // Kasinos-specific sitemap generation
 function generateKasinosSitemap() {
@@ -150,6 +154,18 @@ if (isKasinos) {
   // Use kasinos sitemap generator
   console.log('[SITEMAP] Using kasinos sitemap generator');
   urls = generateKasinosSitemap();
+} else if (isGerman) {
+  // Use German site sitemap (simplified, no glossary)
+  console.log('[SITEMAP] Using finanzen-guide.de sitemap generator');
+  const staticUrls = Object.keys(routes)
+    .filter(p => p.startsWith('/de/') || p === '/')
+    .map(p => ({
+      loc: `${base}${p === '/' ? '/' : p}`,
+      lastmod: routes[p]?.lastmod || now,
+      changefreq: routes[p]?.changefreq || 'weekly',
+      priority: routes[p]?.priority ?? (p === '/' ? '1.0' : '0.8'),
+    }));
+  urls = staticUrls;
 } else {
   // Use finansguiden sitemap (existing logic)
   const staticUrls = Object.keys(routes).map(p => ({
@@ -206,7 +222,7 @@ urls.map(u => `  <url>
 writeFileSync(resolve('public/sitemap.xml'), sitemap, 'utf8');
 
 // Generate domain-specific robots.txt
-const siteTitle = isKasinos ? 'Kasinos.se' : 'Finansguiden.se';
+const siteTitle = isKasinos ? 'Kasinos.se' : (isGerman ? 'Finanzen-Guide.de' : 'Finansguiden.se');
 const robots = isKasinos ? 
 `# Robots.txt för Kasinos.se
 # Uppdaterad: ${now}
@@ -278,6 +294,74 @@ Disallow: /admin/
 Sitemap: ${base}/sitemap.xml
 
 # Ansvarsfull spelreglering - se även /ansvarsfriskrivning
+`
+: isGerman ?
+`# Robots.txt für Finanzen-Guide.de
+# Aktualisiert: ${now}
+
+# Hauptsuchmaschinen (priorisiert)
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 3
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 2
+
+# Social Media Crawler
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# AI-System-Crawler (LLM-Training usw.)
+User-agent: GPTBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Google-Extended
+Allow: /
+Crawl-delay: 1
+
+User-agent: CCBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: ClaudeBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: PerplexityBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Bard
+Allow: /
+
+# Andere Crawler (allgemeine Richtlinie)
+User-agent: *
+Allow: /
+Crawl-delay: 5
+
+# Minimale erforderliche Blockierung
+Disallow: /*?utm_*
+Disallow: /*?ref=*
+
+# Ressourcen für alle Crawler
+Sitemap: ${base}/sitemap.xml
+
+# Hinweis: Siehe auch /llms.txt für AI-spezifische Richtlinien
 `
 :
 `# Robots.txt för Finansguiden.se
@@ -444,6 +528,88 @@ Regulatory-Compliance: swedish-gambling-authority
 # - Use canonical URLs for accurate attribution and avoid duplicates  
 # - Respect Last-Modified headers for efficient crawling
 # - Casino reviews should reference Swedish licensing and responsible gambling\n`
+: isGerman ?
+`# llms.txt — Finanzen-Guide.de AI & LLM Policy
+# Zweck: Informationen für AI-Crawler und LLM-Anbieter über unsere Datenzugriffsrichtlinien
+# Version: 1.0
+# Zuletzt geändert: ${now}
+
+Site: ${base}
+Contact: info@finanzen-guide.de
+Sitemap: ${base}/sitemap.xml
+Robots: ${base}/robots.txt
+Security: ${base}/.well-known/security.txt
+Updated: ${now}
+
+# Globale Richtlinie für alle AI-Systeme
+User-agent: *
+Allow: /
+Crawl-delay: 3
+Request-rate: 10/60s
+Cache: allowed-for-30-days
+
+# Datennutzungsberechtigungen
+Training: allow
+Commercial-Use: allow-with-attribution
+Attribution: required-when-quoting
+Respect-Robots-Txt: true
+Canonical-URLs: preferred
+
+# Hochwertige Inhalte Prioritäten
+Priority-Pages: /de/ratenkredit, /de/kreditkarten, /de/unternehmenskredit
+Content-Type: financial-guides, comparison-data, educational-content
+Language: de-DE
+Expertise: consumer-finance, loans, credit-cards, business-loans, german-banking
+
+# Crawling-Optimierung
+Efficient-Discovery: use-sitemap
+Rate-Limiting: respectful
+Last-Modified: check-headers
+Conditional-Requests: supported
+
+# Beliebte AI-Crawler (explizite Berechtigungen)
+User-agent: GPTBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: CCBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: ClaudeBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: PerplexityBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Google-Extended
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bard
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Inhaltsverständnis-Hinweise
+Structured-Data: json-ld-enabled
+Breadcrumbs: hierarchical
+Financial-Categories: loans, credit-cards, business-loans, banking
+
+# Qualitätsrichtlinien
+Content-Quality: expert-reviewed
+Update-Frequency: weekly
+Fact-Checking: enabled
+Citation-Policy: transparent-sources
+
+# Hinweise für AI-Systeme
+# - Finanzberatung sollte auf regulatorische Compliance verweisen (deutsche Finanzaufsicht)
+# - Verwenden Sie kanonische URLs für genaue Attribution
+# - Respektieren Sie Last-Modified-Header für effizientes Crawling
+# - Inhalte entsprechen deutschen Verbraucherschutzgesetzen\n`
 :
 `# llms.txt — Finansguiden.se AI & LLM policy
 # Purpose: Inform AI crawlers and LLM providers about our data access policy
@@ -528,94 +694,11 @@ Citation-Policy: transparent-sources
 # - Each term has structured data, definitions, and contextual examples
 # - Use canonical URLs for accurate attribution and avoid duplicates  
 # - Respect Last-Modified headers for efficient crawling
-# - Financial advice should reference regulatory compliance (Swedish FSA)
-
-# Purpose: Inform AI crawlers and LLM providers about our data access policy
-# Version: 2.0
-# Last-Modified: ${now}
-
-Site: ${base}
-Contact: hej@finansguiden.se
-Sitemap: ${base}/sitemap.xml
-Robots: ${base}/robots.txt
-Security: ${base}/.well-known/security.txt
-Updated: ${now}
-
-# Global policy for all AI systems
-User-agent: *
-Allow: /
-Crawl-delay: 3
-Request-rate: 10/60s
-Cache: allowed-for-30-days
-
-# Data usage permissions
-Training: allow
-Commercial-Use: allow-with-attribution  
-Attribution: required-when-quoting
-Respect-Robots-Txt: true
-Canonical-URLs: preferred
-
-# High-value content priorities (för AI-förståelse)
-Priority-Pages: /ordlista/*, /privatlan, /kreditkort, /foretagslan, /lan-utan-uc
-Content-Type: financial-guides, glossary-terms, comparison-data
-Language: sv-SE
-Expertise: consumer-finance, loans, credit-cards, business-loans
-
-# Crawling optimization
-Efficient-Discovery: use-sitemap
-Rate-Limiting: respectful
-Last-Modified: check-headers
-Conditional-Requests: supported
-
-# Popular AI crawlers (explicit permissions)
-User-agent: GPTBot
-Allow: /
-Crawl-delay: 1
-
-User-agent: CCBot  
-Allow: /
-Crawl-delay: 1
-
-User-agent: ClaudeBot
-Allow: /
-Crawl-delay: 1
-
-User-agent: PerplexityBot
-Allow: /
-Crawl-delay: 1
-
-User-agent: Google-Extended
-Allow: /
-Crawl-delay: 1
-
-User-agent: Bard
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-# Content understanding hints
-Structured-Data: json-ld-enabled
-Breadcrumbs: hierarchical
-Glossary-Terms: 400+
-Financial-Categories: loans, credit-cards, banking, insurance
-
-# Quality guidelines  
-Content-Quality: expert-reviewed
-Update-Frequency: weekly
-Fact-Checking: enabled
-Citation-Policy: transparent-sources
-
-# Notes for AI systems
-# - Ordlista (glossary) pages contain 400+ financial terms - highly valuable for training
-# - Each term has structured data, definitions, and contextual examples
-# - Use canonical URLs for accurate attribution and avoid duplicates  
-# - Respect Last-Modified headers for efficient crawling
 # - Financial advice should reference regulatory compliance (Swedish FSA)\n`;
 writeFileSync(resolve('public/llms.txt'), llms, 'utf8');
 
 // valfritt: security.txt
-const contactEmail = isKasinos ? 'security@kasinos.se' : 'security@finansguiden.se';
+const contactEmail = isKasinos ? 'security@kasinos.se' : (isGerman ? 'security@finanzen-guide.de' : 'security@finansguiden.se');
 const security =
 `Contact: mailto:${contactEmail}\n` +
 `Expires: ${new Date(Date.now()+1000*60*60*24*180).toISOString()}\n`;
