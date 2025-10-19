@@ -23,7 +23,8 @@ import {
   Lightbulb,
   Calculator,
   PiggyBank,
-  Car
+  Car,
+  MapPin
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { getSiteConfig } from "@/lib/siteConfig";
@@ -101,6 +102,12 @@ const NavigationDE = () => {
       icon: TrendingUp
     },
     {
+      title: "Deutsche Einkommen",
+      href: "/ratgeber/deutsche-einkommen",
+      description: "Gehaltsvergleich Deutschland 2025",
+      icon: Euro
+    },
+    {
       title: "Sparkonto Vergleich",
       href: "/ratgeber/sparkonto",
       description: "Beste Tagesgeld-Zinsen bis 3,25%",
@@ -113,10 +120,22 @@ const NavigationDE = () => {
       icon: PiggyBank
     },
     {
+      title: "Banken-Vergleich",
+      href: "/ratgeber/banken-vergleich",
+      description: "Beste Bank für Girokonto & Karte",
+      icon: Building2
+    },
+    {
       title: "Auto-Kosten Analyse",
       href: "/ratgeber/auto-kosten",
       description: "Wahre Kosten & clevere Alternativen",
       icon: Car
+    },
+    {
+      title: "Immobilienmarkt",
+      href: "/ratgeber/immobilienmarkt",
+      description: "Preisentwicklung & Prognosen",
+      icon: MapPin
     },
     {
       title: "Finanz Life Hacks",
