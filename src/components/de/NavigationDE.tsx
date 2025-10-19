@@ -125,7 +125,7 @@ const NavigationDE = () => {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="fixed top-0 z-[9999] w-full bg-background backdrop-blur-sm border-b transition-transform duration-300">
       <div className="container flex h-20 items-center justify-between px-4">
         <Link to="/" className="flex items-center gap-2">
           <img 
@@ -230,19 +230,46 @@ const NavigationDE = () => {
           </NavigationMenuList>
         </NavigationMenu>
 
-        {/* Mobile Menu */}
-        <Sheet open={isOpen} onOpenChange={setIsOpen}>
-          <SheetTrigger asChild>
-            <Button variant="ghost" size="icon" className="lg:hidden">
-              <Menu className="h-6 w-6" />
-              <span className="sr-only">Menü öffnen</span>
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="right" className="w-[320px] sm:w-[400px] bg-background">
-            <SheetTitle>Navigation</SheetTitle>
-            <SheetDescription>Finanzen-Guide.de Hauptmenü</SheetDescription>
-            
-            <div className="flex flex-col gap-6 mt-8">
+        {/* Mobile Navigation - Single unified trigger */}
+        <div className="lg:hidden flex-shrink-0 min-w-max relative z-[10000]">
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
+            <SheetTrigger asChild>
+              <Button 
+                variant="ghost"
+                size="lg"
+                className="h-12 gap-2 hover:bg-accent/50 transition-colors lg:hidden"
+                aria-label="Navigationsmenü öffnen"
+              >
+                <Menu className="h-5 w-5" />
+                <span className="text-sm font-medium">Menü</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent 
+              side="right" 
+              className="w-[320px] sm:w-[400px] max-h-screen overflow-y-auto border-0 bg-background p-0" 
+              data-sheet-content
+              data-debug-visible="true"
+            >
+              {/* Accessibility requirements */}
+              <SheetTitle className="sr-only">Navigationsmenü</SheetTitle>
+              <SheetDescription className="sr-only">
+                Hauptnavigation für Finanzen-Guide.de mit Links zu Krediten, Karten und Ratgebern
+              </SheetDescription>
+              
+              {/* Header in menu */}
+              <div className="sticky top-0 bg-background border-b border-border p-6 pb-4">
+                <div className="flex items-center gap-3">
+                  <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Menu className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <h2 className="font-semibold text-lg text-foreground">Menü</h2>
+                    <p className="text-sm text-muted-foreground">Finanzen-Guide.de</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-col px-6 pb-20 space-y-6">
               <Link
                 to="/"
                 onClick={() => setIsOpen(false)}
@@ -318,9 +345,10 @@ const NavigationDE = () => {
                 <BookOpen className="h-5 w-5" />
                 <span className="font-medium">Glossar</span>
               </Link>
-            </div>
-          </SheetContent>
-        </Sheet>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
     </header>
   );
