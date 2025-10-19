@@ -56,6 +56,7 @@ import GlossarSlugDE from "./routes/glossar/[slug]";
 import AffiliateDE from "./pages/de/Affiliate";
 import UberUnsDE from "./pages/de/UberUns";
 import CookiesDE from "./pages/de/Cookies";
+import AdminDE from "./pages/de/Admin";
 import BestRatenkreditDE from "./pages/de/ratenkredit/Beste";
 import RatenkreditZinsenDE from "./pages/de/ratenkredit/Zinsen";
 import KreditOhneSchufaDE from "./pages/de/ratenkredit/OhneSchufa";
@@ -135,6 +136,7 @@ const App = () => {
                   <Route path="/ratgeber/immobilienmarkt" element={<GermanSiteWrapper><ImmobilienmarktDE /></GermanSiteWrapper>} />
                   <Route path="/ratgeber/deutsche-einkommen" element={<GermanSiteWrapper><DeutscheEinkommenDE /></GermanSiteWrapper>} />
                   <Route path="/affiliate" element={<GermanSiteWrapper><AffiliateDE /></GermanSiteWrapper>} />
+                  <Route path="/admin" element={<GermanSiteWrapper><AdminDE /></GermanSiteWrapper>} />
                   <Route path="*" element={<GermanSiteWrapper><NotFoundBranded /></GermanSiteWrapper>} />
                 </>
               ) : isCasino ? (
