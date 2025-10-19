@@ -51,8 +51,9 @@ import KreditkartenDE from "./pages/de/Kreditkarten";
 import UnternehmenskreditDE from "./pages/de/Unternehmenskredit";
 import ImpressumDE from "./pages/de/Impressum";
 import DatenschutzDE from "./pages/de/Datenschutz";
-import ModernNavigation from "./components/ModernNavigation";
-import ModernFooter from "./components/ModernFooter";
+import GlossarDE from "./pages/de/Glossar";
+import NavigationDE from "./components/de/NavigationDE";
+import FooterDE from "./components/de/FooterDE";
 
 // Casino components
 import CasinoNavigation from "./components/CasinoNavigation";
@@ -96,6 +97,7 @@ const App = () => {
                   <Route path="/de/ratenkredit" element={<GermanSiteWrapper><RatenkreditDE /></GermanSiteWrapper>} />
                   <Route path="/de/kreditkarten" element={<GermanSiteWrapper><KreditkartenDE /></GermanSiteWrapper>} />
                   <Route path="/de/unternehmenskredit" element={<GermanSiteWrapper><UnternehmenskreditDE /></GermanSiteWrapper>} />
+                  <Route path="/de/glossar" element={<GermanSiteWrapper><GlossarDE /></GermanSiteWrapper>} />
                   <Route path="/de/impressum" element={<GermanSiteWrapper><ImpressumDE /></GermanSiteWrapper>} />
                   <Route path="/de/datenschutz" element={<GermanSiteWrapper><DatenschutzDE /></GermanSiteWrapper>} />
                   <Route path="*" element={<GermanSiteWrapper><NotFoundBranded /></GermanSiteWrapper>} />
@@ -230,11 +232,11 @@ const KasinosSitePage = ({ children }: { children: React.ReactNode }) => {
 const GermanSiteWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
-      <ModernNavigation />
-      <main className="min-h-screen">
+      <NavigationDE />
+      <main className="min-h-screen pt-[80px] sm:pt-[96px] md:pt-[112px] lg:pt-[128px]">
         {children}
       </main>
-      <ModernFooter />
+      <FooterDE />
     </>
   );
 };
