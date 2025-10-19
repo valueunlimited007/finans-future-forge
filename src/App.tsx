@@ -52,6 +52,7 @@ import UnternehmenskreditDE from "./pages/de/Unternehmenskredit";
 import ImpressumDE from "./pages/de/Impressum";
 import DatenschutzDE from "./pages/de/Datenschutz";
 import GlossarDE from "./pages/de/Glossar";
+import AffiliateDE from "./pages/de/Affiliate";
 import NavigationDE from "./components/de/NavigationDE";
 import FooterDE from "./components/de/FooterDE";
 
@@ -100,6 +101,7 @@ const App = () => {
                   <Route path="/de/glossar" element={<GermanSiteWrapper><GlossarDE /></GermanSiteWrapper>} />
                   <Route path="/de/impressum" element={<GermanSiteWrapper><ImpressumDE /></GermanSiteWrapper>} />
                   <Route path="/de/datenschutz" element={<GermanSiteWrapper><DatenschutzDE /></GermanSiteWrapper>} />
+                  <Route path="/de/affiliate" element={<GermanSiteWrapper><AffiliateDE /></GermanSiteWrapper>} />
                   <Route path="*" element={<GermanSiteWrapper><NotFoundBranded /></GermanSiteWrapper>} />
                 </>
               ) : isCasino ? (
