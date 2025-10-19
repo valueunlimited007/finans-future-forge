@@ -82,7 +82,7 @@ const FooterDE: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <a href="mailto:info@finanzen-guide.de" className="text-muted-foreground hover:text-foreground transition-colors">
+                <a href="mailto:hallo@finanzen-guide.de" className="text-muted-foreground hover:text-foreground transition-colors">
                   Kontakt
                 </a>
               </li>
@@ -122,7 +122,7 @@ const FooterDE: React.FC = () => {
           <div className="mb-4">
             <p className="text-sm text-muted-foreground leading-relaxed">
               Finanzen-Guide.de - Unabhängiger Kreditvergleich<br />
-              info@finanzen-guide.de
+              hallo@finanzen-guide.de
             </p>
           </div>
           <p className="text-sm text-muted-foreground">

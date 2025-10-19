@@ -535,7 +535,7 @@ Regulatory-Compliance: swedish-gambling-authority
 # Zuletzt geändert: ${now}
 
 Site: ${base}
-Contact: info@finanzen-guide.de
+Contact: hallo@finanzen-guide.de
 Sitemap: ${base}/sitemap.xml
 Robots: ${base}/robots.txt
 Security: ${base}/.well-known/security.txt
