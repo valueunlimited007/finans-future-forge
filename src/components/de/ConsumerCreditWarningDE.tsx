@@ -3,9 +3,9 @@ import { AlertTriangle } from "lucide-react";
 
 export default function ConsumerCreditWarningDE() {
   return (
-    <Alert variant="default" className="my-8 max-w-6xl mx-auto border-2 border-red-600 bg-background">
+    <Alert variant="default" className="my-8 max-w-6xl mx-auto border-2 border-red-600 bg-background gap-4">
       <AlertTriangle className="h-10 w-10 flex-shrink-0 text-red-600" />
-      <div className="pl-4">
+      <div>
         <AlertTitle className="text-lg font-bold text-foreground">
           Achtung: Kredite kosten Geld!
         </AlertTitle>
