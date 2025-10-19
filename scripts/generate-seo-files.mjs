@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from 'fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs';
 import { resolve } from 'path';
 
 // Detect which site we're building based on environment variable
@@ -14,8 +14,18 @@ const routes = JSON.parse(readFileSync(routesPath, 'utf8'));
 
 const now = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
 
-const siteLabel = isKasinos ? 'kasinos' : (isGerman ? 'finanzen-guide' : 'finansguiden');
+const siteLabel = isKasinos ? 'kasinos' : (isGerman ? 'finanzen' : 'finansguiden');
+const distDir = resolve(`dist/${siteLabel}`);
+
 console.log(`[SEO] Building SEO files for: ${SITE_DOMAIN} (${siteLabel})`);
+
+// Create dist directories if they don't exist
+try {
+  mkdirSync(distDir, { recursive: true });
+  mkdirSync(resolve(distDir, '.well-known'), { recursive: true });
+} catch (e) {
+  // Directories already exist, OK
+}
 
 // Kasinos-specific sitemap generation
 function generateKasinosSitemap() {
@@ -219,7 +229,9 @@ urls.map(u => `  <url>
   </url>`).join('\n') +
 `\n</urlset>\n`;
 
+// Write to both public (dev) and dist (production)
 writeFileSync(resolve('public/sitemap.xml'), sitemap, 'utf8');
+writeFileSync(resolve(distDir, 'sitemap.xml'), sitemap, 'utf8');
 
 // Generate domain-specific robots.txt
 const siteTitle = isKasinos ? 'Kasinos.se' : (isGerman ? 'Finanzen-Guide.de' : 'Finansguiden.se');
@@ -440,6 +452,7 @@ Sitemap: ${base}/sitemap.xml
 # Notera: Se även /llms.txt för AI-specifik policy
 `;
 writeFileSync(resolve('public/robots.txt'), robots, 'utf8');
+writeFileSync(resolve(distDir, 'robots.txt'), robots, 'utf8');
 
 const llms = isKasinos ?
 `# llms.txt — Kasinos.se AI & LLM policy
@@ -696,6 +709,7 @@ Citation-Policy: transparent-sources
 # - Respect Last-Modified headers for efficient crawling
 # - Financial advice should reference regulatory compliance (Swedish FSA)\n`;
 writeFileSync(resolve('public/llms.txt'), llms, 'utf8');
+writeFileSync(resolve(distDir, 'llms.txt'), llms, 'utf8');
 
 // valfritt: security.txt
 const contactEmail = isKasinos ? 'security@kasinos.se' : (isGerman ? 'security@finanzen-guide.de' : 'security@finansguiden.se');
@@ -703,7 +717,8 @@ const security =
 `Contact: mailto:${contactEmail}\n` +
 `Expires: ${new Date(Date.now()+1000*60*60*24*180).toISOString()}\n`;
 const wellKnownDir = resolve('public/.well-known');
-try { require('fs').mkdirSync(wellKnownDir, { recursive: true }); } catch {}
+try { mkdirSync(wellKnownDir, { recursive: true }); } catch {}
 writeFileSync(resolve('public/.well-known/security.txt'), security, 'utf8');
+writeFileSync(resolve(distDir, '.well-known/security.txt'), security, 'utf8');
 
-console.log(`[SEO] Wrote ${SITE_DOMAIN}-specific sitemap.xml, robots.txt, llms.txt, security.txt`);
+console.log(`[SEO] Wrote ${SITE_DOMAIN}-specific files to public/ and dist/${siteLabel}/`);
