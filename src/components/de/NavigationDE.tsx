@@ -17,7 +17,11 @@ import {
   CreditCard, 
   Banknote, 
   Building2, 
-  BookOpen
+  BookOpen,
+  TrendingUp,
+  Euro,
+  Lightbulb,
+  Calculator
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { getSiteConfig } from "@/lib/siteConfig";
@@ -77,6 +81,39 @@ const NavigationDE = () => {
       href: "/unternehmenskredit",
       description: "Schnelle Finanzierung für Ihr Unternehmen",
       icon: Building2
+    }
+  ];
+
+  const ratgeber = [
+    {
+      title: "Gehaltsoptimierung",
+      href: "/ratgeber/gehaltsoptimierung",
+      description: "Mehr Netto durch Steuervorteile & Benefits",
+      icon: TrendingUp
+    },
+    {
+      title: "Sparkonto Vergleich",
+      href: "/ratgeber/sparkonto",
+      description: "Beste Tagesgeld-Zinsen bis 3,25%",
+      icon: Euro
+    },
+    {
+      title: "Finanz Life Hacks",
+      href: "/ratgeber/finanz-tipps",
+      description: "Bewährte Spartipps für Deutschland",
+      icon: Lightbulb
+    },
+    {
+      title: "Bester Kredit finden",
+      href: "/ratgeber/bester-kredit",
+      description: "So finden Sie den passenden Kredit",
+      icon: Calculator
+    },
+    {
+      title: "Zinsen verstehen",
+      href: "/ratgeber/zinsen",
+      description: "Effektivzins vs. Nominalzins erklärt",
+      icon: TrendingUp
     }
   ];
 
@@ -205,10 +242,32 @@ const NavigationDE = () => {
             <NavigationMenuItem>
               <NavigationMenuTrigger>
                 <BookOpen className="mr-2 h-4 w-4" />
+                Ratgeber
+              </NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <div className="grid gap-3 p-6 w-[500px] md:w-[550px] bg-background z-[100]">
+                  <div className="grid gap-1">
+                    <h3 className="font-medium">Finanzwissen & Spartipps</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Praktische Guides für bessere Finanzen
+                    </p>
+                  </div>
+                  <div className="grid gap-2 md:grid-cols-2">
+                    {ratgeber.map((item) => (
+                      <NavMenuItem key={item.href} item={item} />
+                    ))}
+                  </div>
+                </div>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>
+                <BookOpen className="mr-2 h-4 w-4" />
                 Ressourcen
               </NavigationMenuTrigger>
               <NavigationMenuContent>
-                <div className="grid gap-3 p-6 w-[400px]">
+                <div className="grid gap-3 p-6 w-[400px] bg-background z-[100]">
                   <div className="grid gap-1">
                     <h3 className="font-medium">Mehr erfahren</h3>
                     <p className="text-sm text-muted-foreground">
@@ -292,6 +351,21 @@ const NavigationDE = () => {
                   </div>
                   <div className="space-y-2">
                     {loanProducts.map((item) => (
+                      <MobileNavItem key={item.href} item={item} onClick={() => setIsOpen(false)} />
+                    ))}
+                  </div>
+                </div>
+
+                <div className="space-y-3">
+                  <div className="flex items-center gap-2 px-1 py-1">
+                    <div className="h-1 w-6 rounded-full bg-green-500/60"></div>
+                    <h3 className="font-medium text-sm text-foreground/80 uppercase tracking-wide">
+                      Ratgeber
+                    </h3>
+                    <div className="flex-1 h-px bg-border/50"></div>
+                  </div>
+                  <div className="space-y-2">
+                    {ratgeber.map((item) => (
                       <MobileNavItem key={item.href} item={item} onClick={() => setIsOpen(false)} />
                     ))}
                   </div>
