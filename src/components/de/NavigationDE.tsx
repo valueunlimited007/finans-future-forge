@@ -380,6 +380,14 @@ const NavigationDE = () => {
               className="w-[320px] sm:w-[400px] max-h-screen overflow-y-auto border-0 bg-background p-0" 
               data-sheet-content
               data-debug-visible="true"
+              onPointerDownOutside={(e) => {
+                console.log('🚫 PointerDownOutside prevented');
+                e.preventDefault();
+              }}
+              onInteractOutside={(e) => {
+                console.log('🚫 InteractOutside, allowing close');
+                // Let it close normally
+              }}
             >
               {/* Accessibility requirements */}
               <SheetTitle className="sr-only">Navigationsmenü</SheetTitle>
