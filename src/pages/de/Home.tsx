@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { getSiteConfig } from "@/lib/siteConfig";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
@@ -24,83 +24,83 @@ export default function HomeDE() {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative py-20 px-4 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950 dark:to-blue-900">
-        <div className="max-w-6xl mx-auto text-center">
-          <Badge className="mb-4" variant="outline">
+      <section className="py-16 px-4 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950 dark:to-blue-900">
+        <div className="container mx-auto max-w-6xl text-center">
+          <Badge className="mb-4" variant="secondary">
             🇩🇪 Deutschlands unabhängiger Kreditvergleich
           </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-            Kredite & Kreditkarten<br />smart vergleichen
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-foreground">
+            Kredite & Kreditkarten <span className="text-blue-600">smart vergleichen</span>
           </h1>
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl mb-8 text-muted-foreground max-w-3xl mx-auto">
             Finden Sie die besten Zinsen und Konditionen für Ratenkredite, Kreditkarten und Unternehmenskredite. 
             Kostenlos, unverbindlich und TÜV-geprüft.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Button asChild size="lg" className="bg-blue-600 text-white hover:bg-blue-700 shadow-lg">
+          <div className="flex flex-wrap gap-4 justify-center mb-8">
+            <Button asChild size="lg" className="text-lg px-8 bg-blue-600 text-white hover:bg-blue-700 shadow-lg">
               <Link to="/ratenkredit">Ratenkredit vergleichen</Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white">
+            <Button asChild size="lg" variant="outline" className="text-lg px-8 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white">
               <Link to="/kreditkarten">Kreditkarten vergleichen</Link>
             </Button>
+          </div>
+          
+          <div className="flex flex-wrap gap-4 justify-center text-sm">
+            <Badge variant="secondary">✓ Oberoende jämförelser</Badge>
+            <Badge variant="secondary">✓ Alltid kostnadsfritt</Badge>
+            <Badge variant="secondary">✓ Snabba besked</Badge>
+            <Badge variant="secondary">✓ Inga dolda avgifter</Badge>
           </div>
         </div>
       </section>
 
       {/* Quick Stats */}
-      <section className="py-12 px-4 bg-muted/50 border-y">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="flex items-center justify-center mb-2">
-                <Users className="w-5 h-5 text-primary mr-2" />
-                <span className="text-3xl font-bold text-primary">20+</span>
-              </div>
-              <p className="text-sm text-muted-foreground">Banken im Vergleich</p>
+      <section className="py-16 px-4 bg-muted/50">
+        <div className="container mx-auto max-w-6xl">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+              <div className="text-3xl font-bold text-primary mb-2">20+</div>
+              <div className="text-muted-foreground">Banken im Vergleich</div>
             </div>
-            <div className="text-center">
-              <div className="flex items-center justify-center mb-2">
-                <TrendingDown className="w-5 h-5 text-primary mr-2" />
-                <span className="text-3xl font-bold text-primary">ab 0,68%</span>
-              </div>
-              <p className="text-sm text-muted-foreground">eff. Jahreszins</p>
+            <div>
+              <div className="text-3xl font-bold text-primary mb-2">ab 0,68%</div>
+              <div className="text-muted-foreground">eff. Jahreszins</div>
             </div>
-            <div className="text-center">
-              <div className="flex items-center justify-center mb-2">
-                <Clock className="w-5 h-5 text-primary mr-2" />
-                <span className="text-3xl font-bold text-primary">24h</span>
-              </div>
-              <p className="text-sm text-muted-foreground">Schnelle Entscheidung</p>
+            <div>
+              <div className="text-3xl font-bold text-primary mb-2">24h</div>
+              <div className="text-muted-foreground">Schnelle Entscheidung</div>
             </div>
-            <div className="text-center">
-              <div className="flex items-center justify-center mb-2">
-                <Star className="w-5 h-5 text-primary mr-2" />
-                <span className="text-3xl font-bold text-primary">4.8/5</span>
-              </div>
-              <p className="text-sm text-muted-foreground">Kundenbewertung</p>
+            <div>
+              <div className="text-3xl font-bold text-primary mb-2">4,8/5</div>
+              <div className="text-muted-foreground">Kundenbewertung</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Main Categories */}
-      <section className="py-16 px-4 bg-background">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Was möchten Sie vergleichen?</h2>
-          <div className="grid md:grid-cols-3 gap-8">
+      <section className="py-16 px-4">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">Was möchten Sie vergleichen?</h2>
+            <p className="text-xl text-muted-foreground">
+              Hitta rätt produkt för dina behov - vi guidar dig hela vägen
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6 items-stretch">
             
             {/* Ratenkredit Card */}
-            <Card className="hover:shadow-lg transition-shadow">
+            <Card data-fg-card className="h-full flex flex-col hover:shadow-lg transition-shadow">
               <CardHeader>
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                   <TrendingDown className="w-6 h-6 text-primary" />
                 </div>
                 <CardTitle>Ratenkredite</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-4">
+                <CardDescription>
                   Vergleichen Sie Ratenkredite von über 20 Banken. Zinsen ab 0,68% eff. Jahreszins.
-                </p>
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="flex-1 flex flex-col justify-between">
                 <ul className="space-y-2 mb-6 text-sm">
                   <li className="flex items-start">
                     <span className="text-primary mr-2">✓</span>
@@ -115,24 +115,24 @@ export default function HomeDE() {
                     <span>Kostenlose Sondertilgungen</span>
                   </li>
                 </ul>
-                <Button asChild className="w-full">
+                <Button asChild className="w-full fg-btn">
                   <Link to="/ratenkredit">Jetzt vergleichen</Link>
                 </Button>
               </CardContent>
             </Card>
 
             {/* Kreditkarten Card */}
-            <Card className="hover:shadow-lg transition-shadow">
+            <Card data-fg-card className="h-full flex flex-col hover:shadow-lg transition-shadow">
               <CardHeader>
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                   <CreditCard className="w-6 h-6 text-primary" />
                 </div>
                 <CardTitle>Kreditkarten</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-4">
+                <CardDescription>
                   Finden Sie die perfekte Kreditkarte - kostenlos, mit Cashback oder Versicherung.
-                </p>
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="flex-1 flex flex-col justify-between">
                 <ul className="space-y-2 mb-6 text-sm">
                   <li className="flex items-start">
                     <span className="text-primary mr-2">✓</span>
@@ -147,24 +147,24 @@ export default function HomeDE() {
                     <span>Cashback & Bonus-Programme</span>
                   </li>
                 </ul>
-                <Button asChild className="w-full">
+                <Button asChild className="w-full fg-btn">
                   <Link to="/kreditkarten">Kreditkarten finden</Link>
                 </Button>
               </CardContent>
             </Card>
 
             {/* Unternehmenskredit Card */}
-            <Card className="hover:shadow-lg transition-shadow">
+            <Card data-fg-card className="h-full flex flex-col hover:shadow-lg transition-shadow">
               <CardHeader>
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                   <Building2 className="w-6 h-6 text-primary" />
                 </div>
                 <CardTitle>Unternehmenskredite</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-4">
+                <CardDescription>
                   Schnelle Finanzierung für Ihr Unternehmen. Entscheidung in 24 Stunden.
-                </p>
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="flex-1 flex flex-col justify-between">
                 <ul className="space-y-2 mb-6 text-sm">
                   <li className="flex items-start">
                     <span className="text-primary mr-2">✓</span>
@@ -179,7 +179,7 @@ export default function HomeDE() {
                     <span>Flexible Rückzahlung</span>
                   </li>
                 </ul>
-                <Button asChild className="w-full">
+                <Button asChild className="w-full fg-btn">
                   <Link to="/unternehmenskredit">Jetzt anfragen</Link>
                 </Button>
               </CardContent>
@@ -233,8 +233,8 @@ export default function HomeDE() {
       <ConsumerCreditWarningDE />
 
       {/* Popular Topics */}
-      <section className="py-16 px-4 bg-background">
-        <div className="max-w-6xl mx-auto">
+      <section className="py-16 px-4">
+        <div className="container mx-auto max-w-6xl">
           <h2 className="text-3xl font-bold text-center mb-12">Beliebte Themen</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             <Link to="/ratenkredit/beste" className="p-4 border rounded-lg hover:bg-muted/50 transition-colors">
@@ -258,13 +258,13 @@ export default function HomeDE() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 bg-blue-50 dark:bg-blue-950">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="py-16 px-4 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950 dark:to-blue-900">
+        <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-bold mb-6">Bereit für Ihren Kredit?</h2>
           <p className="text-xl text-muted-foreground mb-8">
             Vergleichen Sie jetzt kostenlos über 20 Banken und finden Sie die besten Konditionen.
           </p>
-          <Button asChild size="lg">
+          <Button asChild size="lg" className="bg-blue-600 text-white hover:bg-blue-700 shadow-lg">
             <Link to="/ratenkredit">Kredit vergleichen</Link>
           </Button>
         </div>

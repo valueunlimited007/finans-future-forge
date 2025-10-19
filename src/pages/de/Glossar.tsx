@@ -88,13 +88,13 @@ export default function GlossarDE() {
         <link rel="canonical" href={`https://${siteConfig.domain}/glossar`} />
       </Helmet>
 
-      <div className="max-w-6xl mx-auto px-4 py-16">
+      <div className="container mx-auto max-w-6xl px-4 py-16">
         {/* Hero Section */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4">
             <BookOpen className="w-8 h-8 text-primary" />
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Finanz-Glossar</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">Finanz-Glossar</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Alle wichtigen Finanzbegriffe verständlich erklärt. Von A bis Z.
           </p>

@@ -25,16 +25,16 @@ export default function UnternehmenskreditDE() {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="py-16 px-4 bg-gradient-to-br from-primary/10 via-background to-primary/5">
-        <div className="max-w-6xl mx-auto">
+      <section className="py-16 px-4 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950 dark:to-blue-900">
+        <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12">
-            <Badge className="mb-4" variant="outline">
+            <Badge className="mb-4" variant="secondary">
               Schnelle Unternehmensfinanzierung
             </Badge>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
               Unternehmenskredit Vergleich 2025
             </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Schnelle Finanzierung für Ihr Unternehmen. Kredit-Entscheidung in 24 Stunden, 
               flexible Rückzahlung, persönlicher Service.
             </p>
@@ -74,8 +74,8 @@ export default function UnternehmenskreditDE() {
       </section>
 
       {/* Partner Comparison */}
-      <section className="py-16 px-4 bg-background">
-        <div className="max-w-6xl mx-auto">
+      <section className="py-16 px-4">
+        <div className="container mx-auto max-w-6xl">
           <h2 className="text-3xl font-bold mb-8 text-center">Unternehmenskredite im Vergleich</h2>
           
           <div className="grid gap-6">
@@ -158,7 +158,7 @@ export default function UnternehmenskreditDE() {
 
       {/* Use Cases */}
       <section className="py-16 px-4 bg-muted/30">
-        <div className="max-w-4xl mx-auto">
+        <div className="container mx-auto max-w-4xl">
           <h2 className="text-3xl font-bold mb-8">Wofür kann ich einen Unternehmenskredit nutzen?</h2>
           
           <div className="grid md:grid-cols-2 gap-6">
@@ -228,8 +228,8 @@ export default function UnternehmenskreditDE() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 px-4 bg-background">
-        <div className="max-w-4xl mx-auto">
+      <section className="py-16 px-4">
+        <div className="container mx-auto max-w-4xl">
           <h2 className="text-3xl font-bold mb-8">Häufig gestellte Fragen</h2>
           
           <div className="space-y-6">
@@ -287,17 +287,17 @@ export default function UnternehmenskreditDE() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 bg-primary/5">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="py-16 px-4 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950 dark:to-blue-900">
+        <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-bold mb-6">Bereit für Ihren Unternehmenskredit?</h2>
           <p className="text-xl text-muted-foreground mb-8">
             Vergleichen Sie jetzt kostenlos und erhalten Sie innerhalb von 24 Stunden eine Entscheidung.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Button asChild size="lg">
+            <Button asChild size="lg" className="bg-blue-600 text-white hover:bg-blue-700 shadow-lg">
               <a href="#comparison">Finanzierung anfragen</a>
             </Button>
-            <Button asChild size="lg" variant="outline">
+            <Button asChild size="lg" variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white">
               <Link to="/ratenkredit">Zum Privatkreditvergleich</Link>
             </Button>
           </div>
