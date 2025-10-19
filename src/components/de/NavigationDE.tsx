@@ -47,10 +47,8 @@ const NavigationDE = () => {
 
   // Scroll sheet content to top when menu opens
   useEffect(() => {
-    console.log('[NavigationDE] isOpen changed to:', isOpen);
     if (isOpen) {
       const sheetContent = document.querySelector('[data-sheet-content]');
-      console.log('[NavigationDE] Sheet content element:', sheetContent);
       if (sheetContent) {
         sheetContent.scrollTop = 0;
       }
@@ -255,20 +253,13 @@ const NavigationDE = () => {
         </NavigationMenu>
 
         {/* Mobile Navigation */}
-        <Sheet open={isOpen} onOpenChange={(newOpen) => {
-          console.log('[NavigationDE] Sheet onOpenChange called with:', newOpen);
-          setIsOpen(newOpen);
-        }}>
+        <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild>
             <Button 
               variant="ghost"
               size="lg"
               className="h-12 gap-2 hover:bg-accent/50 transition-colors lg:hidden relative z-[10000]"
               aria-label="Navigationsmenü öffnen"
-              onClick={(e) => {
-                console.log('[NavigationDE] Button clicked!', e);
-                console.log('[NavigationDE] Current isOpen:', isOpen);
-              }}
             >
               <Menu className="h-5 w-5" />
               <span className="text-sm font-medium">Menü</span>

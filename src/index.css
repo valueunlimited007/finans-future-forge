@@ -467,7 +467,9 @@ nav *,
 [role="navigation"],
 [role="navigation"] *,
 button[aria-label*="meny" i],
-button[aria-label*="menu" i] {
+button[aria-label*="menu" i],
+button[aria-label*="menü" i],
+button[aria-label*="navigationsmenü" i] {
   pointer-events: auto !important;
 }
 
