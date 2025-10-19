@@ -390,8 +390,10 @@ const NavigationDE = () => {
             <span className="text-sm font-medium">Menü</span>
             <Menu className="h-5 w-5" />
           </button>
-          
-          <Sheet open={isOpen} onOpenChange={handleOpenChange}>
+        </div>
+
+        {/* Sheet component - separate from trigger */}
+        <Sheet open={isOpen} onOpenChange={handleOpenChange}>
             <SheetContent 
               side="right" 
               className="w-[320px] sm:w-[400px] max-h-screen overflow-y-auto border-0 bg-background p-0" 
@@ -490,8 +492,7 @@ const NavigationDE = () => {
                 </div>
               </div>
             </SheetContent>
-          </Sheet>
-        </div>
+        </Sheet>
       </div>
     </header>
   );
