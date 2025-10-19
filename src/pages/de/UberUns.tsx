@@ -9,11 +9,12 @@ export default function UberUnsDE() {
   return (
     <>
       <Helmet>
-        <title>Über uns - Ihr unabhängiger Kreditvergleich | {siteConfig.name}</title>
+        <title>Über uns - Deutschlands unabhängiger Kreditvergleich | {siteConfig.name}</title>
         <meta 
           name="description" 
-          content="Erfahren Sie mehr über Finanzen-Guide.de - Deutschlands unabhängige Vergleichsplattform für Kredite und Finanzprodukte." 
+          content="Erfahren Sie mehr über Finanzen-Guide.de: Ihr unabhängiger Partner für Kreditvergleiche ✓ TÜV-geprüft ✓ Über 50 Banken ✓ 100% kostenlos ✓ Seit 2020." 
         />
+        <meta name="keywords" content="über uns, Finanzen-Guide, unabhängiger Vergleich, Kreditvergleich Deutschland, seriöser Kreditvergleich" />
         <link rel="canonical" href={`https://${siteConfig.domain}/uber-uns`} />
       </Helmet>
 

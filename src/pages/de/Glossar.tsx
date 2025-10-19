@@ -5,86 +5,33 @@ import { Link } from "react-router-dom";
 import { BookOpen, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
-
-// Sample German financial terms - full glossary would come from a data file
-const GERMAN_TERMS = [
-  {
-    letter: "A",
-    terms: [
-      { slug: "abgeltungssteuer", title: "Abgeltungssteuer", preview: "Steuer auf Kapitalerträge in Deutschland" },
-      { slug: "annuitaet", title: "Annuität", preview: "Gleichbleibende Rate zur Tilgung eines Darlehens" },
-      { slug: "apr", title: "APR (Annual Percentage Rate)", preview: "Jährlicher Prozentsatz der Gesamtkosten eines Kredits" },
-    ]
-  },
-  {
-    letter: "B",
-    terms: [
-      { slug: "bafin", title: "BaFin", preview: "Bundesanstalt für Finanzdienstleistungsaufsicht" },
-      { slug: "bonität", title: "Bonität", preview: "Kreditwürdigkeit einer Person oder eines Unternehmens" },
-    ]
-  },
-  {
-    letter: "E",
-    terms: [
-      { slug: "effektivzins", title: "Effektivzins", preview: "Zinssatz inklusive aller Kreditkosten" },
-      { slug: "eigenkapital", title: "Eigenkapital", preview: "Eigene finanzielle Mittel ohne Fremdkapital" },
-    ]
-  },
-  {
-    letter: "K",
-    terms: [
-      { slug: "kreditwürdigkeit", title: "Kreditwürdigkeit", preview: "Fähigkeit, einen Kredit zurückzuzahlen" },
-      { slug: "kontokorrent", title: "Kontokorrentkredit", preview: "Dispositionskredit auf dem Girokonto" },
-    ]
-  },
-  {
-    letter: "S",
-    terms: [
-      { slug: "schufa", title: "SCHUFA", preview: "Schutzgemeinschaft für allgemeine Kreditsicherung" },
-      { slug: "sollzins", title: "Sollzins", preview: "Nominalzins ohne Nebenkosten" },
-      { slug: "sondertilgung", title: "Sondertilgung", preview: "Außerplanmäßige Rückzahlung eines Kredits" },
-    ]
-  },
-  {
-    letter: "T",
-    terms: [
-      { slug: "tilgung", title: "Tilgung", preview: "Rückzahlung eines Kredits oder Darlehens" },
-    ]
-  },
-  {
-    letter: "U",
-    terms: [
-      { slug: "umschuldung", title: "Umschuldung", preview: "Ablösung eines Kredits durch einen neuen Kredit" },
-    ]
-  },
-  {
-    letter: "Z",
-    terms: [
-      { slug: "zinssatz", title: "Zinssatz", preview: "Preis für geliehenes Geld in Prozent" },
-    ]
-  }
-];
+import { getGlossaryByLetter } from "@/data/glossary-de";
 
 export default function GlossarDE() {
   const siteConfig = getSiteConfig();
   const [searchQuery, setSearchQuery] = useState("");
+  const allTerms = getGlossaryByLetter();
 
-  const filteredTerms = GERMAN_TERMS.map(group => ({
+  const filteredTerms = allTerms.map(group => ({
     ...group,
     terms: group.terms.filter(term =>
-      term.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      term.preview.toLowerCase().includes(searchQuery.toLowerCase())
+      term.term.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      term.shortDefinition.toLowerCase().includes(searchQuery.toLowerCase())
     )
   })).filter(group => group.terms.length > 0);
 
   return (
     <>
       <Helmet>
-        <title>Finanz-Glossar - Alle Begriffe erklärt | {siteConfig.name}</title>
+        <title>Finanz-Glossar - Über 600 Begriffe erklärt | {siteConfig.name}</title>
         <meta 
           name="description" 
-          content="Umfassendes Finanz-Glossar mit über 600 Begriffen. Von Abgeltungssteuer bis Zinssatz - verständlich erklärt." 
+          content="Deutschlands umfassendstes Finanz-Glossar mit über 600 Begriffen. Von Abgeltungssteuer bis Zinseszins - alle Finanzterme verständlich erklärt für bessere Kreditentscheidungen." 
         />
+        <meta name="keywords" content="Finanzlexikon, Kreditbegriffe, Zinsen erklärt, Tilgung, SCHUFA, Bonität, Effektivzins, Baufinanzierung, Ratenkredit" />
+        <meta property="og:title" content="Finanz-Glossar - Über 600 Begriffe erklärt" />
+        <meta property="og:description" content="Deutschlands umfassendstes Finanz-Glossar. Alle wichtigen Kreditbegriffe verständlich erklärt." />
+        <meta property="og:type" content="website" />
         <link rel="canonical" href={`https://${siteConfig.domain}/glossar`} />
       </Helmet>
 
@@ -94,9 +41,12 @@ export default function GlossarDE() {
           <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4">
             <BookOpen className="w-8 h-8 text-primary" />
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">Finanz-Glossar</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+            Finanz-Glossar: Über 600 Begriffe
+          </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Alle wichtigen Finanzbegriffe verständlich erklärt. Von A bis Z.
+            Deutschlands umfassendstes Finanzlexikon. Alle wichtigen Kredit- und Finanzbegriffe 
+            verständlich erklärt - von Abgeltungssteuer bis Zinseszins.
           </p>
         </div>
 
@@ -126,14 +76,13 @@ export default function GlossarDE() {
               <CardContent>
                 <div className="grid gap-4">
                   {group.terms.map((term) => (
-                    <Link
+                    <div
                       key={term.slug}
-                      to={`/glossar/${term.slug}`}
                       className="p-4 rounded-lg border hover:bg-muted/50 transition-colors"
                     >
-                      <h3 className="font-semibold text-lg mb-1">{term.title}</h3>
-                      <p className="text-sm text-muted-foreground">{term.preview}</p>
-                    </Link>
+                      <h3 className="font-semibold text-lg mb-1">{term.term}</h3>
+                      <p className="text-sm text-muted-foreground">{term.shortDefinition}</p>
+                    </div>
                   ))}
                 </div>
               </CardContent>
@@ -151,17 +100,34 @@ export default function GlossarDE() {
           </Card>
         )}
 
-        {/* Info Box */}
+        {/* Info und SEO Box */}
         <Card className="mt-12 bg-primary/5 border-primary/20">
-          <CardContent className="pt-6">
-            <h3 className="font-semibold text-lg mb-3">💡 Hinweis</h3>
-            <p className="text-sm text-muted-foreground">
-              Unser Finanz-Glossar wird ständig erweitert und aktualisiert. 
-              Fehlt Ihnen ein Begriff? Schreiben Sie uns an{" "}
-              <a href="mailto:hello@finanzen-guide.de" className="text-primary hover:underline">
-                hello@finanzen-guide.de
-              </a>
-            </p>
+          <CardContent className="pt-6 space-y-4">
+            <div>
+              <h3 className="font-semibold text-lg mb-3">💡 Über unser Finanz-Glossar</h3>
+              <p className="text-sm text-muted-foreground mb-2">
+                Unser Finanz-Glossar wird täglich aktualisiert und erweitert, um Ihnen die 
+                aktuellsten und relevantesten Informationen zu bieten. Mit über 600 Begriffen 
+                aus den Bereichen Kredite, Zinsen, Immobilienfinanzierung, Investment und 
+                Steuern ist es Deutschlands umfassendste Quelle für Finanzwissen.
+              </p>
+              <p className="text-sm text-muted-foreground">
+                Fehlt Ihnen ein Begriff oder haben Sie Fragen? Schreiben Sie uns an{" "}
+                <a href="mailto:hello@finanzen-guide.de" className="text-primary hover:underline font-medium">
+                  hello@finanzen-guide.de
+                </a>
+              </p>
+            </div>
+            
+            <div className="border-t pt-4">
+              <h4 className="font-semibold mb-2">Warum ist Finanzwissen wichtig?</h4>
+              <p className="text-sm text-muted-foreground">
+                Das Verständnis von Finanzbegriffen hilft Ihnen, bessere Kreditentscheidungen 
+                zu treffen, versteckte Kosten zu erkennen und Ihr Geld optimal zu verwalten. 
+                Ob Sie einen Ratenkredit, eine Baufinanzierung oder einen Unternehmenskredit 
+                suchen - fundiertes Wissen spart Geld und schützt vor teuren Fehlentscheidungen.
+              </p>
+            </div>
           </CardContent>
         </Card>
       </div>
