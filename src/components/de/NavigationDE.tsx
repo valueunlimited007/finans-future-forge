@@ -387,8 +387,8 @@ const NavigationDE = () => {
             className="inline-flex items-center gap-2 h-12 px-4 rounded-md text-sm font-medium hover:bg-accent/50 transition-colors"
             aria-label="Navigationsmenü öffnen"
           >
-            <Menu className="h-5 w-5" />
             <span className="text-sm font-medium">Menü</span>
+            <Menu className="h-5 w-5" />
           </button>
           
           <Sheet open={isOpen} onOpenChange={handleOpenChange}>
