@@ -44,6 +44,16 @@ import KasinosSpelregler from "./pages/KasinosSpelregler";
 import { getSiteConfig, isCasinoSite } from "./lib/siteConfig";
 import SiteSelector from "./components/SiteSelector";
 
+// German pages
+import HomeDE from "./pages/de/Home";
+import RatenkreditDE from "./pages/de/Ratenkredit";
+import KreditkartenDE from "./pages/de/Kreditkarten";
+import UnternehmenskreditDE from "./pages/de/Unternehmenskredit";
+import ImpressumDE from "./pages/de/Impressum";
+import DatenschutzDE from "./pages/de/Datenschutz";
+import ModernNavigation from "./components/ModernNavigation";
+import ModernFooter from "./components/ModernFooter";
+
 // Casino components
 import CasinoNavigation from "./components/CasinoNavigation";
 import CasinoNavigationKasinos from "./components/CasinoNavigationKasinos";
@@ -78,8 +88,19 @@ const App = () => {
           <BrowserRouter>
               <ScrollToTop />
               <Routes>
-              {/* Casino site routes */}
-              {isCasino ? (
+              {/* German site routes */}
+              {siteConfig.market === 'DE' ? (
+                <>
+                  <Route path="/" element={<GermanSiteWrapper><HomeDE /></GermanSiteWrapper>} />
+                  <Route path="/de" element={<GermanSiteWrapper><HomeDE /></GermanSiteWrapper>} />
+                  <Route path="/de/ratenkredit" element={<GermanSiteWrapper><RatenkreditDE /></GermanSiteWrapper>} />
+                  <Route path="/de/kreditkarten" element={<GermanSiteWrapper><KreditkartenDE /></GermanSiteWrapper>} />
+                  <Route path="/de/unternehmenskredit" element={<GermanSiteWrapper><UnternehmenskreditDE /></GermanSiteWrapper>} />
+                  <Route path="/de/impressum" element={<GermanSiteWrapper><ImpressumDE /></GermanSiteWrapper>} />
+                  <Route path="/de/datenschutz" element={<GermanSiteWrapper><DatenschutzDE /></GermanSiteWrapper>} />
+                  <Route path="*" element={<GermanSiteWrapper><NotFoundBranded /></GermanSiteWrapper>} />
+                </>
+              ) : isCasino ? (
                 <>
                   <Route path="/" element={<CasinoHomeWrapper />} />
                   <Route path="/se" element={<CasinoHomeWrapper />} />
@@ -201,6 +222,19 @@ const KasinosSitePage = ({ children }: { children: React.ReactNode }) => {
       )}
       {children}
       <CasinoFooter />
+    </>
+  );
+};
+
+// German site wrapper
+const GermanSiteWrapper = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <>
+      <ModernNavigation />
+      <main className="min-h-screen">
+        {children}
+      </main>
+      <ModernFooter />
     </>
   );
 };

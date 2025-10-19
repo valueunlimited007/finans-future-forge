@@ -1,6 +1,6 @@
 export interface SiteConfig {
   site: 'finansguiden' | 'kasinos';
-  market: 'SE' | 'NO' | 'FI' | 'DK' | 'UK';
+  market: 'SE' | 'NO' | 'FI' | 'DK' | 'DE' | 'UK';
   locale: string;
   theme: 'finance' | 'casino';
   brandColor: string;
@@ -33,10 +33,33 @@ export function getSiteConfig(host: string = ''): SiteConfig {
         hostname = 'kasinos.se';
       } else if (stored === 'finansguiden') {
         hostname = 'finansguiden.se';
+      } else if (stored === 'finanzen-guide') {
+        hostname = 'finanzen-guide.de';
       }
     } catch (error) {
       // Ignore localStorage errors
     }
+  }
+  
+  // Check for German site
+  if (/^(www\.)?finanzen-guide\.de$/i.test(hostname) || hostname.endsWith('.finanzen-guide.de')) {
+    return {
+      site: 'finansguiden',
+      market: 'DE',
+      locale: 'de-DE',
+      theme: 'finance',
+      brandColor: '#1a4d2e',
+      domain: 'finanzen-guide.de',
+      name: 'Finanzen-Guide.de',
+      tagline: 'Kredite & Kreditkarten smart vergleichen',
+      logo: '/finanzen-guide-logo.png',
+      features: {
+        offers: true,
+        glossary: true,
+        reviews: true,
+        guides: true,
+      },
+    };
   }
   
   if (/^(www\.)?kasinos\.se$/i.test(hostname) || hostname.endsWith('.kasinos.se')) {

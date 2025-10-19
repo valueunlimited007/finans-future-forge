@@ -21,6 +21,15 @@ export const AFFILIATE_CONFIG = {
 
 export function getAffiliateParams() {
   const config = getSiteConfig();
+  
+  if (config.market === 'DE') {
+    return {
+      source: 'finanzen_guide_de',
+      medium: 'organic',
+      campaign: 'loan_comparison'
+    };
+  }
+  
   return {
     source: config.site === 'kasinos' ? 'kasinos_se' : 'finansguiden_se',
     medium: config.site === 'kasinos' ? 'cpc' : 'organic',
