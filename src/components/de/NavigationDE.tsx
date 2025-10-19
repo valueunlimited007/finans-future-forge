@@ -36,6 +36,23 @@ const NavigationDE = () => {
   const [scrollDirection, setScrollDirection] = useState<'up' | 'down' | null>(null);
   const [lastScrollY, setLastScrollY] = useState(0);
 
+  // Mount/unmount tracking
+  useEffect(() => {
+    console.log('🟢 NavigationDE MOUNTED');
+    return () => console.log('🔴 NavigationDE UNMOUNTED');
+  }, []);
+
+  // State tracking
+  useEffect(() => {
+    console.log('📊 isOpen state:', isOpen);
+  }, [isOpen]);
+
+  // Enhanced onChange handler
+  const handleOpenChange = (value: boolean) => {
+    console.log('🔄 onOpenChange called:', value);
+    setIsOpen(value);
+  };
+
   // Handle escape key to close mobile menu
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
@@ -335,17 +352,16 @@ const NavigationDE = () => {
 
         {/* Mobile Navigation - Single unified trigger */}
         <div className="lg:hidden flex-shrink-0 min-w-max relative z-[10000]">
-          <Sheet open={isOpen} onOpenChange={setIsOpen}>
+          <Sheet open={isOpen} onOpenChange={handleOpenChange}>
             <SheetTrigger asChild>
-              <Button 
-                variant="ghost"
-                size="lg"
-                className="h-12 gap-2 hover:bg-accent/50 transition-colors lg:hidden"
+              <button 
+                type="button"
+                className="inline-flex items-center gap-2 h-12 px-4 rounded-md text-sm font-medium hover:bg-accent/50 transition-colors"
                 aria-label="Navigationsmenü öffnen"
               >
                 <Menu className="h-5 w-5" />
                 <span className="text-sm font-medium">Menü</span>
-              </Button>
+              </button>
             </SheetTrigger>
             <SheetContent 
               side="right" 
