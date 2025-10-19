@@ -36,34 +36,44 @@ const NavigationDE = () => {
   const [scrollDirection, setScrollDirection] = useState<'up' | 'down' | null>(null);
   const [lastScrollY, setLastScrollY] = useState(0);
 
+  // Handle escape key
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === 'Escape' && isOpen) {
         setIsOpen(false);
       }
     };
+
     document.addEventListener('keydown', handleEscape);
     return () => document.removeEventListener('keydown', handleEscape);
   }, [isOpen]);
 
+  // Scroll sheet content to top when menu opens
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
+      const sheetContent = document.querySelector('[data-sheet-content]');
+      if (sheetContent) {
+        sheetContent.scrollTop = 0;
+      }
     }
   }, [isOpen]);
 
+  // Smart header scroll behavior
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+      
+      // Ignorera små scrolls (< 10px)
       if (Math.abs(currentScrollY - lastScrollY) < 10) return;
       
       if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        // Scrollar ner & har scrollat mer än 80px
         setScrollDirection('down');
       } else if (currentScrollY < lastScrollY) {
+        // Scrollar upp
         setScrollDirection('up');
       }
+      
       setLastScrollY(currentScrollY);
     };
 
@@ -71,7 +81,9 @@ const NavigationDE = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
 
-  const isActivePath = (path: string) => location.pathname === path;
+  const isActivePath = (path: string) => {
+    return location.pathname === path;
+  };
 
   const loanProducts = [
     {
@@ -220,6 +232,7 @@ const NavigationDE = () => {
 
   return (
     <header 
+      data-version="v2.1"
       className={cn(
         "fixed top-0 z-[9999] w-full bg-background backdrop-blur-sm border-b transition-transform duration-300",
         scrollDirection === 'down' ? "-translate-y-full" : "translate-y-0"
@@ -323,30 +336,34 @@ const NavigationDE = () => {
           </NavigationMenuList>
         </NavigationMenu>
 
-        {/* Mobile Navigation */}
-        <Sheet open={isOpen} onOpenChange={setIsOpen}>
-          <SheetTrigger asChild>
-            <Button 
-              variant="ghost"
-              size="lg"
-              className="h-12 gap-2 hover:bg-accent/50 transition-colors lg:hidden"
-              aria-label="Navigationsmenü öffnen"
+        {/* Mobile Navigation - Single unified trigger */}
+        <div className="lg:hidden flex-shrink-0 min-w-max relative z-[10000]">
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
+            <SheetTrigger asChild>
+              <Button 
+                variant="ghost"
+                size="lg"
+                className="h-12 gap-2 hover:bg-accent/50 transition-colors lg:hidden"
+                aria-label="Navigationsmenü öffnen"
+              >
+                <Menu className="h-5 w-5" />
+                <span className="text-sm font-medium">Menü</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent 
+              side="right" 
+              className="w-[320px] sm:w-[400px] max-h-screen overflow-y-auto border-0 bg-background p-0" 
+              data-sheet-content
+              data-debug-visible="true"
             >
-              <span className="text-sm font-medium">Menü</span>
-              <Menu className="h-5 w-5" />
-            </Button>
-          </SheetTrigger>
-          <SheetContent 
-            side="right" 
-            className="w-[320px] sm:w-[400px] max-h-screen overflow-y-auto border-0 bg-background p-0" 
-            data-sheet-content
-          >
-            <SheetTitle className="sr-only">Navigationsmenü</SheetTitle>
-            <SheetDescription className="sr-only">
-              Hauptnavigation für Finanzen-Guide.de mit Links zu Krediten und Kreditkarten
-            </SheetDescription>
-            
-            <div className="sticky top-0 bg-background border-b border-border p-6 pb-4">
+              {/* Accessibility requirements */}
+              <SheetTitle className="sr-only">Navigationsmenü</SheetTitle>
+              <SheetDescription className="sr-only">
+                Hauptnavigation für Finanzen-Guide.de mit Links zu Krediten und Kreditkarten
+              </SheetDescription>
+              
+              {/* Header in menu */}
+              <div className="sticky top-0 bg-background border-b border-border p-6 pb-4">
               <div className="flex items-center gap-3">
                 <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
                   <Menu className="h-5 w-5 text-primary" />
@@ -422,9 +439,10 @@ const NavigationDE = () => {
                   ))}
                 </div>
               </div>
-            </div>
-          </SheetContent>
-        </Sheet>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
     </header>
   );
