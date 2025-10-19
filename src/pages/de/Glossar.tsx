@@ -85,7 +85,7 @@ export default function GlossarDE() {
           name="description" 
           content="Umfassendes Finanz-Glossar mit über 600 Begriffen. Von Abgeltungssteuer bis Zinssatz - verständlich erklärt." 
         />
-        <link rel="canonical" href={`https://${siteConfig.domain}/de/glossar`} />
+        <link rel="canonical" href={`https://${siteConfig.domain}/glossar`} />
       </Helmet>
 
       <div className="max-w-6xl mx-auto px-4 py-16">
@@ -128,7 +128,7 @@ export default function GlossarDE() {
                   {group.terms.map((term) => (
                     <Link
                       key={term.slug}
-                      to={`/de/glossar/${term.slug}`}
+                      to={`/glossar/${term.slug}`}
                       className="p-4 rounded-lg border hover:bg-muted/50 transition-colors"
                     >
                       <h3 className="font-semibold text-lg mb-1">{term.title}</h3>

@@ -38,10 +38,10 @@ export default function HomeDE() {
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Button asChild size="lg" className="bg-blue-600 text-white hover:bg-blue-700 shadow-lg">
-              <Link to="/de/ratenkredit">Ratenkredit vergleichen</Link>
+              <Link to="/ratenkredit">Ratenkredit vergleichen</Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white">
-              <Link to="/de/kreditkarten">Kreditkarten vergleichen</Link>
+              <Link to="/kreditkarten">Kreditkarten vergleichen</Link>
             </Button>
           </div>
         </div>
@@ -116,7 +116,7 @@ export default function HomeDE() {
                   </li>
                 </ul>
                 <Button asChild className="w-full">
-                  <Link to="/de/ratenkredit">Jetzt vergleichen</Link>
+                  <Link to="/ratenkredit">Jetzt vergleichen</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -148,7 +148,7 @@ export default function HomeDE() {
                   </li>
                 </ul>
                 <Button asChild className="w-full">
-                  <Link to="/de/kreditkarten">Kreditkarten finden</Link>
+                  <Link to="/kreditkarten">Kreditkarten finden</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -180,7 +180,7 @@ export default function HomeDE() {
                   </li>
                 </ul>
                 <Button asChild className="w-full">
-                  <Link to="/de/unternehmenskredit">Jetzt anfragen</Link>
+                  <Link to="/unternehmenskredit">Jetzt anfragen</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -237,19 +237,19 @@ export default function HomeDE() {
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">Beliebte Themen</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <Link to="/de/ratenkredit/beste" className="p-4 border rounded-lg hover:bg-muted/50 transition-colors">
+            <Link to="/ratenkredit/beste" className="p-4 border rounded-lg hover:bg-muted/50 transition-colors">
               <h3 className="font-semibold mb-2">Beste Ratenkredite</h3>
               <p className="text-sm text-muted-foreground">Top-Angebote im Vergleich</p>
             </Link>
-            <Link to="/de/ratenkredit/zinsen" className="p-4 border rounded-lg hover:bg-muted/50 transition-colors">
+            <Link to="/ratenkredit/zinsen" className="p-4 border rounded-lg hover:bg-muted/50 transition-colors">
               <h3 className="font-semibold mb-2">Zinsvergleich</h3>
               <p className="text-sm text-muted-foreground">Aktuelle Zinsen vergleichen</p>
             </Link>
-            <Link to="/de/ratenkredit/ohne-schufa" className="p-4 border rounded-lg hover:bg-muted/50 transition-colors">
+            <Link to="/ratenkredit/ohne-schufa" className="p-4 border rounded-lg hover:bg-muted/50 transition-colors">
               <h3 className="font-semibold mb-2">Kredit ohne SCHUFA</h3>
               <p className="text-sm text-muted-foreground">Auch bei negativer Bonität</p>
             </Link>
-            <Link to="/de/glossar" className="p-4 border rounded-lg hover:bg-muted/50 transition-colors">
+            <Link to="/glossar" className="p-4 border rounded-lg hover:bg-muted/50 transition-colors">
               <h3 className="font-semibold mb-2">Finanz-Glossar</h3>
               <p className="text-sm text-muted-foreground">Alle Begriffe erklärt</p>
             </Link>
@@ -265,7 +265,7 @@ export default function HomeDE() {
             Vergleichen Sie jetzt kostenlos über 20 Banken und finden Sie die besten Konditionen.
           </p>
           <Button asChild size="lg">
-            <Link to="/de/ratenkredit">Kredit vergleichen</Link>
+            <Link to="/ratenkredit">Kredit vergleichen</Link>
           </Button>
         </div>
       </section>

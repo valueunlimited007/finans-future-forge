@@ -11,7 +11,7 @@ export default function DatenschutzDE() {
         <title>Datenschutzerklärung | {siteConfig.name}</title>
         <meta name="description" content="Datenschutzerklärung und DSGVO-Informationen von Finanzen-Guide.de" />
         <meta name="robots" content="noindex, follow" />
-        <link rel="canonical" href={`https://${siteConfig.domain}/de/datenschutz`} />
+        <link rel="canonical" href={`https://${siteConfig.domain}/datenschutz`} />
       </Helmet>
 
       <div className="max-w-4xl mx-auto px-4 py-16">

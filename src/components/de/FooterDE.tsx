@@ -13,27 +13,27 @@ const FooterDE: React.FC = () => {
             <h4 className="font-semibold text-foreground mb-4">Kredite</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/de/ratenkredit" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Link to="/ratenkredit" className="text-muted-foreground hover:text-foreground transition-colors">
                   Ratenkredite
                 </Link>
               </li>
               <li>
-                <Link to="/de/ratenkredit/beste" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Link to="/ratenkredit/beste" className="text-muted-foreground hover:text-foreground transition-colors">
                   Beste Ratenkredite
                 </Link>
               </li>
               <li>
-                <Link to="/de/ratenkredit/zinsen" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Link to="/ratenkredit/zinsen" className="text-muted-foreground hover:text-foreground transition-colors">
                   Zinsvergleich
                 </Link>
               </li>
               <li>
-                <Link to="/de/ratenkredit/ohne-schufa" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Link to="/ratenkredit/ohne-schufa" className="text-muted-foreground hover:text-foreground transition-colors">
                   Kredit ohne SCHUFA
                 </Link>
               </li>
               <li>
-                <Link to="/de/unternehmenskredit" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Link to="/unternehmenskredit" className="text-muted-foreground hover:text-foreground transition-colors">
                   Unternehmenskredite
                 </Link>
               </li>
@@ -45,17 +45,17 @@ const FooterDE: React.FC = () => {
             <h4 className="font-semibold text-foreground mb-4">Kreditkarten</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/de/kreditkarten" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Link to="/kreditkarten" className="text-muted-foreground hover:text-foreground transition-colors">
                   Alle Kreditkarten
                 </Link>
               </li>
               <li>
-                <Link to="/de/kreditkarten#kostenlos" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Link to="/kreditkarten#kostenlos" className="text-muted-foreground hover:text-foreground transition-colors">
                   Kostenlose Karten
                 </Link>
               </li>
               <li>
-                <Link to="/de/kreditkarten#cashback" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Link to="/kreditkarten#cashback" className="text-muted-foreground hover:text-foreground transition-colors">
                   Cashback-Karten
                 </Link>
               </li>
@@ -67,17 +67,17 @@ const FooterDE: React.FC = () => {
             <h4 className="font-semibold text-foreground mb-4">Rechtliches</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/de/impressum" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Link to="/impressum" className="text-muted-foreground hover:text-foreground transition-colors">
                   Impressum
                 </Link>
               </li>
               <li>
-                <Link to="/de/datenschutz" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Link to="/datenschutz" className="text-muted-foreground hover:text-foreground transition-colors">
                   Datenschutzerklärung
                 </Link>
               </li>
               <li>
-                <Link to="/de/cookies" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Link to="/cookies" className="text-muted-foreground hover:text-foreground transition-colors">
                   Cookie-Richtlinie
                 </Link>
               </li>
@@ -94,22 +94,22 @@ const FooterDE: React.FC = () => {
             <h4 className="font-semibold text-foreground mb-4">Ressourcen</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/de/ratgeber/bester-kredit" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Link to="/ratgeber/bester-kredit" className="text-muted-foreground hover:text-foreground transition-colors">
                   Bester Kredit - Ratgeber
                 </Link>
               </li>
               <li>
-                <Link to="/de/ratgeber/zinsen" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Link to="/ratgeber/zinsen" className="text-muted-foreground hover:text-foreground transition-colors">
                   Zinsen verstehen
                 </Link>
               </li>
               <li>
-                <Link to="/de/glossar" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Link to="/glossar" className="text-muted-foreground hover:text-foreground transition-colors">
                   Finanz-Glossar
                 </Link>
               </li>
               <li>
-                <Link to="/de/uber-uns" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Link to="/uber-uns" className="text-muted-foreground hover:text-foreground transition-colors">
                   Über uns
                 </Link>
               </li>

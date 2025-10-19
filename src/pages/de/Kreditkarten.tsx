@@ -21,7 +21,7 @@ export default function KreditkartenDE() {
           content="Vergleichen Sie die besten Kreditkarten in Deutschland. Kostenlose Karten, Cashback-Programme, Versicherungen. Jetzt beantragen!" 
         />
         <meta property="og:title" content="Kreditkarten Vergleich - Finden Sie die perfekte Karte" />
-        <link rel="canonical" href={`https://${siteConfig.domain}/de/kreditkarten`} />
+        <link rel="canonical" href={`https://${siteConfig.domain}/kreditkarten`} />
       </Helmet>
 
       {/* Hero Section */}
@@ -329,7 +329,7 @@ export default function KreditkartenDE() {
               <a href="#comparison">Kreditkarte finden</a>
             </Button>
             <Button asChild size="lg" variant="outline">
-              <Link to="/de/ratenkredit">Zum Kreditvergleich</Link>
+              <Link to="/ratenkredit">Zum Kreditvergleich</Link>
             </Button>
           </div>
         </div>

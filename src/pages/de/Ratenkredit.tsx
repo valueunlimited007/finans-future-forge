@@ -21,7 +21,7 @@ export default function RatenkreditDE() {
           content="Vergleichen Sie Ratenkredite von über 20 Banken. Zinsen ab 0,68% eff. Jahreszins. Schnelle Entscheidung, kostenlos & unverbindlich. TÜV-geprüft." 
         />
         <meta property="og:title" content="Ratenkredit Vergleich - Beste Zinsen finden" />
-        <link rel="canonical" href={`https://${siteConfig.domain}/de/ratenkredit`} />
+        <link rel="canonical" href={`https://${siteConfig.domain}/ratenkredit`} />
       </Helmet>
 
       {/* Hero Section */}
@@ -250,7 +250,7 @@ export default function RatenkreditDE() {
                 <p className="text-muted-foreground">
                   Ja, einige Anbieter wie auxmoney vermitteln Kredite auch bei negativer SCHUFA. 
                   Diese Kredite haben jedoch oft höhere Zinsen. Mehr erfahren Sie auf unserer Seite 
-                  <Link to="/de/ratenkredit/ohne-schufa" className="text-primary hover:underline"> Kredit ohne SCHUFA</Link>.
+                  <Link to="/ratenkredit/ohne-schufa" className="text-primary hover:underline"> Kredit ohne SCHUFA</Link>.
                 </p>
               </CardContent>
             </Card>
@@ -296,7 +296,7 @@ export default function RatenkreditDE() {
               <a href="#comparison">Kredit vergleichen</a>
             </Button>
             <Button asChild size="lg" variant="outline">
-              <Link to="/de/glossar">Zum Finanz-Glossar</Link>
+              <Link to="/glossar">Zum Finanz-Glossar</Link>
             </Button>
           </div>
         </div>

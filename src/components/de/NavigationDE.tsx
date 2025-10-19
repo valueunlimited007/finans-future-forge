@@ -61,20 +61,20 @@ const NavigationDE = () => {
   const loanProducts = [
     {
       title: "Ratenkredite",
-      href: "/de/ratenkredit",
+      href: "/ratenkredit",
       description: "Vergleichen Sie über 20 Banken - finden Sie die besten Zinsen",
       icon: Banknote,
       popular: true
     },
     {
       title: "Kreditkarten",
-      href: "/de/kreditkarten",
+      href: "/kreditkarten",
       description: "Kostenlose Karten mit Cashback und Versicherung",
       icon: CreditCard
     },
     {
       title: "Unternehmenskredite",
-      href: "/de/unternehmenskredit",
+      href: "/unternehmenskredit",
       description: "Schnelle Finanzierung für Ihr Unternehmen",
       icon: Building2
     }
@@ -83,7 +83,7 @@ const NavigationDE = () => {
   const resources = [
     {
       title: "Glossar",
-      href: "/de/glossar",
+      href: "/glossar",
       description: "Alle Finanzbegriffe erklärt",
       icon: BookOpen
     }
@@ -153,7 +153,7 @@ const NavigationDE = () => {
       )}
     >
       <div className="container flex h-[80px] sm:h-[96px] md:h-[112px] lg:h-[128px] items-center justify-between px-4 min-w-full">
-        <Link to="/de" className="flex flex-col items-start shrink-0 gap-1">
+        <Link to="/" className="flex flex-col items-start shrink-0 gap-1">
           <img 
             src={siteConfig.logo} 
             alt={siteConfig.name}
@@ -168,10 +168,10 @@ const NavigationDE = () => {
             <NavigationMenuItem>
               <NavigationMenuLink asChild>
                 <Link
-                  to="/de"
+                  to="/"
                   className={cn(
                     "group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50",
-                    isActivePath("/de") && "bg-accent text-accent-foreground"
+                    isActivePath("/") && "bg-accent text-accent-foreground"
                   )}
                 >
                   <Home className="mr-2 h-4 w-4" />
@@ -264,13 +264,13 @@ const NavigationDE = () => {
 
               <div className="flex flex-col px-6 pb-20 space-y-6">
                 <Link
-                  to="/de"
+                  to="/"
                   onClick={() => setIsOpen(false)}
                   className={cn(
                     "flex items-center gap-4 p-4 rounded-xl transition-all duration-200",
                     "hover:bg-primary/5 active:scale-[0.98]",
                     "min-h-[60px] touch-manipulation",
-                    isActivePath("/de") && "bg-primary/10 text-primary font-medium border border-primary/20"
+                    isActivePath("/") && "bg-primary/10 text-primary font-medium border border-primary/20"
                   )}
                 >
                   <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">

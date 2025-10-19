@@ -21,7 +21,7 @@ export default function UnternehmenskreditDE() {
           content="Unternehmenskredit ab 5.000 € - Entscheidung in 24 Stunden. Flexible Rückzahlung, keine versteckten Gebühren. Jetzt vergleichen!" 
         />
         <meta property="og:title" content="Unternehmenskredit - Schnelle Finanzierung für Ihr Business" />
-        <link rel="canonical" href={`https://${siteConfig.domain}/de/unternehmenskredit`} />
+        <link rel="canonical" href={`https://${siteConfig.domain}/unternehmenskredit`} />
       </Helmet>
 
       {/* Hero Section */}
@@ -298,7 +298,7 @@ export default function UnternehmenskreditDE() {
               <a href="#comparison">Finanzierung anfragen</a>
             </Button>
             <Button asChild size="lg" variant="outline">
-              <Link to="/de/ratenkredit">Zum Privatkreditvergleich</Link>
+              <Link to="/ratenkredit">Zum Privatkreditvergleich</Link>
             </Button>
           </div>
         </div>

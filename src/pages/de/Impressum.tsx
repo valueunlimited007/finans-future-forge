@@ -11,7 +11,7 @@ export default function ImpressumDE() {
         <title>Impressum | {siteConfig.name}</title>
         <meta name="description" content="Impressum und Kontaktinformationen von Finanzen-Guide.de" />
         <meta name="robots" content="noindex, follow" />
-        <link rel="canonical" href={`https://${siteConfig.domain}/de/impressum`} />
+        <link rel="canonical" href={`https://${siteConfig.domain}/impressum`} />
       </Helmet>
 
       <div className="max-w-4xl mx-auto px-4 py-16">

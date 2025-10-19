@@ -94,14 +94,13 @@ const App = () => {
               {siteConfig.market === 'DE' ? (
                 <>
                   <Route path="/" element={<GermanSiteWrapper><HomeDE /></GermanSiteWrapper>} />
-                  <Route path="/de" element={<GermanSiteWrapper><HomeDE /></GermanSiteWrapper>} />
-                  <Route path="/de/ratenkredit" element={<GermanSiteWrapper><RatenkreditDE /></GermanSiteWrapper>} />
-                  <Route path="/de/kreditkarten" element={<GermanSiteWrapper><KreditkartenDE /></GermanSiteWrapper>} />
-                  <Route path="/de/unternehmenskredit" element={<GermanSiteWrapper><UnternehmenskreditDE /></GermanSiteWrapper>} />
-                  <Route path="/de/glossar" element={<GermanSiteWrapper><GlossarDE /></GermanSiteWrapper>} />
-                  <Route path="/de/impressum" element={<GermanSiteWrapper><ImpressumDE /></GermanSiteWrapper>} />
-                  <Route path="/de/datenschutz" element={<GermanSiteWrapper><DatenschutzDE /></GermanSiteWrapper>} />
-                  <Route path="/de/affiliate" element={<GermanSiteWrapper><AffiliateDE /></GermanSiteWrapper>} />
+                  <Route path="/ratenkredit" element={<GermanSiteWrapper><RatenkreditDE /></GermanSiteWrapper>} />
+                  <Route path="/kreditkarten" element={<GermanSiteWrapper><KreditkartenDE /></GermanSiteWrapper>} />
+                  <Route path="/unternehmenskredit" element={<GermanSiteWrapper><UnternehmenskreditDE /></GermanSiteWrapper>} />
+                  <Route path="/glossar" element={<GermanSiteWrapper><GlossarDE /></GermanSiteWrapper>} />
+                  <Route path="/impressum" element={<GermanSiteWrapper><ImpressumDE /></GermanSiteWrapper>} />
+                  <Route path="/datenschutz" element={<GermanSiteWrapper><DatenschutzDE /></GermanSiteWrapper>} />
+                  <Route path="/affiliate" element={<GermanSiteWrapper><AffiliateDE /></GermanSiteWrapper>} />
                   <Route path="*" element={<GermanSiteWrapper><NotFoundBranded /></GermanSiteWrapper>} />
                 </>
               ) : isCasino ? (
