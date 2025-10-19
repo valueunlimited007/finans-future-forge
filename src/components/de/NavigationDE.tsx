@@ -272,20 +272,20 @@ const NavigationDE = () => {
           </NavigationMenuList>
         </NavigationMenu>
 
-        {/* Mobile Navigation - Fully Controlled */}
+        {/* Mobile Navigation - Match Swedish structure exactly */}
         <div className="lg:hidden flex-shrink-0 min-w-max relative z-[10000]">
-          <Button 
-            variant="ghost"
-            size="lg"
-            onClick={() => setIsOpen(true)}
-            className="h-12 gap-2 hover:bg-accent/50 transition-colors"
-            aria-label="Navigationsmenü öffnen"
-          >
-            <Menu className="h-5 w-5" />
-            <span className="text-sm font-medium">Menü</span>
-          </Button>
-          
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
+            <SheetTrigger asChild>
+              <Button 
+                variant="ghost"
+                size="lg"
+                className="h-12 gap-2 hover:bg-accent/50 transition-colors lg:hidden"
+                aria-label="Navigationsmenü öffnen"
+              >
+                <Menu className="h-5 w-5" />
+                <span className="text-sm font-medium">Menü</span>
+              </Button>
+            </SheetTrigger>
             <SheetContent 
               side="right" 
               className="w-[320px] sm:w-[400px] max-h-screen overflow-y-auto border-0 bg-background p-0" 
