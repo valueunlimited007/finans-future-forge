@@ -114,8 +114,8 @@ export default function GlossarDE() {
               </p>
               <p className="text-sm text-muted-foreground">
                 Fehlt Ihnen ein Begriff oder haben Sie Fragen? Schreiben Sie uns an{" "}
-                <a href="mailto:hello@finanzen-guide.de" className="text-primary hover:underline font-medium">
-                  hello@finanzen-guide.de
+                <a href="mailto:hallo@finanzen-guide.de" className="text-primary hover:underline font-medium">
+                  hallo@finanzen-guide.de
                 </a>
               </p>
             </div>

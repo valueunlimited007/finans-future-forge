@@ -71,7 +71,7 @@ export default function DatenschutzDE() {
                 Deutschland
               </p>
               <p className="text-sm mt-2">
-                E-Mail: <a href="mailto:hello@finanzen-guide.de" className="text-primary hover:underline">hello@finanzen-guide.de</a>
+                E-Mail: <a href="mailto:hallo@finanzen-guide.de" className="text-primary hover:underline">hallo@finanzen-guide.de</a>
               </p>
             </div>
 
