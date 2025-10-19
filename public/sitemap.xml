@@ -1,438 +1,129 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <!-- KASINOS.SE - Svenska Casino -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://kasinos.se</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2025-09-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://kasinos.se/se/casinon-med-bankid</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2025-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://kasinos.se/se/pay-n-play</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2025-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://kasinos.se/se/live-casino</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2025-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://kasinos.se/se/snabbast-uttag</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2025-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://kasinos.se/se/slots</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2025-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://kasinos.se/se/bordsspel</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2025-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://kasinos.se/se/recension/betsson</loc>
+    <lastmod>2025-09-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kasinos.se/se/recension/unibet</loc>
+    <lastmod>2025-09-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kasinos.se/se/recension/leovegas</loc>
+    <lastmod>2025-09-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kasinos.se/se/recension/comeon</loc>
+    <lastmod>2025-09-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kasinos.se/se/recension/paf</loc>
+    <lastmod>2025-09-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kasinos.se/se/recension/svenska-spel-casino</loc>
+    <lastmod>2025-09-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kasinos.se/se/recension/mr-green</loc>
+    <lastmod>2025-09-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kasinos.se/se/recension/casumo</loc>
+    <lastmod>2025-09-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://kasinos.se/se/guider/spelpaus</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2025-09-24</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://kasinos.se/se/guider/nyborjare</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://kasinos.se/se/guider/ansvarfullt-spelande</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://kasinos.se/se/guider/svensk-licens</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kasinos.se/om</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2025-09-24</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://kasinos.se/integritetspolicy</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2025-09-24</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://kasinos.se/cookies</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2025-09-24</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://kasinos.se/ansvarsfriskrivning</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2025-09-24</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://kasinos.se/kontakt</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2025-09-24</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://kasinos.se/spelregler</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
-  </url>
-
-  <!-- FINANSGUIDEN.SE - Svenska Finans -->
-  <url>
-    <loc>https://finansguiden.se</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-  </url>
-  
-  <!-- Privatlån -->
-  <url>
-    <loc>https://finansguiden.se/privatlan</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://finansguiden.se/privatlan/basta</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://finansguiden.se/privatlan/jamfor</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://finansguiden.se/privatlan/rantejamforelse</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://finansguiden.se/privatlan/lan-med-betalningsanmarkning</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Företagslån -->
-  <url>
-    <loc>https://finansguiden.se/foretagslan</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Lån utan UC -->
-  <url>
-    <loc>https://finansguiden.se/lan-utan-uc</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Kreditkort -->
-  <url>
-    <loc>https://finansguiden.se/kreditkort</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Andra tjänster -->
-  <url>
-    <loc>https://finansguiden.se/andra-tjanster</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Låneförmedlare -->
-  <url>
-    <loc>https://finansguiden.se/laneformedlare</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Guider -->
-  <url>
-    <loc>https://finansguiden.se/guider/basta-lanet</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://finansguiden.se/guider/lagst-ranta-blancolan</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://finansguiden.se/ratgeber/ekonomiska-lifehacks</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://finansguiden.se/ratgeber/loneoptimeringsguide</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://finansguiden.se/ratgeber/karriar-guide</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://finansguiden.se/ratgeber/svenska-inkomster</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://finansguiden.se/ratgeber/sparkonto-guide</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://finansguiden.se/ratgeber/manadssparande-guide</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://finansguiden.se/ratgeber/bankjamforelse-guide</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://finansguiden.se/ratgeber/bilekonomy-guide</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://finansguiden.se/ratgeber/bostadsmarknads-analys</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Ordlista -->
-  <url>
-    <loc>https://finansguiden.se/ordlista</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <!-- Om & Legal -->
-  <url>
-    <loc>https://finansguiden.se/om</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://finansguiden.se/integritetspolicy</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://finansguiden.se/cookies</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://finansguiden.se/sajtkarta</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
-
-  <!-- FINANZEN-GUIDE.DE - Tyska Finans -->
-  <url>
-    <loc>https://finanzen-guide.de</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="sv" href="https://finansguiden.se" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://finanzen-guide.de" />
-  </url>
-
-  <!-- Ratenkredite -->
-  <url>
-    <loc>https://finanzen-guide.de/ratenkredit</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://finanzen-guide.de/ratenkredit/beste</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://finanzen-guide.de/ratenkredit/zinsen</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://finanzen-guide.de/ratenkredit/ohne-schufa</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Kreditkarten -->
-  <url>
-    <loc>https://finanzen-guide.de/kreditkarten</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Unternehmenskredite -->
-  <url>
-    <loc>https://finanzen-guide.de/unternehmenskredit</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Ratgeber -->
-  <url>
-    <loc>https://finanzen-guide.de/ratgeber/gehaltsoptimierung</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://finanzen-guide.de/ratgeber/karriere</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://finanzen-guide.de/ratgeber/deutsche-einkommen</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://finanzen-guide.de/ratgeber/sparkonto</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://finanzen-guide.de/ratgeber/monatliches-sparen</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://finanzen-guide.de/ratgeber/banken-vergleich</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://finanzen-guide.de/ratgeber/auto-kosten</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://finanzen-guide.de/ratgeber/immobilienmarkt</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://finanzen-guide.de/ratgeber/finanz-tipps</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Glossar -->
-  <url>
-    <loc>https://finanzen-guide.de/glossar</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <!-- Om & Legal (DE) -->
-  <url>
-    <loc>https://finanzen-guide.de/uber-uns</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://finanzen-guide.de/impressum</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://finanzen-guide.de/datenschutz</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://finanzen-guide.de/cookies</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://finanzen-guide.de/affiliate</loc>
-    <lastmod>2025-10-19</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-
 </urlset>

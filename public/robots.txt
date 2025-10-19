@@ -1,31 +1,20 @@
-# Robots.txt - Multi-site Financial Comparison Platform
-# Sites: kasinos.se, finansguiden.se, finanzen-guide.de
-# Updated: 2025-10-19
+# Robots.txt för Kasinos.se
+# Uppdaterad: 2025-09-24
 
-# ============================================
-# PRIMARY SEARCH ENGINES
-# ============================================
-
+# Huvudsökmotorer (prioriterade)
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 0
 
 User-agent: Bingbot  
 Allow: /
-Crawl-delay: 2
+Crawl-delay: 3
 
 User-agent: Slurp
 Allow: /
 Crawl-delay: 2
 
-User-agent: DuckDuckBot
-Allow: /
-Crawl-delay: 2
-
-# ============================================
-# SOCIAL MEDIA CRAWLERS
-# ============================================
-
+# Social media crawlers
 User-agent: Twitterbot
 Allow: /
 
@@ -35,102 +24,47 @@ Allow: /
 User-agent: LinkedInBot
 Allow: /
 
-User-agent: WhatsApp
+# Svenska Spel och spelreglering
+User-agent: Spelinspektionen
 Allow: /
 
-# ============================================
-# AI & LLM CRAWLERS
-# ============================================
-
-# OpenAI GPT
+# AI-system crawlers (begränsad access för spelinnehåll)
 User-agent: GPTBot
 Allow: /
 Crawl-delay: 3
 
-# Google AI (Bard/Gemini)
 User-agent: Google-Extended
 Allow: /
 Crawl-delay: 3
 
-# Anthropic Claude
-User-agent: ClaudeBot  
-Allow: /
-Crawl-delay: 3
-
-# Perplexity AI
-User-agent: PerplexityBot
-Allow: /
-Crawl-delay: 3
-
-# Common Crawl
 User-agent: CCBot
 Allow: /
 Crawl-delay: 3
 
-# ChatGPT browsing
-User-agent: ChatGPT-User
-Allow: /
-
-# Google Bard
-User-agent: Bard
-Allow: /
-
-# Cohere
-User-agent: cohere-ai
+User-agent: ClaudeBot  
 Allow: /
 Crawl-delay: 3
 
-# ============================================
-# FINANCIAL & REGULATORY CRAWLERS
-# ============================================
+User-agent: PerplexityBot
+Allow: /
+Crawl-delay: 3
 
-# Swedish Financial Supervisory Authority
-User-agent: Finansinspektionen
+User-agent: ChatGPT-User
 Allow: /
 
-# Swedish Gambling Authority
-User-agent: Spelinspektionen
+User-agent: Bard
 Allow: /
 
-# German Financial Authority
-User-agent: BaFin
-Allow: /
-
-# ============================================
-# BLOCKED AREAS (ALL CRAWLERS)
-# ============================================
-
-User-agent: *
-Disallow: /api/
-Disallow: /admin/
-Disallow: /.well-known/
-Disallow: /css/
-Disallow: /js/
-Disallow: /*?*utm_source=
-Disallow: /*?*utm_medium=
-Disallow: /*?*utm_campaign=
-
-# ============================================
-# GENERAL POLICY
-# ============================================
-
+# Övriga crawlers (generell policy)
 User-agent: *
 Allow: /
 Crawl-delay: 5
 
-# ============================================
-# SITEMAPS
-# ============================================
+# Blockera känsliga områden
+Disallow: /api/
+Disallow: /admin/
 
+# Resurser för alla crawlers
 Sitemap: https://kasinos.se/sitemap.xml
-Sitemap: https://finansguiden.se/sitemap.xml
-Sitemap: https://finanzen-guide.de/sitemap.xml
 
-# ============================================
-# NOTES
-# ============================================
-# - Kasinos.se: Swedish casino comparison (18+ gambling content)
-# - Finansguiden.se: Swedish financial comparison (loans, credit cards)
-# - Finanzen-guide.de: German financial comparison (Kredite, Kreditkarten)
-# - All sites comply with local regulations and consumer protection laws
-# - Responsible gambling/lending information prioritized in crawling
+# Ansvarsfull spelreglering - se även /ansvarsfriskrivning
