@@ -145,8 +145,8 @@ export default function UberUnsDE() {
             </p>
             <p className="text-sm">
               <strong>E-Mail:</strong>{" "}
-              <a href="mailto:info@finanzen-guide.de" className="text-primary hover:underline">
-                info@finanzen-guide.de
+              <a href="mailto:hello@finanzen-guide.de" className="text-primary hover:underline">
+                hello@finanzen-guide.de
               </a>
             </p>
           </CardContent>

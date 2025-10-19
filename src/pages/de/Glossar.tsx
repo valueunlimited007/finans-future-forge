@@ -158,8 +158,8 @@ export default function GlossarDE() {
             <p className="text-sm text-muted-foreground">
               Unser Finanz-Glossar wird ständig erweitert und aktualisiert. 
               Fehlt Ihnen ein Begriff? Schreiben Sie uns an{" "}
-              <a href="mailto:info@finanzen-guide.de" className="text-primary hover:underline">
-                info@finanzen-guide.de
+              <a href="mailto:hello@finanzen-guide.de" className="text-primary hover:underline">
+                hello@finanzen-guide.de
               </a>
             </p>
           </CardContent>

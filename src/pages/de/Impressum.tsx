@@ -32,7 +32,7 @@ export default function ImpressumDE() {
 
             <div>
               <p className="font-semibold">Kontakt:</p>
-              <p>E-Mail: <a href="mailto:info@finanzen-guide.de" className="text-primary hover:underline">info@finanzen-guide.de</a></p>
+              <p>E-Mail: <a href="mailto:hello@finanzen-guide.de" className="text-primary hover:underline">hello@finanzen-guide.de</a></p>
             </div>
 
             <div>
