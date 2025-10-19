@@ -291,7 +291,7 @@ const NavigationDESimple = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(true)}
-              className="lg:hidden p-3 rounded-lg bg-primary/10 hover:bg-primary/20 transition-colors flex items-center gap-2 border border-border"
+              className="lg:hidden p-3 rounded-lg hover:bg-accent transition-colors flex items-center gap-2"
               aria-label="Menü öffnen"
             >
               <span className="text-sm font-medium">Menü</span>
