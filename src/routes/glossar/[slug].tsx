@@ -134,7 +134,7 @@ export default function GlossaryTermPageDE() {
   return (
     <>
       <NavigationDE />
-      <main className="mx-auto max-w-6xl px-4 py-8">
+      <main className="mx-auto max-w-7xl px-4 py-12 mt-4">
         <Helmet>
           <html lang="de" />
           <title>{title}</title>
