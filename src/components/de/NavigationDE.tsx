@@ -32,6 +32,7 @@ import { getSiteConfig } from "@/lib/siteConfig";
 const NavigationDE = () => {
   const siteConfig = getSiteConfig();
   const [isOpen, setIsOpen] = useState(false);
+  const [justOpened, setJustOpened] = useState(false);
   const location = useLocation();
   const [scrollDirection, setScrollDirection] = useState<'up' | 'down' | null>(null);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -47,10 +48,31 @@ const NavigationDE = () => {
     console.log('📊 isOpen state:', isOpen);
   }, [isOpen]);
 
-  // Enhanced onChange handler
+  // Enhanced onChange handler with delay protection
   const handleOpenChange = (value: boolean) => {
-    console.log('🔄 onOpenChange called:', value);
+    console.log('🔄 onOpenChange called:', value, 'justOpened:', justOpened);
+    
+    // Prevent immediate close after opening
+    if (!value && justOpened) {
+      console.log('⏸️ Ignoring close - just opened');
+      return;
+    }
+    
     setIsOpen(value);
+  };
+
+  const handleManualOpen = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log('🔘 Manual trigger clicked, current state:', isOpen);
+    setIsOpen(true);
+    setJustOpened(true);
+    
+    // Clear the "just opened" flag after a short delay
+    setTimeout(() => {
+      console.log('✅ Just opened flag cleared');
+      setJustOpened(false);
+    }, 300);
   };
 
   // Handle escape key to close mobile menu
@@ -361,12 +383,7 @@ const NavigationDE = () => {
         <div className="lg:hidden flex-shrink-0 min-w-max">
           <button 
             type="button"
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              console.log('🔘 Manual trigger clicked, current state:', isOpen);
-              setIsOpen(true);
-            }}
+            onClick={handleManualOpen}
             className="inline-flex items-center gap-2 h-12 px-4 rounded-md text-sm font-medium hover:bg-accent/50 transition-colors"
             aria-label="Navigationsmenü öffnen"
           >
@@ -380,14 +397,6 @@ const NavigationDE = () => {
               className="w-[320px] sm:w-[400px] max-h-screen overflow-y-auto border-0 bg-background p-0" 
               data-sheet-content
               data-debug-visible="true"
-              onPointerDownOutside={(e) => {
-                console.log('🚫 PointerDownOutside prevented');
-                e.preventDefault();
-              }}
-              onInteractOutside={(e) => {
-                console.log('🚫 InteractOutside, allowing close');
-                // Let it close normally
-              }}
             >
               {/* Accessibility requirements */}
               <SheetTitle className="sr-only">Navigationsmenü</SheetTitle>
