@@ -218,18 +218,13 @@ const NavigationDE = () => {
       )}
     >
       <div className="container flex h-[80px] sm:h-[96px] md:h-[112px] lg:h-[128px] items-center justify-between px-4 min-w-full">
-        <Link to="/" className="flex shrink-0">
-          <div className="flex flex-col gap-1">
-            <img 
-              src={siteConfig.logo} 
-              alt={siteConfig.name}
-              className="h-8 sm:h-10 md:h-12 lg:h-14 w-auto"
-            />
-            <span className="text-[11px] leading-tight sm:text-xs md:text-sm text-muted-foreground block sm:hidden">
-              Kredite smart vergleichen
-            </span>
-          </div>
-          <span className="hidden sm:block text-xs md:text-sm text-muted-foreground self-center ml-3">
+        <Link to="/" className="flex items-center shrink-0 gap-3">
+          <img 
+            src={siteConfig.logo} 
+            alt={siteConfig.name}
+            className="h-8 sm:h-10 md:h-12 lg:h-14 w-auto"
+          />
+          <span className="hidden sm:block text-xs md:text-sm text-muted-foreground">
             Kredite smart vergleichen
           </span>
         </Link>
