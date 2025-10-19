@@ -34,7 +34,7 @@ const SOURCES = [
   { title: "Bundesbank", url: "https://www.bundesbank.de/" },
 ] as const;
 
-const TODAY = "2025-04-19";
+const TODAY = "2025-10-19";
 
 // Hilfsfunktion für URL-Slug
 function slugify(s: string): string {
