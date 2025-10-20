@@ -91,6 +91,11 @@ import ResponsibleGamblingGuidePageComponent from "./pages/ResponsibleGamblingGu
 import SwedishLicenseGuidePageComponent from "./pages/SwedishLicenseGuidePage";
 import { FavoritesPage } from "./components/FavoriteCasinos";
 
+// Dynamic SEO pages
+import DynamicRobots from "./pages/DynamicRobots";
+import DynamicSitemap from "./pages/DynamicSitemap";
+import DynamicLlms from "./pages/DynamicLlms";
+
 const queryClient = new QueryClient();
 
 // Site-aware App component
@@ -111,6 +116,11 @@ const App = () => {
               {/* German site routes */}
               {siteConfig.market === 'DE' ? (
                 <>
+                  {/* Dynamic SEO routes */}
+                  <Route path="/robots.txt" element={<DynamicRobots />} />
+                  <Route path="/sitemap.xml" element={<DynamicSitemap />} />
+                  <Route path="/llms.txt" element={<DynamicLlms />} />
+                  
                   <Route path="/" element={<GermanSiteWrapper><HomeDE /></GermanSiteWrapper>} />
                   <Route path="/ratenkredit" element={<GermanSiteWrapper><RatenkreditDE /></GermanSiteWrapper>} />
                   <Route path="/ratenkredit/beste" element={<GermanSiteWrapper><BestRatenkreditDE /></GermanSiteWrapper>} />
@@ -141,6 +151,11 @@ const App = () => {
                 </>
               ) : isCasino ? (
                 <>
+                  {/* Dynamic SEO routes */}
+                  <Route path="/robots.txt" element={<DynamicRobots />} />
+                  <Route path="/sitemap.xml" element={<DynamicSitemap />} />
+                  <Route path="/llms.txt" element={<DynamicLlms />} />
+                  
                   <Route path="/" element={<CasinoHomeWrapper />} />
                   <Route path="/se" element={<CasinoHomeWrapper />} />
                   <Route path="/se/casinon-med-bankid" element={<CasinoCategoryPage category="bankid" />} />
@@ -166,6 +181,11 @@ const App = () => {
               ) : (
                 /* Finance site routes (original) */
                 <>
+                  {/* Dynamic SEO routes */}
+                  <Route path="/robots.txt" element={<DynamicRobots />} />
+                  <Route path="/sitemap.xml" element={<DynamicSitemap />} />
+                  <Route path="/llms.txt" element={<DynamicLlms />} />
+                  
                   <Route path="/" element={<Home />} />
                   <Route path="/lan-utan-uc" element={<LanUtanUc />} />
                   <Route path="/kreditkort" element={<Kreditkort />} />
