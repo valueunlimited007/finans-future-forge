@@ -252,10 +252,10 @@ FileETag None
 # SPA HISTORY API FALLBACK
 # ==============================================================================
 # Returnera index.html för alla paths som inte matchar en fil eller mapp
-# Undantag: /assets, /images, /fonts, /favicon.*, robots.txt, sitemap.xml, llms.txt, .well-known/*
+# Undantag: /assets, /images, /fonts, /favicon.*, .well-known/*
+# Allow React Router to handle SEO files (robots.txt, sitemap.xml, llms.txt)
 RewriteCond %{REQUEST_URI} !^/(assets|images|fonts|\.well-known)(/|$) [NC]
 RewriteCond %{REQUEST_URI} !^/favicon\.(ico|png|svg)$ [NC]
-RewriteCond %{REQUEST_URI} !^/(robots\.txt|sitemap\.xml|llms\.txt)$ [NC]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.html [L]
