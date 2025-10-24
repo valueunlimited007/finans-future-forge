@@ -156,13 +156,6 @@ const ModernFooter: React.FC = () => {
 
         {/* Bottom section */}
         <div className="border-t border-border mt-8 pt-8 text-center">
-          <div className="mb-4">
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              Finansguiden.se<br />
-              hej@finansguiden.se<br />
-              Skapad av Value Unlimited
-            </p>
-          </div>
           <p className="text-sm text-muted-foreground">
             © {currentYear} Finansguiden.se - Skapad av Value Unlimited
           </p>
