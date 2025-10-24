@@ -505,11 +505,12 @@ export default function RichForetagslan() {
             <h2 className="text-3xl font-bold text-center mb-12">Guide: Så ansöker du om företagslån</h2>
             
             <Tabs defaultValue="preparation" className="w-full">
-              <TabsList className="grid w-full grid-cols-2 md:grid-cols-4">
+              <TabsList className="grid w-full grid-cols-2 md:grid-cols-5">
                 <TabsTrigger value="preparation">Förberedelse</TabsTrigger>
                 <TabsTrigger value="requirements">Krav</TabsTrigger>
                 <TabsTrigger value="process">Process</TabsTrigger>
                 <TabsTrigger value="tips">Tips</TabsTrigger>
+                <TabsTrigger value="international">🌍 EU</TabsTrigger>
               </TabsList>
               
               <TabsContent value="preparation" className="mt-8">
@@ -775,6 +776,56 @@ export default function RichForetagslan() {
                     </CardContent>
                   </Card>
                 </div>
+              </TabsContent>
+
+              <TabsContent value="international" className="mt-8">
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      🌍 Internationell jämförelse: Företagslån Sverige vs Tyskland
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <p>
+                      Hur skiljer sig svenska företagslån från tyska? Här är de viktigaste skillnaderna:
+                    </p>
+                    
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <h4 className="font-semibold mb-2">🇸🇪 Sverige (Företagslån)</h4>
+                        <ul className="text-sm space-y-1 text-muted-foreground">
+                          <li>• Personlig borgen ofta krävs</li>
+                          <li>• Flexiblare säkerhetskrav</li>
+                          <li>• Snabbare handläggning (1-4 veckor)</li>
+                          <li>• Mindre formell ansökningsprocess</li>
+                        </ul>
+                      </div>
+                      
+                      <div>
+                        <h4 className="font-semibold mb-2">🇩🇪 Tyskland (Unternehmenskredit)</h4>
+                        <ul className="text-sm space-y-1 text-muted-foreground">
+                          <li>• Striktare säkerhetskrav</li>
+                          <li>• Längre företagshistorik krävs</li>
+                          <li>• Mer formell process</li>
+                          <li>• Liknande räntenivåer</li>
+                        </ul>
+                      </div>
+                    </div>
+                    
+                    <p className="text-sm">
+                      Läs mer om hur{" "}
+                      <a 
+                        href="https://finanzen-guide.de/unternehmenskredit" 
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 hover:underline font-medium"
+                      >
+                        Unternehmenskredite fungerar i Tyskland
+                      </a>
+                      {" "}på vår tyska systersajt.
+                    </p>
+                  </CardContent>
+                </Card>
               </TabsContent>
             </Tabs>
           </div>

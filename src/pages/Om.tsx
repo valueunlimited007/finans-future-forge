@@ -50,6 +50,54 @@ export default function Om() {
             </section>
 
             <section className="mb-8">
+              <h2 className="text-2xl font-semibold mb-4 text-foreground">Vårt europeiska nätverk</h2>
+              <p className="mb-4 text-foreground">
+                Finansguiden.se är del av ett europeiskt nätverk av oberoende finansjämförelsesajter. 
+                Vår systersajt{" "}
+                <a 
+                  href="https://finanzen-guide.de" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:underline font-medium"
+                >
+                  Finanzen-Guide.de
+                </a>
+                {" "}är Tysklands ledande jämförelseportal för{" "}
+                <a 
+                  href="https://finanzen-guide.de/ratenkredit" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:underline"
+                >
+                  Ratenkredite
+                </a>
+                ,{" "}
+                <a 
+                  href="https://finanzen-guide.de/unternehmenskredit" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:underline"
+                >
+                  Unternehmenskredite
+                </a>
+                {" "}och{" "}
+                <a 
+                  href="https://finanzen-guide.de/kreditkarten" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:underline"
+                >
+                  Kreditkarten
+                </a>
+                .
+              </p>
+              <p className="text-foreground">
+                Genom detta nätverk kan vi dela expertis, metodologi och bästa praxis över gränserna, 
+                vilket höjer kvaliteten på våra tjänster i både Sverige och Tyskland.
+              </p>
+            </section>
+
+            <section className="mb-8">
               <h2 className="text-2xl font-semibold mb-4 text-foreground">Redaktionell integritet</h2>
               <p className="mb-4 text-foreground">
                 Vi åtar oss att tillhandahålla objektiv, faktabaserad information. Vårt innehåll granskas regelbundet för att säkerställa riktighet och relevans.

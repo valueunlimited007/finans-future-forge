@@ -357,11 +357,12 @@ export default function RichPrivatlan() {
             <h2 className="text-3xl font-bold text-center mb-12">Komplett guide till privatlån</h2>
             
             <Tabs defaultValue="overview" className="w-full">
-              <TabsList className="grid w-full grid-cols-2 md:grid-cols-4">
+              <TabsList className="grid w-full grid-cols-2 md:grid-cols-5">
                 <TabsTrigger value="overview">Översikt</TabsTrigger>
                 <TabsTrigger value="requirements">Krav</TabsTrigger>
                 <TabsTrigger value="costs">Kostnader</TabsTrigger>
                 <TabsTrigger value="tips">Tips</TabsTrigger>
+                <TabsTrigger value="international">🌍 EU</TabsTrigger>
               </TabsList>
               
               <TabsContent value="overview" className="mt-8">
@@ -622,6 +623,56 @@ export default function RichPrivatlan() {
                     </CardContent>
                   </Card>
                 </div>
+              </TabsContent>
+
+              <TabsContent value="international" className="mt-8">
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      🌍 Internationell jämförelse: Privatlån Sverige vs Tyskland
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <p>
+                      Hur skiljer sig svenska privatlån från tyska? Här är de viktigaste skillnaderna:
+                    </p>
+                    
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <h4 className="font-semibold mb-2">🇸🇪 Sverige (Privatlån)</h4>
+                        <ul className="text-sm space-y-1 text-muted-foreground">
+                          <li>• Kreditkontroll via UC</li>
+                          <li>• Snabbare handläggning (ofta 24h)</li>
+                          <li>• Högre maxbelopp (upp till 600 000 kr)</li>
+                          <li>• Räntor från 2,9%</li>
+                        </ul>
+                      </div>
+                      
+                      <div>
+                        <h4 className="font-semibold mb-2">🇩🇪 Tyskland (Ratenkredit)</h4>
+                        <ul className="text-sm space-y-1 text-muted-foreground">
+                          <li>• Kreditkontroll via SCHUFA</li>
+                          <li>• Något längre handläggning</li>
+                          <li>• Striktare krav på fast anställning</li>
+                          <li>• Liknande räntenivåer</li>
+                        </ul>
+                      </div>
+                    </div>
+                    
+                    <p className="text-sm">
+                      Läs mer om hur{" "}
+                      <a 
+                        href="https://finanzen-guide.de/ratenkredit" 
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 hover:underline font-medium"
+                      >
+                        Ratenkredite fungerar i Tyskland
+                      </a>
+                      {" "}på vår tyska systersajt.
+                    </p>
+                  </CardContent>
+                </Card>
               </TabsContent>
             </Tabs>
           </div>

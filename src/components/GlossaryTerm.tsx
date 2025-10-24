@@ -73,6 +73,59 @@ const GlossaryTerm: React.FC<GlossaryTermProps> = ({ term, related }) => {
           </section>
         ) : null}
 
+        {/* International Comparison - only for specific terms */}
+        {(term.slug === 'uc' || term.slug === 'kreditupplysning') && (
+          <div className="bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-lg p-6 mb-8">
+            <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
+              🌍 Internationell jämförelse
+            </h3>
+            <p className="text-foreground mb-3">
+              I Sverige använder vi UC (Upplysningscentralen) för kreditkontroller. I Tyskland fungerar{" "}
+              <a 
+                href="https://finanzen-guide.de/glossar/schufa" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:underline font-medium"
+              >
+                SCHUFA
+              </a>
+              {" "}på liknande sätt - det är Tysklands motsvarighet till UC och påverkar möjligheten att få lån.
+            </p>
+            <p className="text-sm text-muted-foreground">
+              Läs mer om hur{" "}
+              <a 
+                href="https://finanzen-guide.de/ratenkredit" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:underline"
+              >
+                kreditsystemet fungerar i Tyskland
+              </a>
+              .
+            </p>
+          </div>
+        )}
+
+        {term.slug === 'privatlan' && (
+          <div className="bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-lg p-6 mb-8">
+            <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
+              🌍 Privatlån i Europa
+            </h3>
+            <p className="text-foreground mb-3">
+              Privatlån fungerar liknande i andra EU-länder. I Tyskland kallas det för{" "}
+              <a 
+                href="https://finanzen-guide.de/ratenkredit" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:underline font-medium"
+              >
+                Ratenkredit
+              </a>
+              {" "}och regleras av samma EU-direktiv som Sverige (Consumer Credit Directive).
+            </p>
+          </div>
+        )}
+
         {term.example && (
           <section className="my-6 rounded-lg border border-border bg-muted/20 p-4">
             <h2 className="mb-1 font-semibold">Exempel</h2>

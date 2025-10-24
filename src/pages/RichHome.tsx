@@ -82,6 +82,21 @@ export default function RichHome() {
                 <div className="text-muted-foreground">Användarbetyg</div>
               </div>
             </div>
+
+            {/* EU Network Badge */}
+            <div className="mt-12 text-center">
+              <a 
+                href="https://finanzen-guide.de" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors"
+              >
+                <span className="text-2xl">🇪🇺</span>
+                <span className="text-foreground font-medium">
+                  Del av europeiskt finansnätverk – även tillgänglig i Tyskland
+                </span>
+              </a>
+            </div>
           </div>
         </section>
 

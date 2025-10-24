@@ -197,7 +197,129 @@ export default function RichKreditkort() {
         {/* Step-by-step Guide */}
         <section className="py-16 px-4">
           <div className="container mx-auto max-w-4xl">
-            <CreditCardGuideSteps />
+            <h2 className="text-3xl font-bold text-center mb-12">Guide: Så väljer du rätt kreditkort</h2>
+            
+            <Tabs defaultValue="types" className="w-full">
+              <TabsList className="grid w-full grid-cols-2 md:grid-cols-4">
+                <TabsTrigger value="types">Korttyper</TabsTrigger>
+                <TabsTrigger value="compare">Jämför</TabsTrigger>
+                <TabsTrigger value="apply">Ansök</TabsTrigger>
+                <TabsTrigger value="international">🌍 EU</TabsTrigger>
+              </TabsList>
+              
+              <TabsContent value="types" className="mt-8">
+                <CreditCardGuideSteps />
+              </TabsContent>
+
+              <TabsContent value="compare" className="mt-8">
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Så jämför du kreditkort effektivt</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <p>Använd vår jämförelsetabell ovan för att hitta det bästa kortet baserat på dina behov.</p>
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div>
+                        <h4 className="font-semibold mb-2">Fokusera på:</h4>
+                        <ul className="text-sm space-y-1">
+                          <li>• Effektiv ränta</li>
+                          <li>• Årsavgift</li>
+                          <li>• Cashback-procent</li>
+                          <li>• Räntefria dagar</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold mb-2">Tänk på:</h4>
+                        <ul className="text-sm space-y-1">
+                          <li>• Dina utgiftsmönster</li>
+                          <li>• Resefrekvens</li>
+                          <li>• Betalningsrutiner</li>
+                          <li>• Bonuspreferenser</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </TabsContent>
+
+              <TabsContent value="apply" className="mt-8">
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Ansökningsprocess</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="space-y-4">
+                      <div>
+                        <h4 className="font-semibold mb-2">1. Förbered dokumentation</h4>
+                        <p className="text-sm text-muted-foreground">Svenskt personnummer, fast inkomst, kontaktuppgifter</p>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold mb-2">2. Välj rätt kort</h4>
+                        <p className="text-sm text-muted-foreground">Baserat på dina behov och ekonomiska situation</p>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold mb-2">3. Ansök online</h4>
+                        <p className="text-sm text-muted-foreground">Snabb digital process, vanligtvis 10-15 minuter</p>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold mb-2">4. Vänta på beslut</h4>
+                        <p className="text-sm text-muted-foreground">Oftast inom 1-3 dagar, ibland omedelbart</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </TabsContent>
+
+              <TabsContent value="international" className="mt-8">
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      🌍 Internationell jämförelse: Kreditkort Sverige vs Tyskland
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <p>
+                      Hur skiljer sig svenska kreditkort från tyska? Här är de viktigaste skillnaderna:
+                    </p>
+                    
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <h4 className="font-semibold mb-2">🇸🇪 Sverige (Kreditkort)</h4>
+                        <ul className="text-sm space-y-1 text-muted-foreground">
+                          <li>• Hög acceptans för direktdebitering</li>
+                          <li>• Swish som alternativ betalning</li>
+                          <li>• Cashback vanligare</li>
+                          <li>• Flexiblare kreditgränser</li>
+                        </ul>
+                      </div>
+                      
+                      <div>
+                        <h4 className="font-semibold mb-2">🇩🇪 Tyskland (Kreditkarten)</h4>
+                        <ul className="text-sm space-y-1 text-muted-foreground">
+                          <li>• Större fokus på debetkort</li>
+                          <li>• Striktare kreditbedömning</li>
+                          <li>• Lägre kreditgränser generellt</li>
+                          <li>• Reseförsäkringar mer standard</li>
+                        </ul>
+                      </div>
+                    </div>
+                    
+                    <p className="text-sm">
+                      Läs mer om hur{" "}
+                      <a 
+                        href="https://finanzen-guide.de/kreditkarten" 
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 hover:underline font-medium"
+                      >
+                        Kreditkarten fungerar i Tyskland
+                      </a>
+                      {" "}på vår tyska systersajt.
+                    </p>
+                  </CardContent>
+                </Card>
+              </TabsContent>
+            </Tabs>
           </div>
         </section>
 

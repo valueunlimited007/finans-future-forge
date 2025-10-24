@@ -115,6 +115,43 @@ const ModernFooter: React.FC = () => {
               </li>
             </ul>
           </div>
+
+          {/* Internationellt */}
+          <div>
+            <h4 className="font-semibold text-foreground mb-4">Internationellt</h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <a 
+                  href="https://finanzen-guide.de" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Kreditjämförelse Tyskland
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="https://finanzen-guide.de/ratenkredit" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Privatlån Tyskland
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="https://finanzen-guide.de/kreditkarten" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Kreditkort Tyskland
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
 
         {/* Bottom section */}
