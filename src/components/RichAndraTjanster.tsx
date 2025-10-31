@@ -53,11 +53,11 @@ export default function RichAndraTjanster() {
   return (
     <>
       <Helmet>
-        <title>Andra finansiella tjänster - Valutaväxling & Sparande | Finansguiden</title>
-        <meta name="description" content="Jämför valutaväxling med bästa kurserna och högavkastande sparkonton. ChangeGroup för valuta och SaveLend FastRäntekonto med 5,5% ränta. Oberoende jämförelser." />
+        <title>Andra finansiella tjänster - Valutaväxling, Sparande & Pension | Finansguiden</title>
+        <meta name="description" content="Jämför valutaväxling, högavkastande sparkonton och pensionsrådgivning. ChangeGroup, SaveLend och Pensionera. Oberoende jämförelser." />
         <link rel="canonical" href="https://finansguiden.se/andra-tjanster" />
-        <meta property="og:title" content="Andra finansiella tjänster - Valutaväxling & Sparande | Finansguiden" />
-        <meta property="og:description" content="Jämför valutaväxling med bästa kurserna och högavkastande sparkonton. ChangeGroup och SaveLend." />
+        <meta property="og:title" content="Andra finansiella tjänster - Valutaväxling, Sparande & Pension | Finansguiden" />
+        <meta property="og:description" content="Jämför valutaväxling, högavkastande sparkonton och pensionsrådgivning. ChangeGroup, SaveLend och Pensionera." />
         <meta property="og:url" content="https://finansguiden.se/andra-tjanster" />
         <meta property="og:type" content="website" />
         <script type="application/ld+json">
@@ -75,11 +75,11 @@ export default function RichAndraTjanster() {
           <div className="container mx-auto max-w-6xl">
             <div className="text-center mb-12">
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                Andra finansiella tjänster - <span className="text-blue-600">Valutaväxling och Sparande</span>
+                Andra finansiella tjänster - <span className="text-blue-600">Valutaväxling, Sparande och Pension</span>
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-                Utforska smarta alternativ för valutaväxling och högavkastande sparkonton. 
-                Vi hjälper dig hitta bästa växelkurserna och trygga sparalternativ med högre ränta än traditionella sparkonton.
+                Utforska smarta alternativ för valutaväxling, högavkastande sparkonton och pensionsrådgivning. 
+                Vi hjälper dig hitta bästa växelkurserna, trygga sparalternativ och full koll på din pension.
               </p>
               
               <div className="flex flex-wrap gap-4 justify-center mb-8">
@@ -122,7 +122,7 @@ export default function RichAndraTjanster() {
         <section className="py-16 px-4 bg-muted/30">
           <div className="container mx-auto max-w-6xl">
             <h2 className="text-3xl font-bold text-center mb-12">Våra finansiella tjänster</h2>
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-3 gap-8">
               {/* ChangeGroup - Valutaväxling */}
               <Card className="hover:shadow-lg transition-shadow">
                 <CardHeader>
@@ -214,6 +214,71 @@ export default function RichAndraTjanster() {
                   <div className="bg-green-50 border border-green-200 rounded-lg p-4">
                     <p className="text-sm text-green-700">
                       <strong>Perfekt för:</strong> Sparare som söker högre avkastning och kan binda pengarna 6-12 månader
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Pensionera - Pensionsrådgivning */}
+              <Card className="hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                      <TrendingUp className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-2xl">Pensionera - Pensionsrådgivning</CardTitle>
+                      <CardDescription>Full koll på din pension</CardDescription>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <p className="text-muted-foreground">
+                    Pensionera hjälper dig få fullständig översikt över din pension från alla källor. 
+                    Med omfattande rådgivning täcker vi allmän-, tjänste- och privata pensionsplaner. 
+                    Vi ger dig prognoser, hjälper med försäkringsflyttar och säkerställer rätt skydd.
+                  </p>
+                  <div className="space-y-3">
+                    <h4 className="font-semibold">Så här fungerar det:</h4>
+                    <ul className="space-y-2">
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                        <span className="text-sm">Registrera dig enkelt</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                        <span className="text-sm">Invänta inhämtning av din pensionsinformation</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                        <span className="text-sm">Ta kontroll över ditt sparande med detaljerad översikt</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="space-y-3">
+                    <h4 className="font-semibold">Fördelar:</h4>
+                    <ul className="space-y-2">
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                        <span className="text-sm">Sammanställer din hela pensionsportfölj</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                        <span className="text-sm">Prognoser för framtida uttag</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                        <span className="text-sm">Hjälp med försäkringsförhandlingar och flyttar</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                        <span className="text-sm">Livförsäkringar för extra trygghet</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
+                    <p className="text-sm text-purple-700">
+                      <strong>Perfekt för:</strong> Alla som vill ha fullständig översikt och kontroll över sin pension och framtida ekonomi
                     </p>
                   </div>
                 </CardContent>

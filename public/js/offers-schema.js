@@ -802,6 +802,25 @@
       highlights: ['FastRäntekonto 12 mån', 'Kapitalskydd ingår', 'Högre än sparkonton'],
       logo: '/adtraction-logos/savelend-logo.png',
       isPartner: true
+    },
+    {
+      id: 'pensionera',
+      network: 'adtraction',
+      name: 'Pensionera',
+      url: 'https://go.adt231.net/t/t?a=1870932183&as=2005939977&t=2&tk=1',
+      amountRange: 'Pensionsöversikt & rådgivning',
+      aprFrom: 'Kostnadsfri konsultation',
+      decision: 'Snabb registrering',
+      requirements: 'All pensionsinformation på ett ställe',
+      rating: 4.7,
+      highlights: [
+        'Omfattande pensionsrådgivning',
+        'Samlar all pensionsinformation',
+        'Hjälp med försäkringsflyttar',
+        'Livförsäkringar för extra trygghet'
+      ],
+      logo: '/adtraction-logos/pensionera-logo.png',
+      isPartner: true
     }
   ].map(seal);
 

@@ -39,6 +39,10 @@
       { id:'coop-mersa', network:'direct', name:'Coop Mastercard', url:'https://www.coop.se/medlem/ekonomi/coop-matkonto/mastercard/', logo:'/coop.png', annualFee:'0–295 kr', cashback:'Bonus på köp', creditLimit:'Upp till 100 000 kr', interestFreeDays:'Upp till 55 dagar', rating:4.4 }
     ]);
 
+    ensure('ovriga', [
+      { id:'pensionera', network:'direct', name:'Pensionera', url:'https://go.adt231.net/t/t?a=1870932183&as=2005939977&t=2&tk=1', amountRange:'Pensionsöversikt & rådgivning', aprFrom:'Kostnadsfri konsultation', decision:'Snabb registrering', requirements:'All pensionsinformation på ett ställe', rating:4.7 }
+    ]);
+
     try { 
       console.log('[FG_SEEDS] Dispatching fg:offers-updated event'); 
       console.log('[FG_SEEDS] Current offers:', Object.keys(FG).map(function(k){ return k + ':' + (FG[k] || []).length; }));
