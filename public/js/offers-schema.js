@@ -245,15 +245,16 @@
       logo: '/adtraction-logos/krea-logo.png',
       isPartner: true
     },
-    {
-      id: 'gfmoney', network: 'adtraction', name: 'GF Money SE',
-      url: 'https://go.adt246.net/t/t?a=1400909618&as=2005939977&t=2&tk=1',
-      amountRange: '5 000 – 500 000 kr', aprFrom: 'från 4,95%', decision: 'Snabbt beslut',
-      requirements: 'Kreditupplysning', rating: 4.5,
-      highlights: ['Digital långivare', 'Flexibla villkor'],
-      logo: '/adtraction-logos/gfmoney-logo.png',
-      isPartner: true
-    },
+    // PAUSAT PROGRAM - Borttaget 2025-10-31 (Adtraction "Programmet är pausat")
+    // {
+    //   id: 'gfmoney', network: 'adtraction', name: 'GF Money SE',
+    //   url: 'https://go.adt246.net/t/t?a=1400909618&as=2005939977&t=2&tk=1',
+    //   amountRange: '5 000 – 500 000 kr', aprFrom: 'från 4,95%', decision: 'Snabbt beslut',
+    //   requirements: 'Kreditupplysning', rating: 4.5,
+    //   highlights: ['Digital långivare', 'Flexibla villkor'],
+    //   logo: '/adtraction-logos/gfmoney-logo.png',
+    //   isPartner: true
+    // },
     {
       id: 'matchbanker', network: 'adtraction', name: 'Matchbanker SE',
       url: 'https://go.adt256.com/t/t?a=1440280668&as=2005939977&t=2&tk=1',
@@ -498,15 +499,16 @@
       isPartner: true
     },
     // ADDITIONAL LENDERS (pending partnership approval)
-    {
-      id: 'smspengar', network: 'adtraction', name: 'SMSPengar SE',
-      url: 'https://go.adt246.net/t/t?a=56814276&as=2005939977&t=2&tk=1',
-      amountRange: '500 – 30 000 kr', aprFrom: 'från 19,95%', decision: 'Inom minuter',
-      requirements: 'Månadsinkomst 5000kr', rating: 3.9,
-      highlights: ['Snabbaste lånet', 'Även med betalningsanmärkningar'],
-      logo: '/adtraction-logos/smspengar-logo.png',
-      isPartner: true
-    },
+    // PAUSAT PROGRAM - Borttaget 2025-10-31 (Adtraction "Programmet är pausat")
+    // {
+    //   id: 'smspengar', network: 'adtraction', name: 'SMSPengar SE',
+    //   url: 'https://go.adt246.net/t/t?a=56814276&as=2005939977&t=2&tk=1',
+    //   amountRange: '500 – 30 000 kr', aprFrom: 'från 19,95%', decision: 'Inom minuter',
+    //   requirements: 'Månadsinkomst 5000kr', rating: 3.9,
+    //   highlights: ['Snabbaste lånet', 'Även med betalningsanmärkningar'],
+    //   logo: '/adtraction-logos/smspengar-logo.png',
+    //   isPartner: true
+    // },
     {
       id: 'daypay', network: 'adtraction', name: 'Daypay',
       url: 'https://go.adt267.com/t/t?a=1065957440&as=2005939977&t=2&tk=1',
@@ -544,15 +546,16 @@
       logo: '/adtraction-logos/klaralan-logo.png',
       isPartner: true
     },
-    {
-      id: 'gfmoney-utanuc', network: 'adtraction', name: 'GF Money SE',
-      url: 'https://go.adt246.net/t/t?a=1400909618&as=2005939977&t=2&tk=1',
-      amountRange: '5 000 – 500 000 kr', aprFrom: 'från 4,95%', decision: 'Snabbt beslut',
-      requirements: 'Alternativ kreditbedömning', rating: 4.5,
-      highlights: ['Digital långivare utan UC', 'Flexibla villkor'],
-      logo: '/adtraction-logos/gfmoney-logo.png',
-      isPartner: true
-    },
+    // PAUSAT PROGRAM - Borttaget 2025-10-31 (Adtraction "Programmet är pausat")
+    // {
+    //   id: 'gfmoney-utanuc', network: 'adtraction', name: 'GF Money SE',
+    //   url: 'https://go.adt246.net/t/t?a=1400909618&as=2005939977&t=2&tk=1',
+    //   amountRange: '5 000 – 500 000 kr', aprFrom: 'från 4,95%', decision: 'Snabbt beslut',
+    //   requirements: 'Alternativ kreditbedömning', rating: 4.5,
+    //   highlights: ['Digital långivare utan UC', 'Flexibla villkor'],
+    //   logo: '/adtraction-logos/gfmoney-logo.png',
+    //   isPartner: true
+    // },
     {
       id: 'loanstep-utanuc', network: 'adtraction', name: 'Loanstep SE',
       url: 'https://go.adt284.net/t/t?a=1961010341&as=2005939977&t=2&tk=1',
