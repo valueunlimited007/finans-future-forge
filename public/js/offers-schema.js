@@ -482,9 +482,9 @@
     {
       id: 'creditstar', network: 'adtraction', name: 'CreditStar',
       url: 'https://go.creditstar.se/t/t?a=1896267775&as=2005939977&t=2&tk=1',
-      amountRange: '1 000 – 90 000 kr', aprFrom: 'från 20%', decision: 'Inom minuter',
+      amountRange: '5 000 – 150 000 kr', aprFrom: 'från 20%', decision: 'Inom minuter',
       requirements: 'Över 21 år, fast anställning', rating: 4.1,
-      highlights: ['Direkt utbetalning samma dag', 'Lån utan UC upp till 90 000 kr'],
+      highlights: ['Direkt utbetalning samma dag', 'Lån utan UC upp till 150 000 kr', 'Lånetid 12–84 månader'],
       logo: '/adtraction-logos/creditstar-logo.png',
       isPartner: true
     },

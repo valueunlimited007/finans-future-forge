@@ -26,7 +26,7 @@
       { id:'brixo-utanuc', network:'direct', name:'Brixo', url:'https://www.brixo.se/', amountRange:'5 000 – 50 000 kr', aprFrom:'21,95%', decision:'Inom 24 timmar', requirements:'Använder Bisnode (ej UC)', rating:4.5 },
       { id:'credifi', network:'direct', name:'Credifi', url:'https://go.adt228.com/t/t?a=1673075264&as=2005939977&t=2&tk=1', amountRange:'2 000 – 70 000 kr', aprFrom:'68,52% - 270,13%', decision:'Snabbt beslut', requirements:'Svenskregistrerat företag', rating:3.8 },
       { id:'kredio', network:'direct', name:'Kredio', url:'https://go.adt246.net/t/t?a=1989974137&as=2005939977&t=2&tk=1', amountRange:'1 000 – 75 000 kr', aprFrom:'från 21,95%', decision:'Snabbt beslut', requirements:'Kostnadsfri ansökan', rating:4.3 },
-      { id:'creditstar', network:'direct', name:'CreditStar', url:'https://www.creditstar.se/', amountRange:'1 000 – 90 000 kr', aprFrom:'från 20%', decision:'Inom minuter', requirements:'Över 21 år, fast anställning', rating:4.1 }
+      { id:'creditstar', network:'direct', name:'CreditStar', url:'https://www.creditstar.se/', amountRange:'5 000 – 150 000 kr', aprFrom:'från 20%', decision:'Inom minuter', requirements:'Över 21 år, fast anställning', rating:4.1 }
     ]);
 
     ensure('foretagslan', [
