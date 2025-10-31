@@ -84,13 +84,6 @@ export default function RichAndraTjanster() {
               
               <div className="flex flex-wrap gap-4 justify-center mb-8">
                 <Button asChild size="lg" className="fg-btn text-lg px-8 shadow-lg">
-                  <a href="#jamfor-tjanster">Jämför tjänster</a>
-                </Button>
-                <Button 
-                  size="lg" 
-                  className="fg-btn--secondary text-lg px-8"
-                  asChild
-                >
                   <a href="#guide">Läs guide</a>
                 </Button>
               </div>
@@ -209,187 +202,6 @@ export default function RichAndraTjanster() {
           </div>
         </section>
 
-        {/* Offers Section */}
-        <section id="jamfor-tjanster" className="py-16 px-4">
-          <div className="container mx-auto max-w-6xl">
-            <OffersContainer 
-              category="ovriga" 
-              limit={10}
-              title="Jämför våra partners"
-            />
-            
-            <ConsumerCreditWarning />
-          </div>
-        </section>
-
-        {/* Services Info Section */}
-        <section className="py-16 px-4 bg-muted/30">
-          <div className="container mx-auto max-w-6xl">
-            <h2 className="text-3xl font-bold text-center mb-12">Våra finansiella tjänster</h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              {/* ChangeGroup - Valutaväxling */}
-              <Card className="hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                      <Globe className="w-6 h-6 text-primary" />
-                    </div>
-                    <div>
-                      <CardTitle className="text-2xl">ChangeGroup - Valutaväxling</CardTitle>
-                      <CardDescription>Bästa kurserna för din valuta</CardDescription>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-muted-foreground">
-                    ChangeGroup erbjuder konkurrenskraftiga växelkurser för alla större valutor. 
-                    Oavsett om du reser utomlands eller behöver växla valuta för onlineshopping, 
-                    hjälper ChangeGroup dig att få mer för dina pengar.
-                  </p>
-                  <div className="space-y-3">
-                    <h4 className="font-semibold">Fördelar:</h4>
-                    <ul className="space-y-2">
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">Konkurrenskraftiga växelkurser jämfört med banker</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">Säker och snabb service både online och i butik</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">Fysiska kontor i flera städer för personlig service</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">Ingen dold kostnad - tydliga villkor</span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                    <p className="text-sm text-blue-700">
-                      <strong>Perfekt för:</strong> Resenärer, onlineshoppare och företag som hanterar flera valutor
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* SaveLend - FastRäntekonto */}
-              <Card className="hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                      <Wallet className="w-6 h-6 text-primary" />
-                    </div>
-                    <div>
-                      <CardTitle className="text-2xl">SaveLend - FastRäntekonto</CardTitle>
-                      <CardDescription>5,5% årsränta med kapitalskydd</CardDescription>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-muted-foreground">
-                    SaveLends FastRäntekonto erbjuder 5,5% fast årsränta med kapitalskydd från Bricknode. 
-                    Ett smart alternativ till traditionella sparkonton som ger betydligt högre avkastning 
-                    samtidigt som ditt kapital är skyddat.
-                  </p>
-                  <div className="space-y-3">
-                    <h4 className="font-semibold">Fördelar:</h4>
-                    <ul className="space-y-2">
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">5,5% fast årsränta - mycket högre än sparkonton</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">Kapitalskydd via Bricknode - ditt insatta belopp är säkrat</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">ESMA-reglerat - säkerhet och transparens</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">Bindningstid 6-12 månader beroende på val</span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                    <p className="text-sm text-green-700">
-                      <strong>Perfekt för:</strong> Sparare som söker högre avkastning och kan binda pengarna 6-12 månader
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Pensionera - Pensionsrådgivning */}
-              <Card className="hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                      <TrendingUp className="w-6 h-6 text-primary" />
-                    </div>
-                    <div>
-                      <CardTitle className="text-2xl">Pensionera - Pensionsrådgivning</CardTitle>
-                      <CardDescription>Full koll på din pension</CardDescription>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-muted-foreground">
-                    Pensionera hjälper dig få fullständig översikt över din pension från alla källor. 
-                    Med omfattande rådgivning täcker vi allmän-, tjänste- och privata pensionsplaner. 
-                    Vi ger dig prognoser, hjälper med försäkringsflyttar och säkerställer rätt skydd.
-                  </p>
-                  <div className="space-y-3">
-                    <h4 className="font-semibold">Så här fungerar det:</h4>
-                    <ul className="space-y-2">
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">Registrera dig enkelt</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">Invänta inhämtning av din pensionsinformation</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">Ta kontroll över ditt sparande med detaljerad översikt</span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="space-y-3">
-                    <h4 className="font-semibold">Fördelar:</h4>
-                    <ul className="space-y-2">
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">Sammanställer din hela pensionsportfölj</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">Prognoser för framtida uttag</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">Hjälp med försäkringsförhandlingar och flyttar</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">Livförsäkringar för extra trygghet</span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
-                    <p className="text-sm text-purple-700">
-                      <strong>Perfekt för:</strong> Alla som vill ha fullständig översikt och kontroll över sin pension och framtida ekonomi
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
 
         {/* Guide Steps Section */}
         <section id="guide" className="py-16 px-4 bg-background">
@@ -416,13 +228,10 @@ export default function RichAndraTjanster() {
               Hitta tjänsten som passar dig bäst.
             </p>
             <div className="flex flex-wrap gap-4 justify-center pt-4">
-              <Button asChild size="lg" className="fg-btn text-lg px-8 shadow-lg">
-                <a href="#jamfor-tjanster">Jämför tjänster</a>
-              </Button>
               <Button 
                 asChild 
                 size="lg" 
-                className="fg-btn--secondary text-lg px-8"
+                className="fg-btn text-lg px-8 shadow-lg"
               >
                 <Link to="/">Tillbaka till startsidan</Link>
               </Button>
