@@ -102,6 +102,25 @@ const queryClient = new QueryClient();
 const App = () => {
   const siteConfig = getSiteConfig();
   const isCasino = isCasinoSite();
+  
+  // SAFEGUARD: Verify hostname matches detected site
+  if (typeof window !== 'undefined') {
+    const actualHostname = window.location.hostname;
+    const isActuallyFinansguiden = /(^|\.)finansguiden\.se$/i.test(actualHostname);
+    const isActuallyKasinos = /(^|\.)kasinos\.se$/i.test(actualHostname);
+    const isActuallyGerman = /(^|\.)finanzen-guide\.de$/i.test(actualHostname);
+    
+    // If hostname is finansguiden but isCasino is true, force reload after clearing override
+    if (isActuallyFinansguiden && isCasino) {
+      console.error("[SITE_CONFIG] Mismatch detected: finansguiden.se showing kasinos content");
+      try {
+        localStorage.removeItem('site-selector-override');
+        window.location.reload();
+      } catch (e) {
+        // Ignore errors
+      }
+    }
+  }
 
   return (
     <HelmetProvider>

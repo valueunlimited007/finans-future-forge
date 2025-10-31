@@ -25,19 +25,26 @@ export function getSiteConfig(host: string = ''): SiteConfig {
   // Handle both development and production hostnames
   let hostname = host || (typeof window !== 'undefined' ? window.location.hostname : '');
   
-  // Simple development override check
-  if (typeof window !== 'undefined' && import.meta.env.DEV) {
-    try {
-      const stored = localStorage.getItem('site-selector-override');
-      if (stored === 'kasinos') {
-        hostname = 'kasinos.se';
-      } else if (stored === 'finansguiden') {
-        hostname = 'finansguiden.se';
-      } else if (stored === 'finanzen-guide') {
-        hostname = 'finanzen-guide.de';
+  // CRITICAL: Check if this is a production domain FIRST
+  const isProductionDomain = /^(www\.)?(finansguiden\.se|kasinos\.se|finanzen-guide\.de)$/i.test(hostname);
+  
+  // Only allow localStorage override in development AND on Lovable preview URLs
+  if (typeof window !== 'undefined' && import.meta.env.DEV && !isProductionDomain) {
+    const isLovablePreview = hostname.includes('lovable.app') || hostname.includes('lovable.dev') || hostname === 'localhost';
+    
+    if (isLovablePreview) {
+      try {
+        const stored = localStorage.getItem('site-selector-override');
+        if (stored === 'kasinos') {
+          hostname = 'kasinos.se';
+        } else if (stored === 'finansguiden') {
+          hostname = 'finansguiden.se';
+        } else if (stored === 'finanzen-guide') {
+          hostname = 'finanzen-guide.de';
+        }
+      } catch (error) {
+        // Ignore localStorage errors
       }
-    } catch (error) {
-      // Ignore localStorage errors
     }
   }
   

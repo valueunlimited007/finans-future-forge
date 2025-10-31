@@ -33,15 +33,29 @@ loadStyles().then(() => {
   // Set data-site attribute on root element BEFORE mounting React
   const rootElement = document.getElementById("root")!;
   const hostname = location.hostname;
+  
+  // CRITICAL: Clear localStorage overrides on production domains
+  const isProductionDomain = /^(www\.)?(finansguiden\.se|kasinos\.se|finanzen-guide\.de)$/i.test(hostname);
+  if (isProductionDomain) {
+    try {
+      localStorage.removeItem('site-selector-override');
+      console.info("[SITE_CONFIG] Cleared development overrides on production domain");
+    } catch (error) {
+      // Ignore localStorage errors
+    }
+  }
+  
   const isCasino = /(^|\.)kasinos\.se$/i.test(hostname);
   const isGerman = /(^|\.)finanzen-guide\.de$/i.test(hostname);
   
-  // Determine site type
+  // Determine site type based ONLY on actual hostname
   let siteType = 'finansguiden';
   if (isCasino) siteType = 'kasinos';
   else if (isGerman) siteType = 'finanzen-guide';
   
   rootElement.setAttribute('data-site', siteType);
+  
+  console.info(`[SITE_CONFIG] Detected site: ${siteType} (hostname: ${hostname})`);
   
   createRoot(rootElement).render(<App />);
 });
