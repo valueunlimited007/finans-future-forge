@@ -119,8 +119,12 @@ export default function RichAndraTjanster() {
               {/* ChangeGroup Card */}
               <Card data-fg-card className="h-full flex flex-col hover:shadow-lg transition-shadow">
                 <CardHeader>
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                    <Globe className="w-6 h-6 text-primary" />
+                  <div className="flex justify-center mb-4">
+                    <img 
+                      src="/adtraction-logos/changegroup-logo.png" 
+                      alt="ChangeGroup logotyp" 
+                      className="h-12 object-contain"
+                    />
                   </div>
                   <CardTitle>ChangeGroup</CardTitle>
                   <CardDescription>
@@ -145,8 +149,12 @@ export default function RichAndraTjanster() {
               {/* SaveLend Card */}
               <Card data-fg-card className="h-full flex flex-col hover:shadow-lg transition-shadow">
                 <CardHeader>
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                    <Wallet className="w-6 h-6 text-primary" />
+                  <div className="flex justify-center mb-4">
+                    <img 
+                      src="/adtraction-logos/savelend-logo.png" 
+                      alt="SaveLend logotyp" 
+                      className="h-12 object-contain"
+                    />
                   </div>
                   <CardTitle>SaveLend</CardTitle>
                   <CardDescription>
@@ -171,8 +179,12 @@ export default function RichAndraTjanster() {
               {/* Pensionera Card */}
               <Card data-fg-card className="h-full flex flex-col hover:shadow-lg transition-shadow">
                 <CardHeader>
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                    <TrendingUp className="w-6 h-6 text-primary" />
+                  <div className="flex justify-center mb-4">
+                    <img 
+                      src="/adtraction-logos/pensionera-logo.png" 
+                      alt="Pensionera logotyp" 
+                      className="h-12 object-contain"
+                    />
                   </div>
                   <CardTitle>Pensionera</CardTitle>
                   <CardDescription>
