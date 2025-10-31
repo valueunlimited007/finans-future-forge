@@ -105,6 +105,98 @@ export default function RichAndraTjanster() {
           </div>
         </section>
 
+        {/* Featured Services - CTA Cards */}
+        <section className="py-16 px-4">
+          <div className="container mx-auto max-w-6xl">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-4">Våra smarta finanslösningar</h2>
+              <p className="text-xl text-muted-foreground">
+                Upptäck tjänster som hjälper dig spara pengar och planera din framtid
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6 items-stretch">
+              {/* ChangeGroup Card */}
+              <Card data-fg-card className="h-full flex flex-col hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                    <Globe className="w-6 h-6 text-primary" />
+                  </div>
+                  <CardTitle>ChangeGroup</CardTitle>
+                  <CardDescription>
+                    Bättre växelkurser än banker. Växla valuta enkelt online eller i butik.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="flex-1 flex flex-col justify-between">
+                  <ul className="text-sm text-muted-foreground space-y-2 mb-4">
+                    <li>• Konkurrenskraftiga kurser</li>
+                    <li>• Online & fysiska kontor</li>
+                    <li>• Snabb service</li>
+                    <li>• Inga dolda kostnader</li>
+                  </ul>
+                  <Button asChild className="w-full fg-btn">
+                    <a href="https://go.adt231.net/t/t?a=1841663863&as=2005939977&t=2&tk=1" target="_blank" rel="noopener noreferrer">
+                      Växla valuta →
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* SaveLend Card */}
+              <Card data-fg-card className="h-full flex flex-col hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                    <Wallet className="w-6 h-6 text-primary" />
+                  </div>
+                  <CardTitle>SaveLend</CardTitle>
+                  <CardDescription>
+                    5,5% fast årsränta med kapitalskydd. Högre avkastning än sparkonton.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="flex-1 flex flex-col justify-between">
+                  <ul className="text-sm text-muted-foreground space-y-2 mb-4">
+                    <li>• 5,5% fast årsränta</li>
+                    <li>• Kapitalskydd via Bricknode</li>
+                    <li>• ESMA-reglerat</li>
+                    <li>• Bindningstid 6-12 månader</li>
+                  </ul>
+                  <Button asChild className="w-full fg-btn">
+                    <a href="https://go.adt231.net/t/t?a=1895536547&as=2005939977&t=2&tk=1" target="_blank" rel="noopener noreferrer">
+                      Öppna sparkonto →
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* Pensionera Card */}
+              <Card data-fg-card className="h-full flex flex-col hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                    <TrendingUp className="w-6 h-6 text-primary" />
+                  </div>
+                  <CardTitle>Pensionera</CardTitle>
+                  <CardDescription>
+                    Full koll på din pension. Samlar all information och ger dig prognoser.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="flex-1 flex flex-col justify-between">
+                  <ul className="text-sm text-muted-foreground space-y-2 mb-4">
+                    <li>• Pensionsöversikt från alla källor</li>
+                    <li>• Prognoser för framtida uttag</li>
+                    <li>• Hjälp med försäkringar</li>
+                    <li>• Livförsäkringar inkluderade</li>
+                  </ul>
+                  <Button asChild className="w-full fg-btn">
+                    <a href="https://go.adt231.net/t/t?a=1870932183&as=2005939977&t=2&tk=1" target="_blank" rel="noopener noreferrer">
+                      Ta kontroll över din pension →
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
         {/* Offers Section */}
         <section id="jamfor-tjanster" className="py-16 px-4">
           <div className="container mx-auto max-w-6xl">
@@ -308,7 +400,7 @@ export default function RichAndraTjanster() {
               Redo att komma igång?
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Jämför valutaväxling och högavkastande sparkonton från våra partners. 
+              Jämför valutaväxling, högavkastande sparkonton och pensionsrådgivning från våra partners. 
               Hitta tjänsten som passar dig bäst.
             </p>
             <div className="flex flex-wrap gap-4 justify-center pt-4">
