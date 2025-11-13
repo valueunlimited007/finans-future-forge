@@ -906,6 +906,18 @@
   // Övriga finansiella tjänster (valutaväxling, sparande, investering)
   var ovriga = [
     {
+      id: 'trijo', network: 'adtraction', name: 'Trijo',
+      url: 'https://go.adt253.net/t/t?a=1610552229&as=2005939977&t=2&tk=1',
+      amountRange: 'Bitcoin, Ethereum, Litecoin', 
+      aprFrom: 'Från 100 EUR', 
+      decision: 'Reglerad av Finansinspektionen',
+      requirements: 'Lägsta insättning 100 EUR', 
+      rating: 4.6,
+      highlights: ['Svensk kryptovalutabörs', 'Enkel för nybörjare', 'Svensk kundtjänst', 'Fullt reglerad'],
+      logo: '/adtraction-logos/trijo-logo.png',
+      isPartner: true
+    },
+    {
       id: 'changegroup', network: 'adtraction', name: 'ChangeGroup SE',
       url: 'https://go.adt253.net/t/t?a=1848047440&as=2005939977&t=2&tk=1',
       amountRange: '60+ valutor', aprFrom: '0% provision online', decision: 'Beställ online',
