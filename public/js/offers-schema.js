@@ -751,6 +751,56 @@
       highlights: ['Del av Svensk Fastighetsförmedling', 'Endast 1 kreditupplysning', 'Jämför flera banker automatiskt', 'Personlig bolånehandläggare'],
       logo: '/adtraction-logos/ordna-logo.png',
       isPartner: true
+    },
+    {
+      id: 'pamind-bolan', network: 'adtraction', name: 'Påmind',
+      url: 'https://go.adt228.com/t/t?a=2007569774&as=2005939977&t=2&tk=1',
+      amountRange: 'Optimering av bolånevillkor', aprFrom: 'Förhandlar bättre villkor', decision: 'Kostnadsfri tjänst',
+      requirements: 'Bevakar och optimerar ditt bolån', rating: 4.6,
+      highlights: ['Spar 2000 kr/år i snitt', '100% gratis', 'Bevakar avtal kontinuerligt', 'Optimerar bolåneränta'],
+      logo: '/adtraction-logos/pamind-logo.png',
+      isPartner: true,
+      isComparison: true
+    },
+    {
+      id: 'sambla-bolan', network: 'adtraction', name: 'Sambla',
+      url: 'https://go.adt284.net/t/t?a=1923302872&as=2005939977&t=2&tk=1',
+      amountRange: 'Jämför bolån från flera banker', aprFrom: 'Jämför räntor från 40+ långivare', decision: 'Besked samma dag',
+      requirements: 'Endast 1 kreditupplysning', rating: 4.8,
+      highlights: ['Jämför 40+ långivare', 'Endast 1 UC', 'Över 390 000 nöjda kunder', 'Ansök på 2 minuter'],
+      logo: '/adtraction-logos/sambla-logo.png',
+      isPartner: true,
+      isComparison: true
+    },
+    {
+      id: 'advisa-bolan', network: 'adtraction', name: 'Advisa',
+      url: 'https://go.adt284.net/t/t?a=1923306192&as=2005939977&t=2&tk=1',
+      amountRange: 'Jämför 30+ banker', aprFrom: 'Bästa bolånevillkoren från partners', decision: 'Erbjudanden från flera banker',
+      requirements: 'Endast 1 kreditupplysning', rating: 4.6,
+      highlights: ['Jämför 30+ banker', 'Endast 1 UC', 'Personlig rådgivning gratis', 'Helt kostnadsfritt'],
+      logo: '/adtraction-logos/advisa-logo.png',
+      isPartner: true,
+      isComparison: true
+    },
+    {
+      id: 'lendo-bolan', network: 'adtraction', name: 'Lendo',
+      url: 'https://go.adt228.com/t/t?a=1060519344&as=2005939977&t=2&tk=1',
+      amountRange: 'Jämför bolån från flera banker', aprFrom: 'Jämför räntor', decision: 'Omedelbart',
+      requirements: 'Sveriges största lånejämförelse', rating: 4.5,
+      highlights: ['Snabbt och enkelt', 'Trygg lånejämförelse', 'Endast 1 UC', 'Etablerad tjänst'],
+      logo: '/adtraction-logos/lendo-logo.png',
+      isPartner: true,
+      isComparison: true
+    },
+    {
+      id: 'axofinans-bolan', network: 'adtraction', name: 'Axo Finans',
+      url: 'https://go.adt267.com/t/t?a=1948981390&as=2005939977&t=2&tk=1',
+      amountRange: 'Jämför bolån från flera banker', aprFrom: 'Jämför räntor från flera banker', decision: 'Snabbt beslut',
+      requirements: 'Endast 1 kreditupplysning', rating: 4.6,
+      highlights: ['Jämför flera banker', 'Endast 1 UC', 'Kostnadsfritt och ej bindande', 'Hitta bästa bolåneräntan'],
+      logo: '/adtraction-logos/axo-logo.png',
+      isPartner: true,
+      isComparison: true
     }
   ].map(seal);
 
