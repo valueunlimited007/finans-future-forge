@@ -254,6 +254,15 @@
       logo: '/adtraction-logos/natlan-logo.png',
       isPartner: true
     },
+    {
+      id: 'goodcash', network: 'adtraction', name: 'GoodCash',
+      url: 'https://go.adt284.net/t/t?a=1081672651&as=2005939977&t=2&tk=1',
+      amountRange: '5 000 – 50 000 kr', aprFrom: 'från 21,75%', decision: 'Snabbt beslut',
+      requirements: 'Kreditupplysning', rating: 4.0,
+      highlights: ['Även med betalningsanmärkningar', '1-7 år löptid', 'Upp till 9 anmärkningar OK'],
+      logo: '/adtraction-logos/goodcash-logo.png',
+      isPartner: true
+    },
     // PAUSAT PROGRAM - Borttaget 2025-10-31 (Adtraction "Programmet är pausat")
     // {
     //   id: 'gfmoney', network: 'adtraction', name: 'GF Money SE',
@@ -562,6 +571,15 @@
       requirements: 'Kreditupplysning via Bisnode (ej UC)', rating: 4.0,
       highlights: ['BankID', 'Även med betalningsanmärkningar', 'Ingen uppläggningsavgift'],
       logo: '/adtraction-logos/natlan-logo.png',
+      isPartner: true
+    },
+    {
+      id: 'goodcash-utanuc', network: 'adtraction', name: 'GoodCash',
+      url: 'https://go.adt284.net/t/t?a=1081672651&as=2005939977&t=2&tk=1',
+      amountRange: '5 000 – 50 000 kr', aprFrom: 'från 21,75%', decision: 'Snabbt beslut',
+      requirements: 'Kreditupplysning', rating: 4.0,
+      highlights: ['Även med betalningsanmärkningar', '1-7 år löptid', 'Upp till 9 anmärkningar OK'],
+      logo: '/adtraction-logos/goodcash-logo.png',
       isPartner: true
     },
     // PAUSAT PROGRAM - Borttaget 2025-10-31 (Adtraction "Programmet är pausat")
