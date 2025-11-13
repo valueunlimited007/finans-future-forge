@@ -9,6 +9,9 @@
   // Cache buster for offers update - Updated with 38 Adtraction partners + 28 utan-UC lenders + 2 övriga
   var cacheVersion = Date.now();
 
+  // Version for cache-busting verification (increment when making schema changes)
+  window.FG_OFFERS_VERSION = '1.1.0';
+
   // Real Adtraction partners - approved for Finansguiden.se
   var privatlan = [
     // VERIFIED PARTNERS (with tracking links)
