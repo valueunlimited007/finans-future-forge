@@ -918,6 +918,18 @@
       isPartner: true
     },
     {
+      id: 'etoro', network: 'adtraction', name: 'eToro',
+      url: 'https://go.adt291.com/t/t?a=1889285320&as=2005939977&t=2&tk=1',
+      amountRange: 'Aktier, Crypto & Fler tillgångar',
+      aprFrom: 'Social trading',
+      decision: 'Reglerad av FCA, ASIC, CySec',
+      requirements: '20+ miljoner användare',
+      rating: 4.7,
+      highlights: ['Världsledande social investeringsplattform', 'Aktier, krypto och mer', 'Enkel och prisvärd', 'Branschledande säkerhet'],
+      logo: '/adtraction-logos/etoro-logo.png',
+      isPartner: true
+    },
+    {
       id: 'changegroup', network: 'adtraction', name: 'ChangeGroup SE',
       url: 'https://go.adt253.net/t/t?a=1848047440&as=2005939977&t=2&tk=1',
       amountRange: '60+ valutor', aprFrom: '0% provision online', decision: 'Beställ online',
