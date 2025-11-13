@@ -107,13 +107,20 @@ export function getTopPartnersByRate(offers: PartnerOffer[], limit: number = 15)
 
 /**
  * Generate mock historical data based on current rates
- * Used for the rate development chart
+ * Used for the rate development chart - dynamically generates last 10 months
  */
 export function generateHistoricalData(currentAverage: number, currentLowest: number) {
-  const months = [
-    'Jan 2024', 'Feb 2024', 'Mar 2024', 'Apr 2024', 'Maj 2024', 
-    'Jun 2024', 'Jul 2024', 'Aug 2024', 'Sep 2024', 'Okt 2024'
-  ];
+  const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'];
+  const now = new Date();
+  const months: string[] = [];
+  
+  // Generate last 10 months dynamically
+  for (let i = 9; i >= 0; i--) {
+    const date = new Date(now.getFullYear(), now.getMonth() - i, 1);
+    const monthName = monthNames[date.getMonth()];
+    const year = date.getFullYear();
+    months.push(`${monthName} ${year}`);
+  }
   
   // Generate declining trend over past 10 months
   return months.map((month, index) => {
