@@ -18,7 +18,7 @@ export default defineConfig(({ mode }) => {
       port: 8080,
     },
     build: {
-      outDir: `dist/${siteLabel}`,
+      outDir: 'dist',
       emptyOutDir: true,
     },
   plugins: [
