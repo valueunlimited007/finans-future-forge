@@ -131,6 +131,17 @@ export default function Sajtkarta() {
                   </li>
                   <li>
                     <Link 
+                      to="/bolan" 
+                      className="block p-4 rounded-lg border border-border bg-card hover:bg-muted transition-colors"
+                    >
+                      <h3 className="font-medium text-primary">Bolån</h3>
+                      <p className="text-sm text-muted-foreground mt-1">
+                        Jämför bolåneräntor från flera banker samtidigt
+                      </p>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link 
                       to="/andra-tjanster" 
                       className="block p-4 rounded-lg border border-border bg-card hover:bg-muted transition-colors"
                     >

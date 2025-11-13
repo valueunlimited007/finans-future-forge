@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Home } from "lucide-react";
 import PillarGuide from "@/components/PillarGuide";
 import ContentStrategy from "@/components/ContentStrategy";
 import OffersContainer from "@/components/OffersContainer";
@@ -280,17 +281,36 @@ export default function RichHome() {
                 </CardContent>
               </Card>
 
-              <Card className="hover:shadow-lg transition-shadow border-dashed">
-                <CardHeader>
-                  <div className="w-12 h-12 bg-muted rounded-lg flex items-center justify-center mb-4">
-                    <span className="text-2xl">🏠</span>
-                  </div>
-                  <CardTitle className="text-muted-foreground">Bolån</CardTitle>
-                  <CardDescription>
-                    Kommer snart! Jämför bolåneräntor från Sveriges största banker.
-                  </CardDescription>
-                </CardHeader>
-              </Card>
+              <Link to="/bolan">
+                <Card className="hover:shadow-lg transition-shadow">
+                  <CardHeader>
+                    <div className="w-12 h-12 bg-cyan-100 dark:bg-cyan-900 rounded-lg flex items-center justify-center mb-4">
+                      <Home className="w-6 h-6 text-cyan-600" />
+                    </div>
+                    <CardTitle>Bolån</CardTitle>
+                    <CardDescription>
+                      Jämför bolåneräntor från flera banker samtidigt
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-2 text-sm mb-4">
+                      <li className="flex items-center gap-2">
+                        <span className="text-green-500">✓</span>
+                        Från 0,84% nominell ränta
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <span className="text-green-500">✓</span>
+                        Endast 1 kreditupplysning
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <span className="text-green-500">✓</span>
+                        Jämför flera banker
+                      </li>
+                    </ul>
+                    <Button className="w-full fg-btn">Jämför bolån</Button>
+                  </CardContent>
+                </Card>
+              </Link>
 
               <Card className="hover:shadow-lg transition-shadow border-dashed">
                 <CardHeader>

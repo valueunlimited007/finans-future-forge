@@ -741,6 +741,19 @@
     }
   ].map(seal);
 
+  // === Bolån ===
+  var bolan = [
+    {
+      id: 'ordna-bolan', network: 'adtraction', name: 'Ordna Bolån',
+      url: 'https://go.adt256.com/t/t?a=1137286168&as=2005939977&t=2&tk=1',
+      amountRange: '150 000 – 15 000 000 kr', aprFrom: 'från 0,84%', decision: 'Individuell bedömning',
+      requirements: 'UC-kontroll (endast 1 för alla banker)', rating: 4.5,
+      highlights: ['Del av Svensk Fastighetsförmedling', 'Endast 1 kreditupplysning', 'Jämför flera banker automatiskt', 'Personlig bolånehandläggare'],
+      logo: '/adtraction-logos/ordna-logo.png',
+      isPartner: true
+    }
+  ].map(seal);
+
   var kreditkort = [
     {
       id: 'northmill-debetkort', network: 'adtraction', name: 'Northmill Bank Debetkort SE',
@@ -1057,6 +1070,7 @@
     kreditkort: kreditkort,
     privatlan: privatlan,
     'utan-uc': utanUc,
+    bolan: bolan,
     laneformedlare: laneformedlare,
     ovriga: ovriga
   };

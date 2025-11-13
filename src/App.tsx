@@ -15,6 +15,7 @@ import PrivatlanRantejamforelse from "./pages/privatlan/Rantejamforelse";
 import PrivatlanLanMedBetalningsanmarkning from "./pages/privatlan/LanMedBetalningsanmarkning";
 import Laneformedlare from "./pages/Laneformedlare";
 import Foretagslan from "./pages/Foretagslan";
+import Bolan from "./pages/Bolan";
 import AndraTjanster from "./pages/AndraTjanster";
 import Cookies from "./pages/Cookies";
 import Integritetspolicy from "./pages/Integritetspolicy";
@@ -208,6 +209,7 @@ const App = () => {
                   <Route path="/" element={<Home />} />
                   <Route path="/lan-utan-uc" element={<LanUtanUc />} />
                   <Route path="/kreditkort" element={<Kreditkort />} />
+                  <Route path="/bolan" element={<Bolan />} />
                   <Route path="/privatlan" element={<Privatlan />} />
                   <Route path="/privatlan/basta" element={<PrivatlanBasta />} />
                   <Route path="/privatlan/jamfor" element={<PrivatlanJamfor />} />
