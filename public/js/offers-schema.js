@@ -45,9 +45,9 @@
     {
       id: 'banknorwegian', network: 'adtraction', name: 'Bank Norwegian',
       url: 'https://go.adt256.com/t/t?a=1882086706&as=2005939977&t=2&tk=1',
-      amountRange: '10 000 – 600 000 kr', aprFrom: '6,99% - 18,99%', decision: 'Snabbt beslut',
-      requirements: 'Eff. ränta 7,29% - 27,8%', rating: 4.6,
-      highlights: ['Stora lånebelopp', 'Konkurrenskraftiga räntor'],
+      amountRange: '10 000 – 600 000 kr', aprFrom: '5,99% - 18,99%', decision: 'Snabbt beslut',
+      requirements: 'Eff. ränta 6,23% - 27,8%', rating: 4.6,
+      highlights: ['Stora lånebelopp', 'Konkurrenskraftiga räntor', 'Rep. exempel: 135.000 kr, 10 år, 1.883 kr/mån (eff. ränta 11,91%)'],
       logo: '/adtraction-logos/banknorwegian-logo.png',
       isPartner: true
     },
