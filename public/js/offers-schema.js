@@ -381,6 +381,15 @@
       isPartner: true
     },
     {
+      id: 'extralanet', network: 'adtraction', name: 'Extralånet',
+      url: 'https://go.adt267.com/t/t?a=1340812812&as=2005939977&t=2&tk=1',
+      amountRange: '10 000 – 50 000 kr', aprFrom: '24,95%', decision: 'Snabbt beslut',
+      requirements: 'Min 18 år, min inkomst 10 000 kr/mån', rating: 4.5,
+      highlights: ['Fast ränta 24,95% - inga avgifter', 'Utan UC-kontroll - kreditupplysning utan UC', 'Accepterar betalningsanmärkningar', 'Upp till 10 års återbetalningstid', 'Lösa i förtid utan kostnad'],
+      logo: '/adtraction-logos/extralanet-logo.png',
+      isPartner: true
+    },
+    {
       id: 'plus1', network: 'adtraction', name: 'Plus 1: Lilla Samlingslånet SE',
       url: 'https://go.adt291.com/t/t?a=1863146032&as=2005939977&t=2&tk=1',
       amountRange: '5 000 – 50 000 kr', aprFrom: 'från 19,95%', decision: 'Snabbt beslut',
@@ -393,6 +402,15 @@
 
   var utanUc = [
     // VERIFIED PARTNERS (with tracking links)
+    {
+      id: 'extralanet-utanuc', network: 'adtraction', name: 'Extralånet',
+      url: 'https://go.adt267.com/t/t?a=1340812812&as=2005939977&t=2&tk=1',
+      amountRange: '10 000 – 50 000 kr', aprFrom: '24,95%', decision: 'Dygnet runt',
+      requirements: 'Inget skuldsaldo hos Kronofogden', rating: 4.5,
+      highlights: ['Kreditupplysning utan UC', 'Accepterar betalningsanmärkningar', 'Fast ränta utan avgifter', 'BankID-signering'],
+      logo: '/adtraction-logos/extralanet-logo.png',
+      isPartner: true
+    },
     {
       id: 'fairlo', network: 'adtraction', name: 'Fairlo SE',
       url: 'https://go.adt242.com/t/t?a=1433384226&as=2005939977&t=2&tk=1',
