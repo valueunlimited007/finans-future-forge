@@ -52,6 +52,7 @@ const SimpleNavigation = () => {
       { title: "Lån med betalningsanmärkning", href: "/privatlan/lan-med-betalningsanmarkning", icon: AlertCircle },
     ],
     financial: [
+      { title: "Bolån", href: "/bolan", icon: Home },
       { title: "Låneförmedlare", href: "/laneformedlare", icon: Users },
       { title: "Företagslån", href: "/foretagslan", icon: Building2 },
       { title: "Kreditkort", href: "/kreditkort", icon: CreditCard },
@@ -69,6 +70,7 @@ const SimpleNavigation = () => {
       { title: "Svenska Inkomster", href: "/svenska-inkomster-2025", icon: TrendingUp },
     ],
     more: [
+      { title: "Bolån", href: "/bolan", icon: Home },
       { title: "Företagslån", href: "/foretagslan", icon: Building2 },
       { title: "Kreditkort", href: "/kreditkort", icon: CreditCard },
       { title: "Andra Tjänster", href: "/andra-tjanster", icon: Building2 },
