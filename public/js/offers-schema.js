@@ -928,7 +928,20 @@
 
   // ============= LÅNEFÖRMEDLARE (Jämförelsesajter) =============
   var laneformedlare = [
-    // NYA FÖRMEDLARE (4 st)
+    // NYA FÖRMEDLARE (5 st)
+    {
+      id: 'ordna-laneformedlare', network: 'adtraction', name: 'Ordna Bolån',
+      url: 'https://go.adt228.com/t/t?a=2004486606&as=2005939977&t=2&tk=1',
+      amountRange: 'Specialiserad på bolån',
+      aprFrom: 'Jämför bolåneräntor från flera banker',
+      decision: 'Personlig bolånehandläggare',
+      requirements: 'För dig som ska köpa bostad eller byta bolån',
+      rating: 4.7,
+      highlights: ['Del av Svensk Fastighetsförmedling', 'Specialiserad på bolån', 'Jämför flera banker automatiskt', 'Personlig bolånehandläggare'],
+      logo: '/adtraction-logos/ordna-logo.png',
+      isPartner: true,
+      isComparison: true
+    },
     {
       id: 'advisa', network: 'adtraction', name: 'Advisa',
       url: 'https://go.adt284.net/t/t?a=1923306192&as=2005939977&t=2&tk=1',
