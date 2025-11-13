@@ -245,6 +245,15 @@
       logo: '/adtraction-logos/krea-logo.png',
       isPartner: true
     },
+    {
+      id: 'natlan', network: 'adtraction', name: 'Nätlån',
+      url: 'https://go.adt231.net/t/t?a=1074851495&as=2005939977&t=2&tk=1',
+      amountRange: '10 000 – 50 000 kr', aprFrom: 'från 20,95%', decision: 'Snabbt beslut',
+      requirements: 'Kreditupplysning via Bisnode', rating: 4.0,
+      highlights: ['BankID', 'Även med betalningsanmärkningar', 'Ingen uppläggningsavgift'],
+      logo: '/adtraction-logos/natlan-logo.png',
+      isPartner: true
+    },
     // PAUSAT PROGRAM - Borttaget 2025-10-31 (Adtraction "Programmet är pausat")
     // {
     //   id: 'gfmoney', network: 'adtraction', name: 'GF Money SE',
@@ -544,6 +553,15 @@
       requirements: 'Alternativ kreditbedömning', rating: 4.5,
       highlights: ['Jämför långivare utan UC', 'En ansökan'],
       logo: '/adtraction-logos/klaralan-logo.png',
+      isPartner: true
+    },
+    {
+      id: 'natlan-utanuc', network: 'adtraction', name: 'Nätlån',
+      url: 'https://go.adt231.net/t/t?a=1074851495&as=2005939977&t=2&tk=1',
+      amountRange: '10 000 – 50 000 kr', aprFrom: 'från 20,95%', decision: 'Snabbt beslut',
+      requirements: 'Kreditupplysning via Bisnode (ej UC)', rating: 4.0,
+      highlights: ['BankID', 'Även med betalningsanmärkningar', 'Ingen uppläggningsavgift'],
+      logo: '/adtraction-logos/natlan-logo.png',
       isPartner: true
     },
     // PAUSAT PROGRAM - Borttaget 2025-10-31 (Adtraction "Programmet är pausat")
